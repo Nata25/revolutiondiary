@@ -19,6 +19,7 @@ body {
   margin: 0 auto;
   padding: 0;
   box-shadow: 0 0 20px #fbfbf4;
+  zero-index: 2;
 }
 
 .bg-shadow {
@@ -51,7 +52,31 @@ body {
 }
 
 #month {
-  left: 120px;
   width: 150px;
+  left: 120px;
   background-color: #bbbaa6;
+}
+
+#go-button {
+  left: 270px;
+}
+
+h3 {
+  margin: 0;
+}
+
+#title-date {
+  font-family: 'Roboto Slab', 'Halant' serif;
+  font-size: 35px;
+  color: #838591;
+  text-align: center;
+  padding: 40px;
+}
+
+#hero {
+  margin: 0;
+  position: ablsolute;
+  top: 150px;
+  zero-index: 1;
+  width: 100%;
 }
