@@ -11,19 +11,47 @@ body {
   padding: 0;
 }
 
-#bcg-shadow {
-  background-color: #f2f4e9;
-  width: 95%;
-  height: 1000px; 
-  margin: auto;
-  box-shadow: 0 0 20px #fbfbf4;
-}
-
-#backsheet {
+.bg-sheet {
+  position: relative;
   background-color: #f4f6ec;
   width: 90%;
   height: 1000px;
-  margin: auto;
+  margin: 0 auto;
   padding: 0;
   box-shadow: 0 0 20px #fbfbf4;
+}
+
+.bg-shadow {
+  position: absolute;
+  width: 30px;
+  background-color: #f2f4e9;
+  height: 1000px; 
+  box-shadow: 0 0 15px #fbfbf4;
+}
+
+#left {
+  left: -20px;
+}
+
+#right {
+  right: -20px;
+}
+
+.date-block {
+  position: absolute;
+  top: 40px;
+  border: 2px solid white;
+  height: 50px;
+}
+
+#date {
+  left: 40px;
+  width: 80px;
+  background-color:  #9c997f;
+}
+
+#month {
+  left: 120px;
+  width: 150px;
+  background-color: #bbbaa6;
 }
