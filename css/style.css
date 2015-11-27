@@ -1,0 +1,29 @@
+<!-- Stylesheet for the "Dates.Days" website 
+Created on Nov 21, 2015 -->
+
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#bcg-shadow {
+  background-color: #f2f4e9;
+  width: 95%;
+  height: 1000px; 
+  margin: auto;
+  box-shadow: 0 0 20px #fbfbf4;
+}
+
+#backsheet {
+  background-color: #f4f6ec;
+  width: 90%;
+  height: 1000px;
+  margin: auto;
+  padding: 0;
+  box-shadow: 0 0 20px #fbfbf4;
+}
