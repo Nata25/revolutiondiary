@@ -11,6 +11,10 @@ body {
   padding: 0;
 }
 
+#container {
+
+}
+
 .bg-sheet {
   position: relative;
   background-color: #f4f6ec;
@@ -19,7 +23,6 @@ body {
   margin: 0 auto;
   padding: 0;
   box-shadow: 0 0 20px #fbfbf4;
-  zero-index: 2;
 }
 
 .bg-shadow {
@@ -75,8 +78,8 @@ h3 {
 
 #hero {
   margin: 0;
-  position: ablsolute;
-  top: 150px;
-  zero-index: 1;
+  position: absolute;
+  top: 110px;
+  left: 0
   width: 100%;
 }
