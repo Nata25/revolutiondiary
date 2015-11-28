@@ -1,4 +1,4 @@
-<!-- Stylesheet for the "Dates.Days" website 
+<!-- Stylesheet for the "Dates.Days" website
 Created on Nov 21, 2015 -->
 
 html {
@@ -29,7 +29,7 @@ body {
   position: absolute;
   width: 30px;
   background-color: #f2f4e9;
-  height: 1000px; 
+  height: 1000px;
   box-shadow: 0 0 15px #fbfbf4;
 }
 
@@ -41,38 +41,43 @@ body {
   right: -20px;
 }
 
+#leftup-block {
+  margin: 40px 40px 20px 40px;
+  float: left;
+}
+
 .date-block {
-  position: absolute;
-  top: 40px;
-  border: 2px solid white;
   height: 50px;
+  border-top: 2px solid white;
+  border-right: .5px solid white;
 }
 
 #date {
-  left: 40px;
   width: 80px;
   background-color:  #9c997f;
+  float: left;
 }
 
 #month {
   width: 150px;
-  left: 120px;
   background-color: #bbbaa6;
+  border: 2px solid white;
+  float: left;
 }
 
 #go-button {
-  left: 270px;
+  float: left;
 }
 
 h3 {
   margin: 0;
-}
-
-#title-date {
   font-family: 'Roboto Slab', 'Halant' serif;
   font-size: 35px;
   color: #838591;
   text-align: center;
+}
+
+#title-date {
   padding: 40px;
 }
 
