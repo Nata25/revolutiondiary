@@ -81,5 +81,8 @@ h3 {
   position: absolute;
   top: 110px;
   left: 0
+}
+
+#hero img {
   width: 100%;
 }
