@@ -81,6 +81,10 @@ h3 {
   padding: 40px;
 }
 
+#hero-container {
+  position: relative;
+}
+
 #hero {
   margin: 0;
   position: absolute;
@@ -95,6 +99,7 @@ h3 {
 
 #redline-container {
   position: relative;
+  display: block;
 }
 
 #redline {
