@@ -85,7 +85,8 @@ h3 {
   margin: 0;
   position: absolute;
   top: 110px;
-  left: 0
+  left: -91px;
+  right: -91px;
 }
 
 #hero img {
