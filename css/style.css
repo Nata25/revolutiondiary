@@ -83,12 +83,13 @@ h3 {
 
 #hero-container {
   position: relative;
+  display: block;
 }
 
 #hero {
   margin: 0;
   position: absolute;
-  top: 110px;
+  top: 10px;
   left: -91px;
   right: -91px;
 }
