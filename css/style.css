@@ -81,26 +81,19 @@ h3 {
   padding: 40px;
 }
 
-#hero-container {
-  position: relative;
-  display: block;
-}
-
 #hero {
   margin: 0;
-  position: absolute;
-  top: 10px;
-  left: -91px;
-  right: -91px;
+  position: relative;
+  top: 4px;
+  left: -90px;
+  width: 100%;
 }
 
 #hero img {
-  width: 100%;
 }
 
 #redline-container {
   position: relative;
-  display: block;
 }
 
 #redline {
