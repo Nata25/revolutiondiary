@@ -79,7 +79,7 @@ h3 {
 #title-date {
   position: relative;
   padding: 40px;
-  left: 5%;
+  left: 15%;
 }
 
 #hero {
@@ -99,7 +99,7 @@ h3 {
 #dates {
   position: absolute;
   top: 170px;
-  left: 25%;
+  left: 30%;
   z-index: 1;
 }
 

@@ -5,6 +5,7 @@
 
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:100' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=PT+Sans+Caption' rel='stylesheet' type='text/css'>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
@@ -20,18 +21,12 @@
 
   <script>
   $(function() {
-    $("#datepicker").datepicker($.datepicker.regional["uk"]);
     $("#datepicker").datepicker(
       {
-        dateFormat: 'mm/dd/yy'
-      },
-      {
-        defaultDate: new Date( 2014, 0, 1)
-      }
-    );
-    $("#datepicker").datepicker({ minDate: -20, maxDate: "+1M +10D" });
-
+        defaultDate: new Date( 2013, 10, 20)
+      });
   });
+
     </script>
 
 </head>
