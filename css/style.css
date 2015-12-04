@@ -135,11 +135,32 @@ h3 {
   position: absolute;
   top: 150px;
   left: 50px;
-  width: 255px;
+  width: 305px;
   height: 600px;
   background-color: #848484;
   opacity: 0.5;
   border: 2px solid #dad7c8;
   border-radius: 10px;
-  box-shadow: 2px 1px 3px #2a3f98;
+}
+
+#choose-date {
+  position: absolute;
+  left: 50px;
+  top: 170px;
+  width: 307px;
+  box-sizing: border-box;
+  background-color: #916464;
+  border: 1px solid #9e7671;
+  font-family: 'PT Sans Caption', sans-serif;
+  font-size: 1.2em;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+#datepicker {
+  position: absolute;
+  left: 50px;
+  top: 245px;
+  width: 100%;
 }
