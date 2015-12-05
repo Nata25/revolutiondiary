@@ -21,18 +21,17 @@
 $(function() {
   $("#datepicker").datepicker(
     {
-      defaultDate: new Date(2013, 10, 20),
+      dateFormat: "d m",
+      defaultDate: Date(2013, 10, 20),
       minDate: new Date(2013, 10, 20),
       maxDate: new Date(2014, 1, 22),
-      dateFormat: "d m",
 
     // get a date from datepicker:
 
       onSelect: (function (dateText) {
-        var dateChosen = dateText;
-        var splitted = dateText.split(" ");
-        var day = splitted[0];
-        var month = splitted[1];
+        var dateChosen = dateText.split(" ");
+        var day = dateChosen[0];
+        var month = dateChosen[1];
 
         if (month == 11) {
           month = "ЛИСТОПАДА";
@@ -49,6 +48,12 @@ $(function() {
 
       }) // end of onSelect
     }); // end of .datekpicker()
+
+    // set defaultDate in .date-block
+
+    var currentDate = $("#datepicker").datepicker('getDate');
+    $("#date").html(currentDate);
+
 }); // end of ready
 
   </script>
