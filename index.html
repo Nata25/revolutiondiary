@@ -24,12 +24,29 @@ $(function() {
       defaultDate: new Date(2013, 10, 20),
       minDate: new Date(2013, 10, 20),
       maxDate: new Date(2014, 1, 22),
+      dateFormat: "d m",
 
     // get a date from datepicker:
 
-      onSelect: (function (dateText, inst) {
-        var dateChosen = dateText.slice(0, 2);
-        $("#date").html(dateChosen);
+      onSelect: (function (dateText) {
+        var dateChosen = dateText;
+        var splitted = dateText.split(" ");
+        var day = splitted[0];
+        var month = splitted[1];
+
+        if (month == 11) {
+          month = "ЛИСТОПАДА";
+        }
+        else if (month == 12) {
+          month = "ГРУДНЯ"
+        }
+        else {
+          month = "СІЧНЯ"
+        }
+
+        $("#date").html(day);
+        $("#month").html(month);
+
       }) // end of onSelect
     }); // end of .datekpicker()
 }); // end of ready
