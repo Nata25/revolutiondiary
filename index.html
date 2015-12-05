@@ -17,14 +17,28 @@
 <!-- datepicker -->
 
 <script>
+    // initialize datepicker
 $(function() {
   $("#datepicker").datepicker(
-    { defaultDate: new Date(2013, 10, 20),
+    {
+      defaultDate: new Date(2013, 10, 20),
       minDate: new Date(2013, 10, 20),
-      maxDate: new Date(2014, 1, 22)
-    });
+      maxDate: new Date(2014, 1, 22),
 
+    // get a date from datepicker:
+
+      onSelect: (function (dateText, inst) {
+        var dateChosen = dateText.slice(0, 2);
+        $("#date").html(dateChosen);
+      }) // end of onSelect
+    }); // end of .datekpicker()
 }); // end of ready
+
+  </script>
+
+
+  <script>
+
   </script>
 
 </head>
