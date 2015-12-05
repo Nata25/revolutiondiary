@@ -16,15 +16,16 @@
 
 <!-- datepicker -->
 
-  <script>
-  $(function() {
-    $("#datepicker").datepicker();
-    $("#datepicker").datepicker("setDate", new Date(2013, 10, 20));
-    $("#datepicker").datepicker("option", "minDate", new Date(2013, 10, 20));
-    $("#datepicker").datepicker("option", "maxDate", new Date(2014, 1, 22));
-  });
-    </script>
+<script>
+$(function() {
+  $("#datepicker").datepicker(
+    { defaultDate: new Date(2013, 10, 20),
+      minDate: new Date(2013, 10, 20),
+      maxDate: new Date(2014, 1, 22)
+    });
 
+}); // end of ready
+  </script>
 
 </head>
 
