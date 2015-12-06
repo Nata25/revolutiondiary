@@ -47,26 +47,35 @@ body {
 }
 
 .date-block {
-  height: 50px;
-  border-top: 2px solid white;
+  border: 2px solid white;
+}
+
+#date, #month {
+  color: #4a5894;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'PT Sans Caption', sans-serif;
+  padding: 10px;
+  font-size: 20px;
+  box-sizing: border-box;
   border-right: .5px solid white;
 }
 
 #date {
   width: 80px;
-  background-color:  #9c997f;
   float: left;
+  background-color:  #9c997f;
 }
 
 #month {
   width: 150px;
   background-color: #bbbaa6;
-  border: 2px solid white;
   float: left;
 }
 
 #go-button {
   float: left;
+  height: 46px;
 }
 
 h3 {

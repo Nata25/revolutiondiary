@@ -49,11 +49,6 @@ $(function() {
       }) // end of onSelect
     }); // end of .datekpicker()
 
-    // set defaultDate in .date-block
-
-    var currentDate = $("#datepicker").datepicker('getDate');
-    $("#date").html(currentDate);
-
 }); // end of ready
 
   </script>
@@ -75,9 +70,9 @@ $(function() {
     <div class="bg-shadow" id="right"></div>
 
     <div id="leftup-block">
-        <div class="date-block" id="date"></div>
+        <div class="date-block" id="date">20</div>
 
-        <div class="date-block" id="month"></div>
+        <div class="date-block" id="month">листопада</div>
 
         <img class="date-block" id="go-button" title="Перейти до запису"
       src="Pics/go-button.jpg" />
