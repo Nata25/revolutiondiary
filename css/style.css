@@ -42,7 +42,7 @@ body {
 }
 
 #leftup-block {
-  margin: 40px 40px 20px 40px;
+  margin: 40px 40px 20px 55px;
   float: left;
 }
 
@@ -56,25 +56,24 @@ body {
   text-transform: uppercase;
   font-family: 'PT Sans Caption', sans-serif;
   padding: 10px;
+  margin: 0;
   font-size: 20px;
   box-sizing: border-box;
   border-right: .5px solid white;
+  float: left;
 }
 
 #date {
   width: 80px;
-  float: left;
   background-color:  #9c997f;
 }
 
 #month {
-  width: 150px;
+  width: 170px;
   background-color: #bbbaa6;
-  float: left;
 }
 
 #go-button {
-  float: left;
   height: 46px;
 }
 
