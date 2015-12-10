@@ -191,7 +191,6 @@ SIDEBAR
 RED LINES
 ***********/
 
-<<<<<<< HEAD
 #mainline, #shadowline {
   position: absolute;
   left: -20px;
@@ -208,7 +207,6 @@ RED LINES
 
 #shadowline {
   height: 33px;
-  top: 20px;
   background-color: #ac8686;
   border: 2px solid #ba9c9a;
   z-index: 1;
