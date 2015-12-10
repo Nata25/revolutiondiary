@@ -191,11 +191,7 @@ SIDEBAR
 RED LINES
 ***********/
 
-#redline-container {
-  position: relative;
-}
-
-.redline {
+#mainline, #shadowline {
   position: absolute;
   left: -20px;
   right: -20px;
@@ -206,11 +202,12 @@ RED LINES
   height: 20px;
   background-color: #b69494;
   border: 3px solid #c6a4a8;
+  z-index: 2;
 }
 
 #shadowline {
-  top: 20px;
-  height: 10px;
+  height: 33px;
   background-color: #ac8686;
   border: 2px solid #ba9c9a;
+  z-index: 1;
 }
