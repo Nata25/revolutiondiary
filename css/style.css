@@ -196,7 +196,7 @@ RED LINES
 }
 
 .redline {
-  position: absolute;
+  position: relative;
   left: -20px;
   right: -20px;
   margin: 0 auto;
@@ -209,8 +209,52 @@ RED LINES
 }
 
 #shadowline {
-  top: 20px;
   height: 10px;
   background-color: #ac8686;
   border: 2px solid #ba9c9a;
 }
+
+/***********
+SELECTED BLOCK
+***********/
+
+.container {
+  position: relative;
+  width: 70%;
+  margin: auto;
+/**  border: 1px solid blue; **/
+  z-index: 3;
+}
+
+#selected {
+  width: 650px;
+  height: 70px;
+  border: 3px solid #b3bcee;
+  margin-top: 20px;
+}
+
+#brown, #yellow {
+  border: 1px solid #f6f4d4;
+  display: inline-block;
+  float: left;
+  height: 70px;
+  box-sizing: border-box;
+}
+
+#brown {
+  background-color: #d7cea4;
+  width: 100px;
+  margin: 0;
+}
+
+#yellow {
+  display: inline-block;
+  width: 550px;
+  margin: 0;
+  padding: 17px;
+  background-color: #f3e8af;
+  text-align: right;
+  font-family: 'PT Sans Caption', sans-serif;
+  font-size: 24px;
+  color: #553a26;
+  }
