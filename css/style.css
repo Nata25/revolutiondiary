@@ -225,10 +225,10 @@ SELECTED BLOCK
 }
 
 #selected {
-  width: 650px;
+  width: 70%;
   height: 70px;
   border: 3px solid #b3bcee;
-  margin-top: 20px;
+  margin-top: 60px;
 }
 
 #brown, #yellow {
@@ -241,13 +241,13 @@ SELECTED BLOCK
 
 #brown {
   background-color: #d7cea4;
-  width: 100px;
+  width: 20%;
   margin: 0;
 }
 
 #yellow {
   display: inline-block;
-  width: 550px;
+  width: 80%;
   margin: 0;
   padding: 17px;
   background-color: #f3e8af;
