@@ -22,6 +22,10 @@ body {
   /*border: 1px solid blue;*/
 }
 
+h3 {
+
+}
+
 /**********
 BACKGROUND
 ***********/
@@ -31,7 +35,7 @@ BACKGROUND
   left: 5%;
   background-color: #f4f6ec;
   width: 90%;
-  height: 1000px;
+  height: 1500px;
   margin: 0 auto;
   padding: 0;
   box-shadow: 0 0 20px #fbfbf4;
@@ -41,7 +45,7 @@ BACKGROUND
   position: absolute;
   width: 30px;
   background-color: #f2f4e9;
-  height: 1000px;
+  height: 1500px;
   box-shadow: 0 0 15px #fbfbf4;
 }
 
@@ -228,17 +232,17 @@ SELECTED BLOCK
   position: relative;
   display: inline-block;
   top: 60px;
-  margin-left: 100px;
 }
 
 .slct-container {
-  width: 50%;
-  height: 300px;
+  width: 60%;
+  /*height: 300px; */
   float: left;
   border: 1px solid blue;
 }
 
 .tags-container {
+  margin-left: 10%;
   width: 25%;
   height: 700px;
   background-color: #b5bbcd;
@@ -249,6 +253,7 @@ SELECTED BLOCK
 #selected {
   height: 70px;
   border: 3px solid #b3bcee;
+  margin-left: 100px;
 }
 
 #brown, #yellow {
@@ -276,3 +281,17 @@ SELECTED BLOCK
   font-size: 24px;
   color: #553a26;
   }
+
+/******* items ******/
+
+.control-hover {
+  width: 100%;
+  border: 1px solid green;
+}
+
+.item {
+  border-bottom: 2px solid #e3e4d5;
+  margin: 10px 0 10px 100px;
+  padding: 10px;
+  border: 1px solid red;
+}
