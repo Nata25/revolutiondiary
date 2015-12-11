@@ -15,6 +15,13 @@ body {
   padding: 0;
 }
 
+.container {
+  position: relative;
+  width: 70%;
+  margin: auto;
+  /*border: 1px solid blue;*/
+}
+
 /**********
 BACKGROUND
 ***********/
@@ -216,19 +223,32 @@ RED LINES
 SELECTED BLOCK
 ***********/
 
-.container {
+.slct-container,
+.tags-container {
   position: relative;
-  width: 70%;
-  margin: auto;
-/**  border: 1px solid blue; **/
-  z-index: 3;
+  display: inline-block;
+  top: 60px;
+  margin-left: 100px;
+}
+
+.slct-container {
+  width: 50%;
+  height: 300px;
+  float: left;
+  border: 1px solid blue;
+}
+
+.tags-container {
+  width: 25%;
+  height: 700px;
+  background-color: #b5bbcd;
+  border: 2px solid #f2be21;
+  margin-right: auto;
 }
 
 #selected {
-  width: 70%;
   height: 70px;
   border: 3px solid #b3bcee;
-  margin-top: 60px;
 }
 
 #brown, #yellow {
