@@ -22,8 +22,8 @@ $(function() {
   $("#datepicker").datepicker(
     {
       dateFormat: "d m",
-      defaultDate: new Date(2013, 10, 20),
-      minDate: new Date(2013, 10, 20),
+      defaultDate: new Date(2013, 10, 21),
+      minDate: new Date(2013, 10, 21),
       maxDate: new Date(2014, 1, 22),
 
     // get a date from datepicker:
@@ -68,22 +68,27 @@ $(function() {
 
 <!-- DATEPICKER FIELDS -->
 
-    <div id="leftup-block">
-        <div class="date-block" id="date">20</div>
+
+      <div id="leftup-block">
+        <div class="date-block" id="date">21</div>
 
         <div class="date-block" id="month">листопада</div>
 
-        <img class="date-block" id="go-button" title="Перейти до запису"
-      src="Pics/go-button.jpg" />
+        <!-- 'GO' button -->
+        <a href="dates/11/d21-11-2015.html">
+            <img class="date-block" id="go-button" title="Перейти до запису"
+          src="Pics/go-button.jpg" />
+        </a>
+        <!-- /'GO' button -->
+      </div>
 
-    </div>
 
 <!-- /DATEPICKER FIELDS -->
 
 <!-- DATES ON TOP -->
 
     <div id="title-date">
-      <h1>20.11.2013&nbsp;&ndash;&nbsp;20.03.2015</h3>
+      <h1>21.11.2013&nbsp;&ndash;&nbsp;20.03.2015</h3>
     </div>
 
 <!-- /DATES ON TOP -->
@@ -105,7 +110,8 @@ $(function() {
       <p>Сайт присвячено подіям, що розгортались у Києві та інших містах України з
         листопада 2013 до березня 2014 років.
       Усі матеріали є витягами з особистого щоденника та не претендують на вичерпність
-      і об'єктивність.</p>
+      і об'єктивність.
+       <a href="#">Детальніше...</a></p>
 
     </div>
 

@@ -15,6 +15,21 @@ body {
   padding: 0;
 }
 
+p {
+  font-family: 'PT Sans Caption', sans-serif;
+  color: #142b38;
+  font-size: 13pt;
+  line-height: 35px;
+}
+
+.container {
+  position: relative;
+  width: 70%;
+  margin: auto;
+/**  border: 1px solid blue; **/
+  z-index: 3;
+}
+
 /**********
 BACKGROUND
 ***********/
@@ -86,6 +101,10 @@ DATEPICKER FIELDS
   height: 46px;
 }
 
+#go-button:hover {
+  box-shadow: 0 0 10px #b3bcee;
+}
+
 /**********
 DATES ON TOP
 ***********/
@@ -100,7 +119,8 @@ h1 {
 #title-date {
   position: relative;
   padding: 30px;
-  left: 15%;
+  left: 5%;
+  display: inline-block;
 }
 
 /**********
@@ -155,14 +175,6 @@ SIDEBAR
   border-radius: 10px;
 }
 
-.sidebar p {
-  font-family: 'PT Sans', sans-serif;
-  color: #142b38;
-  font-size: 13pt;
-  line-height: 35px;
-
-}
-
 #choose-date {
   position: relative;
   left: -30px;
@@ -215,14 +227,6 @@ RED LINES
 /***********
 SELECTED BLOCK
 ***********/
-
-.container {
-  position: relative;
-  width: 70%;
-  margin: auto;
-/**  border: 1px solid blue; **/
-  z-index: 3;
-}
 
 #selected {
   width: 70%;
