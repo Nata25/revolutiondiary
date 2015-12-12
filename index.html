@@ -13,50 +13,7 @@
   <link href="js/jquery-ui-1.11.4.custom/jquery-ui.min.css" rel="Stylesheet" type="text/css">
   <script src="js/jquery-ui-1.11.4.custom/jquery-ui.js"></script>
   <script src="js/datepicker-uk.js"></script>
-
-<!-- datepicker -->
-
-<script>
-    // initialize datepicker
-$(function() {
-  $("#datepicker").datepicker(
-    {
-      dateFormat: "d m",
-      defaultDate: new Date(2013, 10, 21),
-      minDate: new Date(2013, 10, 21),
-      maxDate: new Date(2014, 1, 22),
-
-    // get a date from datepicker:
-
-      onSelect: (function (dateText) {
-        var dateChosen = dateText.split(" ");
-        var day = dateChosen[0];
-        var month = dateChosen[1];
-
-    // change the link on go-button
-        var new_url = "dates/11/d" + day + "-" + month + "-2015.html";
-        $("#page").attr('href', new_url);
-
-    // format the new date to paste into the date-block  
-        if (month == 11) {
-          month = "ЛИСТОПАДА";
-        }
-        else if (month == 12) {
-          month = "ГРУДНЯ";
-        }
-        else {
-          month = "СІЧНЯ";
-        }
-
-        $("#date").html(day);
-        $("#month").html(month);
-
-      }) // end of onSelect
-    }); // end of .datekpicker()
-
-}); // end of ready
-
-  </script>
+  <script src="js/datepicker-main.js"></script>
 
 </head>
 
