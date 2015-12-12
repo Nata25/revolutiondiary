@@ -33,14 +33,19 @@ $(function() {
         var day = dateChosen[0];
         var month = dateChosen[1];
 
+    // change the link on go-button
+        var new_url = "dates/11/d" + day + "-" + month + "-2015.html";
+        $("#page").attr('href', new_url);
+
+    // format the new date to paste into the date-block  
         if (month == 11) {
           month = "ЛИСТОПАДА";
         }
         else if (month == 12) {
-          month = "ГРУДНЯ"
+          month = "ГРУДНЯ";
         }
         else {
-          month = "СІЧНЯ"
+          month = "СІЧНЯ";
         }
 
         $("#date").html(day);
@@ -75,7 +80,7 @@ $(function() {
         <div class="date-block" id="month">листопада</div>
 
         <!-- 'GO' button -->
-        <a href="dates/11/d21-11-2015.html">
+        <a id="page" href="dates/11/d21-11-2015.html">
             <img class="date-block" id="go-button" title="Перейти до запису"
           src="Pics/go-button.jpg" />
         </a>
