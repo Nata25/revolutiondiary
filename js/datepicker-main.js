@@ -1,3 +1,7 @@
+// set session storage
+
+sessionStorage.setItem('name', 'Name');
+
 // initialize datepicker
 $(function() {
   $("#datepicker").datepicker(
@@ -32,6 +36,9 @@ $(function() {
 
         $("#date").html(day);
         $("#month").html(month);
+
+        var check = sessionStorage.getItem('name');
+        $('#yellow').html(check);
 
       }) // end of onSelect
     }); // end of .datekpicker()
