@@ -14,6 +14,12 @@ $(function() {
         var day = dateChosen[0];
         var month = dateChosen[1];
 
+    // change link on go-button according to the selected date
+        var newURL = "dates/11/d" + day + "-" + month + "-2015.html";
+        $("#page").attr('href', newURL);
+
+    // format date to paste into date-block
+
         if (month == 11) {
           month = "ЛИСТОПАДА";
         }
