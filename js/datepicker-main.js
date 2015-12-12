@@ -2,21 +2,14 @@
 
 $(function() {
 
-  // set defaultDate in the session storage
-
-  sessionStorage.setItem('current-day',   $('#date').html() );
-  sessionStorage.setItem('current-month', $('#month').html() );
+//  sessionStorage.removeItem('current-day');
+//  sessionStorage.removeItem('current-month');
 
   console.log(sessionStorage.getItem('current-day'));
   console.log(sessionStorage.getItem('current-month'));
 
-// TESTING!!!
-
-  sessionStorage.setItem('greeting', 'hello!');
-  var test = sessionStorage.getItem('greeting');
-  $('#date').html(test);
-
-// END OF TESTING!!!
+  $("#date").html(sessionStorage.getItem('current-day'));
+  $("#month").html(sessionStorage.getItem('current-month'));
 
   // initialize datepicker
 
@@ -53,13 +46,12 @@ $("#datepicker").datepicker(
           month = "лютого";
         }
 
-        console.log(sessionStorage.getItem('current-day'));
-        console.log(sessionStorage.getItem('current-month'));
-
         sessionStorage.setItem('current-day', day);
         sessionStorage.setItem('current-month', month);
         $("#date").html(sessionStorage.getItem('current-day'));
         $("#month").html(sessionStorage.getItem('current-month'));
+        console.log(sessionStorage.getItem('current-day'));
+        console.log(sessionStorage.getItem('current-month'));
 
       }) // end of onSelect
 
