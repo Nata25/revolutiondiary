@@ -2,26 +2,22 @@
 
 $(function() {
 
+// ** UNCOMMENT TO CLEAN STORAGE
 //sessionStorage.removeItem('dayStored');
 //sessionStorage.removeItem('monthStored');
 
-console.log(sessionStorage.getItem('dayStored'));
-console.log(sessionStorage.getItem('monthStored'));
+$("#date").html(sessionStorage.dayStored);
+$("#month").html(sessionStorage.monthStored);
 
-if (!sessionStorage.dayStored) {
-    sessionStorage.setItem('dayStored', $("#date").html() );
-    console.log(sessionStorage.dayStored);
-}
+// ** UNCOMMENT TO DEBUG
+//console.log(sessionStorage.getItem('dayStored'));
+//console.log(sessionStorage.getItem('monthStored'));
 
-if (!sessionStorage.monthStored) {
-    sessionStorage.setItem('monthStored', $("#month").html() );
-    console.log(sessionStorage.monthStored);
-}
+// ************
+// DATEPICKER
+// ************
 
   // initialize datepicker
-
-  console.log(sessionStorage.getItem('dayStored'));
-  console.log(sessionStorage.getItem('monthStored'));
 
 $("#datepicker").datepicker(
     {
@@ -56,21 +52,15 @@ $("#datepicker").datepicker(
           month = "лютого";
         }
 
-
+        // update storage
         sessionStorage.setItem('dayStored', day);
         sessionStorage.setItem('monthStored', month);
-        console.log(sessionStorage.getItem('dayStored'));
-        console.log(sessionStorage.getItem('monthStored'));
+
+        // update date-block fields on click
+        $("#date").html(sessionStorage.dayStored);
+        $("#month").html(sessionStorage.monthStored);
 
       }) // end of onSelect
-
-      console.log(sessionStorage.getItem('dayStored'));
-      console.log(sessionStorage.getItem('monthStored'));
-
-      $("#date").html(sessionStorage.getItem('dayStored'));
-      $("#month").html(sessionStorage.getItem('monthStored'));
-
-
 
     }); // end of .datekpicker()
 
