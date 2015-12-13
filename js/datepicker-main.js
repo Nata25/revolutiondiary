@@ -2,16 +2,26 @@
 
 $(function() {
 
-//  sessionStorage.removeItem('current-day');
-//  sessionStorage.removeItem('current-month');
+//sessionStorage.removeItem('dayStored');
+//sessionStorage.removeItem('monthStored');
 
-  console.log(sessionStorage.getItem('current-day'));
-  console.log(sessionStorage.getItem('current-month'));
+console.log(sessionStorage.getItem('dayStored'));
+console.log(sessionStorage.getItem('monthStored'));
 
-  $("#date").html(sessionStorage.getItem('current-day'));
-  $("#month").html(sessionStorage.getItem('current-month'));
+if (!sessionStorage.dayStored) {
+    sessionStorage.setItem('dayStored', $("#date").html() );
+    console.log(sessionStorage.dayStored);
+}
+
+if (!sessionStorage.monthStored) {
+    sessionStorage.setItem('monthStored', $("#month").html() );
+    console.log(sessionStorage.monthStored);
+}
 
   // initialize datepicker
+
+  console.log(sessionStorage.getItem('dayStored'));
+  console.log(sessionStorage.getItem('monthStored'));
 
 $("#datepicker").datepicker(
     {
@@ -46,14 +56,21 @@ $("#datepicker").datepicker(
           month = "лютого";
         }
 
-        sessionStorage.setItem('current-day', day);
-        sessionStorage.setItem('current-month', month);
-        $("#date").html(sessionStorage.getItem('current-day'));
-        $("#month").html(sessionStorage.getItem('current-month'));
-        console.log(sessionStorage.getItem('current-day'));
-        console.log(sessionStorage.getItem('current-month'));
+
+        sessionStorage.setItem('dayStored', day);
+        sessionStorage.setItem('monthStored', month);
+        console.log(sessionStorage.getItem('dayStored'));
+        console.log(sessionStorage.getItem('monthStored'));
 
       }) // end of onSelect
+
+      console.log(sessionStorage.getItem('dayStored'));
+      console.log(sessionStorage.getItem('monthStored'));
+
+      $("#date").html(sessionStorage.getItem('dayStored'));
+      $("#month").html(sessionStorage.getItem('monthStored'));
+
+
 
     }); // end of .datekpicker()
 
