@@ -2,35 +2,20 @@
 
 $(function() {
 
-  // UNCOMMENT TO RESET:
-  //sessionStorage.removeItem('dayStored');
-  //sessionStorage.removeItem('monthStored');
+// ** UNCOMMENT TO CLEAN STORAGE
+//sessionStorage.removeItem('dayStored');
+//sessionStorage.removeItem('monthStored');
 
-  // UNCOMMENT TO TEST:
-  //console.log(sessionStorage.getItem('dayStored'));
-  //console.log(sessionStorage.getItem('monthStored'));
+// UNCOMMENT TO TEST:
+//console.log(sessionStorage.getItem('dayStored'));
+//console.log(sessionStorage.getItem('monthStored'));
 
-  // *********************
-  // SESSION sessionStorage
-  // *********************
+$("#date").html(sessionStorage.dayStored);
+$("#month").html(sessionStorage.monthStored);
 
-  // set sessionStorage:
-  if (!sessionStorage.dayStored) {
-    sessionStorage.dayStored = $("#date").html();
-  }
-
-  if (!sessionStorage.monthStored) {
-    sessionStorage.monthStored = $("#month").html();
-  }
-
-  // pick current date and month from sessionStorage and plunge into date-block
-
-  $("#date").html(sessionStorage.dayStored);
-  $("#month").html(sessionStorage.getItem('monthStored'));
-
-  // *********************
-  // DATEPICKER
-  // *********************
+// *********************
+// DATEPICKER
+// *********************
 
   // initialize datepicker
 
@@ -67,13 +52,16 @@ $("#datepicker").datepicker(
           month = "лютого";
         }
 
+        // update storage
         sessionStorage.setItem('dayStored', day);
         sessionStorage.setItem('monthStored', month);
-        $("#date").html(sessionStorage.getItem('dayStored'));
-        $("#month").html(sessionStorage.getItem('monthStored'));
+
+        // update date-block fields on click
+        $("#date").html(sessionStorage.dayStored);
+        $("#month").html(sessionStorage.monthStored);
 
       }) // end of onSelect
 
-    }); // end of .datekpicker()
+    }); // end of .datepicker()
 
 }); // end of ready
