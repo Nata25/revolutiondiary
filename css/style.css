@@ -15,15 +15,25 @@ body {
   padding: 0;
 }
 
+p {
+  font-family: 'PT Sans', sans-serif;
+  color: #553a26;
+  font-size: 13pt;
+  line-height: 35px;
+}
+
+h3 {
+  font-family: 'PT Sans', sans-serif;
+  color: #553a26;
+  font-size: 16pt;
+  font-weight: bold;
+}
+
 .container {
   position: relative;
   width: 70%;
   margin: auto;
   /*border: 1px solid blue;*/
-}
-
-h3 {
-
 }
 
 /**********
@@ -167,11 +177,7 @@ SIDEBAR
 }
 
 .sidebar p {
-  font-family: 'PT Sans', sans-serif;
   color: #142b38;
-  font-size: 13pt;
-  line-height: 35px;
-
 }
 
 #choose-date {
@@ -294,4 +300,39 @@ SELECTED BLOCK
   margin: 10px 0 10px 100px;
   padding: 10px;
   /*border: 1px solid red; */
+}
+
+/****************
+INNER PAGES
+****************/
+
+.upper-left {
+  margin: 40px;
+}
+
+.upper-left > img {
+  width: 355px;
+  float: left;
+  margin-right: 50px;
+  margin-top: 1px;
+}
+
+.day-circle,
+.text-container {
+  display: inline-block;
+}
+
+.day-circle {
+  margin: 20px;
+  width: 30%;
+  vertical-align: top;
+  float: left;
+}
+
+.day-circle > img {
+  float: right;
+}
+
+.text-container {
+  width: 65%;
 }
