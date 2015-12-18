@@ -13,45 +13,7 @@
   <link href="js/jquery-ui-1.11.4.custom/jquery-ui.min.css" rel="Stylesheet" type="text/css">
   <script src="js/jquery-ui-1.11.4.custom/jquery-ui.js"></script>
   <script src="js/datepicker-uk.js"></script>
-
-<!-- datepicker -->
-
-<script>
-    // initialize datepicker
-$(function() {
-  $("#datepicker").datepicker(
-    {
-      dateFormat: "d m",
-      defaultDate: new Date(2013, 10, 21),
-      minDate: new Date(2013, 10, 21),
-      maxDate: new Date(2014, 1, 22),
-
-    // get a date from datepicker:
-
-      onSelect: (function (dateText) {
-        var dateChosen = dateText.split(" ");
-        var day = dateChosen[0];
-        var month = dateChosen[1];
-
-        if (month == 11) {
-          month = "ЛИСТОПАДА";
-        }
-        else if (month == 12) {
-          month = "ГРУДНЯ"
-        }
-        else {
-          month = "СІЧНЯ"
-        }
-
-        $("#date").html(day);
-        $("#month").html(month);
-
-      }) // end of onSelect
-    }); // end of .datekpicker()
-
-}); // end of ready
-
-  </script>
+  <script src="js/datepicker-main.js"></script>
 
 </head>
 
@@ -68,15 +30,19 @@ $(function() {
 
 <!-- DATEPICKER FIELDS -->
 
-    <div id="leftup-block">
+      <div id="leftup-block">
         <div class="date-block" id="date">21</div>
 
         <div class="date-block" id="month">листопада</div>
 
-        <img class="date-block" id="go-button" title="Перейти до запису"
-      src="Pics/go-button.jpg" />
+        <!-- 'GO' button -->
+        <a id="page" href="dates/11/d21-11-2015.html">
+            <img class="date-block" id="go-button" title="Перейти до запису"
+          src="Pics/go-button.jpg" />
+        </a>
+        <!-- /'GO' button -->
+      </div>
 
-    </div>
 
 <!-- /DATEPICKER FIELDS -->
 
@@ -105,7 +71,8 @@ $(function() {
       <p>Сайт присвячено подіям, що розгортались у Києві та інших містах України з
         листопада 2013 до березня 2014 років.
       Усі матеріали є витягами з особистого щоденника та не претендують на вичерпність
-      і об'єктивність.</p>
+      і об'єктивність.
+       <a href="#">Детальніше...</a></p>
 
     </div>
 
