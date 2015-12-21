@@ -23,11 +23,12 @@ p {
 }
 
 h1 {
+  display: inline-block;
   margin: 0;
   font-family: 'Lora', serif;
   color: #553a26;
   font-size: 25pt;
-  display: inline-block;
+  letter-spacing: 3px;
 }
 
 h3 {
@@ -129,8 +130,12 @@ DATEPICKER FIELDS
 DATES ON TOP
 ***********/
 
-#title-date {
+.title-date {
   margin: 10px auto auto 400px;
+}
+
+.grey {
+  color: #838692;
 }
 
 /**********
