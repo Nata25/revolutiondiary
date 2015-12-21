@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Дати. Дні</title>
-  <link href='https://fonts.googleapis.com/css?family=Roboto:100|Roboto+Slab:100|Roboto+Condensed|Halant:300|PT+Sans+Caption|Open+Sans:400,300|Open+Sans+Condensed:300&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Halant:300|PT+Sans+Caption|Open+Sans:400,300|Open+Sans+Condensed:300&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
   <link type="text/css" rel="stylesheet" href="../../css/style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
@@ -21,24 +21,69 @@
 
 <body>
 
+  <!-- TOP BAR -->
 
-    <div class="upper-left">
-<!-- LOGO -->
-      <img src="../../Pics/dates-small-dark.png" />
+  <div class="top-bar">
 
-<!-- DATES ON TOP -->
-      <img src="../../Pics/title-dates.png" />
+    <!-- DATEPICKER FIELDS -->
 
-    </div>
+    <div class="fixed">
 
-<!-- /DATES ON TOP -->
+      <div class="date-block day" id="inner-page"></div>
 
-    <div class="container">
+      <div class="date-block month" id="inner-page"></div>
+
+      <!-- 'GO' button -->
+      <a href="dates/11/d21-11-2015.html">
+        <img class="date-block fixed" id="go-button" title="Перейти до запису"
+      src="../../Pics/go-button.jpg" />
+      </a>
+      <!-- /'GO' button -->
+
+     </div>
+    <!-- /DATEPICKER FIELDS -->
+
+    <!-- DATES ON TOP -->
+
+        <div id="title-date">
+          <img src="../../Pics/21112013.png" />
+        </div>
+
+    <!-- /DATES ON TOP -->
+
+  </div>
+
+  <!-- /TOP BAR -->
+
+  <!-- VERTICAL LOGO & LINK TO A HOME PAGE -->
+
+  <div class="fixed" id="vertical-logo">
+    <a href="../../index.html"><img src="../../Pics/dates-v-s.png" /></a>
+  </div>
+
+  <!-- SIDEBAR -->
+
+  <div class="sidebar fixed" id="transparent"></div>
+  <div class="sidebar fixed">
+    <div id="choose-date">Оберіть дату:</div>
+
+    <div id="datepicker"></div>
+
+    <p>Сайт присвячено подіям, що розгортались у Києві та інших містах України з
+      листопада 2013 до березня 2014 років.
+    Усі матеріали є витягами з особистого щоденника та не претендують на вичерпність
+    і об'єктивність.</p>
+     <p><a href="#">Детальніше...</a></p>
+
+  </div>
+
+  <!-- /SIDEBAR -->
+
+  <!-- DIARY NOTES -->
+
+  <div class="container">
 
       <div class="day-circle"><img src="../../Pics/nums/21.png" /></div>
-
-      <!-- text-container -->
-      <div class="text-container">
 
       <h3>ЛИСТОПАДА, четвер</h3>
 
@@ -90,10 +135,8 @@
             бо там уже вдень на вулиці вийшла колона із 1000 (щонайменше) студентів.
           </p>
         </div>
-        <!-- /text-container -->
 
-      </div>
-        <!-- /container -->
+  <!-- /DIARY NOTES -->
 
 </body>
 

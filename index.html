@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Дати. Дні</title>
-  <link href='https://fonts.googleapis.com/css?family=Roboto:100|Roboto+Slab:100|Roboto+Condensed|Halant:300|PT+Sans+Caption|Open+Sans:400,300|Open+Sans+Condensed:300&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Lora|Roboto:100|Roboto+Slab:100|Roboto+Condensed|Halant:300|PT+Sans+Caption|Open+Sans:400,300|Open+Sans+Condensed:300&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
@@ -23,36 +23,64 @@
 
 <!-- BACKGROUND -->
 
- <div class="bg-sheet">
+<!-- TOP BAR -->
 
-    <div class="bg-shadow" id="left"></div>
-    <div class="bg-shadow" id="right"></div>
+<div class="top-bar">
 
-<!-- DATEPICKER FIELDS -->
+  <!-- DATEPICKER FIELDS -->
 
-      <div id="leftup-block">
-        <div class="date-block" id="date">21</div>
+  <div class="fixed">
 
-        <div class="date-block" id="month">листопада</div>
+    <div class="date-block day"></div>
 
-        <!-- 'GO' button -->
-        <a id="page" href="dates/11/d21-11-2015.html">
-            <img class="date-block" id="go-button" title="Перейти до запису"
-          src="Pics/go-button.jpg" />
-        </a>
-        <!-- /'GO' button -->
+    <div class="date-block month"></div>
+
+    <!-- 'GO' button -->
+    <a href="dates/11/d21-11-2015.html">
+      <img class="date-block fixed" id="go-button" title="Перейти до запису"
+    src="Pics/go-button.jpg" />
+    </a>
+    <!-- /'GO' button -->
+
+   </div>
+  <!-- /DATEPICKER FIELDS -->
+
+  <!-- DATES ON TOP -->
+
+      <div id="title-date">
+        <img src="Pics/21112013.png" />
+      </div>
+
+  <!-- /DATES ON TOP -->
+
+</div>
+
+<!-- /TOP BAR -->
+
+      </div>
+
+      <!-- sidebar -->
+
+      <div class="sidebar" id="transparent"></div>
+      <div class="sidebar">
+        <div id="choose-date">Оберіть дату:</div>
+
+        <div id="datepicker"></div>
+
+        <p>Сайт присвячено подіям, що розгортались у Києві та інших містах України з
+          листопада 2013 до березня 2014 років.
+        Усі матеріали є витягами з особистого щоденника та не претендують на вичерпність
+        і об'єктивність.
+         <a href="#">Детальніше...</a></p>
+
       </div>
 
 
-<!-- /DATEPICKER FIELDS -->
+      <div class="bg-sheet">
 
-<!-- DATES ON TOP -->
+         <div class="bg-shadow" id="left"></div>
+         <div class="bg-shadow" id="right"></div>
 
-    <div id="title-date">
-      <h1>21.11.2013&nbsp;&ndash;&nbsp;20.03.2015</h3>
-    </div>
-
-<!-- /DATES ON TOP -->
 
 <!-- HERO AREA -->
 
@@ -60,21 +88,7 @@
       <img src="Pics/hero-photo.jpg">
     </div>
 
-    <!-- sidebar -->
 
-    <div class="sidebar" id="transparent"></div>
-    <div class="sidebar">
-      <div id="choose-date">Оберіть дату:</div>
-
-      <div id="datepicker"></div>
-
-      <p>Сайт присвячено подіям, що розгортались у Києві та інших містах України з
-        листопада 2013 до березня 2014 років.
-      Усі матеріали є витягами з особистого щоденника та не претендують на вичерпність
-      і об'єктивність.
-       <a href="#">Детальніше...</a></p>
-
-    </div>
 
       <div id="dates">
         <img src="Pics/dates1.png">

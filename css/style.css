@@ -22,19 +22,19 @@ p {
   line-height: 35px;
 }
 
+h1 {
+  font-family: 'Lora', serif;
+  color: #553a26;
+  font-size: 25pt;
+  display: inline-block;
+}
+
 h3 {
+  margin: 0;
   font-family: 'PT Sans', sans-serif;
   color: #553a26;
   font-size: 16pt;
   font-weight: bold;
-}
-
-.container {
-  position: relative;
-  width: 70%;
-  margin: auto;
-/**  border: 1px solid blue; **/
-  z-index: 3;
 }
 
 /**********
@@ -72,16 +72,20 @@ BACKGROUND
 DATEPICKER FIELDS
 ***********/
 
-#leftup-block {
-  margin: 30px 40px 20px 55px;
-  float: left;
+.top-bar {
+  margin: 0;
+  /* padding: 30px 40px 7px 40px;  */
+  padding: 30px 40px 25px 125px;
+  background-color: #f4f6ec;
+  border-bottom: 1px solid #b69494;
 }
 
 .date-block {
   border: 2px solid white;
 }
 
-#date, #month {
+.day,
+.month {
   color: #4a5894;
   text-align: center;
   text-transform: uppercase;
@@ -94,39 +98,38 @@ DATEPICKER FIELDS
   float: left;
 }
 
-#date {
+.day {
   width: 80px;
   background-color:  #9c997f;
 }
 
-#month {
+.month {
   width: 170px;
   background-color: #bbbaa6;
 }
 
 #go-button {
-  height: 46px;
+  float: left;
 }
 
 #go-button:hover {
   box-shadow: 0 0 10px #b3bcee;
 }
 
+#inner-page {
+  position: relative;
+  top: 2px;
+  background-color: #f4f6ec;
+  border: 1px solid #9c997f;
+  height: 46px;
+}
+
 /**********
 DATES ON TOP
 ***********/
 
-h1 {
-  margin: 0;
-  font-family: 'Roboto Slab', serif;
-  font-size: 40px;
-  color: #838591;
-}
-
 #title-date {
-  position: relative;
-  padding: 30px;
-  left: 5%;
+  margin: 10px auto auto 400px;
   display: inline-block;
 }
 
@@ -151,7 +154,7 @@ HERO AREA
 
 #dates {
   position: absolute;
-  top: 170px;
+  top: 70px;
   left: 30%;
   z-index: 1;
 }
@@ -166,8 +169,8 @@ SIDEBAR
 
 .sidebar  {
   position: absolute;
-  top: 130px;
-  left: 50px;
+  top: 115px;
+  left: 120px;
   width: 310px;
   height: 640px;
   padding: 30px;
@@ -188,9 +191,9 @@ SIDEBAR
 
 #choose-date {
   position: relative;
-  left: -30px;
+  left: -28px;
   top: -5px;
-  width: 310px;
+  width: 305px;
   box-sizing: border-box;
   background-color: #916464;
   border: 1px solid #9e7671;
@@ -312,36 +315,33 @@ SELECTED BLOCK
 INNER PAGES
 ****************/
 
-.upper-left {
-  margin: 0 0 20px 0;
-  padding: 30px 40px 7px 40px;
-  background-color: #f4f6ec;
-  border-bottom: 1px solid #b69494;
-}
-
-.upper-left::first-child {
+#vertical-logo {
+  display: inline;
   float: left;
+  padding: 10px;
 }
 
-.day-circle,
-.text-container {
-  display: inline-block;
+.fixed {
+  position: fixed;
+}
+
+.container {
+  position: relative;
+  width: 45%;
+  margin-left: 470px;
+  margin-top: 20px;
+/**  border: 1px solid blue; **/
 }
 
 .day-circle {
   padding: 15px;
   margin: 0 20px;
-  width: 30%;
   vertical-align: top;
   float: left;
+  overflow: hidden;
   box-sizing: border-box;
 }
 
 .day-circle > img {
-  width: 150px;
-  float: right;
-}
-
-.text-container {
-  width: 65%;
+  width: 120px;
 }
