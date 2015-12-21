@@ -18,11 +18,12 @@ body {
 p {
   font-family: 'PT Sans', sans-serif;
   color: #553a26;
-  font-size: 13pt;
+  font-size: 14pt;
   line-height: 35px;
 }
 
 h1 {
+  margin: 0;
   font-family: 'Lora', serif;
   color: #553a26;
   font-size: 25pt;
@@ -130,7 +131,6 @@ DATES ON TOP
 
 #title-date {
   margin: 10px auto auto 400px;
-  display: inline-block;
 }
 
 /**********
