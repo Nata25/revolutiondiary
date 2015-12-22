@@ -35,12 +35,36 @@ h1 {
   letter-spacing: 3px;
 }
 
-h3 {
+h2 {
   margin: 40px 0 0 0;
   font-family: 'PT Sans', sans-serif;
   color: #553a26;
   font-size: 16pt;
   font-weight: bold;
+}
+
+h3 {
+  margin: 25px 0 0 0;
+  font-family: 'PT Sans', sans-serif;
+  color: #553a26;
+  font-size: 14pt;
+  font-weight: bold;
+}
+
+.normal-leading {
+  line-height: 1.6;
+}
+
+.grey {
+  color: #838692;
+}
+
+.transparent {
+  opacity: .5;
+}
+
+.fixed {
+  position: fixed;
 }
 
 /**********
@@ -153,10 +177,6 @@ DATES ON TOP
   margin: 5px auto auto 400px;
 }
 
-.grey {
-  color: #838692;
-}
-
 /**********
 HERO AREA
 ***********/
@@ -202,9 +222,8 @@ SIDEBAR
   z-index: 10;
 }
 
-#transparent {
+.sidebar-container {
   background-color: #848484;
-  opacity: .5;
   border: 2px solid #dad7c8;
   border-radius: 10px;
 }
@@ -331,13 +350,16 @@ SELECTED BLOCK
 /******* items ******/
 
 .control-hover {
-  border: 1px solid green;
+/*  border: 1px solid green; */
 }
 
 .item {
+  height: 204px;
   border-bottom: 2px solid #e3e4d5;
   padding: 10px;
-  border: 1px solid red;
+  margin-top: 10px;
+/*  border: 1px solid red; */
+  overflow: hidden;
 }
 
 /****************
@@ -349,10 +371,6 @@ INNER PAGES
   float: left;
   padding: 10px;
   margin-left: 20px;
-}
-
-.fixed {
-  position: fixed;
 }
 
 .container {
@@ -379,5 +397,5 @@ INNER PAGES
 .text-container {
   display: inline-block;
   /* border: 1px solid blue; */
-  width: 80%;
+  width: 75%;
 }
