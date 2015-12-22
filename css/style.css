@@ -26,7 +26,7 @@ h1 {
   display: inline-block;
   margin: 0;
   font-family: 'Lora', serif;
-  color: #553a26;
+  color: #6e5d50;
   font-size: 25pt;
   letter-spacing: 3px;
 }
@@ -84,6 +84,7 @@ DATEPICKER FIELDS
 
 .date-block {
   border: 2px solid white;
+  border-radius: 5px;
 }
 
 .day,
@@ -96,7 +97,7 @@ DATEPICKER FIELDS
   margin: 0;
   font-size: 20px;
   box-sizing: border-box;
-  border-right: .5px solid white;
+/*  border-right: .5px solid white; */
   float: left;
 }
 
@@ -108,6 +109,7 @@ DATEPICKER FIELDS
 .month {
   width: 170px;
   background-color: #bbbaa6;
+  margin-left: 1px;
 }
 
 #go-button {
@@ -125,6 +127,23 @@ DATEPICKER FIELDS
   border: 1px solid #9c997f;
   height: 46px;
 }
+
+.button {
+  background-color: #b36665;
+  width: 46px;
+  height: 46px;
+}
+
+.arrow {
+  width: 0;
+	height: 0;
+	border-top: 12px solid transparent;
+	border-left: 24px solid white;
+	border-bottom: 12px solid transparent;
+  margin-top: 11px;
+  margin-left: 13px;
+}
+
 
 /**********
 DATES ON TOP
@@ -324,6 +343,7 @@ INNER PAGES
   display: inline;
   float: left;
   padding: 10px;
+  margin-left: 20px;
 }
 
 .fixed {
