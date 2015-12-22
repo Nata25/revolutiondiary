@@ -116,26 +116,22 @@ DATEPICKER FIELDS
   margin-left: 1px;
 }
 
-#go-button {
-  float: left;
-}
-
-#go-button:hover {
-  box-shadow: 0 0 10px #b3bcee;
-}
-
-#inner-page {
+.light {
   position: relative;
-  top: 2px;
+  top: 1px;
   background-color: #f4f6ec;
   border: 1px solid #9c997f;
-  height: 46px;
 }
 
 .button {
   background-color: #b36665;
   width: 46px;
   height: 46px;
+  float: left;
+}
+
+.button:hover {
+  box-shadow: 0 0 10px #b3bcee;
 }
 
 .arrow {

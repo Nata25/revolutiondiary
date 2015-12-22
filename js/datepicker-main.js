@@ -7,11 +7,11 @@ $(function() {
 //sessionStorage.removeItem('monthStored');
 
 // UNCOMMENT TO TEST:
-//console.log(sessionStorage.getItem('dayStored'));
-//console.log(sessionStorage.getItem('monthStored'));
+console.log(sessionStorage.getItem('dayStored'));
+console.log(sessionStorage.getItem('monthStored'));
 
-$("#date").html(sessionStorage.dayStored);
-$("#month").html(sessionStorage.monthStored);
+$(".day").html(sessionStorage.dayStored);
+$(".month").html(sessionStorage.monthStored);
 
 // *********************
 // DATEPICKER
@@ -34,8 +34,8 @@ $("#datepicker").datepicker(
         var month = dateChosen[1];
 
     // change link on go-button according to the selected date
-        var newURL = "dates/11/d" + day + "-" + month + "-2015.html";
-        $("#page").attr('href', newURL);
+        var newURL = "file://localhost/Users/yuriybesarab/Git/Days/dates/11/d" + day + "-" + month + "-2015.html";
+        $(".link-to-page").attr('href', newURL);
 
     // format date to paste into date-block
 
@@ -57,8 +57,8 @@ $("#datepicker").datepicker(
         sessionStorage.setItem('monthStored', month);
 
         // update date-block fields on click
-        $("#date").html(sessionStorage.dayStored);
-        $("#month").html(sessionStorage.monthStored);
+        $(".day").html(sessionStorage.dayStored);
+        $(".month").html(sessionStorage.monthStored);
 
       }) // end of onSelect
 
