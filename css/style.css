@@ -18,21 +18,25 @@ body {
 p {
   font-family: 'PT Sans', sans-serif;
   color: #553a26;
-  font-size: 14pt;
+  font-size: 13pt;
   line-height: 35px;
+}
+
+a {
+  color: #916464;
 }
 
 h1 {
   display: inline-block;
   margin: 0;
-  font-family: 'Tinos', 'PT Serif', 'Roboto Slab', sans-serif;
+  font-family: 'Roboto Slab', 'Tinos', 'PT Serif', sans-serif;
   color: #6e5d50;
   font-size: 25pt;
   letter-spacing: 3px;
 }
 
 h3 {
-  margin: 0;
+  margin: 40px 0 0 0;
   font-family: 'PT Sans', sans-serif;
   color: #553a26;
   font-size: 16pt;
@@ -150,7 +154,7 @@ DATES ON TOP
 ***********/
 
 .title-date {
-  margin: 10px auto auto 400px;
+  margin: 5px auto auto 400px;
 }
 
 .grey {
@@ -211,6 +215,7 @@ SIDEBAR
 
 .sidebar p {
   color: #142b38;
+  font-size: 16px;
 }
 
 #choose-date {
@@ -352,21 +357,27 @@ INNER PAGES
 
 .container {
   position: relative;
-  width: 45%;
+  width: 50%;
   margin-left: 470px;
   margin-top: 20px;
 /**  border: 1px solid blue; **/
 }
 
 .day-circle {
+  width: 120px;
   padding: 15px;
-  margin: 0 20px;
   vertical-align: top;
-  float: left;
-  overflow: hidden;
   box-sizing: border-box;
 }
 
-.day-circle > img {
-  width: 120px;
+.left-bar {
+  display: inline-block;
+  /*border: 1px solid green; */
+  vertical-align: top;
+}
+
+.text-container {
+  display: inline-block;
+  /* border: 1px solid blue; */
+  width: 80%;
 }
