@@ -350,7 +350,8 @@ SELECTED BLOCK
 /******* items ******/
 
 .control-hover {
-/*  border: 1px solid green; */
+  border: 1px solid green;
+  overflow: hidden;
 }
 
 .item {
@@ -358,9 +359,20 @@ SELECTED BLOCK
   border-bottom: 2px solid #e3e4d5;
   padding: 10px;
   margin-top: 10px;
-/*  border: 1px solid red; */
+  border: 1px solid red;
   overflow: hidden;
+  float: left;
 }
+
+.red-square {
+  display: inline-block;
+/*  display: none; */
+  width: 20px;
+  height: 20px;
+  background-color: #b36665;
+  margin: 105px 50px;
+}
+
 
 /****************
 INNER PAGES
