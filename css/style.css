@@ -322,7 +322,8 @@ SELECTED BLOCK
 
 .selected,
 .item,
-.divider {
+.divider,
+.hover-sheet {
   width: 70%;
   margin-left: 100px;
 }
@@ -362,7 +363,8 @@ SELECTED BLOCK
 
 .control-hover {
 /*  border: 1px solid green; */
-  overflow: hidden;
+/*  overflow: hidden; */
+  position: relative;
 }
 
 .item {
@@ -396,6 +398,17 @@ SELECTED BLOCK
   width: 75%;
 }
 
+.hover-sheet {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  height: 225px;
+  border: 2px solid #364cad;
+  border-radius: 50px;
+  opacity: .34;
+  background-color: #aca088;
+}
+
 .divider {
   height: 2px;
   background-color: #e3e4d5;
@@ -410,7 +423,7 @@ SELECTED BLOCK
 .red-square {
   display: inline-block;
   /*display: none; */
-  width: 20px;
+  width: 18px;
   height: 20px;
   margin: 105px 50px;
   border-radius: 5px;
