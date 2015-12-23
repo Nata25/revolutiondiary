@@ -66,14 +66,17 @@ $("#datepicker").datepicker(
 
     // HOVER ITEMS IN SELECTED BLOCK
 
+
     $(".control-hover").hover(
       function() {
         $(this).find(':first-child').addClass('non-transparent');
+        $(this).find('p').addClass('increase-fontSize');
         $(this).children('.red-square').css('background-color', '#b36665');
-      },
+        },
 
       function() {
         $(this).find(':first-child').removeClass('non-transparent');
+        $(this).find('p').removeClass('increase-fontSize');
         $(this).children('.red-square').css('background-color', '#f4f6ec');
       }
     ); // end of hover

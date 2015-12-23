@@ -18,8 +18,13 @@ body {
 p {
   font-family: 'PT Sans', sans-serif;
   color: #553a26;
-  font-size: 13pt;
+  font-size: 16px;
   line-height: 35px;
+  transition: .5s all linear;
+  -webkit-transition: .5s all linear;
+  -moz-transition: .5s all linear;
+  -o-transition: .5s all linear;
+  transition: .5s all linear;
 }
 
 a {
@@ -61,23 +66,26 @@ h3 {
 
 .transparent {
   opacity: .5;
-  -webkit- transition: opacity 1s;
-  -moz- transition: opacity 1s;
-  -o- transition: opacity 1s;
+  -webkit-transition: opacity 1s;
+  -moz-transition: opacity 1s;
+  -o-transition: opacity 1s;
   transition: opacity 1s;
 }
 
 .non-transparent {
   opacity: 1;
-  -webkit- transition: opacity 1s;
-  -moz- transition: opacity 1s;
-  -o- transition: opacity 1s;
+  -webkit-transition: opacity 1s;
+  -moz-transition: opacity 1s;
+  -o-transition: opacity 1s;
   transition: opacity 1s;
 }
 
-
 .fixed {
   position: fixed;
+}
+
+.increase-fontSize {
+  font-size: 1.01em;
 }
 
 /**********
@@ -165,6 +173,7 @@ DATEPICKER FIELDS
   width: 46px;
   height: 46px;
   float: left;
+  transition: box-shadow .25s linear;
 }
 
 .button:hover {
@@ -242,8 +251,8 @@ SIDEBAR
 }
 
 .sidebar p {
+  font-size: 15px;
   color: #142b38;
-  font-size: 16px;
 }
 
 #choose-date {
@@ -363,19 +372,37 @@ SELECTED BLOCK
 /******* items ******/
 
 .control-hover {
-  border: 1px solid green;
+/*  border: 1px solid green; */
   overflow: hidden;
 }
 
 .item {
-  height: 204px;
+  height: 200px;
   border-bottom: 2px solid #e3e4d5;
   padding: 10px;
   margin-top: 10px;
   overflow: hidden;
   float: left;
-  border: 1px solid red;
+/*  border: 1px solid red; */
 }
+
+.day-circle {
+  width: 120px;
+  padding: 15px;
+  vertical-align: top;
+  box-sizing: border-box;
+}
+
+.text-container {
+  display: inline-block;
+  /* border: 1px solid blue; */
+  width: 75%;
+}
+
+/*.text-container p {
+  font-size: 1.01em;
+}
+*/
 
 .red-square {
   display: inline-block;
@@ -383,6 +410,7 @@ SELECTED BLOCK
   width: 20px;
   height: 20px;
   margin: 105px 50px;
+  border-radius: 5px;
   background-color: #f4f6ec;
   -webkit- transition: background-color .5s;
   -moz- transition: background-color .5s;
@@ -409,21 +437,8 @@ INNER PAGES
 /**  border: 1px solid blue; **/
 }
 
-.day-circle {
-  width: 120px;
-  padding: 15px;
-  vertical-align: top;
-  box-sizing: border-box;
-}
-
 .left-bar {
   display: inline-block;
   /*border: 1px solid green; */
   vertical-align: top;
-}
-
-.text-container {
-  display: inline-block;
-  /* border: 1px solid blue; */
-  width: 75%;
 }
