@@ -321,7 +321,8 @@ SELECTED BLOCK
 }
 
 .selected,
-.item {
+.item,
+.divider {
   width: 70%;
   margin-left: 100px;
 }
@@ -367,7 +368,6 @@ SELECTED BLOCK
 .item {
   opacity: .5;
   height: 200px;
-  border-bottom: 2px solid #e3e4d5;
   padding: 10px;
   margin-top: 10px;
   overflow: hidden;
@@ -394,6 +394,12 @@ SELECTED BLOCK
   display: inline-block;
   /* border: 1px solid blue; */
   width: 75%;
+}
+
+.divider {
+  height: 2px;
+  background-color: #e3e4d5;
+  margin-top: 25px;
 }
 
 /*.text-container p {
