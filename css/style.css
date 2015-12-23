@@ -61,7 +61,20 @@ h3 {
 
 .transparent {
   opacity: .5;
+  -webkit- transition: opacity 1s;
+  -moz- transition: opacity 1s;
+  -o- transition: opacity 1s;
+  transition: opacity 1s;
 }
+
+.non-transparent {
+  opacity: 1;
+  -webkit- transition: opacity 1s;
+  -moz- transition: opacity 1s;
+  -o- transition: opacity 1s;
+  transition: opacity 1s;
+}
+
 
 .fixed {
   position: fixed;
@@ -369,10 +382,13 @@ SELECTED BLOCK
   /*display: none; */
   width: 20px;
   height: 20px;
-  background-color: #f4f6ec;
   margin: 105px 50px;
+  background-color: #f4f6ec;
+  -webkit- transition: background-color .5s;
+  -moz- transition: background-color .5s;
+  -o- transition: background-color .5s;
+  transition: background-color .5s;
 }
-
 
 /****************
 INNER PAGES

@@ -68,12 +68,12 @@ $("#datepicker").datepicker(
 
     $(".control-hover").hover(
       function() {
-        $(this).find(':first-child').removeClass('transparent');
+        $(this).find(':first-child').addClass('non-transparent');
         $(this).children('.red-square').css('background-color', '#b36665');
       },
 
       function() {
-        $(this).find(':first-child').addClass('transparent');
+        $(this).find(':first-child').removeClass('non-transparent');
         $(this).children('.red-square').css('background-color', '#f4f6ec');
       }
     ); // end of hover
