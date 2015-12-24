@@ -354,7 +354,7 @@ SELECTED BLOCK
 }
 
 .item {
-  height: 204px;
+/*  height: 204px; */
   border-bottom: 2px solid #e3e4d5;
   padding: 10px;
   margin-top: 10px;
@@ -375,16 +375,23 @@ SELECTED BLOCK
   display: inline-block;
   /*border: 1px solid blue; */
   width: 75%;
+  height: 204px;
+  overflow: hidden;
 }
 
 /*** overflow functionality ******/
 
-.elipsis {
+.ellipsis {
   position: absolute;
-  top: 0;
+  top: 172px;
   right: 0;
-  float: right;
-  display: inline-block;
+  height: 30px;
+  width: 30px;
+  padding: 5px;
+  box-sizing: border-box;
+/*  border: 1px solid blue; */
+  background-image: url('../Pics/ellipsis.jpg');
+  box-shadow: -10px 0px 20px #f4f6ec;
 }
 
 
