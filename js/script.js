@@ -66,19 +66,30 @@ $("#datepicker").datepicker(
 
     // HOVER ITEMS IN SELECTED BLOCK
 
-
     $(".control-hover").hover(
       function() {
         $(this).find(':first-child').addClass('non-transparent');
-        $(this).find('p').addClass('increase-fontSize');
+        $(this).find('p, h3').addClass('increase-fontSize');
         $(this).children('.red-square').css('background-color', '#b36665');
         },
 
       function() {
         $(this).find(':first-child').removeClass('non-transparent');
-        $(this).find('p').removeClass('increase-fontSize');
+        $(this).find('p, h3').removeClass('increase-fontSize');
         $(this).children('.red-square').css('background-color', '#f4f6ec');
       }
-    ); // end of hover
+    ); // end of hover on a line
+
+    // HOVER ON SINGE ITEM
+
+    $('.hover-sheet').hover(
+      function() {
+        $(this).css('opacity', '0.34');
+        $(this).siblings('p').css('color', '000');
+      },
+      function() {
+        $(this).css('opacity', '0');
+      }
+    ); // end of hover on item
 
 }); // end of ready

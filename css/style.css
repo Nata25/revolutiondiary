@@ -20,11 +20,6 @@ p {
   color: #553a26;
   font-size: 16px;
   line-height: 35px;
-  transition: .5s all linear;
-  -webkit-transition: .5s all linear;
-  -moz-transition: .5s all linear;
-  -o-transition: .5s all linear;
-  transition: .5s all linear;
 }
 
 a {
@@ -52,8 +47,16 @@ h3 {
   margin: 25px 0 0 0;
   font-family: 'PT Sans', sans-serif;
   color: #553a26;
-  font-size: 14pt;
+  font-size: 16px;
   font-weight: bold;
+}
+
+p, h3 {
+  transition: .5s all linear;
+  -webkit-transition: .5s all linear;
+  -moz-transition: .5s all linear;
+  -o-transition: .5s all linear;
+  transition: .5s all linear;
 }
 
 .normal-leading {
@@ -404,9 +407,14 @@ SELECTED BLOCK
   left: 0;
   height: 225px;
   border: 2px solid #364cad;
-  border-radius: 50px;
-  opacity: .34;
+  border-radius: 60px;
+  opacity: 0;
   background-color: #aca088;
+  -webkit-transition: .5s opacity linear;
+  -moz-transition: .5s opacity linear;
+  -o-transition: .5s opacity linear;
+  transition: .5s opacity linear;
+  z-index: 20;
 }
 
 .divider {
