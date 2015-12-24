@@ -246,6 +246,10 @@ SIDEBAR
   color: #142b38;
 }
 
+.fixed {
+  position: fixed;
+}
+
 #choose-date {
   position: relative;
   left: -28px;
@@ -385,13 +389,8 @@ SELECTED BLOCK
   height: 200px;
   padding: 10px;
   margin-top: 10px;
-  overflow: hidden;
-  float: left;
 /*  border: 1px solid red; */
-  -webkit-transition: .5s opacity linear;
-  -moz-transition: .5s opacity linear;
-  -o-transition: .5s opacity linear;
-  transition: .5s opacity linear;
+/*  overflow: hidden; */
 }
 
 .non-transparent {
@@ -407,8 +406,16 @@ SELECTED BLOCK
 
 .text-container {
   display: inline-block;
+  position: relative;
   /* border: 1px solid blue; */
   width: 75%;
+  height: 204px;
+  overflow: hidden;
+  float: left;
+  -webkit-transition: .5s opacity linear;
+  -moz-transition: .5s opacity linear;
+  -o-transition: .5s opacity linear;
+  transition: .5s opacity linear;
 }
 
 .hover-sheet {
@@ -451,6 +458,22 @@ SELECTED BLOCK
   -o- transition: background-color .5s;
   transition: background-color .5s;
 }
+
+/*** overflow functionality ******/
+
+.ellipsis {
+  position: absolute;
+  top: 172px;
+  right: 0;
+  height: 30px;
+  width: 30px;
+  padding: 5px;
+  box-sizing: border-box;
+/*  border: 1px solid blue; */
+  background-image: url('../Pics/ellipsis.jpg');
+  box-shadow: -10px 0px 20px #f4f6ec;
+}
+
 
 /****************
 INNER PAGES
