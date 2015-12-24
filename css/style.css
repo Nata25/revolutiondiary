@@ -88,7 +88,7 @@ BACKGROUND
   left: 5%;
   background-color: #f4f6ec;
   width: 90%;
-  height: 1500px;
+  height: 1700px;
   margin: 0 auto;
   padding: 0;
   box-shadow: 0 0 20px #fbfbf4;
@@ -98,7 +98,7 @@ BACKGROUND
   position: absolute;
   width: 30px;
   background-color: #f2f4e9;
-  height: 1500px;
+  height: 1700px;
   box-shadow: 0 0 15px #fbfbf4;
 }
 
@@ -173,10 +173,10 @@ DATEPICKER FIELDS
 
 .arrow {
   width: 0;
-	height: 0;
-	border-top: 12px solid transparent;
-	border-left: 24px solid white;
-	border-bottom: 12px solid transparent;
+  height: 0;
+  border-top: 12px solid transparent;
+  border-left: 24px solid white;
+  border-bottom: 12px solid transparent;
   margin-top: 11px;
   margin-left: 13px;
 }
@@ -246,9 +246,9 @@ SIDEBAR
   color: #142b38;
 }
 
-.fixed {
+/*.fixed {
   position: fixed;
-}
+} */
 
 #choose-date {
   position: relative;
@@ -385,6 +385,7 @@ SELECTED BLOCK
 }
 
 .item {
+  float: left;
   opacity: .5;
   height: 200px;
   padding: 10px;
@@ -408,14 +409,32 @@ SELECTED BLOCK
   display: inline-block;
   position: relative;
   /* border: 1px solid blue; */
-  width: 75%;
+/*  width: 75%; */
+  width: 70%;
   height: 204px;
   overflow: hidden;
-  float: left;
+/*  border: 1px solid red; */
   -webkit-transition: .5s opacity linear;
   -moz-transition: .5s opacity linear;
   -o-transition: .5s opacity linear;
   transition: .5s opacity linear;
+}
+
+.non-transparent {
+  opacity: 1;
+}
+
+.day-circle {
+  width: 120px;
+  padding: 15px;
+  vertical-align: top;
+  box-sizing: border-box;
+}
+
+.text-container {
+  display: inline-block;
+  /* border: 1px solid blue; */
+  width: 75%;
 }
 
 .hover-sheet {
@@ -463,7 +482,7 @@ SELECTED BLOCK
 
 .ellipsis {
   position: absolute;
-  top: 172px;
+  top: 169px;
   right: 0;
   height: 30px;
   width: 30px;
