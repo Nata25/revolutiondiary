@@ -85,7 +85,6 @@ $("#datepicker").datepicker(
     $('.hover-sheet').hover(
       function() {
         $(this).css('opacity', '0.34');
-        $(this).siblings('p').css('color', '000');
       },
       function() {
         $(this).css('opacity', '0');
