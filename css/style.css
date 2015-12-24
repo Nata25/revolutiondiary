@@ -324,10 +324,20 @@ SELECTED BLOCK
 }
 
 .selected,
+.hover-sheet {
+  width: 73%;
+}
+
+.item,
+.divider {
+  width: 70%;
+}
+
+
+.selected,
 .item,
 .divider,
 .hover-sheet {
-  width: 70%;
   margin-left: 100px;
 }
 
