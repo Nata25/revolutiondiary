@@ -84,10 +84,19 @@ $("#datepicker").datepicker(
 
     $('.hover-sheet').hover(
       function() {
-        $(this).css('opacity', '0.34');
+        $(this).css('backgroundColor', '#dbd8c9')
+               .css('border', '2px solid #b3bcee');
+
+        $(this).find('.ellipsis').css('background-color', "#dad8c9")
+                                 .css('box-shadow', '-10px 0px 20px #dbd8c9');
+
       },
       function() {
-        $(this).css('opacity', '0');
+        $(this).css('backgroundColor', '#f4f6ec')
+               .css('border', '2px solid #f4f6ec');
+
+        $(this).find('.ellipsis').css('backgroundColor', '#f4f6ec')
+                                 .css('box-shadow', '-10px 0px 20px #f4f6ec');
       }
     ); // end of hover on item
 
