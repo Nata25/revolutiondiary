@@ -229,7 +229,7 @@ SIDEBAR
   top: 115px;
   left: 120px;
   width: 310px;
-  height: 640px;
+  height: 550px;
   padding: 30px;
   box-sizing: border-box;
   z-index: 10;
@@ -244,6 +244,7 @@ SIDEBAR
 .sidebar p {
   font-size: 15px;
   color: #142b38;
+  line-height: 25px;
 }
 
 /*.fixed {
@@ -253,7 +254,7 @@ SIDEBAR
 #choose-date {
   position: relative;
   left: -28px;
-  top: -5px;
+  top: -10px;
   width: 305px;
   box-sizing: border-box;
   background-color: #916464;
@@ -268,8 +269,8 @@ SIDEBAR
 #datepicker {
   position: relative;
   left: -30px;
-  top: 10px;
-  margin-bottom: 30px;
+  top: 5px;
+  margin-bottom: 20px;
   z-index: 10;
   display: block;
 }
