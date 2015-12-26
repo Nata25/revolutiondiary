@@ -15,10 +15,18 @@ body {
   padding: 0;
 }
 
-p {
+p, h2, h3 {
   font-family: 'PT Sans', sans-serif;
   color: #553a26;
-  font-size: 16px;
+  font-size: 17px;
+  -webkit-transition: .25s all linear;
+  -moz-transition: .25s all linear;
+  -o-transition: .25s all linear;
+  transition: .25s all linear;
+  -webkit-font-smoothing: antialiased;
+}
+
+p {
   line-height: 35px;
 }
 
@@ -37,26 +45,12 @@ h1 {
 
 h2 {
   margin: 40px 0 0 0;
-  font-family: 'PT Sans', sans-serif;
-  color: #553a26;
-  font-size: 16pt;
   font-weight: bold;
 }
 
 h3 {
   margin: 10px 0 0 0;
-  font-family: 'PT Sans', sans-serif;
-  color: #553a26;
-  font-size: 16px;
   font-weight: bold;
-}
-
-p, h3 {
-  -webkit-transition: .25s all linear;
-  -moz-transition: .25s all linear;
-  -o-transition: .25s all linear;
-  transition: .25s all linear;
-  -webkit-font-smoothing: antialiased;
 }
 
 .normal-leading {
@@ -72,11 +66,11 @@ p, h3 {
 }
 
 .increase-fontSize {
-  font-size: 1.01em;
-  -webkit-transform: translate(-2px, 0);
-  -o-transform: translate(-2px, 0);
-  -moz-transform: translate(-2px, 0);
-  transform: translate(-2px, 0);
+  font-size: 1.07em;
+  -webkit-transform: translate(-2px, -2px);
+  -o-transform: translate(-2px, -2px);
+  -moz-transform: translate(-2px, -2px);
+  transform: translate(-2px, -2px);
 }
 
 /**********
@@ -338,11 +332,6 @@ SELECTED BLOCK
   width: 75%;
 }
 
-.item {
-  width: 100%;
-}
-
-
 .selected,
 .divider,
 .hover-sheet {
@@ -389,12 +378,17 @@ SELECTED BLOCK
 }
 
 .item {
+  width: 100%;
   float: left;
   opacity: .5;
   height: 180px;
   margin-top: 10px;
 /*  border: 1px solid red; */
   overflow: hidden;
+  -webkit-transition: .5s opacity linear;
+  -moz-transition: .5s opacity linear;
+  -o-transition: .5s opacity linear;
+  transition: .5s opacity linear;
 }
 
 .non-transparent {
@@ -416,10 +410,6 @@ SELECTED BLOCK
 /*  width: 75%; */
   width: 75%;
 /*  border: 1px solid red; */
-  -webkit-transition: .5s opacity linear;
-  -moz-transition: .5s opacity linear;
-  -o-transition: .5s opacity linear;
-  transition: .5s opacity linear;
 }
 
 .non-transparent {
@@ -455,32 +445,31 @@ SELECTED BLOCK
   margin: 90px 50px;
   border-radius: 5px;
   background-color: #f4f6ec;
-  -webkit- transition: background-color .5s;
-  -moz- transition: background-color .5s;
-  -o- transition: background-color .5s;
+  -webkit-transition: background-color .5s;
+  -moz-transition: background-color .5s;
+  -o-transition: background-color .5s;
   transition: background-color .5s;
   /*border: 1px solid black; */
 
 }
 
-/*** overflow functionality ******/
+/*** Overflow Functionality ******/
 
 .ellipsis {
   position: absolute;
-  top: 153px;
+  top: 157px;
   right: 0;
   height: 30px;
   width: 30px;
   padding: 5px;
   box-sizing: border-box;
-/*  border: 1px solid blue; */
-/*  background-image: url('../Pics/ellipsis.jpg'); */
   background-color: #f4f6ec;
   box-shadow: -10px 0px 20px #f4f6ec;
   -webkit-transition: .5s all linear;
   -moz-transition: .5s all linear;
   -o-transition: .5s all linear;
   transition: .5s all linear;
+  /*  border: 1px solid blue; */
 }
 
 
