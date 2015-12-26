@@ -139,6 +139,10 @@ DATEPICKER FIELDS
   box-sizing: border-box;
 /*  border-right: .5px solid white; */
   float: left;
+  -webkit-transition: .25s background-color linear;
+  -moz-transition: .25s background-color linear;
+  -o-transition: .25s background-color linear;
+  transition: .25s background-color linear;
 }
 
 .day {

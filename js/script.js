@@ -99,4 +99,18 @@ $("#datepicker").datepicker(
       }
     ); // end of hover on item
 
+    // scroll effect on date block
+
+    $(window).scroll(function () {
+      if ($(this).scrollTop() > 20) {
+        $('.day, .month').css('backgroundColor', 'white');
+      }
+
+      else {
+        $('.day, .month').css('backgroundColor', '#f4f6ec');
+      }
+    }); // end of scroll
+
+
+
 }); // end of ready
