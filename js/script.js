@@ -103,11 +103,11 @@ $("#datepicker").datepicker(
 
     $(window).scroll(function () {
       if ($(this).scrollTop() > 20) {
-        $('.day, .month').css('backgroundColor', 'white');
+        $('.fixed').children('.day, .month').css('backgroundColor', 'white');
       }
 
       else {
-        $('.day, .month').css('backgroundColor', '#f4f6ec');
+        $('.fixed').children('.day, .month').css('backgroundColor', '#f4f6ec');
       }
     }); // end of scroll
 
