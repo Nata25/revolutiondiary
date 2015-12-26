@@ -75,7 +75,7 @@ $("#datepicker").datepicker(
 
       function() {
         $(this).find(':first-child').removeClass('non-transparent');
-        $(this).find('p, h3').removeClass('increase-fontSize');
+        /*$(this).find('p, h3').removeClass('increase-fontSize'); */
         $(this).children('.red-square').css('background-color', '#f4f6ec');
       }
     ); // end of hover on a line
@@ -89,7 +89,6 @@ $("#datepicker").datepicker(
 
         $(this).find('.ellipsis').css('background-color', "#dad8c9")
                                  .css('box-shadow', '-10px 0px 20px #dbd8c9');
-
       },
       function() {
         $(this).css('backgroundColor', '#f4f6ec')
