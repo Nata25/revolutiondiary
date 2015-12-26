@@ -71,10 +71,6 @@ p, h3 {
   opacity: .5;
 }
 
-.fixed {
-  position: fixed;
-}
-
 .increase-fontSize {
   font-size: 1.01em;
 }
@@ -247,9 +243,9 @@ SIDEBAR
   line-height: 25px;
 }
 
-/*.fixed {
+.fixed {
   position: fixed;
-} */
+}
 
 #choose-date {
   position: relative;
