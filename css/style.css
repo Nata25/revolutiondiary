@@ -423,7 +423,7 @@ SELECTED BLOCK
 }
 
 .hover-sheet {
-  position: absolute;
+  position: relative;
   top: 5px;
   left: 0;
   height: 215px;
@@ -455,7 +455,7 @@ SELECTED BLOCK
   -moz- transition: background-color .5s;
   -o- transition: background-color .5s;
   transition: background-color .5s;
-/*  border: 5px solid black; */
+  /*border: 1px solid black; */
 
 }
 
