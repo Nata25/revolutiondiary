@@ -27,7 +27,6 @@ canvas {
 p, h2, h3 {
   font-family: 'PT Sans', sans-serif;
   color: #553a26;
-  font-size: 17px;
   -webkit-transition: .25s all linear;
   -moz-transition: .25s all linear;
   -o-transition: .25s all linear;
@@ -36,7 +35,12 @@ p, h2, h3 {
 }
 
 p {
+  font-size: 18px;
   line-height: 35px;
+}
+
+h3 {
+  font-size: 21px;
 }
 
 a {
@@ -75,7 +79,7 @@ h3 {
 }
 
 .increase-fontSize {
-  font-size: 1.07em;
+  font-size: 1.15em;
   -webkit-transform: translate(-2px, -2px);
   -o-transform: translate(-2px, -2px);
   -moz-transform: translate(-2px, -2px);
@@ -89,7 +93,7 @@ BACKGROUND
 .bg-sheet {
   position: absolute;
   left: 5%;
-  background-color: #f4f6ec;
+  background-color: #f5f7fb;
   width: 90%;
   height: 1700px;
   margin: 0 auto;
@@ -100,7 +104,7 @@ BACKGROUND
 .bg-shadow {
   position: absolute;
   width: 30px;
-  background-color: #f2f4e9;
+  background-color: #e4e7e9;
   height: 1700px;
   box-shadow: 0 0 15px #fbfbf4;
 }
@@ -296,14 +300,14 @@ RED LINES
 }
 
 #mainline {
-  height: 20px;
-  background-color: #b69494;
-  border: 3px solid #c6a4a8;
+  height: 15px;
+  background-color: #bb8b8b;
+  border: 2px solid #c09696;
   z-index: 2;
 }
 
 #shadowline {
-  height: 33px;
+  height: 23px;
   background-color: #ac8686;
   border: 2px solid #ba9c9a;
   z-index: 1;
@@ -383,7 +387,7 @@ SELECTED BLOCK
 /******* items ******/
 
 .control-hover {
-/*  border: 1px solid green; */
+  border: 1px solid green; 
 /*  overflow: hidden; */
   position: relative;
 }
@@ -391,16 +395,13 @@ SELECTED BLOCK
 .item {
   width: 100%;
   float: left;
-  opacity: .5;
   height: 180px;
   margin-top: 10px;
-/*  border: 1px solid red; */
+  border: 1px solid red;
   overflow: hidden;
-  -webkit-transition: .5s opacity linear;
-  -moz-transition: .5s opacity linear;
-  -o-transition: .5s opacity linear;
-  transition: .5s opacity linear;
 }
+
+
 
 .non-transparent {
   opacity: 1;
@@ -412,6 +413,10 @@ SELECTED BLOCK
   vertical-align: top;
   box-sizing: border-box;
 /*  border: 1px solid red; */
+}
+
+.main {
+  width: 170px;
 }
 
 .text-container {
@@ -432,10 +437,10 @@ SELECTED BLOCK
   top: 5px;
   left: 0;
   height: 215px;
-  border: 2px solid #f4f6ec;
-  border-radius: 10px;
+  border: 2px solid #f5f7fb;
+  border-radius: 70px;
   float: left;
-  background-color: #f4f6ec;
+  background-color: #f5f7fb;
   -webkit-transition: .5s background-color linear;
   -moz-transition: .5s background-color linear;
   -o-transition: .5s background-color linear;
@@ -443,7 +448,7 @@ SELECTED BLOCK
 }
 
 .divider {
-  height: 2px;
+  height: 3px;
   background-color: #e3e4d5;
   margin-top: 25px;
 }
@@ -451,15 +456,15 @@ SELECTED BLOCK
 .red-square {
   display: inline-block;
   /*display: none; */
-  width: 15px;
-  height: 20px;
-  margin: 90px 50px;
-  border-radius: 5px;
-  background-color: #f4f6ec;
-  -webkit-transition: background-color .5s;
-  -moz-transition: background-color .5s;
-  -o-transition: background-color .5s;
-  transition: background-color .5s;
+  width: 13px;
+  height: 18px;
+  margin: 100px 50px 80px 50px;
+  border-radius: 2px;
+  background-color: #f5f7fb;
+  -webkit-transition: background-color .25s;
+  -moz-transition: background-color .25s;
+  -o-transition: background-color .25s;
+  transition: background-color .25s;
   /*border: 1px solid black; */
 
 }
@@ -468,14 +473,14 @@ SELECTED BLOCK
 
 .ellipsis {
   position: absolute;
-  top: 155px;
+  top: 160px;
   right: 0;
   height: 30px;
   width: 30px;
   padding: 5px;
   box-sizing: border-box;
-  background-color: #f4f6ec;
-  box-shadow: -10px 0px 20px #f4f6ec;
+  background-color: #f5f7fb;
+  box-shadow: -10px 0px 20px #f5f7fb;
   -webkit-transition: .5s all linear;
   -moz-transition: .5s all linear;
   -o-transition: .5s all linear;

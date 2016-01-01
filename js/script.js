@@ -68,15 +68,16 @@ $("#datepicker").datepicker(
 
     $(".control-hover").hover(
       function() {
-        $(this).find(':first-child').addClass('non-transparent');
-        $(this).find('p, h3').addClass('increase-fontSize');
+        $(this).find('p').removeClass('transparent')
+        .addClass('increase-fontSize');
+
         $(this).children('.red-square').css('background-color', '#b36665');
         },
 
       function() {
-        $(this).find(':first-child').removeClass('non-transparent');
+        $(this).find('p').addClass('transparent');
         /*$(this).find('p, h3').removeClass('increase-fontSize'); */
-        $(this).children('.red-square').css('background-color', '#f4f6ec');
+        $(this).children('.red-square').css('background-color', '#f5f7fb');
       }
     ); // end of hover on a line
 
@@ -91,11 +92,11 @@ $("#datepicker").datepicker(
                                  .css('box-shadow', '-10px 0px 20px #dbd8c9');
       },
       function() {
-        $(this).css('backgroundColor', '#f4f6ec')
-               .css('border', '2px solid #f4f6ec');
+        $(this).css('backgroundColor', '#f5f7fb')
+               .css('border', '2px solid #f5f7fb');
 
-        $(this).find('.ellipsis').css('backgroundColor', '#f4f6ec')
-                                 .css('box-shadow', '-10px 0px 20px #f4f6ec');
+        $(this).find('.ellipsis').css('backgroundColor', '#f5f7fb')
+                                 .css('box-shadow', '-10px 0px 20px #f5f7fb');
       }
     ); // end of hover on item
 
