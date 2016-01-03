@@ -317,40 +317,40 @@ RED LINES
 SELECTED BLOCK
 ***********/
 
+.wrapper {
+  width: 75%;
+  margin: 0 auto;
+  /*border: 1px solid green; */
+}
+
 .slct-container,
 .tags-container {
   position: relative;
   display: inline-block;
-  top: 60px;
+  margin-top: 60px;
 }
 
 .slct-container {
-  width: 70%;
-  /*height: 300px; */
-  float: left;
+  width: 74%;
   /*border: 1px solid blue; */
 }
 
 .tags-container {
+  display: inline-block;
+  vertical-align: top;
   margin-left: 10px;
-  width: 25%;
-  height: 700px;
+  width: 23%;
+  height: 800px;
   background-color: #b5bbcd;
   border: 2px solid #f2be21;
-  margin-right: 30px;
-  float: right;
+  margin-right: 10px;
 }
 
 .selected,
 .hover-sheet,
 .divider {
-  width: 75%;
-}
-
-.selected,
-.divider,
-.hover-sheet {
-  margin-left: 100px;
+  width: 86%;
+  margin-left: 10px;
 }
 
 .selected {
@@ -359,17 +359,17 @@ SELECTED BLOCK
 }
 
 #brown, #yellow {
-  border: 1px solid #f6f4d4;
   display: inline-block;
   float: left;
   height: 70px;
   box-sizing: border-box;
+  border: 1px solid #f6f4d4;
 }
 
 #brown {
-  background-color: #d7cea4;
   width: 20%;
   margin: 0;
+  background-color: #d7cea4;
 }
 
 #yellow {
@@ -384,35 +384,33 @@ SELECTED BLOCK
   color: #553a26;
   }
 
-/******* items ******/
+/******* ITEMS ******/
 
 .control-hover {
-  border: 1px solid green; 
-/*  overflow: hidden; */
   position: relative;
+  padding: 0;
+  margin-top: 20px;
+/*  border: 1px solid green; */
 }
 
 .item {
   width: 100%;
+  margin: 0;
+  padding: 0;
   float: left;
-  height: 180px;
-  margin-top: 10px;
-  border: 1px solid red;
+  height: 185px;
   overflow: hidden;
-}
-
-
-
-.non-transparent {
-  opacity: 1;
+/*  border: 1px solid red; */
 }
 
 .day-circle {
+  display: inline-block;
+  float: left;
   width: 120px;
   padding: 15px;
   vertical-align: top;
   box-sizing: border-box;
-/*  border: 1px solid red; */
+/*  border: 1px solid orange; */
 }
 
 .main {
@@ -421,11 +419,9 @@ SELECTED BLOCK
 
 .text-container {
   display: inline-block;
-  position: relative;
-  /* border: 1px solid blue; */
-/*  width: 75%; */
-  width: 75%;
-/*  border: 1px solid red; */
+  max-width: 75%;
+  margin-top: 20px;
+/*  border: 1px solid blue; */
 }
 
 .non-transparent {
@@ -434,9 +430,9 @@ SELECTED BLOCK
 
 .hover-sheet {
   position: relative;
-  top: 5px;
   left: 0;
-  height: 215px;
+  top: -15px;
+  height: 229px;
   border: 2px solid #f5f7fb;
   border-radius: 70px;
   float: left;
@@ -450,7 +446,12 @@ SELECTED BLOCK
 .divider {
   height: 3px;
   background-color: #e3e4d5;
-  margin-top: 25px;
+  margin-top: 20px;
+  -webkit-transition: .25s all linear;
+  -moz-transition: .25s all linear;
+  -o-transition: .25s all linear;
+  transition: .25s all linear;
+  -webkit-font-smoothing: antialiased;
 }
 
 .red-square {
@@ -473,8 +474,8 @@ SELECTED BLOCK
 
 .ellipsis {
   position: absolute;
-  top: 160px;
-  right: 0;
+  top: 150px;
+  right: 20px;
   height: 30px;
   width: 30px;
   padding: 5px;
@@ -505,7 +506,7 @@ INNER PAGES
   width: 50%;
   margin-left: 470px;
   margin-top: 20px;
-/**  border: 1px solid blue; **/
+  border: 1px solid blue;
 }
 
 .left-bar {
