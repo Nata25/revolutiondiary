@@ -217,11 +217,6 @@ HERO AREA
   z-index: 1;
 }
 
-#hero img {
-  margin: 0;
-  width: 120%;
-}
-
 #dates {
   position: absolute;
   top: 70px;
