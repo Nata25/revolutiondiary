@@ -350,35 +350,12 @@ SELECTED BLOCK
 }
 
 .selected {
-  height: 70px;
-  border: 3px solid #b3bcee;
+  margin-bottom: 50px;
+  font-family: Roboto Slab;
+  font-size: 45px;
+  text-align: center;
+  color: #606baf;
 }
-
-#brown, #yellow {
-  display: inline-block;
-  float: left;
-  height: 70px;
-  box-sizing: border-box;
-  border: 1px solid #f6f4d4;
-}
-
-#brown {
-  width: 20%;
-  margin: 0;
-  background-color: #d7cea4;
-}
-
-#yellow {
-  display: inline-block;
-  width: 80%;
-  margin: 0;
-  padding: 17px;
-  background-color: #f3e8af;
-  text-align: right;
-  font-family: 'PT Sans Caption', sans-serif;
-  font-size: 24px;
-  color: #553a26;
-  }
 
 /******* ITEMS ******/
 
