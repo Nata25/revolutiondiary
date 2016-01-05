@@ -102,6 +102,8 @@ $("#datepicker").datepicker(
             'box-shadow': '-10px 0px 20px #dcd9d4',
           });
 
+        $(this).parent().prev('.divider').css('backgroundColor', '#f5f7fb');
+
       },
       function() {
         $(this).css('backgroundColor', '#f5f7fb')
@@ -113,6 +115,8 @@ $("#datepicker").datepicker(
             'backgroundColor': '#f5f7fb',
             'box-shadow': '-10px 0px 20px #f5f7fb'
           });
+
+          $(this).parent().prev('.divider').css('backgroundColor', '#e3e4d5');
 
       } // end of second hover argument
     ); // end of hover on item

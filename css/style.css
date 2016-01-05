@@ -402,8 +402,8 @@ SELECTED BLOCK
 .hover-sheet {
   position: relative;
   left: 0;
-  top: -15px;
-  height: 200px;
+  top: -20px;
+  height: 205px;
   border: 2px solid #f5f7fb;
   border-radius: 70px;
   float: left;
@@ -418,11 +418,10 @@ SELECTED BLOCK
   height: 3px;
   background-color: #e3e4d5;
   margin-top: 20px;
-  -webkit-transition: .25s all linear;
-  -moz-transition: .25s all linear;
-  -o-transition: .25s all linear;
-  transition: .25s all linear;
-  -webkit-font-smoothing: antialiased;
+  -webkit-transition: .5s all linear;
+  -moz-transition: .5s all linear;
+  -o-transition: .5s all linear;
+  transition: .5s all linear;
 }
 
 .red-square {
