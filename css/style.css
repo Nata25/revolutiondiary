@@ -469,14 +469,16 @@ SELECTED BLOCK
 /*** Overflow Functionality ******/
 
 .ellipsis {
+  display: block;
   position: absolute;
   top: 150px;
-  right: 20px;
+  right: 15px;
   height: 30px;
   width: 30px;
   padding: 5px;
   box-sizing: border-box;
   background-color: #f5f7fb;
+  color: #bda492;
   box-shadow: -10px 0px 20px #f5f7fb;
   -webkit-transition: .5s all linear;
   -moz-transition: .5s all linear;
