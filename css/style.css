@@ -384,6 +384,17 @@ SELECTED BLOCK
 /*  border: 1px solid orange; */
 }
 
+.day-circle-shadow {
+  position: absolute;
+  background-color: #7a715a;
+  opacity: .3;
+  -webkit-transition: .5s all linear;
+  -moz-transition: .5s all linear;
+  -o-transition: .5s all linear;
+  transition: .5s all linear;
+  border: 1px solid blue;
+}
+
 .main {
   width: 170px;
 }

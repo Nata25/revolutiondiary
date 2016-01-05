@@ -101,6 +101,11 @@ $("#datepicker").datepicker(
             'background-color': '#dcd9d4',
             'box-shadow': '-10px 0px 20px #dcd9d4',
           });
+
+        var curImage = $(this).find('.day-circle').attr('src');
+        var newImage = curImage.replace('.png', '-transparent.png');
+        $(this).find('.day-circle').attr('src', newImage); 
+
       },
       function() {
         $(this).css('backgroundColor', '#f5f7fb')
@@ -112,6 +117,11 @@ $("#datepicker").datepicker(
             'backgroundColor': '#f5f7fb',
             'box-shadow': '-10px 0px 20px #f5f7fb'
           });
+
+        var curImage = $(this).find('.day-circle').attr('src');
+        var newImage = curImage.replace('-transparent.png', '.png');
+        $(this).find('.day-circle').attr('src', newImage);
+
       } // end of second hover argument
     ); // end of hover on item
 
