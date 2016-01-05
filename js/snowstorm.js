@@ -23,7 +23,7 @@ var snowStorm = (function(window, document) {
   this.useGPU = true;             // Enable transform-based hardware acceleration, reduce CPU load.
   this.className = null;          // CSS class name for further customization on snow elements
   this.excludeMobile = true;      // Snow is likely to be bad news for mobile phones' CPUs (and batteries.) By default, be nice.
-  this.flakeBottom = null;        // Integer for Y axis snow limit, 0 or null for "full-screen" snow effect
+  this.flakeBottom = 0;        // Integer for Y axis snow limit, 0 or null for "full-screen" snow effect
   this.followMouse = false;        // Snow movement can respond to the user's mouse
   this.snowColor = '#fff';        // Don't eat (or use?) yellow snow.
   this.snowCharacter = '&bull;';  // &bull; = bullet, &middot; is square on some systems etc.
@@ -43,7 +43,7 @@ var snowStorm = (function(window, document) {
   this.flakeHeight = 8;           // Max pixel height reserved for snow element
   this.vMaxX = 5;                 // Maximum X velocity range for snow
   this.vMaxY = 4;                 // Maximum Y velocity range for snow
-  this.zIndex = 20;                // CSS stacking order applied to each snowflake
+  this.zIndex = 30;                // CSS stacking order applied to each snowflake
 
   // --- "No user-serviceable parts inside" past this point, yadda yadda ---
 
@@ -71,8 +71,6 @@ var snowStorm = (function(window, document) {
   }()),
   didInit = false,
   docFrag = document.createDocumentFragment();
-
-  storm.flakeBottom = '900px';
 
   features = (function() {
 

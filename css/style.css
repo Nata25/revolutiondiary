@@ -371,7 +371,7 @@ SELECTED BLOCK
   float: left;
   height: 185px;
   overflow: hidden;
-/*  border: 1px solid red; */
+  /*border: 1px solid red; */
 }
 
 .day-circle {
@@ -382,17 +382,6 @@ SELECTED BLOCK
   vertical-align: top;
   box-sizing: border-box;
 /*  border: 1px solid orange; */
-}
-
-.day-circle-shadow {
-  position: absolute;
-  background-color: #7a715a;
-  opacity: .3;
-  -webkit-transition: .5s all linear;
-  -moz-transition: .5s all linear;
-  -o-transition: .5s all linear;
-  transition: .5s all linear;
-  border: 1px solid blue;
 }
 
 .main {
@@ -414,7 +403,7 @@ SELECTED BLOCK
   position: relative;
   left: 0;
   top: -15px;
-  height: 229px;
+  height: 200px;
   border: 2px solid #f5f7fb;
   border-radius: 70px;
   float: left;
