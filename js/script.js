@@ -68,7 +68,8 @@ $("#datepicker").datepicker(
 
     $(".control-hover").hover(
       function() {
-        $(this).find('p').removeClass('transparent')
+        $(this).find('p')
+          .removeClass('transparent')
           .addClass('increase-fontSize');
 
         $(this).children('.red-square').css('background-color', '#b36665');
@@ -78,7 +79,7 @@ $("#datepicker").datepicker(
 
       function() {
         $(this).find('p').addClass('transparent');
-        /*$(this).find('p, h3').removeClass('increase-fontSize'); */
+        $(this).find('p').removeClass('increase-fontSize');
         $(this).children('.red-square').css('background-color', '#f5f7fb');
 
         $(this).find('.ellipsis').css('color', '#bda492');
