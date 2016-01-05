@@ -404,10 +404,11 @@ SELECTED BLOCK
   left: 0;
   top: -20px;
   height: 205px;
-  border: 2px solid #f5f7fb;
+  border: 1px solid #f5f7fb;
   border-radius: 70px;
   float: left;
   background-color: #f5f7fb;
+  box-sizing: border-box;
   -webkit-transition: .5s background-color linear;
   -moz-transition: .5s background-color linear;
   -o-transition: .5s background-color linear;
@@ -415,6 +416,7 @@ SELECTED BLOCK
 }
 
 .divider {
+  display: none;
   height: 3px;
   background-color: #e3e4d5;
   margin-top: 20px;
