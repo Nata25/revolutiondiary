@@ -94,7 +94,7 @@ $("#datepicker").datepicker(
           {
             'backgroundColor': '#dcd9d4',
             'border': '1px solid #f6efe0',
-            'box-shadow': '0 0 7px #b3bcee'
+            'box-shadow': '0 0 4px #b3bcee'
           });
 
         $(this).find('.ellipsis').css(
@@ -106,8 +106,8 @@ $("#datepicker").datepicker(
       },
       function() {
         $(this).css('backgroundColor', '#f5f7fb')
-               .css('border', '2px solid #f5f7fb')
-               .css('box-shadow', '0 0 7px #f5f7fb');
+               .css('border', '1px solid #f5f7fb')
+               .css('box-shadow', '0 0 4px #f5f7fb');
 
         $(this).find('.ellipsis').css(
           {
