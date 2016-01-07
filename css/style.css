@@ -360,9 +360,9 @@ SELECTED BLOCK
 
 .control-hover {
   position: relative;
+  height: 200px;
   padding: 0;
   margin-top: 20px;
-
 /*  border: 1px solid green; */
 }
 
@@ -443,23 +443,12 @@ SELECTED BLOCK
   transition: .5s background-color linear, .1s border linear;
 }
 
-.divider {
-  display: none;
-  height: 3px;
-  background-color: #e3e4d5;
-  margin-top: 20px;
-  -webkit-transition: .5s all linear;
-  -moz-transition: .5s all linear;
-  -o-transition: .5s all linear;
-  transition: .5s all linear;
-}
-
 .red-square {
   display: inline-block;
-  /*display: none; */
   width: 13px;
   height: 18px;
-  margin: 100px 30px 80px 30px;
+  margin-top: 90px;
+  margin-left: 30px;
   border-radius: 2px;
   background-color: #f5f7fb;
   -webkit-transition: background-color .25s;
