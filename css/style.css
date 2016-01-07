@@ -79,10 +79,6 @@ h3 {
   color: #838692;
 }
 
-.transparent {
-  opacity: .5;
-}
-
 .increase-fontSize {
   font-size: 1.15em;
   -webkit-transform: translate(-2px, -2px);
@@ -353,7 +349,7 @@ SELECTED BLOCK
 }
 
 .selected {
-  margin-bottom: 50px;
+  margin-bottom: 70px;
   font-family: Roboto Slab;
   font-size: 45px;
   text-align: center;
@@ -366,6 +362,10 @@ SELECTED BLOCK
   position: relative;
   padding: 0;
   margin-top: 20px;
+  -webkit-transition: .5s all linear;
+  -moz-transition: .5s all linear;
+  -o-transition: .5s all linear;
+  transition: .5s all linear;
 /*  border: 1px solid green; */
 }
 
@@ -404,6 +404,18 @@ SELECTED BLOCK
   opacity: 1;
 }
 
+.mid-transparent {
+  opacity: .5;
+}
+
+.transparent {
+  opacity: 0;
+}
+
+.come-in {
+  transform: translateY(-15px);
+}
+
 .hover-sheet {
   position: relative;
   left: 0;
@@ -413,7 +425,7 @@ SELECTED BLOCK
   border-radius: 70px;
   float: left;
   background-color: #f5f7fb;
-  box-shadow: 0 0 4px solid #f5f7fb;
+  box-shadow: 0 0 5px solid #f5f7fb;
   -webkit-transition: .5s background-color linear;
   -moz-transition: .5s background-color linear;
   -o-transition: .5s background-color linear;

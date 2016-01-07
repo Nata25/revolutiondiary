@@ -64,12 +64,15 @@ $("#datepicker").datepicker(
 
     }); // end of .datepicker()
 
-    // HOVER ITEMS IN SELECTED BLOCK
+
+// *****************************
+// HOVER ITEMS IN SELECTED BLOCK
+// *****************************
 
     $(".control-hover").hover(
       function() {
         $(this).find('p')
-          .removeClass('transparent')
+          .removeClass('mid-transparent')
           .addClass('increase-fontSize');
 
         $(this).children('.red-square').css('background-color', '#b36665');
@@ -78,7 +81,7 @@ $("#datepicker").datepicker(
         },
 
       function() {
-        $(this).find('p').addClass('transparent');
+        $(this).find('p').addClass('mid-transparent');
         $(this).find('p').removeClass('increase-fontSize');
         $(this).children('.red-square').css('background-color', '#f5f7fb');
 
@@ -119,7 +122,25 @@ $("#datepicker").datepicker(
       } // end of second hover argument
     ); // end of hover on item
 
-    // scroll effect on date block
+
+// **************************
+// FADE ON VISIBLE ITEMS
+// **************************
+
+    $(window).scroll(function() {
+      $('.control-hover').each(function (i, el) {
+        var el = $(el);
+        if (el.visible(true)) {
+          el.removeClass('transparent');
+          el.addClass('non-transparent come-in');
+        }
+      }); // end of each
+    }); // end of scroll
+
+
+// **************************
+// SCROLL EFFECT ON DATE BLOCK (INNER PAGES)
+// **************************
 
     $(window).scroll(function () {
       if ($(this).scrollTop() > 20) {
