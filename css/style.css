@@ -443,6 +443,12 @@ SELECTED BLOCK
   transition: .5s background-color linear, .1s border linear;
 }
 
+.hover-sheet:hover {
+  background-color: #dcd9d4;
+  border: 1px solid #f6efe0;
+  box-shadow: 0 0 4px #b3bcee;
+}
+
 .red-square {
   display: inline-block;
   width: 13px;
@@ -464,7 +470,7 @@ SELECTED BLOCK
 .ellipsis {
   display: block;
   position: absolute;
-  top: 150px;
+  top: 147px;
   right: 15px;
   height: 30px;
   width: 30px;
@@ -472,7 +478,13 @@ SELECTED BLOCK
   box-sizing: border-box;
   background-color: #f5f7fb;
   color: #bda492;
+  font-size: 1.1em;
   box-shadow: -10px 0px 20px #f5f7fb;
+/*  -webkit-transition: font-size .25s linear, background-color .5s linear, color .5s linear, box-shadow .5s linear;
+  -moz-transition: font-size .25s linear, background-color .5s linear, color .5s linear, box-shadow .5s linear;
+  -o-transition: font-size .25s linear, background-color .5s linear, color .5s linear, box-shadow .5s linear;
+  transition: font-size .25s linear, background-color .5s linear, color .5s linear, box-shadow .5s linear;
+*/
   -webkit-transition: .5s all linear;
   -moz-transition: .5s all linear;
   -o-transition: .5s all linear;

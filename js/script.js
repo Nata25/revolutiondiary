@@ -77,15 +77,18 @@ $("#datepicker").datepicker(
 
         $(this).children('.red-square').css('background-color', '#b36665');
 
-        $(this).find('.ellipsis').css('color', '#553a26');
-        },
+        $(this).find('.ellipsis')
+                  .css('color', '#715139')
+                  .addClass('increase-fontSize');
+                },
 
       function() {
         $(this).find('p').addClass('mid-transparent');
         $(this).find('p').removeClass('increase-fontSize');
         $(this).children('.red-square').css('background-color', '#f5f7fb');
 
-        $(this).find('.ellipsis').css('color', '#bda492');
+        $(this).find('.ellipsis').css('color', '#bda492')
+                  .removeClass('increase-fontSize');
       }
     ); // end of hover on a line
 
@@ -93,28 +96,16 @@ $("#datepicker").datepicker(
 
     $('.hover-sheet').hover(
       function() {
-        $(this).css(
+
+        $(this).find('.ellipsis').css(
           {
             'backgroundColor': '#dcd9d4',
-            'border': '1px solid #f6efe0',
-            'box-shadow': '0 0 4px #b3bcee'
-          });
-
-        $(this).find('.ellipsis').css(
-          {
-            'background-color': '#dcd9d4',
             'box-shadow': '-10px 0px 20px #dcd9d4',
           });
-
       },
       function() {
-        $(this).css('backgroundColor', '#f5f7fb')
-               .css('border', '1px solid #f5f7fb')
-               .css('box-shadow', '0 0 4px #f5f7fb');
-
         $(this).find('.ellipsis').css(
           {
-            'color': '#b29b8a',
             'backgroundColor': '#f5f7fb',
             'box-shadow': '-10px 0px 20px #f5f7fb'
           });
