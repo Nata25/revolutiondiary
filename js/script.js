@@ -127,12 +127,24 @@ $("#datepicker").datepicker(
 // FADE ON VISIBLE ITEMS
 // **************************
 
-    $(window).scroll(function() {
-      $('.control-hover').each(function (i, el) {
+  var win = $(window);
+  var allItems = $(".control-hover");
+
+  // Already visible items
+  allItems.each(function(e, el) {
+    var el = $(el);
+    if (el.visible(true)) {
+      el.addClass('already-visible');
+    }
+  });
+
+  // Fade and move up visible items on initial scrolling
+
+    win.scroll(function() {
+      allItems.each(function (i, el) {
         var el = $(el);
         if (el.visible(true)) {
-          el.removeClass('transparent');
-          el.addClass('non-transparent come-in');
+          el.addClass('come-in');
         }
       }); // end of each
     }); // end of scroll

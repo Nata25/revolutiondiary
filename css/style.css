@@ -362,10 +362,7 @@ SELECTED BLOCK
   position: relative;
   padding: 0;
   margin-top: 20px;
-  -webkit-transition: .5s all linear;
-  -moz-transition: .5s all linear;
-  -o-transition: .5s all linear;
-  transition: .5s all linear;
+
 /*  border: 1px solid green; */
 }
 
@@ -413,7 +410,21 @@ SELECTED BLOCK
 }
 
 .come-in {
-  transform: translateY(-15px);
+  -webkit-animation: come-in 0.8s ease forwards;
+}
+
+@-webkit-keyframes come-in {
+  from {
+      transform: translateY(15px);
+      opacity: 0;
+  }
+  to { transform: translateY(0);
+       opacity: 1;
+      }
+}
+
+.already-visible {
+  animation: none;
 }
 
 .hover-sheet {
