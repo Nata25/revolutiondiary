@@ -10,8 +10,37 @@ $(function() {
 console.log(sessionStorage.getItem('dayStored'));
 console.log(sessionStorage.getItem('monthStored'));
 
-$(".day").html(sessionStorage.dayStored);
-$(".month").html(sessionStorage.monthStored);
+// *********************
+// DATE BLOCK
+// *********************
+
+// Helper to convert numeric months into string
+function numToMonth(num) {
+  if (num == 11) {
+    return "листопада";
+  }
+  else if (num == 12) {
+    return "грудня";
+  }
+  else if (num == 1){
+    return "січня";
+  }
+  else {
+    return "лютого";
+  }
+}
+
+// Fill the fields of the block taking dates from URL
+
+var currentURL = window.location.pathname;
+
+if (currentURL.slice(-10, -5) !== 'index') {
+    var day = currentURL.slice(-15, -13);
+    var num_month = currentURL.slice(-12, -10);
+    var month = numToMonth(num_month);
+    $(".day").html(day);
+    $(".month").html(month);
+  }
 
 // *********************
 // DATEPICKER
@@ -26,39 +55,22 @@ $("#datepicker").datepicker(
       minDate: new Date(2013, 10, 21),
       maxDate: new Date(2014, 1, 22),
 
-    // get a date from datepicker:
+      // get a date from datepicker:
 
       onSelect: (function (dateText) {
         var dateChosen = dateText.split(" ");
         var day = dateChosen[0];
-        var month = dateChosen[1];
+        var num_month = dateChosen[1];
 
-    // change link on go-button according to the selected date
-        var newURL = "file://localhost/Users/yuriybesarab/Git/Days/dates/11/d" + day + "-" + month + "-2015.html";
+      // change link on go-button according to the selected date
+        var newURL = "file://localhost/Users/yuriybesarab/Git/Days/dates/11/d" + day + "-" + num_month + "-2015.html";
         $(".link-to-page").attr('href', newURL);
 
-    // format date to paste into date-block
-
-        if (month == 11) {
-          month = "листопада";
-        }
-        else if (month == 12) {
-          month = "грудня";
-        }
-        else if (month == 1){
-          month = "січня";
-        }
-        else {
-          month = "лютого";
-        }
-
-        // update storage
-        sessionStorage.setItem('dayStored', day);
-        sessionStorage.setItem('monthStored', month);
+        month = numToMonth(num_month);
 
         // update date-block fields on click
-        $(".day").html(sessionStorage.dayStored);
-        $(".month").html(sessionStorage.monthStored);
+        $(".day").html(day);
+        $(".month").html(month);
 
       }) // end of onSelect
 

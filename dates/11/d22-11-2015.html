@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Дати. Дні</title>
-  <link href='https://fonts.googleapis.com/css?family=Roboto:100|Roboto+Slab:100|Roboto+Condensed|Halant:300|PT+Sans+Caption|Open+Sans:400,300|Open+Sans+Condensed:300&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Tinos|PT+Serif|Roboto+Slab:100|Halant:300|PT+Sans+Caption|Open+Sans:400,300|Open+Sans+Condensed:300&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
   <link type="text/css" rel="stylesheet" href="../../css/style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
@@ -13,7 +13,7 @@
   <link href="../../js/jquery-ui-1.11.4.custom/jquery-ui.min.css" rel="Stylesheet" type="text/css">
   <script src="../../js/jquery-ui-1.11.4.custom/jquery-ui.js"></script>
   <script src="../../js/datepicker-uk.js"></script>
-  <script src="../../js/datepicker-main.js"></script>
+  <script src="../../js/script.js"></script>
 
 </head>
 
@@ -21,38 +21,76 @@
 
 <body>
 
-<!-- BACKGROUND -->
+  <!-- TOP BAR -->
 
- <div class="bg-sheet">
+  <div class="top-bar">
 
-    <div class="bg-shadow" id="left"></div>
-    <div class="bg-shadow" id="right"></div>
+    <!-- DATEPICKER FIELDS -->
 
-<!-- DATEPICKER FIELDS -->
+    <div class="fixed">
 
-    <div id="leftup-block">
-        <div class="date-block" id="date"></div>
+      <div class="date-block grey light day"></div>
 
-        <div class="date-block" id="month"></div>
+      <div class="date-block grey light month"></div>
 
-        <img class="date-block" id="go-button" title="Перейти до запису"
-      src="../../Pics/go-button.jpg" />
+      <!-- 'GO' button -->
+      <a class="link-to-page" title="Перейти до запису" href="dates/11/d21-11-2015.html">
+        <div class="date-block button">
+          <div class="arrow"></div>
+        </div>
+      </a>
+      <!-- /'GO' button -->
+
+     </div>
+    <!-- /DATEPICKER FIELDS -->
+
+    <!-- DATES ON TOP -->
+
+    <div class="title-date">
+      <h1 class="grey">21.11.2013 &ndash; 20.03.2014</h1>
+    </div>
+
+    <!-- /DATES ON TOP -->
+
+  </div>
+
+  <!-- /TOP BAR -->
+
+  <!-- VERTICAL LOGO & LINK TO A HOME PAGE -->
+
+  <div class="fixed" id="vertical-logo">
+    <a title="На головну" href="../../index.html"><img src="../../Pics/dates-v-s.png" /></a>
+  </div>
+
+  <!-- SIDEBAR -->
+
+  <div class="sidebar fixed sidebar-container transparent"></div>
+  <div class="sidebar fixed">
+    <div id="choose-date">Оберіть дату:</div>
+
+    <div id="datepicker"></div>
+
+    <p>Сайт присвячено подіям, що розгортались у Києві та інших містах України з
+      листопада 2013 до березня 2014 років.
+    Усі матеріали є витягами з особистого щоденника та не претендують на вичерпність
+    і об'єктивність.<br />
+     <a href="#">Детальніше...</a></p>
+
+  </div>
+
+  <!-- /SIDEBAR -->
+
+  <!-- DIARY NOTES -->
+
+  <div class="container">
+
+    <div class="left-bar">
+
+      <img class="day-circle" src="../../Pics/nums/21.png" />
 
     </div>
 
-<!-- /DATEPICKER FIELDS -->
-
-<!-- DATES ON TOP -->
-
-    <div id="title-date">
-      <h1>21.11.2013&nbsp;&ndash;&nbsp;20.03.2015</h3>
-    </div>
-
-<!-- /DATES ON TOP -->
-
-<!-- container -->
-
-    <div class="container">
+    <div class="text-container">
       <p> 22 листопада, п’ятниця. </p>
       <p>Рано-ранісінько УП повідомила, що суд (якийсь) заборонив мітингувальникам
       на Майдані ставити намети. Тобто збиратися можна, а намети – зась. Що вже є
@@ -83,14 +121,12 @@
        <p>Удень Азаров виступав у парламенті з поясненнями, скаржився на якісь
        економічні втрати від співпраці із ЄС – доброго ранку!), опозіонери
        хотіли зажадати його відставки, але жаданням усе й закінчилося. </p>
+     </div>
+     <!-- /end of text container -->
 
-        </div>
+   </div>
 
-        <!-- /container -->
-
-  </div>
-
-<!-- /BACKGROUND -->
+<!-- /DIARY NOTES -->
 
 </body>
 
