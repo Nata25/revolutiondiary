@@ -199,9 +199,8 @@ DATES ON TOP
 ***********/
 
 .title-date {
-  position: relative;
   margin: 5px auto;
-  left: 20%;
+  text-align: center;
 }
 
 /**********
@@ -259,6 +258,10 @@ SIDEBAR
 
 .fixed {
   position: fixed;
+}
+
+.absolute {
+  position: absolute;
 }
 
 #choose-date {
