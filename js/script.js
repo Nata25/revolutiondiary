@@ -2,14 +2,6 @@
 
 $(function() {
 
-// ** UNCOMMENT TO CLEAN STORAGE
-//sessionStorage.removeItem('dayStored');
-//sessionStorage.removeItem('monthStored');
-
-// UNCOMMENT TO TEST:
-console.log(sessionStorage.getItem('dayStored'));
-console.log(sessionStorage.getItem('monthStored'));
-
 // *********************
 // DATE BLOCK
 // *********************
@@ -30,17 +22,15 @@ function numToMonth(num) {
   }
 }
 
-// Fill the fields of the block taking dates from URL
-
 var currentURL = window.location.pathname;
 
-if (currentURL.slice(-10, -5) !== 'index') {
-    var day = currentURL.slice(-15, -13);
-    var num_month = currentURL.slice(-12, -10);
-    var month = numToMonth(num_month);
-    $(".day").html(day);
-    $(".month").html(month);
-  }
+if (currentURL.slice(-10, -5) !== "index") {
+  var day = currentURL.slice(-15, -13);
+  var num_month = currentURL.slice(-12, -10);
+  var month = numToMonth(num_month);
+  $(".day").html(day);
+  $(".month").html(month);
+}
 
 // *********************
 // DATEPICKER
@@ -50,27 +40,34 @@ if (currentURL.slice(-10, -5) !== 'index') {
 
 $("#datepicker").datepicker(
     {
-      dateFormat: "d m",
+      dateFormat: "d MM m",
+      monthNames: ["січня", "лютого", "березня", "квітня", "червня", "травня", "липня", "серпня", "вересня", "жовтня", "листопада", "грудня"],
       defaultDate: new Date(2013, 10, 21),
       minDate: new Date(2013, 10, 21),
-      maxDate: new Date(2014, 1, 22),
+      maxDate: new Date(2014, 2, 22),
 
       // get a date from datepicker:
 
       onSelect: (function (dateText) {
-        var dateChosen = dateText.split(" ");
-        var day = dateChosen[0];
-        var num_month = dateChosen[1];
+        var dateString = dateText.split(" ");
+        var day = dateString[0];
+        var month = dateString[1];
+        var numMonth = dateString[2];
+        var dateInNums = dateString[0] + dateString[2];
+
+    //    d = $.datepicker.parseDate("dm", dateInNums);
 
       // change link on go-button according to the selected date
-        var newURL = "file://localhost/Users/yuriybesarab/Git/Days/dates/11/d" + day + "-" + num_month + "-2015.html";
+        var newURL = "file://localhost/Users/yuriybesarab/Git/Days/dates/11/d" + day + "-" + numMonth + "-2015.html";
         $(".link-to-page").attr('href', newURL);
-
-        month = numToMonth(num_month);
 
         // update date-block fields on click
         $(".day").html(day);
         $(".month").html(month);
+
+        // update currentDate in sessionStorage
+
+        // ********
 
       }) // end of onSelect
 
