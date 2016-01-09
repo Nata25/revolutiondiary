@@ -27,7 +27,7 @@ function numToMonth(num) {
     return "лютого";
   }
   else {
-    return "березня"ж
+    return "березня";
   }
 }
 
