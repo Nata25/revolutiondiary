@@ -1,5 +1,11 @@
 // Document.ready()
 
+// sessionStorage.removeItem("currentDate"); // uncomment to clean storage
+
+if (!(sessionStorage.getItem("currentDate"))) {
+  sessionStorage.setItem("currentDate", "21 листопада (11) 2013");
+}
+
 $(function() {
 
 // *********************
@@ -17,61 +23,77 @@ function numToMonth(num) {
   else if (num == 1){
     return "січня";
   }
-  else {
+  else if (num == 2){
     return "лютого";
   }
-}
-
-var currentURL = window.location.pathname;
-
-if (currentURL.slice(-10, -5) !== "index") {
-  var day = currentURL.slice(-15, -13);
-  var num_month = currentURL.slice(-12, -10);
-  var month = numToMonth(num_month);
-  $(".day").html(day);
-  $(".month").html(month);
+  else {
+    return "березня"ж
+  }
 }
 
 // *********************
 // DATEPICKER
 // *********************
 
-  // initialize datepicker
+//*** Initialize datepicker. Set dates range, date format.
 
 $("#datepicker").datepicker(
     {
-      dateFormat: "d MM m",
-      monthNames: ["січня", "лютого", "березня", "квітня", "червня", "травня", "липня", "серпня", "вересня", "жовтня", "листопада", "грудня"],
-      defaultDate: new Date(2013, 10, 21),
+      dateFormat: "d MM (mm) yy",
       minDate: new Date(2013, 10, 21),
       maxDate: new Date(2014, 2, 22),
+      monthNames: ["січня", "лютого", "березня", "квітня", "червня", "травня", "липня", "серпня", "вересня", "жовтня", "листопада", "грудня"],
 
-      // get a date from datepicker:
-
+//*** Get a date from datepicker:
       onSelect: (function (dateText) {
         var dateString = dateText.split(" ");
         var day = dateString[0];
         var month = dateString[1];
-        var numMonth = dateString[2];
+        var numMonth = dateString[2].slice(1, 3);
+        console.log(numMonth);
         var dateInNums = dateString[0] + dateString[2];
 
-    //    d = $.datepicker.parseDate("dm", dateInNums);
+//*** Store selected date in storage to grab it on return to index.html:
+        sessionStorage.setItem("currentDate", dateText);
+        console.log("inside select: " + sessionStorage.getItem("currentDate"));
 
-      // change link on go-button according to the selected date
-        var newURL = "file://localhost/Users/yuriybesarab/Git/Days/dates/11/d" + day + "-" + numMonth + "-2015.html";
+//*** Change link on go-button according to the selected date
+        var newURL = "file://localhost/Users/yuriybesarab/Git/Days/dates/11/d" + day + "-" + numMonth + "-2013.html";
         $(".link-to-page").attr('href', newURL);
 
-        // update date-block fields on click
+//*** Update date-block fields on click
         $(".day").html(day);
         $(".month").html(month);
 
-        // update currentDate in sessionStorage
-
-        // ********
-
       }) // end of onSelect
 
-    }); // end of .datepicker()
+    }); // end of .datepicker() initialization
+
+//***  Set dates into the input fields.
+//***  Set the current date.
+
+    console.log("outside select: " + sessionStorage.getItem("currentDate"));
+
+    var currentURL = window.location.pathname;
+
+  //For inner pages:
+    if (currentURL.slice(-10, -5) !== "index") {
+      var stringDate = currentURL.slice(-15, -5);
+      var day = currentURL.slice(-15, -13);
+      var num_month = currentURL.slice(-12, -10);
+      var month = numToMonth(num_month);
+      var dateDate = $.datepicker.parseDate("dd-mm-yy", stringDate);
+      $("#datepicker").datepicker("setDate", dateDate);
+      $(".day").html(day);
+      $(".month").html(month);
+    }
+  //For home page
+    else {
+      $("#datepicker").datepicker("setDate", sessionStorage.getItem("currentDate"));
+      var dateStored = sessionStorage.getItem("currentDate").split(" ");
+      $(".day").html(dateStored[0]);
+      $(".month").html(dateStored[1]);
+    }
 
 
 // *****************************
