@@ -6,6 +6,9 @@ if (!(sessionStorage.getItem("currentDate"))) {
   sessionStorage.setItem("currentDate", "21 листопада (11) 2013");
 }
 
+console.log(window.innerWidth);
+console.log(window.innerHeight);
+
 $(function() {
 
 // *********************
