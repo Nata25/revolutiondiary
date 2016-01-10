@@ -78,6 +78,14 @@ $("#datepicker").datepicker(
     }
 
 
+
+// *****************************
+// ALIGN MAIN IMAGE (HERO AREA)
+// *****************************
+
+  var hght = window.innerHeight - 110;
+  $('.hero').css("height", hght);
+
 // *****************************
 // HOVER ITEMS IN SELECTED BLOCK
 // *****************************

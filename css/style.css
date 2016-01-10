@@ -207,25 +207,26 @@ DATES ON TOP
 HERO AREA
 ***********/
 
-#hero {
+.hero {
   margin: 0;
   position: relative;
   top: 4px;
-  left: -90px;
-  width: 100%;
+  /*width: 100%; */
   padding: 0;
+  overflow: hidden;
   z-index: 4;
+
 }
 
-#dates {
+.dates {
   position: absolute;
   top: 70px;
   left: 30%;
   z-index: 5;
 }
 
-#dates img {
-  margin: 10px 30px;
+.dates img {
+  margin: 100px 30px;
 }
 
 /**********
