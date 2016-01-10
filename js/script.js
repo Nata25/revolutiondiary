@@ -9,29 +9,6 @@ if (!(sessionStorage.getItem("currentDate"))) {
 $(function() {
 
 // *********************
-// DATE BLOCK
-// *********************
-
-// Helper to convert numeric months into string
-function numToMonth(num) {
-  if (num == 11) {
-    return "листопада";
-  }
-  else if (num == 12) {
-    return "грудня";
-  }
-  else if (num == 1){
-    return "січня";
-  }
-  else if (num == 2){
-    return "лютого";
-  }
-  else {
-    return "березня";
-  }
-}
-
-// *********************
 // DATEPICKER
 // *********************
 
@@ -79,13 +56,15 @@ $("#datepicker").datepicker(
   //For inner pages:
     if (currentURL.slice(-10, -5) !== "index") {
       var stringDate = currentURL.slice(-15, -5);
-      var day = currentURL.slice(-15, -13);
-      var num_month = currentURL.slice(-12, -10);
-      var month = numToMonth(num_month);
       var dateDate = $.datepicker.parseDate("dd-mm-yy", stringDate);
       $("#datepicker").datepicker("setDate", dateDate);
-      $(".day").html(day);
-      $(".month").html(month);
+      var formattedDate = $.datepicker.formatDate("dd MM", dateDate, {
+        monthNames: ["січня", "лютого", "березня", "квітня", "червня", "травня", "липня", "серпня", "вересня", "жовтня", "листопада", "грудня"]
+      });
+      var dateToWords = formattedDate.split(" ");
+      console.log(formattedDate);
+      $(".day").html(dateToWords[0]);
+      $(".month").html(dateToWords[1]);
     }
   //For home page
     else {
