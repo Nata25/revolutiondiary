@@ -211,11 +211,15 @@ HERO AREA
   margin: 0;
   position: relative;
   top: 4px;
-  /*width: 100%; */
   padding: 0;
   overflow: hidden;
+  min-height: 700px;
   z-index: 4;
 
+}
+
+.hero img {
+  width: 100%; 
 }
 
 .dates {
@@ -238,7 +242,7 @@ SIDEBAR
   top: 120px;
   left: 120px;
   width: 312px;
-  height: 730px;
+  height: 690px;
   padding: 30px;
   box-sizing: border-box;
   z-index: 10;
@@ -251,7 +255,7 @@ SIDEBAR
 }
 
 .sidebar p {
-  margin-top: 70px;
+  margin-top: 50px;
   font-size: 15px;
   color: #142b38;
   line-height: 30px;
