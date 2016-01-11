@@ -83,7 +83,7 @@ $("#datepicker").datepicker(
 // ALIGN MAIN IMAGE (HERO AREA)
 // *****************************
 
-  var hght = window.innerHeight - 110;
+  var hght = window.innerHeight - 115;
   $('.hero').css("height", hght);
 
 // *****************************
