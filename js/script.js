@@ -176,6 +176,18 @@ $("#datepicker").datepicker(
       }
     }); // end of scroll
 
-
+  // **************************
+  // HOVER ON VERTICAL LOGO (INNER PAGES)
+  // **************************
+    $(".vertical-logo").hover(
+      function() {
+        $(this).css("opacity", ".5");
+        $(this).prev(".home-slide").slideDown();
+      },
+      function() {
+        $(this).css("opacity", "1");
+        $(this).prev(".home-slide").slideUp();
+      }
+    ); // end of hover
 
 }); // end of ready

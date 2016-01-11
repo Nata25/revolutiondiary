@@ -215,7 +215,6 @@ HERO AREA
   overflow: hidden;
   min-height: 700px;
   z-index: 1;
-
 }
 
 .hero img {
@@ -502,7 +501,8 @@ SELECTED BLOCK
 INNER PAGES
 ****************/
 
-#vertical-logo {
+.vertical-logo {
+  position: absolute;
   display: inline;
   float: left;
   padding: 10px;
@@ -521,4 +521,15 @@ INNER PAGES
   display: inline-block;
   /*border: 1px solid green; */
   vertical-align: top;
+}
+
+.home-slide {
+  position: absolute;
+  display: none;
+  left: 45px;
+  top: 180px;
+  font-family: 'PT Sans', sans-serif;
+  text-align: center;
+  color: #797f99;
+  opacity: 1;
 }
