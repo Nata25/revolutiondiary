@@ -417,7 +417,21 @@ SELECTED BLOCK
   -webkit-animation: come-in 0.8s ease forwards;
 }
 
+.come-in {
+  animation: come-in 0.8s ease forwards;
+}
+
 @-webkit-keyframes come-in {
+  from {
+      -webkit-transform: translateY(15px);
+      -webkit-opacity: 0;
+  }
+  to { -webkit-transform: translateY(0);
+       -webkit-opacity: 1;
+      }
+}
+
+@keyframes come-in {
   from {
       transform: translateY(15px);
       opacity: 0;
@@ -501,14 +515,6 @@ SELECTED BLOCK
 INNER PAGES
 ****************/
 
-.vertical-logo {
-  position: absolute;
-  display: inline;
-  float: left;
-  padding: 10px;
-  margin-left: 20px;
-}
-
 .container {
   position: relative;
   width: 50%;
@@ -523,13 +529,86 @@ INNER PAGES
   vertical-align: top;
 }
 
+.vertical-logo {
+  position: absolute;
+  transition: .5s all linear;
+  z-index: 2;
+}
+
+.box {
+  top: 110px;
+  height: 500px;
+  width: 75px;
+  overflow: hidden;
+  padding: 10px;
+  margin-left: 20px;
+/*  border: 1px solid blue; */
+}
+
 .home-slide {
   position: absolute;
-  display: none;
-  left: 45px;
-  top: 180px;
-  font-family: 'PT Sans', sans-serif;
-  text-align: center;
+  top: -160px;
+  left: -75px;
   color: #797f99;
-  opacity: 1;
+  font-family: 'Roboto Slab', 'Tinos', 'PT Serif', sans-serif;
+  font-size: 40px;
+/*  background-color: #f2f2f2; */
+  padding: 10px;
+  white-space: nowrap;
+  z-index: 1;
+  -webkit-transform: rotate(-90deg);
+     -moz-transform: rotate(-90deg);
+      -ms-transform: rotate(-90deg);
+       -o-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  -webkit-transition: .25s all linear;
+  -moz-transition: .25s all linear;
+  -o-transition: .25s all linear;
+  transition: .25s all linear;
+}
+
+.slide-down {
+  -webkit-animation: slide-down 1s ease forwards;
+          animation: slide-down 1s ease forwards;
+}
+
+@-webkit-keyframes slide-down {
+  from {
+    -webkit-transform: translateY(0) rotate(-90deg);
+    }
+  to {
+    -webkit-transform: translateY(246px) rotate(-90deg);
+    }
+}
+
+@keyframes slide-down {
+  from {
+    transform: translateY(0) rotate(-90deg);
+    }
+  to {
+    transform: translateY(246px) rotate(-90deg);
+    }
+}
+
+.slide-up {
+  -webkit-animation: slide-up 0.8s ease forwards;
+  animation: slide-up 0.8s ease forwards;
+}
+
+@-webkit-keyframes slide-up {
+  from {
+    -webkit-transform: translateY(246px) rotate(-90deg);
+  }
+  to {
+    -webkit-transform: translateY(0) rotate(-90deg);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(246px) rotate(-90deg);
+  }
+  to {
+    transform: translateY(0) rotate(-90deg);
+  }
 }

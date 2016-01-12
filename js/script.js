@@ -181,12 +181,14 @@ $("#datepicker").datepicker(
   // **************************
     $(".vertical-logo").hover(
       function() {
-        $(this).css("opacity", ".5");
-        $(this).prev(".home-slide").slideDown();
+        $(this).addClass("transparent");
+        $(this).prev(".home-slide").removeClass("slide-up").addClass("slide-down");
+    /*    $(this).parent('.box').css('backgroundColor', "#f2f2f2"); */
       },
       function() {
-        $(this).css("opacity", "1");
-        $(this).prev(".home-slide").slideUp();
+        $(this).removeClass("transparent");
+        $(this).prev(".home-slide").removeClass("slide-down").addClass("slide-up");
+        /*$(this).parent('.box').css("backgroundColor", "transparent"); */
       }
     ); // end of hover
 
