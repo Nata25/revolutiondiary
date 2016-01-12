@@ -531,7 +531,11 @@ INNER PAGES
 
 .vertical-logo {
   position: absolute;
-  transition: .5s all linear;
+  -webkit-transition: .25s all linear;
+  -moz-transition: .25s all linear;
+  -ms-transition: .25s all linear;
+  -o-transition: .25s all linear;
+  transition: .25s all linear;
   z-index: 2;
 }
 
@@ -547,7 +551,7 @@ INNER PAGES
 
 .home-slide {
   position: absolute;
-  top: -160px;
+  top: -165px;
   left: -75px;
   color: #797f99;
   font-family: 'Roboto Slab', 'Tinos', 'PT Serif', sans-serif;
@@ -555,6 +559,7 @@ INNER PAGES
 /*  background-color: #f2f2f2; */
   padding: 10px;
   white-space: nowrap;
+  border: 1px solid #b69494;
   z-index: 1;
   -webkit-transform: rotate(-90deg);
      -moz-transform: rotate(-90deg);
@@ -577,7 +582,7 @@ INNER PAGES
     -webkit-transform: translateY(0) rotate(-90deg);
     }
   to {
-    -webkit-transform: translateY(246px) rotate(-90deg);
+    -webkit-transform: translateY(282px) rotate(-90deg);
     }
 }
 
@@ -586,18 +591,18 @@ INNER PAGES
     transform: translateY(0) rotate(-90deg);
     }
   to {
-    transform: translateY(246px) rotate(-90deg);
+    transform: translateY(282px) rotate(-90deg);
     }
 }
 
 .slide-up {
-  -webkit-animation: slide-up 0.8s ease forwards;
-  animation: slide-up 0.8s ease forwards;
+  -webkit-animation: slide-up 0.4s ease forwards;
+  animation: slide-up 0.4s ease forwards;
 }
 
 @-webkit-keyframes slide-up {
   from {
-    -webkit-transform: translateY(246px) rotate(-90deg);
+    -webkit-transform: translateY(282px) rotate(-90deg);
   }
   to {
     -webkit-transform: translateY(0) rotate(-90deg);
@@ -606,7 +611,7 @@ INNER PAGES
 
 @keyframes slide-up {
   from {
-    transform: translateY(246px) rotate(-90deg);
+    transform: translateY(282px) rotate(-90deg);
   }
   to {
     transform: translateY(0) rotate(-90deg);
