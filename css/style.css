@@ -510,7 +510,7 @@ INNER PAGES
 .container {
   position: relative;
   width: 50%;
-  margin-left: 470px;
+  margin-left: 400px;
   margin-top: 20px;
 /*  border: 1px solid blue; */
 }
@@ -519,11 +519,13 @@ INNER PAGES
   display: inline-block;
   vertical-align: top;
   width: 20%;
+  margin: 0;
   /*border: 1px solid green; */
 }
 
 .inner {
   width: 90%;
+  margin-top: 20px;
 }
 
 .vertical-logo {
