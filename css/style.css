@@ -373,11 +373,13 @@ SELECTED BLOCK
 .day-circle {
   display: inline-block;
   float: left;
-  width: 25%;
-  padding: 1%;
-  vertical-align: top;
   box-sizing: border-box;
 /*  border: 1px solid orange; */
+}
+
+.main {
+  width: 25%;
+  padding: 1%;
 }
 
 .text-container {
@@ -514,8 +516,13 @@ INNER PAGES
 
 .left-bar {
   display: inline-block;
-  /*border: 1px solid green; */
   vertical-align: top;
+  width: 20%;
+  /*border: 1px solid green; */
+}
+
+.inner {
+  width: 90%;
 }
 
 .vertical-logo {
