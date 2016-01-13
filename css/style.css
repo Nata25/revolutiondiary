@@ -373,15 +373,11 @@ SELECTED BLOCK
 .day-circle {
   display: inline-block;
   float: left;
-  width: 120px;
-  padding: 15px;
+  width: 25%;
+  padding: 1%;
   vertical-align: top;
   box-sizing: border-box;
 /*  border: 1px solid orange; */
-}
-
-.main {
-  width: 170px;
 }
 
 .text-container {
