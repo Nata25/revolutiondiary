@@ -6,8 +6,8 @@ if (!(sessionStorage.getItem("currentDate"))) {
   sessionStorage.setItem("currentDate", "21 листопада (11) 2013");
 }
 
-console.log(window.innerWidth);
-console.log(window.innerHeight);
+//console.log(window.innerWidth);
+//console.log(window.innerHeight);
 
 $(function() {
 
@@ -30,12 +30,10 @@ $("#datepicker").datepicker(
         var day = dateString[0];
         var month = dateString[1];
         var numMonth = dateString[2].slice(1, 3);
-        console.log(numMonth);
         var dateInNums = dateString[0] + dateString[2];
 
 //*** Store selected date in storage to grab it on return to index.html:
         sessionStorage.setItem("currentDate", dateText);
-        console.log("inside select: " + sessionStorage.getItem("currentDate"));
 
 //*** Change link on go-button according to the selected date
         var newURL = "file://localhost/Users/yuriybesarab/Git/Days/dates/11/d" + day + "-" + numMonth + "-2013.html";
@@ -49,10 +47,10 @@ $("#datepicker").datepicker(
 
     }); // end of .datepicker() initialization
 
-//***  Set dates into the input fields.
-//***  Set the current date.
-
-    console.log("outside select: " + sessionStorage.getItem("currentDate"));
+//***  Based on current URL, set:
+//***   - dates into the input fields
+//***   - current date in datepicker
+//***   - initial link on the go-button
 
     var currentURL = window.location.pathname;
 
@@ -61,13 +59,19 @@ $("#datepicker").datepicker(
       var stringDate = currentURL.slice(-15, -5);
       var dateDate = $.datepicker.parseDate("dd-mm-yy", stringDate);
       $("#datepicker").datepicker("setDate", dateDate);
+      var dateToNums = stringDate.split("-");
+      var day = dateToNums[0];
+      var numMonth = dateToNums[1];
+      var newURL = "file://localhost/Users/yuriybesarab/Git/Days/dates/11/d" + day + "-" + numMonth + "-2013.html";
+      $(".link-to-page").attr('href', newURL);
+      // get string (word) equivalent for numMonth:
       var formattedDate = $.datepicker.formatDate("dd MM", dateDate, {
         monthNames: ["січня", "лютого", "березня", "квітня", "червня", "травня", "липня", "серпня", "вересня", "жовтня", "листопада", "грудня"]
       });
       var dateToWords = formattedDate.split(" ");
-      console.log(formattedDate);
-      $(".day").html(dateToWords[0]);
+      $(".day").html(day);
       $(".month").html(dateToWords[1]);
+
     }
   //For home page
     else {
@@ -76,8 +80,6 @@ $("#datepicker").datepicker(
       $(".day").html(dateStored[0]);
       $(".month").html(dateStored[1]);
     }
-
-
 
 // *****************************
 // ALIGN MAIN IMAGE (HERO AREA)
