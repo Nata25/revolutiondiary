@@ -167,8 +167,8 @@ $("#datepicker").datepicker(
 // **************************
 
     $(window).scroll(function () {
-      if ($(this).scrollTop() > 20) {
-        $('.fixed').children('.day, .month').css('backgroundColor', 'white');
+      if ($(this).scrollTop() > 30) {
+        $('.fixed').children('.day, .month').css('backgroundColor', '#f5f7fb');
       }
 
       else {

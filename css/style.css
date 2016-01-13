@@ -260,6 +260,7 @@ SIDEBAR
 
 .fixed {
   position: fixed;
+  z-index: 3;
 }
 
 .absolute {
