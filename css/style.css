@@ -87,6 +87,20 @@ h3 {
   transform: translate(-2px, -2px);
 }
 
+footer {
+  position: absolute;
+  top: 1700px;
+  width: 100%;
+  background-color: #8d96b0;
+  height: 100px;
+  text-align: center;
+}
+
+footer p {
+  color: white;
+  font-size: .9em;
+}
+
 /**********
 BACKGROUND
 ***********/
@@ -96,7 +110,7 @@ BACKGROUND
   left: 5%;
   background-color: #f5f7fb;
   width: 90%;
-  height: 1700px;
+  height: 900px;
   margin: 0 auto;
   padding: 0;
   box-shadow: 0 0 20px #fbfbf4;
@@ -105,9 +119,9 @@ BACKGROUND
 
 .bg-shadow {
   position: absolute;
-  width: 30px;
+  width: 2%;
   background-color: #e4e7e9;
-  height: 1700px;
+  height: 900px;
   box-shadow: 0 0 15px #fbfbf4;
 }
 
@@ -338,7 +352,7 @@ SELECTED BLOCK
   vertical-align: top;
   margin-left: 10px;
   width: 20%;
-  height: 900px;
+  height: 820px;
   background-color: #d3d7e6;
   margin-right: 10px;
 }
@@ -386,8 +400,9 @@ SELECTED BLOCK
 
 .text-container {
   display: inline-block;
-  max-width: 75%;
+  max-width: 72%;
   margin-top: 20px;
+  padding-right: 10px;
 /*  border: 1px solid blue; */
 }
 
