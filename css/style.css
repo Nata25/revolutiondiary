@@ -247,6 +247,13 @@ HERO AREA
   width: 100%;
 }
 
+@media screen and (max-width: 1520px) {
+  .hero img {
+    width: auto;
+    height: 100%;
+  }
+}
+
 .dates {
   position: absolute;
   top: 70px;
