@@ -178,10 +178,10 @@ $("#datepicker").datepicker(
       }
     }); // end of scroll
 
-  // **************************
-  // HOVER ON VERTICAL LOGO (INNER PAGES)
-  // **************************
-    $(".vertical-logo").hover(
+// **************************
+// HOVER ON VERTICAL LOGO (INNER PAGES)
+// **************************
+    $(".vertical-logo").hoverIntent(
       function() {
         $(this).addClass("transparent");
         $(this).prev(".home-slide").removeClass("slide-up").addClass("slide-down");
