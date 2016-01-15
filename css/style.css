@@ -371,64 +371,6 @@ SELECTED BLOCK
   /*border: 1px solid blue; */
 }
 
-.tags-container {
-  position: relative;
-  top: 20px;
-  display: inline-block;
-  vertical-align: top;
-  margin-left: 10px;
-  text-align: center;
-  width: 25%;
-  height: 820px;
-  padding: 20px;
-  background-color: #d3d7e6;
-  margin-right: 10px;
-  box-sizing: border-box;
-}
-
-.tags-container p {
-  line-height: 50px;
-}
-
-.tags-container a {
-  display: inline-block;
-  color: #a9aaac;
-  text-decoration: none;
-}
-
-.tags-container a:hover {
-  color: #936565;
-  text-decoration: none;
-}
-
-.size-1 {
-  font-size: 1.1em;
-}
-
-.size-2 {
-  font-size: 1.2em;
-}
-
-.size-3 {
-  font-size: 1.3em;
-}
-
-.size-4 {
-  font-size: 1.4em;
-}
-
-.size-5 {
-  font-size: 1.5em;
-}
-
-.size-10 {
-  font-size: 2em;
-}
-
-.size-12 {
-  font-size: 2.2em;
-}
-
 .selected {
   margin-bottom: 70px;
   font-family: Roboto Slab;
@@ -588,6 +530,68 @@ SELECTED BLOCK
   -o-transition: .5s all linear;
   transition: .5s all linear;
   /*  border: 1px solid blue; */
+}
+
+/****************
+TAGS PAGES
+****************/
+
+.tags-container {
+  position: relative;
+  top: 20px;
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 10px;
+  text-align: center;
+  width: 25%;
+  height: 820px;
+  padding: 20px;
+  background-color: #d3d7e6;
+  margin-right: 10px;
+  box-sizing: border-box;
+}
+
+.tags-container p {
+  line-height: 50px;
+}
+
+.tags-container a {
+  display: inline-block;
+  color: #a9aaac;
+  text-decoration: none;
+}
+
+.tags-container a:hover {
+  color: #936565;
+  text-decoration: none;
+}
+
+.size-1 {
+  font-size: 1.1em;
+}
+
+.size-2 {
+  font-size: 1.2em;
+}
+
+.size-3 {
+  font-size: 1.3em;
+}
+
+.size-4 {
+  font-size: 1.4em;
+}
+
+.size-5 {
+  font-size: 1.5em;
+}
+
+.size-10 {
+  font-size: 2em;
+}
+
+.size-12 {
+  font-size: 2.2em;
 }
 
 /****************
