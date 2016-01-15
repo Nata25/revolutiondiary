@@ -31,13 +31,16 @@ $("#datepicker").datepicker(
         var month = dateString[1];
         var numMonth = dateString[2].slice(1, 3);
         var dateInNums = dateString[0] + dateString[2];
+        var year = dateString[3];
 
 //*** Store selected date in storage to grab it on return to index.html:
         sessionStorage.setItem("currentDate", dateText);
+        console.log(sessionStorage.getItem("currentDate"));
 
 //*** Change link on go-button according to the selected date
-        var newURL = "file://localhost/Users/yuriybesarab/Git/Days/dates/11/d" + day + "-" + numMonth + "-2013.html";
+        var newURL = "file://localhost/Users/yuriybesarab/Git/Days/page" + day + "-" + numMonth + "-" + year + ".html";
         $(".link-to-page").attr('href', newURL);
+        console.log(newURL);
 
 //*** Update date-block fields on click
         $(".day").html(day);
@@ -62,8 +65,10 @@ $("#datepicker").datepicker(
       var dateToNums = stringDate.split("-");
       var day = dateToNums[0];
       var numMonth = dateToNums[1];
-      var newURL = "file://localhost/Users/yuriybesarab/Git/Days/dates/11/d" + day + "-" + numMonth + "-2013.html";
+      var year = dateToNums[2];
+      var newURL = "file://localhost/Users/yuriybesarab/Git/Days/page" + day + "-" + numMonth + "-" + year + ".html";
       $(".link-to-page").attr('href', newURL);
+      console.log(newURL);
       // get string (word) equivalent for numMonth:
       var formattedDate = $.datepicker.formatDate("dd MM", dateDate, {
         monthNames: ["січня", "лютого", "березня", "квітня", "червня", "травня", "липня", "серпня", "вересня", "жовтня", "листопада", "грудня"]
@@ -77,8 +82,15 @@ $("#datepicker").datepicker(
     else {
       $("#datepicker").datepicker("setDate", sessionStorage.getItem("currentDate"));
       var dateStored = sessionStorage.getItem("currentDate").split(" ");
-      $(".day").html(dateStored[0]);
+      var day = dateStored[0];
+      $(".day").html(day);
       $(".month").html(dateStored[1]);
+      var numMonth = dateStored[2].slice(1, 3);
+      var year = dateStored[3];
+      console.log(numMonth);
+      var newURL = "file://localhost/Users/yuriybesarab/Git/Days/page" + day + "-" + numMonth + "-" + year + ".html";
+      $(".link-to-page").attr('href', newURL);
+      console.log(newURL);
     }
 
 // *****************************
