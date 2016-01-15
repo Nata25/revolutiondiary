@@ -243,11 +243,13 @@ HERO AREA
   z-index: 1;
 }
 
-.hero img {
-  width: 100%;
+@media screen and (min-width: 1271px) {
+  .hero img {
+    width: 100%;
+    min-height: 100%;
+  }
 }
-
-@media screen and (max-width: 1520px) {
+@media screen and (max-width: 1270px) {
   .hero img {
     width: auto;
     height: 100%;
