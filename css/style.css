@@ -247,13 +247,13 @@ HERO AREA
   z-index: 1;
 }
 
-@media screen and (min-width: 1271px) {
+@media screen and (min-width: 1401px) {
   .hero img {
     width: 100%;
     min-height: 100%;
   }
 }
-@media screen and (max-width: 1270px) {
+@media screen and (max-width: 1400px) {
   .hero img {
     width: auto;
     height: 100%;
@@ -358,16 +358,31 @@ RED LINES
 SELECTED BLOCK
 ***********/
 
-.wrapper {
-  margin: 0 10% 0 0;
-/*  border: 1px solid green; */
+@media screen and (min-width: 1401px) {
+  .wrapper {
+    margin: 0 10% 0 0;
+  /*  border: 1px solid green; */
+  }
+
+  .slct-container {
+    width: 70%;
+  }
+
+  .tags-container {
+    width: 25%;
+  }
+
+  .hover-sheet {
+    width: 65%;
+    left: 23%;
+  }
 }
 
 .slct-container {
   position: relative;
   display: inline-block;
   margin-top: 60px;
-  width: 70%;
+  margin-bottom: 40px;
   /*border: 1px solid blue; */
 }
 
@@ -414,9 +429,9 @@ SELECTED BLOCK
 
 .text-container {
   display: inline-block;
-  max-width: 72%;
+  max-width: 70%;
   margin-top: 20px;
-  padding-right: 10px;
+  padding: 10px;
 /*  border: 1px solid blue; */
 }
 
@@ -466,10 +481,8 @@ SELECTED BLOCK
 
 .hover-sheet {
   position: relative;
-  left: 23%;
   top: -20px;
   height: 205px;
-  width: 65%;
   margin-left: 10px;
   border: 1px solid #f5f7fb;
   border-radius: 70px;
@@ -480,6 +493,26 @@ SELECTED BLOCK
   -moz-transition: .5s background-color linear;
   -o-transition: .5s background-color linear;
   transition: .5s background-color linear, .1s border linear;
+}
+
+@media screen and (max-width: 1400px) {
+  .wrapper {
+    margin: 0 2% 0 0;
+  /*  border: 1px solid green; */
+  }
+
+  .slct-container {
+    width: 65%;
+  }
+
+  .tags-container {
+    width: 30%;
+  }
+
+  .hover-sheet {
+    width: 85%;
+    left: 10%;
+  }
 }
 
 .hover-sheet:hover {
@@ -495,14 +528,26 @@ SELECTED BLOCK
   margin-top: 90px;
   margin-right: 50px;
   border-radius: 2px;
-  float: right;
   background-color: #f5f7fb;
   -webkit-transition: background-color .25s;
   -moz-transition: background-color .25s;
   -o-transition: background-color .25s;
   transition: background-color .25s;
   /*border: 1px solid black; */
+}
 
+@media screen and (min-width: 1401px) {
+    .red-square {
+      float: right;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .red-square {
+      position: absolute;
+      left: 40px;
+      float: none;
+    }
 }
 
 /*** Overflow Functionality ******/
@@ -543,7 +588,6 @@ TAGS PAGES
   vertical-align: top;
   margin-left: 10px;
   text-align: center;
-  width: 25%;
   height: 820px;
   padding: 20px;
   background-color: #d3d7e6;
