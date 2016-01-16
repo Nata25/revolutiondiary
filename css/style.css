@@ -247,11 +247,16 @@ HERO AREA
   z-index: 1;
 }
 
+.hero img {
+  width: 100%;
+  min-height: 100%;
+}
+
 .dates {
   position: absolute;
   top: 70px;
   left: 30%;
-  margin: 100px 50px;
+  margin: 100px 40px;
   z-index: 5;
 }
 
@@ -260,12 +265,11 @@ SIDEBAR
 ***********/
 
 .sidebar  {
-  position: absolute;
   top: 120px;
   left: 120px;
+  padding: 30px;
   width: 312px;
   height: 690px;
-  padding: 30px;
   box-sizing: border-box;
   z-index: 10;
 }
@@ -692,30 +696,21 @@ MEDIA QUERIES
 *************/
 
 @media screen and (min-width: 1401px) {
-  .hero img {
-    width: 100%;
-    min-height: 100%;
-  }
-
   .wrapper {
     margin: 0 10% 0 0;
   /*  border: 1px solid green; */
   }
-
   .slct-container {
     width: 70%;
   }
-
   .tags-container {
     width: 25%;
   }
-
   .hover-sheet {
     width: 65%;
     left: 23%;
   }
 }
-
 
 @media screen and (max-width: 1400px) {
   .hero img {
@@ -724,26 +719,27 @@ MEDIA QUERIES
   }
 }
 
-
-@media screen and (min-width: 1101px) and (max-width: 1400px) {
+@media screen and (min-width: 1151px) and (max-width: 1400px) {
+  .title-date h1 {
+    margin-left: 200px;
+  }
+  .dates {
+    left: 415px;
+  }
   .wrapper {
     margin: 0 2% 0 0;
   /*  border: 1px solid green; */
   }
-
   .slct-container {
     width: 65%;
   }
-
   .tags-container {
     width: 30%;
   }
-
   .hover-sheet {
     width: 85%;
     left: 10%;
   }
-
   .red-square {
     position: absolute;
     left: 40px;
@@ -751,16 +747,14 @@ MEDIA QUERIES
   }
 }
 
-@media screen and (min-width: 701px) and (max-width: 1100px) {
+@media screen and (min-width: 701px) and (max-width: 1150px) {
   .wrapper {
     margin: 0;
     padding-bottom: 20px;
   }
-
   .slct-container {
     width: 100%;
   }
-
   .tags-container {
     top: 0;
     display: block;
@@ -768,17 +762,14 @@ MEDIA QUERIES
     height: auto;
     margin: 10px auto;
   }
-
   .hover-sheet {
     width: 75%;
     left: 10%;
   }
-
   .main {
     width: 22%;
     margin: 5px;
   }
-
   .red-square {
     float: left;
     margin: right: 40px;
