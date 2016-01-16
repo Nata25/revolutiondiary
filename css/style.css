@@ -247,19 +247,6 @@ HERO AREA
   z-index: 1;
 }
 
-@media screen and (min-width: 1401px) {
-  .hero img {
-    width: 100%;
-    min-height: 100%;
-  }
-}
-@media screen and (max-width: 1400px) {
-  .hero img {
-    width: auto;
-    height: 100%;
-  }
-}
-
 .dates {
   position: absolute;
   top: 70px;
@@ -357,26 +344,6 @@ RED LINES
 /***********
 SELECTED BLOCK
 ***********/
-
-@media screen and (min-width: 1401px) {
-  .wrapper {
-    margin: 0 10% 0 0;
-  /*  border: 1px solid green; */
-  }
-
-  .slct-container {
-    width: 70%;
-  }
-
-  .tags-container {
-    width: 25%;
-  }
-
-  .hover-sheet {
-    width: 65%;
-    left: 23%;
-  }
-}
 
 .slct-container {
   position: relative;
@@ -495,56 +462,6 @@ SELECTED BLOCK
   transition: .5s background-color linear, .1s border linear;
 }
 
-@media screen and (min-width: 1101px) and (max-width: 1400px) {
-  .wrapper {
-    margin: 0 2% 0 0;
-  /*  border: 1px solid green; */
-  }
-
-  .slct-container {
-    width: 65%;
-  }
-
-  .tags-container {
-    width: 30%;
-  }
-
-  .hover-sheet {
-    width: 85%;
-    left: 10%;
-  }
-}
-
-@media screen and (min-width: 701px) and (max-width: 1100px) {
-  .wrapper {
-    margin: 2%;
-  }
-
-  .slct-container {
-    width: 100%;
-  }
-
-  .tags-container {
-    width: 85%;
-    margin: auto;
-  }
-
-  .hover-sheet {
-    width: 75%;
-    left: 10%;
-  }
-
-  .main {
-    width: 22%;
-    margin: 5px;
-  }
-
-  .red-square {
-    float: left;
-    margin: right: 40px;
-  }
-}
-
 .hover-sheet:hover {
   background-color: #dcd9d4;
   border: 1px solid #f6efe0;
@@ -555,6 +472,7 @@ SELECTED BLOCK
   display: inline-block;
   width: 13px;
   height: 18px;
+  float: right;
   margin-top: 90px;
   margin-right: 50px;
   border-radius: 2px;
@@ -564,27 +482,6 @@ SELECTED BLOCK
   -o-transition: background-color .25s;
   transition: background-color .25s;
   /*border: 1px solid black; */
-}
-
-@media screen and (min-width: 1401px) {
-    .red-square {
-      float: right;
-    }
-}
-
-@media screen and (min-width: 1101px) and (max-width: 1400px) {
-    .red-square {
-      position: absolute;
-      left: 40px;
-      float: none;
-    }
-}
-
-@media screen and (max-width: 1100px) {
-  .red-square {
-      position: relative;
-      float: right;
-    }
 }
 
 /*** Overflow Functionality ******/
@@ -787,5 +684,101 @@ INNER PAGES
   }
   to {
     transform: translateY(0) rotate(-90deg);
+  }
+}
+
+/*************
+MEDIA QUERIES
+*************/
+
+@media screen and (min-width: 1401px) {
+  .hero img {
+    width: 100%;
+    min-height: 100%;
+  }
+
+  .wrapper {
+    margin: 0 10% 0 0;
+  /*  border: 1px solid green; */
+  }
+
+  .slct-container {
+    width: 70%;
+  }
+
+  .tags-container {
+    width: 25%;
+  }
+
+  .hover-sheet {
+    width: 65%;
+    left: 23%;
+  }
+}
+
+
+@media screen and (max-width: 1400px) {
+  .hero img {
+    width: auto;
+    height: 100%;
+  }
+}
+
+
+@media screen and (min-width: 1101px) and (max-width: 1400px) {
+  .wrapper {
+    margin: 0 2% 0 0;
+  /*  border: 1px solid green; */
+  }
+
+  .slct-container {
+    width: 65%;
+  }
+
+  .tags-container {
+    width: 30%;
+  }
+
+  .hover-sheet {
+    width: 85%;
+    left: 10%;
+  }
+
+  .red-square {
+    position: absolute;
+    left: 40px;
+    float: none;
+  }
+}
+
+@media screen and (min-width: 701px) and (max-width: 1100px) {
+  .wrapper {
+    margin: 2%;
+  }
+
+  .slct-container {
+    width: 100%;
+  }
+
+  .tags-container {
+    width: 85%;
+    margin: auto;
+  }
+
+  .hover-sheet {
+    width: 75%;
+    left: 10%;
+  }
+
+  .main {
+    width: 22%;
+    margin: 5px;
+  }
+
+  .red-square {
+    float: left;
+    margin: right: 40px;
+    position: relative;
+    float: right;
   }
 }
