@@ -753,7 +753,8 @@ MEDIA QUERIES
 
 @media screen and (min-width: 701px) and (max-width: 1100px) {
   .wrapper {
-    margin: 2%;
+    margin: 0;
+    padding-bottom: 20px;
   }
 
   .slct-container {
@@ -761,8 +762,11 @@ MEDIA QUERIES
   }
 
   .tags-container {
+    top: 0;
+    display: block;
     width: 85%;
-    margin: auto;
+    height: auto;
+    margin: 10px auto;
   }
 
   .hover-sheet {
