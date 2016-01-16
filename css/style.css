@@ -423,7 +423,7 @@ SELECTED BLOCK
 }
 
 .main {
-  width: 25%;
+  width: 22%;
   padding: 1%;
 }
 
@@ -495,7 +495,7 @@ SELECTED BLOCK
   transition: .5s background-color linear, .1s border linear;
 }
 
-@media screen and (max-width: 1400px) {
+@media screen and (min-width: 1101px) and (max-width: 1400px) {
   .wrapper {
     margin: 0 2% 0 0;
   /*  border: 1px solid green; */
@@ -512,6 +512,36 @@ SELECTED BLOCK
   .hover-sheet {
     width: 85%;
     left: 10%;
+  }
+}
+
+@media screen and (min-width: 701px) and (max-width: 1100px) {
+  .wrapper {
+    margin: 2%;
+  }
+
+  .slct-container {
+    width: 100%;
+  }
+
+  .tags-container {
+    width: 85%;
+    margin: auto;
+  }
+
+  .hover-sheet {
+    width: 75%;
+    left: 10%;
+  }
+
+  .main {
+    width: 22%;
+    margin: 5px;
+  }
+
+  .red-square {
+    float: left;
+    margin: right: 40px;
   }
 }
 
@@ -542,11 +572,18 @@ SELECTED BLOCK
     }
 }
 
-@media screen and (max-width: 1400px) {
+@media screen and (min-width: 1101px) and (max-width: 1400px) {
     .red-square {
       position: absolute;
       left: 40px;
       float: none;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+  .red-square {
+      position: relative;
+      float: right;
     }
 }
 
@@ -555,7 +592,7 @@ SELECTED BLOCK
 .ellipsis {
   display: block;
   position: absolute;
-  top: 147px;
+  top: 155px;
   right: 15px;
   height: 30px;
   width: 30px;
