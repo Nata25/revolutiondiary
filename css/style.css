@@ -256,7 +256,7 @@ HERO AREA
   position: absolute;
   top: 70px;
   left: 30%;
-  margin: 100px 40px;
+  margin: 100px 35px;
   z-index: 5;
 }
 
@@ -747,7 +747,22 @@ MEDIA QUERIES
   }
 }
 
-@media screen and (min-width: 701px) and (max-width: 1150px) {
+@media screen and (min-width: 801px) and (max-width: 1150px) {
+  .absolute {
+    left: 10px;
+  }
+  .dates {
+    top: 35px;
+    left: 300px;
+    text-align: center;
+  }
+  .title-date h1 {
+    margin-left: 200px;
+  }
+  .hero img {
+    position: absolute;
+    left: -200px;
+  }
   .wrapper {
     margin: 0;
     padding-bottom: 20px;
