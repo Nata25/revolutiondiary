@@ -58,7 +58,7 @@ a:hover {
 
 h1 {
   display: inline-block;
-  margin: 0;
+  margin: 0 0 0 200px;
   font-family: 'Roboto Slab', 'Tinos', 'PT Serif', sans-serif;
   color: #6e5d50;
   font-size: 25pt;
@@ -236,6 +236,11 @@ DATES ON TOP
   margin: 5px auto;
   text-align: center;
 }
+.personal-notes {
+  letter-spacing: 1px;
+  font-size: 20px;
+  text-transform: uppercase;
+}
 
 /**********
 HERO AREA
@@ -260,7 +265,7 @@ HERO AREA
   position: absolute;
   top: 170px;
   left: 35%;
-  margin: 0 auto; 
+  margin: 0 auto;
   z-index: 5;
 }
 
@@ -728,9 +733,12 @@ MEDIA QUERIES
   }
 }
 
-@media screen and (min-width: 1151px) and (max-width: 1400px) {
+@media screen and (min-width: 1161px) and (max-width: 1400px) {
+  .title-date {
+    text-align: left;
+  }
   .title-date h1 {
-    margin-left: 200px;
+    margin-left: 320px;
   }
   .dates {
     left: 450px;
@@ -755,11 +763,28 @@ MEDIA QUERIES
     float: none;
   }
 }
+@media screen and (max-width: 1160px) {
+  .personal-notes {
+    display: block;
+    margin-top: 10px;
+  }
+  .tags-container {
+    top: 0;
+    display: block;
+    width: 85%;
+    height: auto;
+    margin: 10px auto;
+  }
+}
 
-@media screen and (min-width: 801px) and (max-width: 1150px) {
+@media screen and (min-width: 801px) and (max-width: 1160px) {
   .absolute,
   .date-block {
     left: 10px;
+    top: 40px;
+  }
+  .sidebar {
+    top: 160px;
   }
   .title-date h1 {
     margin-left: 200px;
@@ -770,7 +795,7 @@ MEDIA QUERIES
     left: -200px;
   }
   .dates {
-    top: 120px;
+    top: 160px;
     left: 40%;
   }
   .dates img {
@@ -782,13 +807,6 @@ MEDIA QUERIES
   }
   .slct-container {
     width: 100%;
-  }
-  .tags-container {
-    top: 0;
-    display: block;
-    width: 85%;
-    height: auto;
-    margin: 10px auto;
   }
   .hover-sheet {
     width: 75%;
@@ -808,24 +826,37 @@ MEDIA QUERIES
 
 @media screen and (max-width: 800px) {
   .top-bar {
-    height: 100px;
+    height: 75px;
     padding-left: 40px;
   }
   .title-date h1 {
-    font-size: 22px;
+    font-size: 16px;
+    margin-left: 0;
+  }
+  .personal-notes {
+    font-size: 20px;
+  }
+  .hero {
+    background: url("../Pics/hero-small(4).jpg") no-repeat center center;
+  }
+  .hero img {
+    display: none;
   }
   .date-block {
-    top: 80px;
+    display: none;
+    top: 650px;
     z-index: 5;
   }
   #choose-date {
     display: none;
   }
   .absolute {
-    top: 380px;
+    display: none;
+    top: 700px;
     left: 35px;
   }
   .sidebar {
+    display: none;
     padding-top: 3px;
     height: 470px;
   }
@@ -838,7 +869,7 @@ MEDIA QUERIES
     left: -200px;
   }
   .dates {
-    top: 175px;
+    top: 150px;
     left: 0;
     right: 0;
   }
