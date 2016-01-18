@@ -826,7 +826,7 @@ MEDIA QUERIES
 
 @media screen and (max-width: 800px) {
   .top-bar {
-    height: 75px;
+    height: 70px;
     padding-left: 40px;
   }
   .title-date h1 {
@@ -834,10 +834,10 @@ MEDIA QUERIES
     margin-left: 0;
   }
   .personal-notes {
-    font-size: 20px;
+    font-size: 18px;
   }
   .hero {
-    background: url("../Pics/hero-small(4).jpg") no-repeat center center;
+    background: url("../Pics/hero-small(6).jpg") no-repeat center center;
   }
   .hero img {
     display: none;
@@ -881,5 +881,12 @@ MEDIA QUERIES
   }
   .dates img:last-child {
     width: 213px;
+  }
+  .day-circle {
+    margin-top: 20px;
+  }
+  .red-square {
+    display: none;
+    margin: 0;
   }
 }
