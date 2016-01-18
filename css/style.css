@@ -161,6 +161,10 @@ DATEPICKER FIELDS
 }
 
 .date-block {
+  position: absolute;
+}
+
+.datepicker-fields  {
   border: 2px solid white;
   border-radius: 5px;
 }
@@ -254,10 +258,15 @@ HERO AREA
 
 .dates {
   position: absolute;
-  top: 70px;
-  left: 30%;
-  margin: 100px 35px;
+  top: 170px;
+  left: 35%;
+  margin: 0 auto; 
   z-index: 5;
+}
+
+.dates img {
+  position: relative;
+  margin: 0 auto;
 }
 
 /**********
@@ -724,7 +733,7 @@ MEDIA QUERIES
     margin-left: 200px;
   }
   .dates {
-    left: 415px;
+    left: 450px;
   }
   .wrapper {
     margin: 0 2% 0 0;
@@ -748,20 +757,24 @@ MEDIA QUERIES
 }
 
 @media screen and (min-width: 801px) and (max-width: 1150px) {
-  .absolute {
+  .absolute,
+  .date-block {
     left: 10px;
-  }
-  .dates {
-    top: 35px;
-    left: 300px;
-    text-align: center;
   }
   .title-date h1 {
     margin-left: 200px;
   }
   .hero img {
-    position: absolute;
+    display: block;
+    position: relative;;
     left: -200px;
+  }
+  .dates {
+    top: 120px;
+    left: 40%;
+  }
+  .dates img {
+    display: block;
   }
   .wrapper {
     margin: 0;
@@ -790,5 +803,52 @@ MEDIA QUERIES
     margin: right: 40px;
     position: relative;
     float: right;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .top-bar {
+    height: 100px;
+    padding-left: 40px;
+  }
+  .title-date h1 {
+    font-size: 22px;
+  }
+  .date-block {
+    top: 80px;
+    z-index: 5;
+  }
+  #choose-date {
+    display: none;
+  }
+  .absolute {
+    top: 380px;
+    left: 35px;
+  }
+  .sidebar {
+    padding-top: 3px;
+    height: 470px;
+  }
+  .sidebar p {
+    margin-top: 0;
+    line-height: normal;
+  }
+  .hero img {
+    position: absolute;
+    left: -200px;
+  }
+  .dates {
+    top: 175px;
+    left: 0;
+    right: 0;
+  }
+  .dates img {
+    display: block;
+  }
+  .dates img:first-child {
+    width: 350px;
+  }
+  .dates img:last-child {
+    width: 213px;
   }
 }
