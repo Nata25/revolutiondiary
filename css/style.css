@@ -842,8 +842,11 @@ MEDIA QUERIES
     display: none;
   }
   .date-block {
-    left: 10px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
     top: 880px;
+    width: 301px;
     z-index: 5;
   }
   .month {
@@ -859,6 +862,9 @@ MEDIA QUERIES
   .sidebar {
     padding-top: 3px;
     height: 500px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
   }
   .sidebar p {
     margin-top: 0;
