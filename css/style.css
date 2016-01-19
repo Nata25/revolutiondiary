@@ -853,15 +853,11 @@ MEDIA QUERIES
     text-transform: none;
   }
   .absolute {
-    top: 960px;
+    top: 940px;
     left: 5px;
   }
-  .sidebar-container {
-    display: none;
-  }
   .sidebar {
-    padding-top: 3px;
-    height: 500px;
+    height: 550px;
     left: 0;
     right: 0;
     margin: 0 auto;
@@ -869,6 +865,9 @@ MEDIA QUERIES
   .sidebar p {
     margin-top: 0;
     line-height: normal;
+  }
+  .hero {
+    height: 550px;
   }
   .hero img {
     position: absolute;
@@ -889,14 +888,14 @@ MEDIA QUERIES
     width: 213px;
   }
   .wrapper {
-    margin-top: 670px;
+    margin-top: 0px;
   }
   .selected {
     font-size: 30px;
     margin-bottom: 30px;
   }
   .slct-container {
-    margin-top: 40px;
+    margin-top: 710px;
   }
   .day-circle {
     margin-top: 20px;
@@ -904,8 +903,5 @@ MEDIA QUERIES
   .red-square {
     display: none;
     margin: 0;
-  }
-  . footer {
-    display: none;
   }
 }
