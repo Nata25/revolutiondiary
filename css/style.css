@@ -823,7 +823,6 @@ MEDIA QUERIES
     float: right;
   }
 }
-
 @media screen and (max-width: 800px) {
   .top-bar {
     height: 70px;
@@ -843,22 +842,23 @@ MEDIA QUERIES
     display: none;
   }
   .date-block {
-    display: none;
-    top: 650px;
+    left: 10px;
+    top: 880px;
     z-index: 5;
   }
-  #choose-date {
-    display: none;
+  .month {
+    text-transform: none;
   }
   .absolute {
+    top: 960px;
+    left: 5px;
+  }
+  .sidebar-container {
     display: none;
-    top: 700px;
-    left: 35px;
   }
   .sidebar {
-    display: none;
     padding-top: 3px;
-    height: 470px;
+    height: 500px;
   }
   .sidebar p {
     margin-top: 0;
@@ -882,11 +882,24 @@ MEDIA QUERIES
   .dates img:last-child {
     width: 213px;
   }
+  .wrapper {
+    margin-top: 670px;
+  }
+  .selected {
+    font-size: 30px;
+    margin-bottom: 30px;
+  }
+  .slct-container {
+    margin-top: 40px;
+  }
   .day-circle {
     margin-top: 20px;
   }
   .red-square {
     display: none;
     margin: 0;
+  }
+  . footer {
+    display: none;
   }
 }
