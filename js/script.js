@@ -98,7 +98,10 @@ $("#datepicker").datepicker(
 // *****************************
 
   var hght = window.innerHeight - 115;
-  $('.hero').css("height", hght);
+  var wdth = window.innerWidth;
+  if (wdth > 800) {
+    $('.hero').css("height", hght);
+  }
 
 // *****************************
 // HOVER ITEMS IN SELECTED BLOCK
