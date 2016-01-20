@@ -253,12 +253,17 @@ HERO AREA
   padding: 0;
   overflow: hidden;
   min-height: 700px;
+  background: url("../Pics/hero-photo-vinnette(3).jpg") no-repeat center center;
   z-index: 1;
 }
 
 .hero img {
+/*  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
   width: 100%;
-  min-height: 100%;
+  min-height: 100%; */
 }
 
 .dates {
@@ -279,11 +284,11 @@ SIDEBAR
 ***********/
 
 .sidebar  {
-  top: 120px;
-  left: 120px;
+  top: 117px;
+  left: 120.5px;
   padding: 30px;
   width: 312px;
-  height: 690px;
+  height: 685px;
   box-sizing: border-box;
   z-index: 10;
 }
@@ -709,7 +714,18 @@ INNER PAGES
 MEDIA QUERIES
 *************/
 
-@media screen and (min-width: 1401px) {
+/* Kindle */
+@media screen and (min-width: 1901px) {
+  .bg-sheet {
+    width: 1860px;
+  }
+  #mainline, #shadowline {
+    width: 1896px;
+  }
+}
+
+/* widescreen */
+@media screen and (min-width: 1401px){
   .wrapper {
     margin: 0 10% 0 0;
   /*  border: 1px solid green; */
@@ -726,22 +742,10 @@ MEDIA QUERIES
   }
 }
 
-@media screen and (max-width: 1400px) {
-  .hero img {
-    width: auto;
-    height: 100%;
-  }
-}
-
+/* regular screen */
 @media screen and (min-width: 1161px) and (max-width: 1400px) {
-  .title-date {
-    text-align: left;
-  }
-  .title-date h1 {
-    margin-left: 320px;
-  }
-  .dates {
-    left: 450px;
+  .absolute {
+    left: 20px;
   }
   .wrapper {
     margin: 0 2% 0 0;
@@ -763,6 +767,8 @@ MEDIA QUERIES
     float: none;
   }
 }
+
+/* iPad */
 @media screen and (max-width: 1160px) {
   .personal-notes {
     display: block;
@@ -778,21 +784,19 @@ MEDIA QUERIES
 }
 
 @media screen and (min-width: 801px) and (max-width: 1160px) {
-  .absolute,
   .date-block {
-    left: 10px;
+    left: 22px;
     top: 40px;
   }
   .sidebar {
+    left: 20px;
     top: 160px;
   }
   .title-date h1 {
     margin-left: 200px;
   }
-  .hero img {
-    display: block;
-    position: relative;;
-    left: -200px;
+  .hero {
+    background-position: 37% 40%;
   }
   .dates {
     top: 160px;
@@ -823,6 +827,8 @@ MEDIA QUERIES
     float: right;
   }
 }
+
+/* mobile phones */
 @media screen and (max-width: 800px) {
   .top-bar {
     height: 70px;
@@ -838,9 +844,6 @@ MEDIA QUERIES
   .hero {
     background: url("../Pics/hero-small(6).jpg") no-repeat center center;
   }
-  .hero img {
-    display: none;
-  }
   .date-block {
     left: 0;
     right: 0;
@@ -852,12 +855,9 @@ MEDIA QUERIES
   .month {
     text-transform: none;
   }
-  .absolute {
-    top: 940px;
-    left: 5px;
-  }
   .sidebar {
     height: 550px;
+    top: 940px;
     left: 0;
     right: 0;
     margin: 0 auto;
@@ -868,10 +868,6 @@ MEDIA QUERIES
   }
   .hero {
     height: 550px;
-  }
-  .hero img {
-    position: absolute;
-    left: -200px;
   }
   .dates {
     top: 150px;

@@ -94,14 +94,31 @@ $("#datepicker").datepicker(
     }
 
 // *****************************
-// ALIGN MAIN IMAGE (HERO AREA)
+// CALCULATE HEIGHT OF HERO AREA
+// (not for mobile and Kindle)
 // *****************************
 
-  var hght = window.innerHeight - 115;
-  var wdth = window.innerWidth;
-  if (wdth > 800) {
-    $('.hero').css("height", hght);
+  var initHeight = window.innerHeight - 115;
+  //console.log(hght);
+  var initWidth = window.innerWidth;
+  if (initWidth > 800 && initWidth < 1600) {
+    $('.hero').css("height", initHeight);
   }
+
+/*** STICK SIDEBAR to the left (Kindle) ****/
+  function findLeftMargin(wdth) { return (wdth - 1900) / 2 }
+
+  if (initWidth > 2140) {
+    $('.absolute').css("left", findLeftMargin(initWidth));
+  }
+  $(window).resize(function() {
+    var resizedWidth = window.innerWidth;
+    if (resizedWidth > 2140) {
+      var left = findLeftMargin(resizedWidth);
+      console.log(left);
+      $('.absolute').css("left", left);
+   }
+ });
 
 // *****************************
 // HOVER ITEMS IN SELECTED BLOCK
