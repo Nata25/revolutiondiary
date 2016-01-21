@@ -421,6 +421,7 @@ SELECTED BLOCK
   display: inline-block;
   max-width: 70%;
   margin-top: 20px;
+  margin-bottom: 100px;
   padding: 10px;
 /*  border: 1px solid blue; */
 }
@@ -743,8 +744,40 @@ MEDIA QUERIES
 }
 
 /* regular screen */
+/** inner page **/
+@media screen and (min-width: 801px) and (max-width: 1400px) {
+  .shift-up {
+    width: 96%;
+    margin: 0 auto 0 0;
+    z-index: 0;
+  }
+/*  .box {
+    height: 75px;
+    width: 500px;
+    overflow: visible;
+    z-index: 10;
+  }
+  .vertical-logo {
+    top: 0;
+    transform: rotate(90deg);
+  }
+  .home-slide {
+    transform: rotate(0);
+    top: 0;
+    left: 0;
+  } */
+  .container {
+    margin-left: 350px;
+    width: 65%;
+  }
+  .text-container {
+    max-width: 65%;
+    padding: 0;
+  }
+}
+
 @media screen and (min-width: 1161px) and (max-width: 1400px) {
-  .absolute {
+  .absolute, .fixed {
     left: 20px;
   }
   .wrapper {
@@ -899,5 +932,13 @@ MEDIA QUERIES
   .red-square {
     display: none;
     margin: 0;
+  }
+  /* inner pages */
+  .container {
+    margin-left: 100px;
+    width: 80%;
+  }
+  .day-circle {
+    margin-top: 50px;
   }
 }
