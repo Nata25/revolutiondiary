@@ -15,6 +15,9 @@ $(function() {
 // DATEPICKER
 // *********************
 
+var monthsNames = ["січня", "лютого", "березня", "квітня", "червня", "травня", "липня", "серпня", "вересня", "жовтня", "листопада", "грудня"];
+function newURL(d, m, y) {
+  return "file://localhost/Users/yuriybesarab/Git/Days/page" + d + "-" + m + "-" + y + ".html" };
 //*** Initialize datepicker. Set dates range, date format.
 
 $("#datepicker").datepicker(
@@ -22,7 +25,7 @@ $("#datepicker").datepicker(
       dateFormat: "d MM (mm) yy",
       minDate: new Date(2013, 10, 21),
       maxDate: new Date(2014, 2, 22),
-      monthNames: ["січня", "лютого", "березня", "квітня", "червня", "травня", "липня", "серпня", "вересня", "жовтня", "листопада", "грудня"],
+      monthNames: monthsNames,
 
 //*** Get a date from datepicker:
       onSelect: (function (dateText) {
@@ -35,12 +38,9 @@ $("#datepicker").datepicker(
 
 //*** Store selected date in storage to grab it on return to index.html:
         sessionStorage.setItem("currentDate", dateText);
-        console.log(sessionStorage.getItem("currentDate"));
 
 //*** Change link on go-button according to the selected date
-        var newURL = "file://localhost/Users/yuriybesarab/Git/Days/page" + day + "-" + numMonth + "-" + year + ".html";
-        $(".link-to-page").attr('href', newURL);
-        console.log(newURL);
+        $(".link-to-page").attr('href', newURL(day, numMonth, year));
 
 //*** Update date-block fields on click
         $(".day").html(day);
@@ -57,40 +57,36 @@ $("#datepicker").datepicker(
 
     var currentURL = window.location.pathname;
 
-  //For inner pages:
-    if (currentURL.slice(-10, -5) !== "index") {
-      var stringDate = currentURL.slice(-15, -5);
-      var dateDate = $.datepicker.parseDate("dd-mm-yy", stringDate);
-      $("#datepicker").datepicker("setDate", dateDate);
-      var dateToNums = stringDate.split("-");
+  //For home page:
+    if (currentURL.slice(-10, -5) == "index") {
+      $("#datepicker").datepicker("setDate", sessionStorage.getItem("currentDate")); // get date from STORAGE and highlight it
+      var dateStored = sessionStorage.getItem("currentDate").split(" ");             // convert to array of dd MM (mm) yy
+      var day = dateStored[0];
+      $(".day").html(day);                                                          // fill datepicker-fields
+      $(".month").html(dateStored[1]);                                              // fill datepicker-fields
+      var numMonth = dateStored[2].slice(1, 3);
+      var year = dateStored[3];
+      $(".link-to-page").attr('href', newURL(day, numMonth, year));
+    }
+  //For inner pages
+    else {
+      var stringDate = currentURL.slice(-15, -5);                                    // get string with date from URL
+      var dateDate = $.datepicker.parseDate("dd-mm-yy", stringDate);                 // convert to new Date
+      $("#datepicker").datepicker("setDate", dateDate);                              // highlight this Date as current
+      var dateToNums = stringDate.split("-");                                        // get numbers for dd, mm, yy
       var day = dateToNums[0];
       var numMonth = dateToNums[1];
       var year = dateToNums[2];
-      var newURL = "file://localhost/Users/yuriybesarab/Git/Days/page" + day + "-" + numMonth + "-" + year + ".html";
-      $(".link-to-page").attr('href', newURL);
-      console.log(newURL);
-      // get string (word) equivalent for numMonth:
+      $(".link-to-page").attr('href', newURL(day, numMonth, year));                  // change link on a button
       var formattedDate = $.datepicker.formatDate("dd MM", dateDate, {
-        monthNames: ["січня", "лютого", "березня", "квітня", "червня", "травня", "липня", "серпня", "вересня", "жовтня", "листопада", "грудня"]
-      });
+        monthNames: monthsNames
+      });                                                                            // get string (word) equivalent for numMonth:
       var dateToWords = formattedDate.split(" ");
-      $(".day").html(day);
-      $(".month").html(dateToWords[1]);
-
-    }
-  //For home page
-    else {
-      $("#datepicker").datepicker("setDate", sessionStorage.getItem("currentDate"));
-      var dateStored = sessionStorage.getItem("currentDate").split(" ");
-      var day = dateStored[0];
-      $(".day").html(day);
-      $(".month").html(dateStored[1]);
-      var numMonth = dateStored[2].slice(1, 3);
-      var year = dateStored[3];
-      console.log(numMonth);
-      var newURL = "file://localhost/Users/yuriybesarab/Git/Days/page" + day + "-" + numMonth + "-" + year + ".html";
-      $(".link-to-page").attr('href', newURL);
-      console.log(newURL);
+      var month = dateToWords[1];
+      $(".day").html(day);                                                           // fill datepicker-fields
+      $(".month").html(month);                                                       // fill datepicker-fields
+      var newDateStored = day + " " + month + " (" + numMonth + ") " + year;
+      sessionStorage.setItem("currentDate", newDateStored);                          // set var in sessionStorage
     }
 
 // *****************************
@@ -101,7 +97,8 @@ $("#datepicker").datepicker(
   var initHeight = window.innerHeight - 115;
   //console.log(hght);
   var initWidth = window.innerWidth;
-  if (initWidth > 800 && initWidth < 1600) {
+  var ratio = window.innerHeight / initWidth;
+  if (initWidth > 800 && (initWidth < 1900 && ratio < 1)) {
     $('.hero').css("height", initHeight);
   }
 
