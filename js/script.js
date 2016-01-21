@@ -118,6 +118,10 @@ $("#datepicker").datepicker(
       console.log(left);
       $('.absolute').css("left", left);
    }
+ /*** revert auto height if the page is resized to mobile version ***/
+     if (resizedWidth < 800) {
+       $('.hero').css("height", "550px");
+     }
  });
 
 // *****************************
