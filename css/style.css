@@ -183,10 +183,10 @@ DATEPICKER FIELDS
   box-sizing: border-box;
 /*  border-right: .5px solid white; */
   float: left;
-  -webkit-transition: .25s background-color linear;
-  -moz-transition: .25s background-color linear;
-  -o-transition: .25s background-color linear;
-  transition: .25s background-color linear;
+  -webkit-transition: .25s all linear;
+  -moz-transition: .25s all linear;
+  -o-transition: .25s all linear;
+  transition: .25s all linear;
 }
 
 .day {
@@ -207,12 +207,17 @@ DATEPICKER FIELDS
   border: 1px solid #9c997f;
 }
 
-.button {
+#button {
   background-color: #b36665;
   width: 46px;
   height: 46px;
   float: left;
-  transition: box-shadow .25s linear;
+  transition: .25s all linear;
+  -webkit-transition: .25s all linear;
+  -moz-transition: .25s all linear;
+  -o-transition: .25s all linear;
+  transition: .25s all linear;
+
 }
 
 .button:hover {
@@ -606,6 +611,13 @@ INNER PAGES
   top: 30px;
   left: 126px;
 }
+div.fixed.mid-transparent {
+  background-color: white;
+  height: 325px;
+}
+div.date-block.fixed .datepicker-fields {
+  background-color: transparent;
+}
 .inner-background {
   position: absolute;
   top: 60px;
@@ -636,20 +648,17 @@ INNER PAGES
 
 .logo {
   position: absolute;
-  -webkit-transition: .25s all linear;
-  -moz-transition: .25s all linear;
-  -ms-transition: .25s all linear;
-  -o-transition: .25s all linear;
-  transition: .25s all linear;
+  -webkit-transition: .25s opacity linear;
+  -moz-transition: .25s opacity linear;
+  -ms-transition: .25s opacity linear;
+  -o-transition: .25s opacity linear;
+  transition: .25s opacity linear;
   z-index: 2;
 }
 a.logo:hover {
   text-decoration: none;
 }
 .box {
-  top: 110px;
-  width: 75px;
-  height: 500px;
   overflow: hidden;
   padding: 10px;
   margin-left: 20px;
@@ -797,7 +806,10 @@ MEDIA QUERIES
 }
 
 /**** Widescreen */
-@media screen and (min-width: 1401px){
+@media screen and (min-width: 1401px) {
+  .top-bar {
+    background: url("../Pics/hero-photo-vinnette(3).jpg") no-repeat top center fixed;
+  }
   .wrapper {
     margin: 0 10% 0 0;
   /*  border: 1px solid green; */
@@ -815,7 +827,22 @@ MEDIA QUERIES
   .horizontal {
     width: 0;
     height: 0;
-    }
+  }
+  .box {
+    position: fixed;
+    top: 110px;
+    width: 75px;
+    height: 500px;
+  }
+  .date-block.fixed .datepicker-fields,
+  .date-block .datepicker-fields {
+    background-color: transparent;
+    color: white;
+  }
+  div.date-block.fixed #button,
+  div.date-block #button {
+    border-color: #B69494;
+  }
 }
 /**** Regular screen */
 /* inner page */
@@ -845,14 +872,22 @@ MEDIA QUERIES
     bottom: 0;
     height: auto;
   }
+  .datepicker-fields.day,
+  .datepicker-fields.month {
+    color: #4a5894;
+  }
+/*  div.date-block.fixed #button {
+    border-color: white;
+  } */
 }
 @media screen and (min-width: 800px) and (max-width: 1400px) {
   .home-slide {
     top: -170px;
-    left: 0;
-    right: 0;
+    left: auto;
+    right: 20%;
     margin: 0 auto;
     width: 230px;
+    color: #C0BBC7;
   }
   .container {
     margin-left: 350px;
@@ -896,9 +931,14 @@ MEDIA QUERIES
   }
   /* inner page */
   .box {
+    width: 100%;
+    height: 75px;
+    background: url("../Pics/hero-photo-vinnette(3).jpg") no-repeat top center fixed;
+  }
+  .logo {
     margin: 0 0 0 35%;
     height: 75px;
-    width: 520px;
+    width: 550px;
   }
   .bg-shadow {
     top: -95px;
@@ -986,6 +1026,10 @@ MEDIA QUERIES
   }
   /* inner pages */
   .box {
+    width: 100%;
+    background: url("../Pics/hero-photo-vinnette(3).jpg") no-repeat top center fixed;
+  }
+  .logo {
     width: 300px;
     height: 190px;
     margin: 0 0 0 45%;
@@ -1105,19 +1149,19 @@ MEDIA QUERIES
     z-index: 0;
   }
   div.date-block.fixed {
-    top: auto;
-    bottom: 450px;
+    top: 170px;
+    /*bottom: 450px; */
     left: 0;
   }
-  div.sidebar.fixed {
-    top: auto;
-    bottom: 100px;
-    height: auto;
-    }
+  div.sidebar.fixed,
+  div.sidebar-container.fixed {
+    top: 230px;
+    /*bottom: 100px; */
+  }
   .one-side {
     border-top: 1px solid #b69494;
     border-bottom: 1px solid #b69494;
-    margin-bottom: 400px;
+    margin-bottom: 420px;
     width: 100%;
     /*box-shadow: none; */
   }

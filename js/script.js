@@ -199,19 +199,53 @@ $("#datepicker").datepicker(
 
 // **************************
 // SCROLL EFFECT ON DATE BLOCK (INNER PAGES)
-// not on mobiles
 // **************************
-  if (window.innerWidth > 801) {
-    $(window).scroll(function () {
-      if ($(this).scrollTop() > 30) {
-        $('.fixed').children('.day, .month').css('backgroundColor', '#f5f7fb');
-      }
 
-      else {
-        $('.fixed').children('.day, .month').css('backgroundColor', '#f4f6ec');
-      }
-    }); // end of scroll
+  function normalizeDates() {
+    $('.date-block').find('#button').css('border-color', 'white');
+    $('.date-block').children('.day, .month').css('color', '#4a5894');
   }
+  function whiteDates() {
+    $('.date-block').find('#button').css('border-color', '#B69494');
+    $('.date-block').children('.day, .month').css('color', 'white');
+  }
+
+  // Perform on widescreens only (the rest is handled by css)
+
+  function styleDateBlock(mql) {
+    if (mql.matches) {
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > 40) {
+          normalizeDates();
+        }
+        else {
+          whiteDates();
+        }
+      console.log('scroling');
+      }); // end of scroll
+    } // end of if statement
+  } // end of function
+  var mql = window.matchMedia("screen and (min-width: 1400px)");
+  styleDateBlock(mql);
+  mql.addListener(styleDateBlock);
+
+  if (mql.matches) {
+    $('.title-date').children("h1").addClass("grey");
+    $('.datepicker-fields').addClass("light");
+  }
+  else {
+    $('.title-date').children("h1").removeClass("grey");
+    $('.datepicker-fields').removeClass("light");
+  }
+/*    $(window).resize(function() {
+      if (window.innerWidth <= 1400) {
+        normalizeDates();
+      }
+      else {
+        whiteDates();
+        console.log("inside whitenDates()")
+      }
+    }); // end of resize */
 
 // **************************
 // INNER PAGES, mobile devices
