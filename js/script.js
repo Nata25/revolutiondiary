@@ -199,8 +199,9 @@ $("#datepicker").datepicker(
 
 // **************************
 // SCROLL EFFECT ON DATE BLOCK (INNER PAGES)
+// not on mobiles
 // **************************
-
+  if (window.innerWidth > 801) {
     $(window).scroll(function () {
       if ($(this).scrollTop() > 30) {
         $('.fixed').children('.day, .month').css('backgroundColor', '#f5f7fb');
@@ -210,19 +211,25 @@ $("#datepicker").datepicker(
         $('.fixed').children('.day, .month').css('backgroundColor', '#f4f6ec');
       }
     }); // end of scroll
+  }
 
 // **************************
-// HOVER ON VERTICAL LOGO (INNER PAGES)
+// INNER PAGES, mobile devices
 // **************************
-    $(".vertical-logo").hoverIntent(
-      function() {
-        $(this).addClass("transparent");
-        $(this).prev(".home-slide").removeClass("slide-up").addClass("slide-down");
-      },
-      function() {
-        $(this).removeClass("transparent");
-        $(this).prev(".home-slide").removeClass("slide-down").addClass("slide-up");
-      }
-    ); // end of hover
+    if (window.innerWidth >= 800) {
+      $(".logo").hoverIntent(
+        function() {
+          $(this).prev(".home-slide").removeClass("slide-up").addClass("slide-down");
+        },
+        function() {
+          $(this).prev(".home-slide").removeClass("slide-down").addClass("slide-up");
+        }
+      ); // end of hover
+
+      $(window).resize(function () {
+        $(".home-slide").removeClass("slide-up");
+      });
+  } // end of if statement
+
 
 }); // end of ready

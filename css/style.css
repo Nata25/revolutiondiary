@@ -153,11 +153,13 @@ DATEPICKER FIELDS
 ***********/
 
 .top-bar {
+  position: relative;
   margin: 0;
   /* padding: 30px 40px 7px 40px;  */
   padding: 30px 40px 25px 125px;
   background-color: #f4f6ec;
   border-bottom: 1px solid #b69494;
+  z-index: 2;
 }
 
 .date-block {
@@ -300,7 +302,7 @@ SIDEBAR
 }
 
 .sidebar p {
-  margin-top: 50px;
+  margin-top: 35px;
   font-size: 15px;
   color: #142b38;
   line-height: 30px;
@@ -328,6 +330,7 @@ SIDEBAR
   color: white;
   text-align: center;
   padding: 10px;
+  border-radius: 5px;
 }
 
 #datepicker {
@@ -599,7 +602,17 @@ TAGS PAGES
 /****************
 INNER PAGES
 ****************/
-
+.date-block.fixed {
+  top: 30px;
+  left: 126px;
+}
+.inner-background {
+  position: absolute;
+  top: 60px;
+  left: -40px;
+  z-index: 1;
+  display: none;
+}
 .container {
   position: relative;
   width: 50%;
@@ -621,7 +634,7 @@ INNER PAGES
   margin-top: 20px;
 }
 
-.vertical-logo {
+.logo {
   position: absolute;
   -webkit-transition: .25s all linear;
   -moz-transition: .25s all linear;
@@ -630,18 +643,23 @@ INNER PAGES
   transition: .25s all linear;
   z-index: 2;
 }
-
+a.logo:hover {
+  text-decoration: none;
+}
 .box {
   top: 110px;
-  height: 500px;
   width: 75px;
+  height: 500px;
   overflow: hidden;
   padding: 10px;
   margin-left: 20px;
   z-index: 1;
 /*  border: 1px solid blue; */
 }
+.vertical,
+.horizontal {
 
+}
 .home-slide {
   position: absolute;
   top: -165px;
@@ -688,6 +706,32 @@ INNER PAGES
     }
 }
 
+@keyframes slide-down-h {
+  from {
+    transform: translateY(0);
+    }
+  to {
+    transform: translateY(180px);
+    }
+}
+
+@keyframes slide-down-hx2 {
+  from {
+    transform: translateY(0);
+    }
+  to {
+    transform: translateY(230px);
+    }
+}
+@-webkit-keyframes slide-down-hx2 {
+  from {
+    -webkit-transform: translateY(0);
+    }
+  to {
+    -webkit-transform: translateY(230px);
+    }
+}
+
 .slide-up {
   -webkit-animation: slide-up 0.4s ease forwards;
   animation: slide-up 0.4s ease forwards;
@@ -711,11 +755,38 @@ INNER PAGES
   }
 }
 
+@keyframes slide-up-h {
+  from {
+    transform: translateY(180px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes slide-up-hx2 {
+  from {
+    -webkit-transform: translateY(230px);
+  }
+  to {
+    -webkit-transform: translateY(0);
+  }
+}
+@keyframes slide-up-hx2 {
+  from {
+    transform: translateY(230px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+
 /*************
 MEDIA QUERIES
 *************/
 
-/* Kindle */
+/**** Kindle */
 @media screen and (min-width: 1901px) {
   .bg-sheet {
     width: 1860px;
@@ -725,7 +796,7 @@ MEDIA QUERIES
   }
 }
 
-/* widescreen */
+/**** Widescreen */
 @media screen and (min-width: 1401px){
   .wrapper {
     margin: 0 10% 0 0;
@@ -741,48 +812,72 @@ MEDIA QUERIES
     width: 65%;
     left: 23%;
   }
+  .horizontal {
+    width: 0;
+    height: 0;
+    }
 }
-
-/* regular screen */
-/** inner page **/
-@media screen and (min-width: 801px) and (max-width: 1400px) {
-  .shift-up {
+/**** Regular screen */
+/* inner page */
+@media screen and (max-width: 1400px) {
+  .one-side {
     width: 96%;
     margin: 0 auto 0 0;
     z-index: 0;
   }
-/*  .box {
-    height: 75px;
-    width: 500px;
-    overflow: visible;
-    z-index: 10;
-  }
-  .vertical-logo {
-    top: 0;
-    transform: rotate(90deg);
-  }
-  .home-slide {
-    transform: rotate(0);
+  .box {
+    position: relative;
     top: 0;
     left: 0;
-  } */
+    right: 0;
+    margin: 0 auto;
+    z-index: 2;
+  }
+  .vertical {
+    height: 0;
+    width: 0;
+  }
+  .horizontal {
+    display: inline-block;
+    position: relative;
+  }
+  .bg-shadow {
+    bottom: 0;
+    height: auto;
+  }
+}
+@media screen and (min-width: 800px) and (max-width: 1400px) {
+  .home-slide {
+    top: -170px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 230px;
+  }
   .container {
     margin-left: 350px;
-    width: 65%;
+    width: auto;
   }
   .text-container {
+    margin-top: 30px;
     max-width: 65%;
     padding: 0;
   }
+  .day-circle {
+    margin: 50px 0;
+  }
 }
-
 @media screen and (min-width: 1161px) and (max-width: 1400px) {
+  /* home page */
   .absolute, .fixed {
     left: 20px;
   }
+  .date-block.absolute,
+  .date-block.fixed {
+    left: 26px;
+  }
   .wrapper {
     margin: 0 2% 0 0;
-  /*  border: 1px solid green; */
   }
   .slct-container {
     width: 65%;
@@ -799,9 +894,26 @@ MEDIA QUERIES
     left: 40px;
     float: none;
   }
+  /* inner page */
+  .box {
+    margin: 0 0 0 35%;
+    height: 75px;
+    width: 520px;
+  }
+  .bg-shadow {
+    top: -95px;
+  }
+  /* horizontal animation */
+  .slide-down {
+    -webkit-animation: slide-down-h .5s ease forwards;
+            animation: slide-down-h .5s ease forwards;
+  }
+  .slide-up {
+    -webkit-animation: slide-up-h 0.7s ease forwards;
+    animation: slide-up-h 0.7s ease forwards;
+  }
 }
-
-/* iPad */
+/**** iPad */
 @media screen and (max-width: 1160px) {
   .personal-notes {
     display: block;
@@ -814,11 +926,24 @@ MEDIA QUERIES
     height: auto;
     margin: 10px auto;
   }
+  /* inner page */
+  .box {
+    width: 300px;
+    height: 190px;
+  }
+  .bg-shadow {
+    top: -210px;
+  }
+  .logo img:last-child {
+    margin-left: 38px;
+  }
 }
 
 @media screen and (min-width: 801px) and (max-width: 1160px) {
-  .date-block {
-    left: 22px;
+  /* home page */
+  .date-block,
+  .date-block.fixed {
+    left: 26px;
     top: 40px;
   }
   .sidebar {
@@ -859,9 +984,29 @@ MEDIA QUERIES
     position: relative;
     float: right;
   }
+  /* inner pages */
+  .box {
+    width: 300px;
+    height: 190px;
+    margin: 0 0 0 45%;
+  }
+  /* horizontal animation */
+  .slide-down {
+    -webkit-animation: slide-down-hx2 .5s ease forwards;
+            animation: slide-down-hx2 .5s ease forwards;
+  }
+  .slide-up {
+    -webkit-animation: slide-up-hx2 0.7s ease forwards;
+    animation: slide-up-hx2 0.7s ease forwards;
+  }
 }
-
-/* mobile phones */
+/* hover effect of logo */
+@media screen and (min-width: 801px) {
+  .logo:hover {
+    opacity: 0;
+  }
+}
+/**** Mobile phones */
 @media screen and (max-width: 800px) {
   .top-bar {
     height: 70px;
@@ -928,6 +1073,7 @@ MEDIA QUERIES
   }
   .day-circle {
     margin-top: 20px;
+    margin-left: 10px;
   }
   .red-square {
     display: none;
@@ -935,10 +1081,62 @@ MEDIA QUERIES
   }
   /* inner pages */
   .container {
-    margin-left: 100px;
-    width: 80%;
+    margin: 0;
+    width: 100%;
   }
-  .day-circle {
-    margin-top: 50px;
+  .text-container {
+    width: 65%;
+  }
+  .container p {
+    line-height: 30px;
+  }
+  .slide-down {
+    animation: none;
+  }
+  .slide-up {
+    animation: none;
+  }
+  .fixed .day,
+  .fixed .month {
+    background-color: white;
+  }
+  div.date-block.fixed,
+  div.sidebar.fixed {
+    z-index: 0;
+  }
+  div.date-block.fixed {
+    top: auto;
+    bottom: 450px;
+    left: 0;
+  }
+  div.sidebar.fixed {
+    top: auto;
+    bottom: 100px;
+    height: auto;
+    }
+  .one-side {
+    border-top: 1px solid #b69494;
+    border-bottom: 1px solid #b69494;
+    margin-bottom: 400px;
+    width: 100%;
+    /*box-shadow: none; */
+  }
+  .bg-sheet {
+    box-shadow: none;
+  }
+  .bg-shadow {
+    width: 0;
+  }
+  .box {
+    padding: 0;
+    width: 100%;
+    background: url("../Pics/hero-small(6).jpg") no-repeat top center fixed;
+  }
+  .logo {
+    width: 300px;
+    height: 200px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
   }
 }
