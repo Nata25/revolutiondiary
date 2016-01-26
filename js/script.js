@@ -72,6 +72,7 @@ $("#datepicker").datepicker(
     else {
       var stringDate = currentURL.slice(-15, -5);                                    // get string with date from URL
       var dateDate = $.datepicker.parseDate("dd-mm-yy", stringDate);                 // convert to new Date
+      sessionStorage.setItem("date", dateDate);
       $("#datepicker").datepicker("setDate", dateDate);                              // highlight this Date as current
       var dateToNums = stringDate.split("-");                                        // get numbers for dd, mm, yy
       var day = dateToNums[0];
@@ -88,6 +89,18 @@ $("#datepicker").datepicker(
       var newDateStored = day + " " + month + " (" + numMonth + ") " + year;
       sessionStorage.setItem("currentDate", newDateStored);                          // set var in sessionStorage
     }
+
+    // Calculate prev/next day
+    var currentDate = sessionStorage.getItem("date");
+    var next = new Date(currentDate);
+    var prev = new Date(currentDate);
+    prev.setDate(prev.getDate() - 1);
+    next.setDate(next.getDate() + 1);
+    var prevDateLST = $.datepicker.formatDate("dd mm yy", prev).split(" ");
+    var nextDateLST = $.datepicker.formatDate("dd mm yy", next).split(" ");
+    $("#prev").attr("href", newURL(prevDateLST[0], prevDateLST[1], prevDateLST[2]));
+    $("#next").attr("href", newURL(nextDateLST[0], nextDateLST[1], nextDateLST[2]));
+    
 
 // *****************************
 // CALCULATE HEIGHT OF HERO AREA
@@ -212,6 +225,11 @@ $("#datepicker").datepicker(
 
   // Perform on widescreens only (the rest is handled by css)
 
+
+  var mql = window.matchMedia("screen and (min-width: 1400px)");
+  styleDateBlock(mql);
+  mql.addListener(styleDateBlock);
+
   function styleDateBlock(mql) {
     if (mql.matches) {
       $(window).scroll(function () {
@@ -223,20 +241,15 @@ $("#datepicker").datepicker(
         }
       console.log('scroling');
       }); // end of scroll
+      $('.title-date').children("h1").addClass("grey");
+      $('.datepicker-fields.absolute').addClass("light");
     } // end of if statement
+    else {
+      $('.title-date').children("h1").removeClass("grey");
+      $('.datepicker-fields.absolute').removeClass("light");
+    }
   } // end of function
-  var mql = window.matchMedia("screen and (min-width: 1400px)");
-  styleDateBlock(mql);
-  mql.addListener(styleDateBlock);
 
-  if (mql.matches) {
-    $('.title-date').children("h1").addClass("grey");
-    $('.datepicker-fields').addClass("light");
-  }
-  else {
-    $('.title-date').children("h1").removeClass("grey");
-    $('.datepicker-fields').removeClass("light");
-  }
 /*    $(window).resize(function() {
       if (window.innerWidth <= 1400) {
         normalizeDates();
