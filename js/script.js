@@ -100,7 +100,7 @@ $("#datepicker").datepicker(
     var nextDateLST = $.datepicker.formatDate("dd mm yy", next).split(" ");
     $("#prev").attr("href", newURL(prevDateLST[0], prevDateLST[1], prevDateLST[2]));
     $("#next").attr("href", newURL(nextDateLST[0], nextDateLST[1], nextDateLST[2]));
-    
+
 
 // *****************************
 // CALCULATE HEIGHT OF HERO AREA
@@ -214,17 +214,7 @@ $("#datepicker").datepicker(
 // SCROLL EFFECT ON DATE BLOCK (INNER PAGES)
 // **************************
 
-  function normalizeDates() {
-    $('.date-block').find('#button').css('border-color', 'white');
-    $('.date-block').children('.day, .month').css('color', '#4a5894');
-  }
-  function whiteDates() {
-    $('.date-block').find('#button').css('border-color', '#B69494');
-    $('.date-block').children('.day, .month').css('color', 'white');
-  }
-
   // Perform on widescreens only (the rest is handled by css)
-
 
   var mql = window.matchMedia("screen and (min-width: 1400px)");
   styleDateBlock(mql);
@@ -234,19 +224,20 @@ $("#datepicker").datepicker(
     if (mql.matches) {
       $(window).scroll(function () {
         if ($(this).scrollTop() > 40) {
-          normalizeDates();
+          $('.date-block.fixed').children('#day, #month').addClass('blue');
+          $('#button').removeClass('increase');
         }
         else {
-          whiteDates();
+          $('.date-block.fixed').children('#day, #month').removeClass('blue');
+          $('#button').addClass('increase');
         }
-      console.log('scroling');
       }); // end of scroll
-      $('.title-date').children("h1").addClass("grey");
-      $('.datepicker-fields.absolute').addClass("light");
+    //  $('.title-date').children("h1").addClass("grey");
+    //  $('.absolute .datepicker-fields').addClass("light").css("color", "white");
     } // end of if statement
     else {
-      $('.title-date').children("h1").removeClass("grey");
-      $('.datepicker-fields.absolute').removeClass("light");
+    //  $('.title-date').children("h1").removeClass("grey");
+    //  $('.absolute .datepicker-fields').removeClass("light").css('color', '#4a5894');
     }
   } // end of function
 

@@ -162,18 +162,13 @@ DATEPICKER FIELDS
   z-index: 2;
 }
 
-.date-block {
-  position: absolute;
-}
-
 .datepicker-fields  {
-  border: 2px solid white;
+  border: 1px solid white;
   border-radius: 5px;
 }
 
 .day,
 .month {
-  color: #4a5894;
   text-align: center;
   text-transform: uppercase;
   font-family: 'PT Sans Caption', sans-serif;
@@ -191,23 +186,22 @@ DATEPICKER FIELDS
 
 .day {
   width: 80px;
-  background-color:  #9c997f;
 }
 
 .month {
   width: 170px;
-  background-color: #bbbaa6;
   margin-left: 1px;
 }
-
-.light {
-  position: relative;
-  top: 1px;
-  background-color: #f4f6ec;
-  border: 1px solid #9c997f;
+.date-block.absolute .day {
+  background-color:  #9c997f;
 }
 
+.date-block.absolute .month {
+  background-color: #bbbaa6;
+}
 #button {
+  position: relative;
+  left: 1px;
   background-color: #b36665;
   width: 46px;
   height: 46px;
@@ -217,13 +211,10 @@ DATEPICKER FIELDS
   -moz-transition: .25s all linear;
   -o-transition: .25s all linear;
   transition: .25s all linear;
-
 }
-
-.button:hover {
+#button:hover {
   box-shadow: 0 0 10px #b3bcee;
 }
-
 .arrow {
   width: 0;
   height: 0;
@@ -233,7 +224,17 @@ DATEPICKER FIELDS
   margin-top: 11px;
   margin-left: 13px;
 }
-
+/* .date-block styles for inner page */
+.date-block.fixed .day,
+.date-block.fixed .month {
+  background-color: transparent;
+}
+.light {
+  border: 1px solid #9c997f;
+}
+.date-block.fixed #button {
+  border: 1px solid #B69494;
+}
 
 /**********
 DATES ON TOP
@@ -615,9 +616,6 @@ div.fixed.mid-transparent {
   background-color: white;
   height: 325px;
 }
-div.date-block.fixed .datepicker-fields {
-  background-color: transparent;
-}
 .inner-background {
   position: absolute;
   top: 60px;
@@ -810,6 +808,15 @@ MEDIA QUERIES
   .top-bar {
     background: url("../Pics/hero-photo-vinnette(3).jpg") no-repeat top center fixed;
   }
+  .date-block.fixed .datepicker-fields,
+  .date-block.absolute .datepicker-fields {
+    border: 1px solid #9c997f;
+    background-color: transparent;
+    color: white;
+  }
+  .title-date h1 {
+    color: #838692;
+  }
   .wrapper {
     margin: 0 10% 0 0;
   /*  border: 1px solid green; */
@@ -834,15 +841,16 @@ MEDIA QUERIES
     width: 75px;
     height: 500px;
   }
-  .date-block.fixed .datepicker-fields,
-  .date-block .datepicker-fields {
-    background-color: transparent;
+
+  .white {
     color: white;
   }
-  div.date-block.fixed #button,
-  div.date-block #button {
-    border-color: #B69494;
+  .blue {
+    color: #4a5894 !important;
   }
+/*  .datepicker-fields.increase #botton {
+    border-color: #B69494 !important;
+  }*/
 }
 /**** Regular screen */
 /* inner page */
