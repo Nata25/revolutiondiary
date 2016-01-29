@@ -627,7 +627,6 @@ div.fixed.mid-transparent {
   position: relative;
   width: 50%;
   margin-left: 400px;
-  margin-top: 20px;
 /*  border: 1px solid blue; */
 }
 
@@ -816,6 +815,9 @@ MEDIA QUERIES
   }
   .title-date h1 {
     color: #838692;
+  }
+  .hero {
+    top: 2px;
   }
   .wrapper {
     margin: 0 10% 0 0;
