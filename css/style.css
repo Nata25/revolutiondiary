@@ -612,8 +612,10 @@ INNER PAGES
   top: 30px;
   left: 126px;
 }
-div.fixed.mid-transparent {
+.sidebar.fixed.mid-transparent {
   background-color: white;
+}
+.sidebar.fixed {
   height: 325px;
 }
 .inner-background {
@@ -1088,7 +1090,7 @@ MEDIA QUERIES
     text-transform: none;
   }
   .sidebar {
-    height: 550px;
+    height: 325px;
     top: 940px;
     left: 0;
     right: 0;
@@ -1140,6 +1142,7 @@ MEDIA QUERIES
   }
   .text-container {
     width: 65%;
+    margin-bottom: 30px;
   }
   .container p {
     line-height: 30px;
@@ -1159,14 +1162,15 @@ MEDIA QUERIES
     z-index: 0;
   }
   div.date-block.fixed {
-    top: 170px;
-    /*bottom: 450px; */
+    top: auto;;
+    bottom: 420px;
     left: 0;
   }
   div.sidebar.fixed,
   div.sidebar-container.fixed {
-    top: 230px;
-    /*bottom: 100px; */
+  /*  top: 230px; */
+    top: auto;
+    bottom: 90px;
   }
   .one-side {
     border-top: 1px solid #b69494;
@@ -1192,5 +1196,11 @@ MEDIA QUERIES
     left: 0;
     right: 0;
     margin: 0 auto;
+  }
+  h2 {
+    margin: 10px 0 0 0;
+  }
+  footer {
+    height: 70px;
   }
 }
