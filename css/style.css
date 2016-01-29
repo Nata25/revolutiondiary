@@ -627,7 +627,7 @@ INNER PAGES
 }
 .container {
   position: relative;
-  width: 50%;
+  width: 60%;
   margin-left: 400px;
 /*  border: 1px solid blue; */
 }
@@ -641,8 +641,8 @@ INNER PAGES
 }
 
 .inner {
-  width: 90%;
-  margin-top: 20px;
+  width: 80%;
+  margin: 40px 20px;
 }
 
 .logo {
@@ -910,9 +910,6 @@ MEDIA QUERIES
     max-width: 65%;
     padding: 0;
   }
-  .day-circle {
-    margin: 50px 0;
-  }
 }
 @media screen and (min-width: 1161px) and (max-width: 1400px) {
   /* home page */
@@ -954,6 +951,9 @@ MEDIA QUERIES
   }
   .bg-shadow {
     top: -95px;
+  }
+  .day-circle {
+    width: 70%;
   }
   /* horizontal animation */
   .slide-down {
@@ -1054,6 +1054,10 @@ MEDIA QUERIES
   .slide-up {
     -webkit-animation: slide-up-hx2 0.7s ease forwards;
     animation: slide-up-hx2 0.7s ease forwards;
+  }
+  .inner {
+    width: 90%;
+    margin: 50px 20px 0 0;
   }
 }
 /* hover effect of logo */
