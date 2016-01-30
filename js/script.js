@@ -215,41 +215,46 @@ $("#datepicker").datepicker(
 // **************************
 
   // Perform on widescreens only (the rest is handled by css)
-
+  var dates = $('.date-block.fixed').children('#day, #month');
   var mql = window.matchMedia("screen and (min-width: 1400px)");
-  styleDateBlock(mql);
-  mql.addListener(styleDateBlock);
 
   function styleDateBlock(mql) {
     if (mql.matches) {
+      var offsetY = $('.date-block.fixed').offset()['top'];
+
+      // if we at the top of the page, make .date-block white
+      // (= .js placeholder for css media query)
+      if (offsetY < 40) {
+        dates.addClass('white');
+      }
+      // remove .blue class if the page has been scrolled down and resized to < 1400px
+      else {
+        dates.removeClass('blue');
+      }
+
+    // change color of .date-block on scroll and w>1400px
       $(window).scroll(function () {
-        if ($(this).scrollTop() > 40) {
-          $('.date-block.fixed').children('#day, #month').addClass('blue');
-          $('#button').removeClass('increase');
-        }
-        else {
-          $('.date-block.fixed').children('#day, #month').removeClass('blue');
-          $('#button').addClass('increase');
-        }
+        if (mql.matches) {
+            if ($(this).scrollTop() > 40) {
+              dates.removeClass('white').addClass('blue');
+              $('#button').removeClass('increase');
+            }
+            else  {
+              dates.removeClass('blue').addClass('white');
+              $('#button').addClass('increase');
+            }
+          } // end of if; no scroll effects on w<1400px
       }); // end of scroll
-    //  $('.title-date').children("h1").addClass("grey");
-    //  $('.absolute .datepicker-fields').addClass("light").css("color", "white");
     } // end of if statement
+
+    // if w<1400px (Listener checks), remove additional styling classes and reset to default css values
     else {
-    //  $('.title-date').children("h1").removeClass("grey");
-    //  $('.absolute .datepicker-fields').removeClass("light").css('color', '#4a5894');
+      dates.removeClass('white blue');
     }
   } // end of function
 
-/*    $(window).resize(function() {
-      if (window.innerWidth <= 1400) {
-        normalizeDates();
-      }
-      else {
-        whiteDates();
-        console.log("inside whitenDates()")
-      }
-    }); // end of resize */
+  styleDateBlock(mql);
+  mql.addListener(styleDateBlock);
 
 // **************************
 // INNER PAGES, mobile devices

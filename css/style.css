@@ -165,6 +165,7 @@ DATEPICKER FIELDS
 .datepicker-fields  {
   border: 1px solid white;
   border-radius: 5px;
+  color: #4a5894;
 }
 
 .day,
@@ -198,6 +199,12 @@ DATEPICKER FIELDS
 
 .date-block.absolute .month {
   background-color: #bbbaa6;
+}
+.white {
+  color: white !important;
+}
+.blue {
+  color: #4a5894 !important;
 }
 #button {
   position: relative;
@@ -813,7 +820,7 @@ MEDIA QUERIES
   .date-block.absolute .datepicker-fields {
     border: 1px solid #9c997f;
     background-color: transparent;
-    color: white;
+    /*color: white; */
   }
   .title-date h1 {
     color: #838692;
@@ -844,13 +851,6 @@ MEDIA QUERIES
     top: 110px;
     width: 75px;
     height: 500px;
-  }
-
-  .white {
-    color: white;
-  }
-  .blue {
-    color: #4a5894 !important;
   }
 /*  .datepicker-fields.increase #botton {
     border-color: #B69494 !important;
