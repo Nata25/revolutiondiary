@@ -215,12 +215,12 @@ $("#datepicker").datepicker(
 // **************************
 
   // Perform on widescreens only (the rest is handled by css)
-  var dates = $('.date-block.fixed').children('#day, #month');
+  var dates = $('.date-block').children('.day, .month');
   var mql = window.matchMedia("screen and (min-width: 1400px)");
 
   function styleDateBlock(mql) {
     if (mql.matches) {
-      var offsetY = $('.date-block.fixed').offset()['top'];
+      var offsetY = $('.date-block').offset()['top'];
 
       // if we at the top of the page, make .date-block white
       // (= .js placeholder for css media query)
