@@ -619,7 +619,7 @@ INNER PAGES
   top: 30px;
   left: 126px;
 }
-.sidebar.fixed.mid-transparent {
+.mid-transparent.fixed {
   background-color: white;
 }
 .sidebar.fixed {
@@ -952,7 +952,7 @@ MEDIA QUERIES
   .bg-shadow {
     top: -95px;
   }
-  .day-circle {
+  .inner {
     width: 70%;
   }
   /* horizontal animation */
@@ -1094,7 +1094,6 @@ MEDIA QUERIES
     text-transform: none;
   }
   .sidebar {
-    height: 325px;
     top: 940px;
     left: 0;
     right: 0;
@@ -1103,6 +1102,9 @@ MEDIA QUERIES
   .sidebar p {
     margin-top: 0;
     line-height: normal;
+  }
+  .mid-transparent.absolute {
+    height: 550px;
   }
   .hero {
     height: 550px;
@@ -1161,17 +1163,17 @@ MEDIA QUERIES
   .fixed .month {
     background-color: white;
   }
-  div.date-block.fixed,
-  div.sidebar.fixed {
+  .date-block.fixed,
+  .sidebar.fixed {
     z-index: 0;
   }
-  div.date-block.fixed {
+  .date-block.fixed {
     top: auto;;
     bottom: 420px;
     left: 0;
   }
-  div.sidebar.fixed,
-  div.sidebar-container.fixed {
+  .sidebar.fixed,
+  .sidebar-container.fixed {
   /*  top: 230px; */
     top: auto;
     bottom: 90px;
