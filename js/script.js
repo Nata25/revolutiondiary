@@ -116,18 +116,27 @@ $("#datepicker").datepicker(
   }
 
 /*** STICK SIDEBAR to the left (Kindle) ****/
-  function findLeftMargin(wdth) { return (wdth - 1900) / 2 }
+  function findLeftMargin(wdth) { return (wdth - 1900) / 2}
 
   if (initWidth > 2140) {
-    $('.absolute').css("left", findLeftMargin(initWidth));
+    var onHome = findLeftMargin(initWidth) + 10;
+    var onInner = onHome + 100;
+    var verLogo = onHome - 40;
+    $('.absolute').css("left", onHome);
+    $('.fixed').css("left", onInner);
+    $('.box').css("left", verLogo);
   }
   $(window).resize(function() {
     var resizedWidth = window.innerWidth;
     if (resizedWidth > 2140) {
-      var left = findLeftMargin(resizedWidth);
-      console.log(left);
-      $('.absolute').css("left", left);
-   }
+      var onHome = findLeftMargin(resizedWidth) + 10;
+      var onInner = onHome + 100;
+      var verLogo = onHome - 40;
+    //  console.log(left);
+      $('.absolute').css("left", onHome);
+      $('.fixed').css("left", onInner);
+      $('.box').css("left", verLogo);
+    }
  /*** revert auto height if the page is resized to mobile version ***/
      if (resizedWidth < 800) {
        $('.hero').css("height", "550px");
