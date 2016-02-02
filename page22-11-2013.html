@@ -25,27 +25,11 @@
 <body>
 
   <!-- TOP BAR -->
+  <!--<figure class="inner-background">
+    <img src="Pics/hero-small(6).jpg" />
+  </figure> -->
 
   <div class="top-bar">
-
-    <!-- DATEPICKER FIELDS -->
-
-    <div class="fixed">
-
-      <div class="date-block grey light day"></div>
-
-      <div class="date-block grey light month"></div>
-
-      <!-- 'GO' button -->
-      <a class="link-to-page" title="Перейти до запису" href="">
-        <div class="date-block button">
-          <div class="arrow"></div>
-        </div>
-      </a>
-      <!-- /'GO' button -->
-
-     </div>
-    <!-- /DATEPICKER FIELDS -->
 
     <!-- DATES ON TOP -->
 
@@ -57,11 +41,30 @@
 
   </div>
 
+  <!-- DATEPICKER FIELDS -->
+
+  <div class="date-block fixed">
+
+    <div class="datepicker-fields light day"></div>
+
+    <div class="datepicker-fields light month"></div>
+
+    <!-- 'GO' button -->
+    <a class="link-to-page" title="Перейти до запису" href="#">
+      <div class="datepicker-fields" id="button">
+        <div class="arrow"></div>
+      </div>
+    </a>
+    <!-- /'GO' button -->
+
+   </div>
+  <!-- /DATEPICKER FIELDS -->
+
   <!-- /TOP BAR -->
 
   <!-- VERTICAL LOGO & LINK TO A HOME PAGE -->
 
-  <div class="fixed box">
+  <div class="box">
     <div class="home-slide">На головну</div>
     <a class="logo" title="На головну" href="index.html">
       <img class="vertical" src="Pics/dates-v-s.png" />
@@ -72,34 +75,34 @@
 
   <!-- SIDEBAR -->
 
-  <div class="sidebar fixed sidebar-container transparent"></div>
+  <div class="sidebar fixed sidebar-container mid-transparent"></div>
   <div class="sidebar fixed">
     <div id="choose-date">Оберіть дату:</div>
 
     <div id="datepicker"></div>
 
-    <p>Сайт присвячено подіям, що розгортались у Києві та інших містах України з
-      листопада 2013 до березня 2014 років.
-    Усі матеріали є витягами з особистого щоденника та не претендують на вичерпність
-    і об'єктивність.<br />
-     <a href="#">Детальніше...</a></p>
-
   </div>
 
   <!-- /SIDEBAR -->
+
+  <div class="bg-sheet one-side">
+
+      <div class="bg-shadow" id="right"></div>
 
   <!-- DIARY NOTES -->
 
   <div class="container">
 
-    <div class="left-bar">
+    <figure class="left-bar">
 
-      <img class="day-circle" src="Pics/nums/21.png" />
+      <img class="day-circle inner" src="Pics/nums/d22.png" />
 
-    </div>
+    </figure>
 
     <div class="text-container">
-      <p> 22 листопада, п’ятниця. </p>
+
+      <h2>ЛИСТОПАДА, п’ятниця</h2>
+
       <p>Рано-ранісінько УП повідомила, що суд (якийсь) заборонив мітингувальникам
       на Майдані ставити намети. Тобто збиратися можна, а намети – зась. Що вже є
        верхом цинізму: погода власне почалася дощова (хоч і не холодна), а з
@@ -130,17 +133,28 @@
        економічні втрати від співпраці із ЄС – доброго ранку!), опозіонери
        хотіли зажадати його відставки, але жаданням усе й закінчилося. </p>
 
-       <p>
-         <a id="prev" href="#">Попередня...</a>
-         <br /><a id="next" href="#">Наступна...</a>
-         <br /><a href="#">Детальніше про цей сайт...</a></p>
-         
-     </div>
-     <!-- /end of text container -->
+          <p>
+            <a id="prev" href="#">Попередня...</a>
+            <br /><a id="next" href="#">Наступна...</a>
+            <br /><a href="#">Детальніше про цей сайт...</a></p>
 
-   </div>
+        </div>
+        <!-- /end of text container -->
 
-<!-- /DIARY NOTES -->
+      </div>
+
+  <!-- /DIARY NOTES -->
+
+</div>
+<!-- BACKGROUND -->
+
+<!-- FOOTER -->
+<!--<div class="red-divider shift-up" id="upper"></div> -->
+<div class="red-divider"></div>
+
+<footer>
+  <p>Дати. Дні (с) 2016</p>
+</footer>
 
 </body>
 

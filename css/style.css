@@ -24,10 +24,15 @@ canvas {
   height: 740px;
 }
 
-p, h2, h3 {
+p, h2, h3, h4 {
   font-family: 'PT Sans', sans-serif;
   color: #553a26;
+}
 
+h4 {
+  display: inline-block;
+  font-size: 20px;
+  margin: 0 5px 0 0;
 }
 
 p, h2, h3, p > a {
@@ -159,7 +164,6 @@ DATEPICKER FIELDS
   padding: 30px 40px 25px 125px;
   background-color: #f4f6ec;
   border-bottom: 1px solid #b69494;
-  box-sizing: border-box;
   z-index: 2;
 }
 
@@ -395,7 +399,7 @@ SELECTED BLOCK
 
 .selected {
   margin-bottom: 70px;
-  font-family: Roboto Slab;
+  font-family: 'Roboto Slab', 'Tinos', 'PT Serif', sans-serif;
   font-size: 45px;
   text-align: center;
   color: #606baf;
@@ -553,34 +557,40 @@ SELECTED BLOCK
 }
 
 /****************
-TAGS PAGES
+TAGS CLOUD
 ****************/
-
-.tags-container {
-  position: relative;
-  top: 20px;
+.tags-cloud-main,
+.tags-cloud-inner {
+  background-color: #d3d7e6;
   display: inline-block;
   vertical-align: top;
-  margin-left: 10px;
   text-align: center;
-  height: 820px;
   padding: 20px;
-  background-color: #d3d7e6;
+}
+
+.tags-cloud-main {
+  position: relative;
+  top: 20px;
+  margin-left: 10px;
+  height: 820px;
   margin-right: 10px;
   box-sizing: border-box;
 }
 
-.tags-container p {
+.tags-cloud-main p {
   line-height: 50px;
 }
 
-.tags-container a {
+.tags-cloud-main a,
+.tags-cloud-inner a {
   display: inline-block;
+  margin: 0 5px;
   color: #a9aaac;
   text-decoration: none;
 }
 
-.tags-container a:hover {
+.tags-cloud-main a:hover,
+.tags-cloud-inner a:hover {
   color: #936565;
   text-decoration: none;
 }
@@ -796,7 +806,36 @@ a.logo:hover {
     transform: translateY(0);
   }
 }
+.tags {
+  margin: 20px auto;
+}
 
+.tags p {
+  display: inline;
+  margin: 0;
+  font-family: 'Roboto Slab', 'Tinos', 'PT Serif', sans-serif;
+  font-weight: bold;
+  line-height: normal;
+}
+
+.tags a {
+  display: inline-block;
+  margin: 5px 2px;
+  color: #6B718A;
+}
+.tags a:hover {
+  text-decoration: none;
+  font-size: 1.05em;
+  color: #982E2E;
+}
+.tags-cloud-inner {
+  width: 90%;
+  margin: 10px auto;
+}
+
+.tags-cloud-inner p {
+  line-height: 35px;
+}
 
 /*************
 MEDIA QUERIES
@@ -840,7 +879,7 @@ MEDIA QUERIES
   .slct-container {
     width: 70%;
   }
-  .tags-container {
+  .tags-cloud-main {
     width: 25%;
   }
   .hover-sheet {
@@ -931,7 +970,7 @@ MEDIA QUERIES
   .slct-container {
     width: 65%;
   }
-  .tags-container {
+  .tags-cloud-main {
     width: 30%;
   }
   .hover-sheet {
@@ -976,7 +1015,11 @@ MEDIA QUERIES
     display: block;
     margin-top: 10px;
   }
-  .tags-container {
+  .wrapper {
+    margin: 0;
+    padding-bottom: 20px;
+  }
+  .tags-cloud-main {
     top: 0;
     display: block;
     width: 85%;
@@ -1019,10 +1062,6 @@ MEDIA QUERIES
   }
   .dates img {
     display: block;
-  }
-  .wrapper {
-    margin: 0;
-    padding-bottom: 20px;
   }
   .slct-container {
     width: 100%;
