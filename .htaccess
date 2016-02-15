@@ -1,0 +1,19 @@
+# Enable .html pages to run PHP
+AddHandler php5-script .php .html .htm
+
+# Remove extensions from URLs
+
+RewriteEngine On
+
+#example.com/page will display the contents of example.com/page.html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+)$ $1.html [L,QSA]
+
+#301 from example.com/page.html to example.com/page
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /.*\.html\ HTTP/
+RewriteRule ^(.*)\.html$ /$1 [R=301,L]
+
+# The line below was added for testing (chaning index page)
+#DirectoryIndex n-page21-11-2013.html index.html index.php

@@ -1,5 +1,3 @@
-// Document.ready()
-
 // sessionStorage.removeItem("currentDate"); // uncomment to clean storage
 
 if (!(sessionStorage.getItem("currentDate"))) {
@@ -9,15 +7,18 @@ if (!(sessionStorage.getItem("currentDate"))) {
 //console.log(window.innerWidth);
 //console.log(window.innerHeight);
 
+var domain = "DatyDni/";
+
+// Document.ready()
 $(function() {
 
-// *********************
-// DATEPICKER
-// *********************
+// ***********************************
+//***** DATEPICKER *****//
+// ***********************************
 
 var monthsNames = ["січня", "лютого", "березня", "квітня", "червня", "травня", "липня", "серпня", "вересня", "жовтня", "листопада", "грудня"];
 function newURL(d, m, y) {
-  return "file://localhost/Users/yuriybesarab/Git/Days/page" + d + "-" + m + "-" + y + ".html" };
+  return "page" + d + "-" + m + "-" + y };
 //*** Initialize datepicker. Set dates range, date format.
 
 $("#datepicker").datepicker(
@@ -51,14 +52,14 @@ $("#datepicker").datepicker(
     }); // end of .datepicker() initialization
 
 //***  Based on current URL, set:
-//***   - dates into the input fields
-//***   - current date in datepicker
-//***   - initial link on the go-button
+//  *   - dates into the input fields
+//  *   - current date in datepicker
+//  *   - initial link on the go-button
 
     var currentURL = window.location.pathname;
 
   //For home page:
-    if (currentURL.slice(-10, -5) == "index") {
+    if (currentURL.slice(-8) == domain) {
       $("#datepicker").datepicker("setDate", sessionStorage.getItem("currentDate")); // get date from STORAGE and highlight it
       var dateStored = sessionStorage.getItem("currentDate").split(" ");             // convert to array of dd MM (mm) yy
       var day = dateStored[0];
@@ -70,7 +71,8 @@ $("#datepicker").datepicker(
     }
   //For inner pages
     else {
-      var stringDate = currentURL.slice(-15, -5);                                    // get string with date from URL
+      var stringDate = currentURL.slice(-10);                                    // get string with date from URL
+      console.log(stringDate);
       var dateDate = $.datepicker.parseDate("dd-mm-yy", stringDate);                 // convert to new Date
       sessionStorage.setItem("date", dateDate);
       $("#datepicker").datepicker("setDate", dateDate);                              // highlight this Date as current
@@ -101,8 +103,13 @@ $("#datepicker").datepicker(
     $("#prev").attr("href", newURL(prevDateLST[0], prevDateLST[1], prevDateLST[2]));
     $("#next").attr("href", newURL(nextDateLST[0], nextDateLST[1], nextDateLST[2]));
 
+    $("#home").attr("href", "../" + domain);
+    console.log($("#home").attr("href"));
 
-// *****************************
+// ***********************************
+//***** CSS ADDITIONAL FUNCTION *****//
+// ***********************************
+
 // CALCULATE HEIGHT OF HERO AREA
 // (not for mobile and Kindle)
 // *****************************
