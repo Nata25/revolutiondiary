@@ -1,16 +1,21 @@
 // sessionStorage.removeItem("currentDate"); // uncomment to clean storage
 
 if (!(sessionStorage.getItem("currentDate"))) {
-  sessionStorage.setItem("currentDate", "21 листопада (11) 2013");
+  sessionStorage.setItem("currentDate", "21 листопада (Nov) 2013");
 }
 
 //console.log(window.innerWidth);
 //console.log(window.innerHeight);
 
-var domain = "DatyDni/";
+var domain = "/DatyDni/";
 
 // Document.ready()
 $(function() {
+
+// **** LINKS ***
+
+  $('a.logo').attr("href", domain);
+
 
 // ***********************************
 //***** DATEPICKER *****//
@@ -18,12 +23,12 @@ $(function() {
 
 var monthsNames = ["січня", "лютого", "березня", "квітня", "червня", "травня", "липня", "серпня", "вересня", "жовтня", "листопада", "грудня"];
 function newURL(d, m, y) {
-  return "page" + d + "-" + m + "-" + y };
+  return  domain + y + "/" + m + "/" + d };
 //*** Initialize datepicker. Set dates range, date format.
 
 $("#datepicker").datepicker(
     {
-      dateFormat: "d MM (mm) yy",
+      dateFormat: "dd MM (M) yy",
       minDate: new Date(2013, 10, 21),
       maxDate: new Date(2014, 2, 22),
       monthNames: monthsNames,
@@ -33,7 +38,7 @@ $("#datepicker").datepicker(
         var dateString = dateText.split(" ");
         var day = dateString[0];
         var month = dateString[1];
-        var numMonth = dateString[2].slice(1, 3);
+        var shortMonth = dateString[2].slice(1, -1);
         var dateInNums = dateString[0] + dateString[2];
         var year = dateString[3];
 
@@ -41,7 +46,9 @@ $("#datepicker").datepicker(
         sessionStorage.setItem("currentDate", dateText);
 
 //*** Change link on go-button according to the selected date
-        $(".link-to-page").attr('href', newURL(day, numMonth, year));
+        $(".link-to-page").attr('href', newURL(day, shortMonth, year));
+        console.log($('.link-to-page').attr("href"));
+
 
 //*** Update date-block fields on click
         $(".day").html(day);
@@ -57,30 +64,32 @@ $("#datepicker").datepicker(
 //  *   - initial link on the go-button
 
     var currentURL = window.location.pathname;
+    console.log(currentURL);
 
   //For home page:
-    if (currentURL.slice(-8) == domain) {
+    if (currentURL == domain) {
       $("#datepicker").datepicker("setDate", sessionStorage.getItem("currentDate")); // get date from STORAGE and highlight it
       var dateStored = sessionStorage.getItem("currentDate").split(" ");             // convert to array of dd MM (mm) yy
       var day = dateStored[0];
       $(".day").html(day);                                                          // fill datepicker-fields
       $(".month").html(dateStored[1]);                                              // fill datepicker-fields
-      var numMonth = dateStored[2].slice(1, 3);
+      var shortMonth = dateStored[2].slice(1, -1);
       var year = dateStored[3];
-      $(".link-to-page").attr('href', newURL(day, numMonth, year));
+      $(".link-to-page").attr('href', newURL(day, shortMonth, year));
     }
   //For inner pages
     else {
-      var stringDate = currentURL.slice(-10);                                    // get string with date from URL
-      console.log(stringDate);
-      var dateDate = $.datepicker.parseDate("dd-mm-yy", stringDate);                 // convert to new Date
+      var stringDate = currentURL.slice(-11);                                    // get string with date from URL
+      console.log("from URL: " + stringDate);
+      var dateDate = $.datepicker.parseDate("yy/M/dd", stringDate);                 // convert to new Date
+      console.log("parsed: " + dateDate);
       sessionStorage.setItem("date", dateDate);
       $("#datepicker").datepicker("setDate", dateDate);                              // highlight this Date as current
-      var dateToNums = stringDate.split("-");                                        // get numbers for dd, mm, yy
-      var day = dateToNums[0];
-      var numMonth = dateToNums[1];
-      var year = dateToNums[2];
-      $(".link-to-page").attr('href', newURL(day, numMonth, year));                  // change link on a button
+      var dateToNums = stringDate.split("/");                                        // get numbers for dd, mm, yy
+      var day = dateToNums[2];
+      var shortMonth = dateToNums[1];
+      var year = dateToNums[0];
+      $(".link-to-page").attr('href', newURL(day, shortMonth, year));                  // change link on a button
       var formattedDate = $.datepicker.formatDate("dd MM", dateDate, {
         monthNames: monthsNames
       });                                                                            // get string (word) equivalent for numMonth:
@@ -88,7 +97,7 @@ $("#datepicker").datepicker(
       var month = dateToWords[1];
       $(".day").html(day);                                                           // fill datepicker-fields
       $(".month").html(month);                                                       // fill datepicker-fields
-      var newDateStored = day + " " + month + " (" + numMonth + ") " + year;
+      var newDateStored = day + " " + month + " (" + shortMonth + ") " + year;
       sessionStorage.setItem("currentDate", newDateStored);                          // set var in sessionStorage
     }
 
@@ -98,13 +107,13 @@ $("#datepicker").datepicker(
     var prev = new Date(currentDate);
     prev.setDate(prev.getDate() - 1);
     next.setDate(next.getDate() + 1);
-    var prevDateLST = $.datepicker.formatDate("dd mm yy", prev).split(" ");
-    var nextDateLST = $.datepicker.formatDate("dd mm yy", next).split(" ");
+    var prevDateLST = $.datepicker.formatDate("dd M yy", prev).split(" ");
+    var nextDateLST = $.datepicker.formatDate("dd M yy", next).split(" ");
     $("#prev").attr("href", newURL(prevDateLST[0], prevDateLST[1], prevDateLST[2]));
     $("#next").attr("href", newURL(nextDateLST[0], nextDateLST[1], nextDateLST[2]));
 
-    $("#home").attr("href", "../" + domain);
-    console.log($("#home").attr("href"));
+    $("#home").attr("href", domain);
+
 
 // ***********************************
 //***** CSS ADDITIONAL FUNCTION *****//
