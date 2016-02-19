@@ -1,3 +1,6 @@
+# Prevent from Index of
+Options -Indexes
+
 # Enable .html pages to run PHP
 AddHandler php5-script .php .html .htm
 
@@ -15,5 +18,6 @@ RewriteRule ^(.+)$ $1.html [L,QSA]
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /.*\.html\ HTTP/
 RewriteRule ^(.*)\.html$ /$1 [R=301,L]
 
-# The line below was added for testing (chaning index page)
-#DirectoryIndex n-page21-11-2013.html index.html index.php
+#301 for any page within directories for years and months (e.g. "2013/Nov")
+RedirectMatch 301 ^/201\d/(\D{3}/)?$ /
+#RewriteRule ^201\d/(\D{3})?/?$ / [R=301,L] # working line!

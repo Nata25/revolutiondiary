@@ -1,4 +1,5 @@
 // sessionStorage.removeItem("currentDate"); // uncomment to clean storage
+// sessionStorage.removeItem("date"); // uncomment to clean storage
 
 if (!(sessionStorage.getItem("currentDate"))) {
   sessionStorage.setItem("currentDate", "21 листопада (Nov) 2013");
@@ -7,14 +8,14 @@ if (!(sessionStorage.getItem("currentDate"))) {
 //console.log(window.innerWidth);
 //console.log(window.innerHeight);
 
-var domain = "/DatyDni/";
+var domain = "localhost:8888";
 
 // Document.ready()
 $(function() {
 
 // **** LINKS ***
 
-  $('a.logo').attr("href", domain);
+  $('a.logo').attr("href", "/");
 
 
 // ***********************************
@@ -23,7 +24,7 @@ $(function() {
 
 var monthsNames = ["січня", "лютого", "березня", "квітня", "червня", "травня", "липня", "серпня", "вересня", "жовтня", "листопада", "грудня"];
 function newURL(d, m, y) {
-  return  domain + y + "/" + m + "/" + d };
+  return  "/" + y + "/" + m + "/" + d };
 //*** Initialize datepicker. Set dates range, date format.
 
 $("#datepicker").datepicker(
@@ -67,7 +68,7 @@ $("#datepicker").datepicker(
     console.log(currentURL);
 
   //For home page:
-    if (currentURL == domain) {
+    if (currentURL == "/") {
       $("#datepicker").datepicker("setDate", sessionStorage.getItem("currentDate")); // get date from STORAGE and highlight it
       var dateStored = sessionStorage.getItem("currentDate").split(" ");             // convert to array of dd MM (mm) yy
       var day = dateStored[0];
@@ -112,7 +113,7 @@ $("#datepicker").datepicker(
     $("#prev").attr("href", newURL(prevDateLST[0], prevDateLST[1], prevDateLST[2]));
     $("#next").attr("href", newURL(nextDateLST[0], nextDateLST[1], nextDateLST[2]));
 
-    $("#home").attr("href", domain);
+    $("#home").attr("href", "/");
 
 
 // ***********************************
