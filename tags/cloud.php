@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Хмара тегів</title>
-  </head>
-  <body>
-
     <?php
 
       include("connect.inc.php");
@@ -36,8 +28,8 @@
           $min = $table[$i]['rating'];
         }
       }
-      $min_size = 70;
-      $max_size = 150;
+      $min_size = 110;
+      $max_size = 220;
       $scale = ($max_size - $min_size) / ($max - $min);
 
       foreach ($table as $tag):
@@ -49,20 +41,12 @@
         }
         $name = $tag['tag'];
         $query = $tag['query'];
-     ?>
 
+          $tag = '<a href="/exercises/tags/?name=' . $query;
+          $tag .= '"><span style="font-size:' . $size;
+          $tag .= '%;">' . $name . '</span></a>';
+          echo $tag;
 
+        endforeach;
 
-     <p>
-          <?php
-            $tag = '<a href="/exercises/tags/?name=' . $query;
-            $tag .= '"><span style="font-size:' . $size;
-            $tag .= '%;">' . $name . '</span></a>';
-            echo $tag;
-          ?>
-     </p>
-
-   <?php endforeach ?>
-
-  </body>
-</html>
+      ?>

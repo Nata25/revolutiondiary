@@ -9,4 +9,3 @@ catch (PDOException $e)
   $e->getMessage();
   exit();
 }
-  echo "<p>Connection is set!</p>";
