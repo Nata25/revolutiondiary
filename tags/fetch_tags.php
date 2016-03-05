@@ -1,45 +1,30 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Виводимо список тегів із таблиці</title>
-  </head>
-  <body>
-    <?php
-      include("connect.inc.php");
+<?php
+  include("connect.inc.php");
 
-      $URL = "/2013/Nov/21";
+  $URL = $_SERVER['PHP_SELF'];
 
-      // Finding corresponding title
+  // Fetching tags for given URL
 
-      try {
-        $sql = "SELECT title FROM posts WHERE URL = '/2013/Nov/21'";
-        $title = $pdo->query($sql);
+  try {
+    $sql = "SELECT tag, query
+            FROM tags INNER JOIN posts_tags
+              ON tags.id = posts_tags.tagid
+            INNER JOIN posts
+              ON posts_tags.postid = posts.id
+            WHERE URL = '$URL'";
+    $result = $pdo->query($sql);
+  }
+  catch (PDOException $e) {
+    echo "Cannot fetch tags, " . $e->getMessage();
+    exit();
+  }
 
-      } catch (Exception $e) {
-        echo "Cannot parse title, " . $e->getMessage();
-        exit();
+    // save selected rows to a list
+      while ($row = $result->fetch()) {
+        $name = $row["tag"];
+        $query = $row["query"];
+    // display
+        echo '<a href="' . "/tags/?name=" . $query . '">' . $name . "</a>, &nbsp;";
       }
 
-
-      // Fetching tags for given URL`
-
-      try {
-        $sql = "SELECT tag, query
-                FROM tags INNER JOIN posts_tags
-                  ON tags.id = posts_tags.tagid
-                INNER JOIN posts
-                  ON posts_tags.postid = posts.id
-                WHERE URL = '/2013/Nov/21'";
-        $result = $pdo->query($sql);
-      }
-      catch (PDOException $e) {
-        echo "Cannot fetch tags, " . $e->getMessage();
-        exit();
-      }
-
-      include("output.php");
-     ?>
-
-  </body>
-</html>
+  ?>
