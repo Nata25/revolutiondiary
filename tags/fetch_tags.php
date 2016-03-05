@@ -19,12 +19,13 @@
     exit();
   }
 
-    // save selected rows to a list
-      while ($row = $result->fetch()) {
+    while ($row = $result->fetch()) {
         $name = $row["tag"];
         $query = $row["query"];
-    // display
-        echo '<a href="' . "/tags/?name=" . $query . '">' . $name . "</a>, &nbsp;";
-      }
+        $tags_array[] = '<a href="' . "/tags/?name=" . $query . '">' . $name . "</a>";
+    }
+
+    $tags_list = implode(",&nbsp;", $tags_array);
+    echo $tags_list;
 
   ?>
