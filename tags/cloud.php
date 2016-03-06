@@ -29,7 +29,7 @@
         }
       }
       $min_size = 110;
-      $max_size = 220;
+      $max_size = 200;
       $scale = ($max_size - $min_size) / ($max - $min);
 
       foreach ($table as $tag):
