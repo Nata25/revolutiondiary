@@ -42,7 +42,7 @@
         $name = $tag['tag'];
         $query = $tag['query'];
 
-          $tag = '<a href="/exercises/tags/?name=' . $query;
+          $tag = '<a href="/tags/?name=' . $query;
           $tag .= '"><span style="font-size:' . $size;
           $tag .= '%;">' . $name . '</span></a>';
           echo $tag;

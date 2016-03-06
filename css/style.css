@@ -24,7 +24,11 @@ canvas {
   height: 740px;
 }
 
-p, h2, h3, h4 {
+div {
+  margin: 0;
+}
+
+p, h2, h3, h4, h3 > a {
   font-family: 'PT Sans', sans-serif;
   color: #553a26;
 }
@@ -35,7 +39,7 @@ h4 {
   margin: 0 5px 0 0;
 }
 
-p, h2, h3, p > a {
+p, h2, h3, p > a, h3 > a {
   -webkit-transition: .25s all linear;
   -moz-transition: .25s all linear;
   -o-transition: .25s all linear;
@@ -46,6 +50,7 @@ p, h2, h3, p > a {
 p {
   font-size: 18px;
   line-height: 35px;
+  margin-bottom: 30px;
 }
 
 h3 {
@@ -63,7 +68,6 @@ a:hover {
 
 h1 {
   display: inline-block;
-  margin: 0 0 0 200px;
   font-family: 'Roboto Slab', 'Tinos', 'PT Serif', sans-serif;
   color: #6e5d50;
   font-size: 25pt;
@@ -255,6 +259,9 @@ DATES ON TOP
 .title-date {
   margin: 5px auto;
   text-align: center;
+}
+.title-date h1 {
+  margin: 0 0 0 200px;
 }
 .personal-notes {
   letter-spacing: 1px;
@@ -590,7 +597,8 @@ TAGS CLOUD
 }
 
 .tags-cloud-main a:hover,
-.tags-cloud-inner a:hover {
+.tags-cloud-inner a:hover,
+h3 > a:hover {
   color: #936565;
   text-decoration: none;
 }
@@ -1049,9 +1057,6 @@ MEDIA QUERIES
   .sidebar {
     left: 20px;
     top: 160px;
-  }
-  .title-date h1 {
-    margin-left: 200px;
   }
   .hero {
     background-position: 37% 40%;

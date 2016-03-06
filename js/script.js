@@ -68,7 +68,7 @@ $("#datepicker").datepicker(
     console.log(currentURL);
 
   //For home page:
-    if (currentURL == "/") {
+    if (currentURL != "[201]") {
       $("#datepicker").datepicker("setDate", sessionStorage.getItem("currentDate")); // get date from STORAGE and highlight it
       var dateStored = sessionStorage.getItem("currentDate").split(" ");             // convert to array of dd MM (mm) yy
       var day = dateStored[0];

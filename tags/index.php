@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Показуємо дані за тегом</title>
-  </head>
-  <body>
+<?php
+  include($_SERVER['DOCUMENT_ROOT'].'/head.html');
+?>
 
-    <?php
+    <div class="container">
+      <div class="left-bar"></div>
+      <div class="text-container">
+
+<?php
 
     // Connect to database
     include("connect.inc.php");
@@ -20,7 +20,7 @@
       $sql = "SELECT tag FROM tags WHERE query = '" . $tag_query . "' ";
       $result = $pdo->query($sql);
       $name = $result->fetch();
-      echo '<h1>Показуємо дані за тегом "' . $name[0] . '"</h1>';
+      echo '<h1>Записи за тегом &laquo;' . $name[0] . '&raquo;:</h1>';
 
     }
     catch (PDOException $e) {
@@ -30,7 +30,7 @@
 
     // Display posts on selected tag
     try {
-      $sql = "SELECT title, brief
+      $sql = "SELECT title, brief, URL
               FROM posts INNER JOIN posts_tags
                 ON posts.id = posts_tags.postid
               INNER JOIN tags
@@ -46,13 +46,20 @@
     foreach ($result as $row) {
       $item[] = $row;
     }
+?>
 
+<?php
     foreach ($item as $line) {
       $date = $line['title'];
       $text = $line['brief'];
-      echo "<p><h3>". $date . ":</h3> " . $text . "</p>";
+      $URL = $line['URL'];
+      $entry = '<h3><a href="'. $URL . '">'. $date;
+      $entry .= ":</a></h3><p>" . $text;
+      $entry .= '&nbsp;&nbsp;<a href="'. $URL . '">Детальніше...</a></p>';
+      echo $entry;
     }
+ ?>
 
-     ?>
-  </body>
-</html>
+ <?php
+   include($_SERVER['DOCUMENT_ROOT'].'/raw_foot.html');
+ ?>
