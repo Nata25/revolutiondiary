@@ -15,17 +15,23 @@
     $result = $pdo->query($sql);
   }
   catch (PDOException $e) {
-    echo "Cannot fetch tags, " . $e->getMessage();
+    //echo "Помилка при відображені, " . $e->getMessage();
     exit();
   }
 
-    while ($row = $result->fetch()) {
-        $name = $row["tag"];
-        $query = $row["query"];
-        $tags_array[] = '<a href="' . "/tags/?name=" . $query . '">' . $name . "</a>";
-    }
+    if ($result->rowCount() != 0) {
+      echo "<div class='tags'>";
+      echo "<h4>Теги:</h4>";
+      echo "<p>";
 
-    $tags_list = implode(",&nbsp;", $tags_array);
-    echo $tags_list;
+      while ($row = $result->fetch()) {
+          $name = $row["tag"];
+          $query = $row["query"];
+          $tags_array[] = '<a href="' . "/tags/?name=" . $query . '">' . $name . "</a>";
+      }
+
+      $tags_list = implode(",&nbsp;", $tags_array);
+      echo $tags_list . "</p></div>";
+    }
 
   ?>
