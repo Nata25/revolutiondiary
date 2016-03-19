@@ -11,7 +11,8 @@
               ON tags.id = posts_tags.tagid
             INNER JOIN posts
               ON posts_tags.postid = posts.id
-            WHERE URL = '$URL'";
+            WHERE URL = '$URL'
+            ORDER BY tag";
     $result = $pdo->query($sql);
   }
   catch (PDOException $e) {
