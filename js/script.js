@@ -23,6 +23,7 @@ $(function() {
 // ***********************************
 
 var monthsNames = ["січня", "лютого", "березня", "квітня", "червня", "травня", "липня", "серпня", "вересня", "жовтня", "листопада", "грудня"];
+var dayNames = ["Нд", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"];
 function newURL(d, m, y) {
   return  "/" + y + "/" + m + "/" + d };
 //*** Initialize datepicker. Set dates range, date format.
@@ -33,6 +34,8 @@ $("#datepicker").datepicker(
       minDate: new Date(2013, 10, 21),
       maxDate: new Date(2014, 2, 22),
       monthNames: monthsNames,
+      dayNamesMin: dayNames,
+      firstDay: 1,
 
 //*** Get a date from datepicker:
       onSelect: (function (dateText) {
@@ -59,6 +62,8 @@ $("#datepicker").datepicker(
 
     }); // end of .datepicker() initialization
 
+    $("#datepicker").datepicker($.datepicker.regional["uk"]);
+
 //***  Based on current URL, set:
 //  *   - dates into the input fields
 //  *   - current date in datepicker
@@ -84,7 +89,9 @@ $("#datepicker").datepicker(
     else {
       var stringDate = currentURL.slice(-11);                                    // get string with date from URL
       console.log("from URL: " + stringDate);
+      $.datepicker.setDefaults( $.datepicker.regional[ "" ] );
       var dateDate = $.datepicker.parseDate("yy/M/dd", stringDate);                 // convert to new Date
+      $("#datepicker").datepicker($.datepicker.regional[ "uk" ]);
       console.log("parsed: " + dateDate);
       sessionStorage.setItem("date", dateDate);
       $("#datepicker").datepicker("setDate", dateDate);                              // highlight this Date as current
@@ -116,7 +123,6 @@ $("#datepicker").datepicker(
     $("#next").attr("href", newURL(nextDateLST[0], nextDateLST[1], nextDateLST[2]));
 
     $("#home").attr("href", "/");
-
 
 // ***********************************
 //***** CSS ADDITIONAL FUNCTION *****//
