@@ -13,11 +13,6 @@ var domain = "localhost:8888";
 // Document.ready()
 $(function() {
 
-// **** LINKS ***
-
-  $('a.logo').attr("href", "/");
-
-
 // ***********************************
 //***** DATEPICKER *****//
 // ***********************************
@@ -49,14 +44,9 @@ $("#datepicker").datepicker(
 //*** Store selected date in storage to grab it on return to index.html:
         sessionStorage.setItem("currentDate", dateText);
 
-//*** Change link on go-button according to the selected date
-        $(".link-to-page").attr('href', newURL(day, shortMonth, year));
-        console.log($('.link-to-page').attr("href"));
-
-
-//*** Update date-block fields on click
-        $(".day").html(day);
-        $(".month").html(month);
+//*** Load new page corresponding to the date
+        var lnk = newURL(day, shortMonth, year);
+        window.location = lnk;
 
       }) // end of onSelect
 
@@ -67,7 +57,6 @@ $("#datepicker").datepicker(
 //***  Based on current URL, set:
 //  *   - dates into the input fields
 //  *   - current date in datepicker
-//  *   - initial link on the go-button
 
     var currentURL = window.location.pathname;
     console.log(currentURL);
@@ -99,7 +88,6 @@ $("#datepicker").datepicker(
       var day = dateToNums[2];
       var shortMonth = dateToNums[1];
       var year = dateToNums[0];
-      $(".link-to-page").attr('href', newURL(day, shortMonth, year));                  // change link on a button
       var formattedDate = $.datepicker.formatDate("dd MM", dateDate, {
         monthNames: monthsNames
       });                                                                            // get string (word) equivalent for numMonth:
@@ -119,10 +107,9 @@ $("#datepicker").datepicker(
     next.setDate(next.getDate() + 1);
     var prevDateLST = $.datepicker.formatDate("dd M yy", prev).split(" ");
     var nextDateLST = $.datepicker.formatDate("dd M yy", next).split(" ");
-    $("#prev").attr("href", newURL(prevDateLST[0], prevDateLST[1], prevDateLST[2]));
-    $("#next").attr("href", newURL(nextDateLST[0], nextDateLST[1], nextDateLST[2]));
-
-    $("#home").attr("href", "/");
+    $(".prev").attr("href", newURL(prevDateLST[0], prevDateLST[1], prevDateLST[2]));
+    $(".next").attr("href", newURL(nextDateLST[0], nextDateLST[1], nextDateLST[2])); // both go-button on top and 'Next' link on the bottom are affected
+    $(".home").attr("href", "/");                                                   // set links to the home page (logo and 'Home' on the bottom)
 
 // ***********************************
 //***** CSS ADDITIONAL FUNCTION *****//
