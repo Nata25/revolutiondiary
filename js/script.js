@@ -115,21 +115,9 @@ $("#datepicker").datepicker(
 //***** CSS ADDITIONAL FUNCTION *****//
 // ***********************************
 
-// CALCULATE HEIGHT OF HERO AREA
-// (not for mobile and Kindle)
-// *****************************
-
-  var initHeight = window.innerHeight - 115;
-  //console.log(hght);
-  var initWidth = window.innerWidth;
-  var ratio = window.innerHeight / initWidth;
-  if (initWidth > 800 && (initWidth < 1900 && ratio < 1)) {
-    $('.hero').css("height", initHeight);
-  }
-
 /*** STICK SIDEBAR to the left (Kindle) ****/
   function findLeftMargin(wdth) { return (wdth - 1900) / 2}
-
+  var initWidth = window.innerWidth;
   if (initWidth > 2140) {
     var onHome = findLeftMargin(initWidth) + 10;
     var onInner = onHome + 100;

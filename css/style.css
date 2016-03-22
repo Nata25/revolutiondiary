@@ -943,6 +943,14 @@ MEDIA QUERIES
   } */
 }
 
+/* CALCULATE HEIGHT OF HERO AREA
+   (not for mobile and Kindle) */
+@media screen and (min-width: 800px) and (max-width: 1900px) {
+  .hero {
+    height: 87.5vh;
+  }
+}
+
   /* not for mobile */
 @media screen and (min-width: 800px) and (max-width: 1400px) {
   .home-slide {
@@ -1022,6 +1030,9 @@ MEDIA QUERIES
   .personal-notes {
     display: block;
     margin-top: 10px;
+  }
+  .hero {
+    height: 83.5vh;
   }
   .wrapper {
     margin: 0;
