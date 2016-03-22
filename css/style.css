@@ -514,11 +514,6 @@ SELECTED BLOCK
   -o-transition: .5s background-color linear;
   transition: .5s background-color linear, .1s border linear;
 }
-.hover-sheet:hover {
-  background-color: #dcd9d4;
-  border: 1px solid #f6efe0;
-  box-shadow: 0 0 4px #b3bcee;
-}
 .red-square {
   display: inline-block;
   width: 13px;
@@ -1118,6 +1113,9 @@ MEDIA QUERIES
   h2 {
     margin: 10px 0 0 0;
   }
+  h3 {
+    text-decoration: underline;
+  }
   .personal-notes {
     font-size: 18px;
   }
@@ -1192,7 +1190,8 @@ MEDIA QUERIES
     margin: 0;
   }
   .ellipsis {
-    top: 160px;
+    top: 153px;
+    right: 5vw;
   }
   .tags-cloud-main p,
   .tags-cloud-inner p {

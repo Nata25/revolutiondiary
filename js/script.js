@@ -174,6 +174,12 @@ $("#datepicker").datepicker(
 
     $('.hover-sheet').hover(
       function() {
+        $(this).css(
+          {
+            'background-color': '#dcd9d4',
+            'border': '1px solid #f6efe0',
+            'box-shadow': '0 0 4px #b3bcee'
+          });
 
         $(this).find('.ellipsis').css(
           {
@@ -182,6 +188,14 @@ $("#datepicker").datepicker(
           });
       },
       function() {
+
+        $(this).css(
+          {
+            'background-color': '#f5f7fb',
+            'border': '1px solid #f5f7fb',
+            'box-shadow': '0 0 5px #f5f7fb'
+          });
+
         $(this).find('.ellipsis').css(
           {
             'backgroundColor': '#f5f7fb',
