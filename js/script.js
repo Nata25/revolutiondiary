@@ -146,7 +146,7 @@ $("#datepicker").datepicker(
 // *****************************
 // HOVER ITEMS IN SELECTED BLOCK
 // *****************************
-
+  if (initWidth > 800) {                 // no hover effects on mobiles
     $(".control-hover").hover(
       function() {
         $(this).find('p')
@@ -178,7 +178,7 @@ $("#datepicker").datepicker(
         $(this).find('.ellipsis').css(
           {
             'backgroundColor': '#dcd9d4',
-            'box-shadow': '-10px 0px 20px #dcd9d4',
+            'box-shadow': '-10px 0px 20px #dcd9d4'
           });
       },
       function() {
@@ -190,7 +190,12 @@ $("#datepicker").datepicker(
 
       } // end of second hover argument
     ); // end of hover on item
-
+  }
+  else {
+      $(".hover-sheet").find('p').removeClass("mid-transparent");
+      $(".ellipsis").css("top", "154px");
+  }
+ // end of if statement
 
 // **************************
 // FADE ON VISIBLE ITEMS

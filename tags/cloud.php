@@ -28,8 +28,8 @@
           $min = $table[$i]['rating'];
         }
       }
-      $min_size = 110;
-      $max_size = 200;
+      $min_size = 90;
+      $max_size = 180;
       $scale = ($max_size - $min_size) / ($max - $min);
 
       foreach ($table as $tag):
