@@ -50,14 +50,9 @@ p, h2, h3, p > a, h3 > a {
 
 p {
   font-size: 18px;
-  line-height: 35px;
+  line-height: 2em;
   margin-bottom: 30px;
 }
-
-h3 {
-  font-size: 21px;
-}
-
 a {
   color: #916464;
   text-decoration: none;
@@ -71,22 +66,16 @@ h1 {
   display: inline-block;
   font-family: 'Roboto Slab', 'Tinos', 'PT Serif', sans-serif;
   color: #6e5d50;
-  font-size: 25pt;
+  font-size: 1.7em;
   letter-spacing: 3px;
 }
 
 h2 {
   margin: 40px 0 0 0;
-  font-weight: bold;
 }
-
 h3 {
   margin: 10px 0 0 0;
-  font-weight: bold;
-}
-
-.normal-leading {
-  line-height: 1.6;
+  font-size: 1.3em;
 }
 
 .grey {
