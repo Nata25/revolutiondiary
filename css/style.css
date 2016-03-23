@@ -1087,7 +1087,7 @@ MEDIA QUERIES
 @media screen and (max-width: 800px) {
   .top-bar {
     height: 70px;
-    padding-left: 40px;
+    padding: 10px;
   }
   .title-date h1 {
     font-size: 1em;
@@ -1106,16 +1106,19 @@ MEDIA QUERIES
     text-decoration: underline;
   }
   .personal-notes {
-    font-size: 18px;
+    font-size: 1em;
   }
   .hero {
-    background: url("../Pics/hero-small(6).jpg") no-repeat center center;
+    background: url("../Pics/hero-small(7).jpg") no-repeat center 36%;
+    height: 85vh;
+    min-height: 400px;
+    max-height: 750px;
   }
   .date-block {
     left: 0;
     right: 0;
     margin: 0 auto;
-    top: 880px;
+    top: 107vh;
     width: 301px;
     z-index: 5;
   }
@@ -1123,7 +1126,7 @@ MEDIA QUERIES
     text-transform: none;
   }
   .sidebar {
-    top: 940px;
+    top: 116vh;
     left: 0;
     right: 0;
     margin: 0 auto;
@@ -1136,11 +1139,8 @@ MEDIA QUERIES
   .mid-transparent.absolute {
     height: 520px;
   }
-  .hero {
-    height: 550px;
-  }
   .dates {
-    top: 150px;
+    top: 105px;
     left: 0;
     right: 0;
   }
@@ -1148,10 +1148,10 @@ MEDIA QUERIES
     display: block;
   }
   .dates img:first-child {
-    width: 350px;
+    width: 320px;
   }
   .dates img:last-child {
-    width: 213px;
+    width: 210px;
   }
   .wrapper {
     margin-top: 0px;
@@ -1161,7 +1161,7 @@ MEDIA QUERIES
     margin-bottom: 30px;
   }
   .slct-container {
-    margin-top: 670px;
+    margin-top: 100vh; /* 670px; */
   }
   .day-circle {
     margin-top: 20px;

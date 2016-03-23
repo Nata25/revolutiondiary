@@ -138,9 +138,9 @@ $("#datepicker").datepicker(
       $('.box').css("left", verLogo);
     }
  /*** revert auto height if the page is resized to mobile version ***/
-     if (resizedWidth < 800) {
-       $('.hero').css("height", "550px");
-     }
+//     if (resizedWidth < 800) {
+//       $('.hero').css("height", "550px");
+//     }
  });
 
 // *****************************
