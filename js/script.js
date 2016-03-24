@@ -207,7 +207,7 @@ $("#datepicker").datepicker(
   }
   else {
       $(".hover-sheet").find('p').removeClass("mid-transparent");
-      $(".ellipsis").css("top", "154px");
+    //  $(".ellipsis").css("top", "154px");
   }
  // end of if statement
 
