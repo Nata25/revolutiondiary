@@ -1161,7 +1161,7 @@ MEDIA QUERIES
     margin-bottom: 30px;
   }
   .slct-container {
-    margin-top: 100vh; /* 670px; */
+    margin-top: 685px;
   }
   .day-circle {
     margin-top: 20px;
@@ -1247,5 +1247,22 @@ MEDIA QUERIES
   }
   footer {
     height: 70px;
+  }
+}
+
+/* fix margins of datepicker and selected block for wide mobile devices
+where calculation of .hero photo height is inappropriate */
+@media screen and (min-width: 450px) and (max-width: 800px) {
+  .hero {
+    height: 750px;
+  }
+  .date-block {
+    top: 890px;
+  }
+  .sidebar {
+    top: 950px;
+  }
+  .slct-container {
+    margin-top: 650px;
   }
 }
