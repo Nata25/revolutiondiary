@@ -232,7 +232,8 @@ DATEPICKER FIELDS
   -o-transition: .25s all linear;
   transition: .25s all linear;
 }
-#button:hover {
+#button:hover,
+#button:focus {
   box-shadow: 0 0 10px #b3bcee;
 }
 .arrow {
@@ -517,6 +518,9 @@ SELECTED BLOCK
   -o-transition: .5s background-color linear;
   transition: .5s background-color linear, .1s border linear;
 }
+.hover-sheet:focus {
+  outline: none;
+}
 .red-square {
   display: inline-block;
   width: 13px;
@@ -531,6 +535,9 @@ SELECTED BLOCK
   -o-transition: background-color .25s;
   transition: background-color .25s;
   /*border: 1px solid black; */
+}
+.red-square:focus {
+  outline: none;
 }
 
 /*** Overflow Functionality ******/
@@ -1167,7 +1174,7 @@ MEDIA QUERIES
     font-size: .8em;
     line-height: normal;
   }
-  .mid-transparent {
+  .sidebar.mid-transparent {
     display: none;
   }
   .dates {
