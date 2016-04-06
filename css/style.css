@@ -33,7 +33,6 @@ p, h2, h3, h4, h3 > a {
   font-family: 'PT Sans', sans-serif;
   color: #553a26;
 }
-
 h4 {
   display: inline-block;
   font-size: 20px;
@@ -645,7 +644,7 @@ INNER PAGES
 
 .inner {
   width: 80%;
-  margin: 40px 20px;
+  margin: 20px 20px;
 }
 
 .logo {
@@ -825,6 +824,12 @@ a.logo:hover {
 /*************
 MEDIA QUERIES
 *************/
+
+@media screen {
+  .backuped {
+    display: none;
+  }
+}
 
 /**** Kindle */
 @media screen and (min-width: 1901px) {
@@ -1108,7 +1113,7 @@ MEDIA QUERIES
   }
   .inner {
     width: 90%;
-    margin: 50px 20px 0 0;
+    margin: 20px 20px 0 0;
   }
 }
 /* hover effect of logo */
@@ -1290,5 +1295,41 @@ MEDIA QUERIES
   }
   footer {
     height: 70px;
+  }
+}
+/*Display images on screens, printed dates on screenreaders and in print view*/
+@media print {
+  img, .day-circle, .dates {
+    display: none;
+  }
+  .backuped {
+    display: inline;
+  }
+  /*more styles for printed version*/
+  .date-block, #datepicker, #choose-date {
+    display: none;
+  }
+  .absolute {
+    margin: 100px 70px;
+    height: 500px;
+  }
+  .fixed {
+    display: none;
+  }
+  .title-date h1 {
+    margin: 0 auto;
+  }
+  .container {
+    width: 100%;
+    margin: 20px auto;
+  }
+
+}
+@media speech {
+  .day-circle {
+    display: none;
+  }
+  .backuped {
+    display: inline;
   }
 }
