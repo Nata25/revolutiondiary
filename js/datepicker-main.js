@@ -112,44 +112,27 @@ $("#datepicker").datepicker(
     $(".home").attr("href", "/");                                                   // set links to the home page (logo and 'Home' on the bottom)
 
 // Accessability: allow to choose day via tabulation
-    $(".ui-datepicker-next").attr("tabindex", "2");
-    // console.log("I'm trying to add tabindex to DP!");
-
+    $(".ui-datepicker-next").attr("tabindex", "1");
     $(".ui-datepicker-next").focus(function() {
-      // $(".ui-datepicker-next").addClass("ui-state-active");
       tabulation();
-      console.log("inside focus()");
     });
 
     function tabulation() {
-
-        // $(selector).attr("data-event", "keydown");
-        // $(this).onkeypress=function(event) {
-        //     console.log("Hello!");
-        // }
-        // var enter = jQuery.Event( 'keydown', { which: $.ui.keyCode.ENTER } );
-
+        $(".ui-datepicker-next").addClass("ui-state-active");
         $(".ui-datepicker-next").keydown(function(evt) {
-          console.log("inside definition of tabulation()");
           if (evt.which == 13) {
             $.datepicker._adjustDate("#datepicker", +1, "M");
-            // $(this).focus();
-            // console.log("focus?");
-            // $(".ui-datepicker-next").focus();
             $(".ui-datepicker-next").attr("tabindex", "2");
+            $(".ui-datepicker-next").focus();
             tabulation();
-            // $(".ui-datepicker-next").blur(function() {
-            //   $(this).removeClass("ui-state-active");
-            //   console.log("blurring");
-            //   alert("This input field has lost its focus.");
-            // });
+            $(".ui-datepicker-next").blur(function() {
+              $(this).removeClass("ui-state-active");
+            });
           }
       });
     }
-    console.log("outside tabulation()");
     $(".ui-datepicker-next").blur(function() {
       $(this).removeClass("ui-state-active");
-      console.log("blurring");
     });
 
 
