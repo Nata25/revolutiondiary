@@ -112,6 +112,11 @@ $("#datepicker").datepicker(
     $(".home").attr("href", "/");                                                   // set links to the home page (logo and 'Home' on the bottom)
 
 // Accessability: allow to choose day via tabulation
+    function out_of_focus(id) {
+      $(id).blur(function() {
+        $(this).removeClass("ui-state-active");
+      });
+    }
     $(".ui-datepicker-next").attr("tabindex", "1");
     $(".ui-datepicker-next").focus(function() {
       tabulation();
@@ -125,58 +130,12 @@ $("#datepicker").datepicker(
             $(".ui-datepicker-next").attr("tabindex", "2");
             $(".ui-datepicker-next").focus();
             tabulation();
-            $(".ui-datepicker-next").blur(function() {
-              $(this).removeClass("ui-state-active");
-            });
+            out_of_focus(".ui-datepicker-next");
           }
       });
     }
-    $(".ui-datepicker-next").blur(function() {
-      $(this).removeClass("ui-state-active");
-    });
+    out_of_focus(".ui-datepicker-next");
 
-
-// EXTEND (KEYBOARD ACCESSIBLITY)
-
-$.extend($.datepicker, {
-     _doKeyDown: function(event){
-           //copy original source here with different
-           //values and conditions in the switch statement
-
-           var keyCode = event.which;
-            if(keyCode == 9) // if tab was pressed, use pressed key for calendar control
-            {
-                event.preventDefault();
-                event.stopPropagation();
-                console.log("event?");
-
-                var parts = $("#datepicker").val().split("/");
-                var currentDate = new Date(parts[2], parts[0]-1, parts[1]); // months are 0-based
-
-                switch(keyCode)
-                {
-                    case 37: // LEFT, -1 day
-                        currentDate.setDate(currentDate.getDate() -1);
-                        break;
-                    case 38: // UP, -1 week
-                        currentDate.setDate(currentDate.getDate() -7);
-                        break;
-                    case 39: // RIGHT, +1 day
-                        currentDate.setDate(currentDate.getDate() +1);
-                        break;
-                    case 40: // DOWN, +1 week
-                        currentDate.setDate(currentDate.getDate() +7);
-                        break;
-                }
-
-                $("#datepicker").html( currentDate.toString() );
-                if(currentDate != null)
-                {
-                    $("#datepicker").datepicker("setDate", currentDate);
-                }
-            }
-     }
-});
 
 
 }); // end of ready
