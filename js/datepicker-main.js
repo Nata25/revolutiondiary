@@ -1,20 +1,67 @@
-// Helper to change month with tabulation
+// Document.ready()
+$(function() {
+
+  // ******************
+  // SESSION STORAGE
+  // *****************
+  // The ref to sessionStorage is needed for preserve current date when going from
+  // inner page to home page. Otherwise, Nov 21 would be highlighted constantly.
+
+   //sessionStorage.removeItem("currentDate"); // uncomment to clean storage
+
+  // In the Storage, save one variable which consists of slices to generate strings
+  // for a) links, b) date-block fields, and for c) DP, which is initiated in dd MM (M) yy format
+
+  if (!(sessionStorage.getItem("currentDate"))) {
+    sessionStorage.setItem("currentDate", "21 листопада (Nov) 2013");
+  }
+
+  // ******************
+  // GLOBAL VARIABLES
+  // *****************
+
+  var domain = "localhost:8888";
+
+  var monthsNames = ["січня", "лютого", "березня", "квітня", "червня", "травня", "липня", "серпня", "вересня", "жовтня", "листопада", "грудня"];
+  var dayNames = ["Нд", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"];
+
+// ******************
+// HELPER FUNCTIONS
+// ******************
+
+// Update datepicker and date-block; date is a str in `dd MM (M) yy` format; day = dd, month = MM
+function upd_DP(date, day, month) {
+  $("#datepicker").datepicker("setDate", date);
+  $(".day").html(day);
+  $(".month").html(month);
+}
+
+// Update sessionStorage from Date() !!! not sure if the function is needed
+function upd_storage(date) {
+  var formattedDate = $.datepicker.formatDate("dd MM (M) yy", date, {
+    monthNames: monthsNames
+  });
+  sessionStorage.setItem("currentDate", newDateStored);
+  console.log("sessionStorage is updated, new value is: " + newDateStored);
+}
+
+// Generate URL based on string slices
+function newURL(d, m, y) { return  "/" + y + "/" + m + "/" + d };
+
+
+// Change date() for +1 month
 Date.isLeapYear = function (year) {
     return (((year % 4 === 0) && (year % 100 !== 0)) || (year % 400 === 0));
 };
-
 Date.getDaysInMonth = function (year, month) {
     return [31, (Date.isLeapYear(year) ? 29 : 28), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month];
 };
-
 Date.prototype.isLeapYear = function () {
     return Date.isLeapYear(this.getFullYear());
 };
-
 Date.prototype.getDaysInMonth = function () {
     return Date.getDaysInMonth(this.getFullYear(), this.getMonth());
 };
-
 Date.prototype.addMonths = function (value) {
     var n = this.getDate();
     this.setDate(1);
@@ -23,29 +70,18 @@ Date.prototype.addMonths = function (value) {
     return this;
 };
 
-// sessionStorage.removeItem("currentDate"); // uncomment to clean storage
-// sessionStorage.removeItem("date"); // uncomment to clean storage
 
-if (!(sessionStorage.getItem("currentDate"))) {
-  sessionStorage.setItem("currentDate", "21 листопада (Nov) 2013");
-}
+// Parse Date() into yy MM (M) dd format
 
-//console.log(window.innerWidth);
-//console.log(window.innerHeight);
 
-var domain = "localhost:8888";
 
-// Document.ready()
-$(function() {
+
 
 // ***********************************
 //***** DATEPICKER *****//
 // ***********************************
 
-var monthsNames = ["січня", "лютого", "березня", "квітня", "червня", "травня", "липня", "серпня", "вересня", "жовтня", "листопада", "грудня"];
-var dayNames = ["Нд", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"];
-function newURL(d, m, y) {
-  return  "/" + y + "/" + m + "/" + d };
+
 //*** Initialize datepicker. Set dates range, date format.
 
 $("#datepicker").datepicker(
@@ -56,84 +92,67 @@ $("#datepicker").datepicker(
       monthNames: monthsNames,
       dayNamesMin: dayNames,
       firstDay: 1,
-
-//*** Get a date from datepicker:
       onSelect: (function (dateText) {
+        //*** Store selected date in storage to grab it on return to index.html:
+        sessionStorage.setItem("currentDate", dateText);
         var dateString = dateText.split(" ");
         var day = dateString[0];
         var month = dateString[1];
         var shortMonth = dateString[2].slice(1, -1);
-    //    var dateInNums = dateString[0] + dateString[2];
         var year = dateString[3];
-
-//*** Store selected date in storage to grab it on return to index.html:
-        sessionStorage.setItem("currentDate", dateText);
-
-//*** Load new page corresponding to the date
+        //*** Load new page corresponding to the date
         var lnk = newURL(day, shortMonth, year);
         window.location = lnk;
-
       }) // end of onSelect
-
     }); // end of .datepicker() initialization
 
 //***  Based on current URL, set:
 //  *   - dates into the input fields
 //  *   - current date in datepicker
+//  *   - link on button, next, prev (if needed)
 
     var currentURL = window.location.pathname;
-    console.log(currentURL);
-
-  //For home page:
     var regex = new RegExp("[201]");
+  //For home page (get current date from storage)
     if (!regex.test(currentURL)) {
-      console.log("I'm on a home page!")
-      $("#datepicker").datepicker("setDate", sessionStorage.getItem("currentDate")); // get date from STORAGE and highlight it
-      var dateStored = sessionStorage.getItem("currentDate").split(" ");             // convert to array of dd MM (mm) yy
-      var day = dateStored[0];
-      $(".day").html(day);                                                          // fill datepicker-fields
-      $(".month").html(dateStored[1]);                                              // fill datepicker-fields
-      var shortMonth = dateStored[2].slice(1, -1);
-      var year = dateStored[3];
+      var date = sessionStorage.getItem("currentDate");
+      // convert to array of dd MM (mm) yy
+      var splitted = date.split(" ");
+      var day = splitted[0];
+      var month = splitted[1];
+      var shortMonth = splitted[2].slice(1, -1);
+      var year = splitted[3];
+      upd_DP(date, day, month);
       $(".link-to-page").attr('href', newURL(day, shortMonth, year));
     }
-  //For inner pages
+  //For inner pages (get current date from URL)
     else {
-      var stringDate = currentURL.slice(-11);                                    // get string with date from URL
-      console.log("from URL: " + stringDate);
-      $.datepicker.setDefaults( $.datepicker.regional[ "" ] );
-      var dateDate = $.datepicker.parseDate("yy/M/dd", stringDate);                 // convert to new Date
-      $("#datepicker").datepicker($.datepicker.regional[ "uk" ]);
-      console.log("parsed: " + dateDate);
-      // start of repeating code?
-      sessionStorage.setItem("date", dateDate);
-      $("#datepicker").datepicker("setDate", dateDate);                              // highlight this Date as current
-      var dateToNums = stringDate.split("/");                                        // get numbers for dd, mm, yy
+      var stringDate = currentURL.slice(-11);
+      // convert to new Date()
+      var dateDate = $.datepicker.parseDate("yy/M/dd", stringDate);
+      // produce str in the default format of DP
+      var dateToNums = stringDate.split("/");
       var day = dateToNums[2];
-      var shortMonth = dateToNums[1];
-      var year = dateToNums[0];
-      var formattedDate = $.datepicker.formatDate("dd MM", dateDate, {
+      var month = $.datepicker.formatDate("MM", dateDate, {
         monthNames: monthsNames
       });
-      var dateToWords = formattedDate.split(" ");
-      var month = dateToWords[1];                                                    // get string (word) equivalent for numMonth:
-      $(".day").html(day);                                                           // fill datepicker-fields
-      $(".month").html(month);                                                       // fill datepicker-fields
-      var newDateStored = day + " " + month + " (" + shortMonth + ") " + year;
-      sessionStorage.setItem("currentDate", newDateStored);                          // set var in sessionStorage
-    }
+      var shortMonth = dateToNums[1];
+      var year = dateToNums[0];
+      upd_DP(dateDate, day, month);
+    //  upd_storage(dateDate);
 
-    // Calculate prev/next day
-    var currentDate = sessionStorage.getItem("date");
-    var next = new Date(currentDate);
-    var prev = new Date(currentDate);
-    prev.setDate(prev.getDate() - 1);
-    next.setDate(next.getDate() + 1);
-    var prevDateLST = $.datepicker.formatDate("dd M yy", prev).split(" ");
-    var nextDateLST = $.datepicker.formatDate("dd M yy", next).split(" ");
-    $(".prev").attr("href", newURL(prevDateLST[0], prevDateLST[1], prevDateLST[2]));
-    $(".next").attr("href", newURL(nextDateLST[0], nextDateLST[1], nextDateLST[2])); // both go-button on top and 'Next' link on the bottom are affected
-    $(".home").attr("href", "/");                                                   // set links to the home page (logo and 'Home' on the bottom)
+      // Calculate prev/next day
+      var next = new Date(dateDate);
+      var prev = new Date(dateDate);
+      prev.setDate(prev.getDate() - 1);
+      next.setDate(next.getDate() + 1);
+      var prevDateLST = $.datepicker.formatDate("dd M yy", prev).split(" ");
+      var nextDateLST = $.datepicker.formatDate("dd M yy", next).split(" ");
+      $(".prev").attr("href", newURL(prevDateLST[0], prevDateLST[1], prevDateLST[2]));
+      $(".next").attr("href", newURL(nextDateLST[0], nextDateLST[1], nextDateLST[2])); // both go-button on top and 'Next' link on the bottom are affected
+      // set links to the home page (logo and 'Home' on the bottom)
+      $(".home").attr("href", "/");
+    }
 
 // Accessability: allow to choose day via tabulation
     function out_of_focus(id) {
@@ -206,8 +225,9 @@ $("#datepicker").datepicker(
       });
     }
     out_of_focus(".ui-datepicker-next");
+    // Bind tabulation to the days of the current month
     selDay("table.ui-datepicker-calendar a");
-    console.log($("#datepicker").datepicker("getDate", currentDate));
+  //  console.log($("#datepicker").datepicker("getDate", currentDate));
 
 // Haldle tabulation on dates
 
