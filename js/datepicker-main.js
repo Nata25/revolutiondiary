@@ -29,7 +29,7 @@ $(function() {
 // HELPER FUNCTIONS
 // ******************
 
-// Update datepicker and date-block; date is a str in `dd MM (M) yy` format; day = dd, month = MM
+// Update datepicker and date-block; date is Date() or a str in `dd MM (M) yy` format; day = dd, month = MM
 function upd_DP(date, day, month) {
   $("#datepicker").datepicker("setDate", date);
   $(".day").html(day);
@@ -41,8 +41,8 @@ function upd_storage(date) {
   var formattedDate = $.datepicker.formatDate("dd MM (M) yy", date, {
     monthNames: monthsNames
   });
-  sessionStorage.setItem("currentDate", newDateStored);
-  console.log("sessionStorage is updated, new value is: " + newDateStored);
+  sessionStorage.setItem("currentDate", formattedDate);
+  console.log("sessionStorage is updated, new value is: " + formattedDate);
 }
 
 // Generate URL based on string slices
@@ -113,6 +113,7 @@ $("#datepicker").datepicker(
 
     var currentURL = window.location.pathname;
     var regex = new RegExp("[201]");
+
   //For home page (get current date from storage)
     if (!regex.test(currentURL)) {
       var date = sessionStorage.getItem("currentDate");
@@ -154,76 +155,67 @@ $("#datepicker").datepicker(
       $(".home").attr("href", "/");
     }
 
-// Accessability: allow to choose day via tabulation
+//***  Accessibility: allow to choose a date with Tab and Enter key
+
+// Declare the function to be fired on `next` button
+function tabulation() {
+    // style the button
+    $(".ui-datepicker-next").addClass("ui-state-active");
+    // bind Enter key event to the button
+    $(".ui-datepicker-next").keydown(function(evt) {
+      if (evt.which == 13) {
+        //$.datepicker._adjustDate("#datepicker", +1, "M");
+        var current = $("#datepicker").datepicker("getDate");
+        var plus_month = current.addMonths(1);
+        //upd_storage(plus_month); //!!! probably not needed
+        $("#datepicker").datepicker("setDate", plus_month);                              // highlight this Date as current
+        var format_for_link = $.datepicker.formatDate("yy/M/dd", plus_month, {
+          monthNames: monthsNames
+        });
+        var link = "/" + format_for_link;
+        $(".link-to-page").attr("href", link);
+
+        var format_for_date_block = $.datepicker.formatDate("dd MM", plus_month, {
+          monthNames: monthsNames
+        });
+        var dateToWords = format_for_date_block.split(" ");
+        upd_DP(plus_month, dateToWords[0], dateToWords[1]);
+        //var dateToNums = stringDate.split("/");                                        // get numbers for dd, mm, yy
+        //var day = dateToNums[2];
+        //var shortMonth = dateToNums[1];
+        //var year = dateToNums[0];
+
+        // var month = dateToWords[1];                                                    // get string (word) equivalent for numMonth:
+        // $(".day").html(day);                                                           // fill datepicker-fields
+        // $(".month").html(month);                                                       // fill datepicker-fields
+        // //!! edit var newDateStored = day + " " + month + " (" + shortMonth + ") " + year;
+        //!! sessionStorage.setItem("currentDate", newDateStored);                          // set var in sessionStorage
+
+        /* end of f */
+        $(".link-to-page").attr("tabindex", "3");
+        $(".ui-datepicker-next").attr("tabindex", "2");
+        $(".ui-datepicker-next").focus();
+        tabulation();
+        out_of_focus(".ui-datepicker-next");
+
+        // Bind tabulation to the days of the next month
+        selDay("table.ui-datepicker-calendar a");
+      }
+  });
+}
+
     function out_of_focus(id) {
       $(id).blur(function() {
         $(this).removeClass("ui-state-active");
       });
     }
+
     $(".ui-datepicker-next").attr("tabindex", "1");
     $(".ui-datepicker-next").focus(function() {
-      console.log($(this).attr("Title"));
       tabulation();
-
     });
 
 
-    function selDay(elem) {
-
-        console.log("I'm inside selDay");
-
-        $(elem).focus(function() {
-          // datepicker_bindHover($("table.ui-datepicker-calendar a"));
-          var day = $(this).html();
-          console.log("I'm inside focus()");
-          $(".ui-state-active").removeClass("ui-state-active");
-          $(this).addClass("ui-state-active");
-          $(".day").html(day);
-        });
-      }
-
-    function tabulation() {
-        $(".ui-datepicker-next").addClass("ui-state-active");
-        $(".ui-datepicker-next").keydown(function(evt) {
-          if (evt.which == 13) {
-            $.datepicker._adjustDate("#datepicker", +1, "M");
-            var current = $("#datepicker").datepicker("getDate");
-            var plus_month = current.addMonths(1);
-            //$("#datepicker").datepicker("setDate", plus_month);
-
-            /* start of f */
-            sessionStorage.setItem("date", plus_month);
-            $("#datepicker").datepicker("setDate", plus_month);                              // highlight this Date as current
-            var format_for_link = $.datepicker.formatDate("yy/M/dd", plus_month, {
-              monthNames: monthsNames
-            });
-            console.log(format_for_link);
-            //var dateToNums = stringDate.split("/");                                        // get numbers for dd, mm, yy
-            //var day = dateToNums[2];
-            //var shortMonth = dateToNums[1];
-            //var year = dateToNums[0];
-            var format_for_date_block = $.datepicker.formatDate("dd MM", plus_month, {
-              monthNames: monthsNames
-            });
-            var dateToWords = format_for_date_block.split(" ");
-            var month = dateToWords[1];                                                    // get string (word) equivalent for numMonth:
-            $(".day").html(day);                                                           // fill datepicker-fields
-            $(".month").html(month);                                                       // fill datepicker-fields
-            //!! edit var newDateStored = day + " " + month + " (" + shortMonth + ") " + year;
-            //!! sessionStorage.setItem("currentDate", newDateStored);                          // set var in sessionStorage
-
-            /* end of f */
-
-            $(".ui-datepicker-next").attr("tabindex", "2");
-            $(".ui-datepicker-next").focus();
-            tabulation();
-            out_of_focus(".ui-datepicker-next");
-
-            // Bind tabulation to the days of the next month
-            selDay("table.ui-datepicker-calendar a");
-          }
-      });
-    }
     out_of_focus(".ui-datepicker-next");
     // Bind tabulation to the days of the current month
     selDay("table.ui-datepicker-calendar a");
