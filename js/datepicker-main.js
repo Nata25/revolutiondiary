@@ -36,7 +36,7 @@ function upd_DP(date, day, month) {
   $(".month").html(month);
 }
 
-// Update sessionStorage from Date() !!! not sure if the function is needed
+// Update sessionStorage from Date()
 function upd_storage(date) {
   var formattedDate = $.datepicker.formatDate("dd MM (M) yy", date, {
     monthNames: monthsNames
@@ -70,17 +70,9 @@ Date.prototype.addMonths = function (value) {
     return this;
 };
 
-
-// Parse Date() into yy MM (M) dd format
-
-
-
-
-
 // ***********************************
 //***** DATEPICKER *****//
 // ***********************************
-
 
 //*** Initialize datepicker. Set dates range, date format.
 
@@ -93,8 +85,6 @@ $("#datepicker").datepicker(
       dayNamesMin: dayNames,
       firstDay: 1,
       onSelect: (function (dateText) {
-        //*** Store selected date in storage to grab it on return to index.html:
-        sessionStorage.setItem("currentDate", dateText);
         var dateString = dateText.split(" ");
         var day = dateString[0];
         var month = dateString[1];
@@ -131,6 +121,8 @@ $("#datepicker").datepicker(
       var stringDate = currentURL.slice(-11);
       // convert to new Date()
       var dateDate = $.datepicker.parseDate("yy/M/dd", stringDate);
+      //*** Store selected date in storage to grab it on return to index.html:
+      upd_storage(dateDate);
       // produce str in the default format of DP
       var dateToNums = stringDate.split("/");
       var day = dateToNums[2];
@@ -164,42 +156,36 @@ function tabulation() {
     // bind Enter key event to the button
     $(".ui-datepicker-next").keydown(function(evt) {
       if (evt.which == 13) {
-        //$.datepicker._adjustDate("#datepicker", +1, "M");
+        // Add 1 month on each Enter press
         var current = $("#datepicker").datepicker("getDate");
         var plus_month = current.addMonths(1);
-        //upd_storage(plus_month); //!!! probably not needed
-        $("#datepicker").datepicker("setDate", plus_month);                              // highlight this Date as current
+        // Attach link to go-button
         var format_for_link = $.datepicker.formatDate("yy/M/dd", plus_month, {
           monthNames: monthsNames
         });
         var link = "/" + format_for_link;
         $(".link-to-page").attr("href", link);
-
+        // Update DP
         var format_for_date_block = $.datepicker.formatDate("dd MM", plus_month, {
           monthNames: monthsNames
         });
         var dateToWords = format_for_date_block.split(" ");
         upd_DP(plus_month, dateToWords[0], dateToWords[1]);
-        //var dateToNums = stringDate.split("/");                                        // get numbers for dd, mm, yy
-        //var day = dateToNums[2];
-        //var shortMonth = dateToNums[1];
-        //var year = dateToNums[0];
 
-        // var month = dateToWords[1];                                                    // get string (word) equivalent for numMonth:
-        // $(".day").html(day);                                                           // fill datepicker-fields
-        // $(".month").html(month);                                                       // fill datepicker-fields
-        // //!! edit var newDateStored = day + " " + month + " (" + shortMonth + ") " + year;
-        //!! sessionStorage.setItem("currentDate", newDateStored);                          // set var in sessionStorage
-
-        /* end of f */
-        $(".link-to-page").attr("tabindex", "3");
+        // Keep `next` button active
         $(".ui-datepicker-next").attr("tabindex", "2");
         $(".ui-datepicker-next").focus();
+
+        // Let the button be the next element to come into focus to choose current date
+        $(".link-to-page").attr("tabindex", "3");
+
+        // Bind Enter key event again as we've changed the month
         tabulation();
+        // Manage state of 'next' button after it come out of focus
         out_of_focus(".ui-datepicker-next");
 
         // Bind tabulation to the days of the next month
-        selDay("table.ui-datepicker-calendar a");
+        selectDay("table.ui-datepicker-calendar a");
       }
   });
 }
@@ -210,64 +196,27 @@ function tabulation() {
       });
     }
 
-    $(".ui-datepicker-next").attr("tabindex", "1");
-    $(".ui-datepicker-next").focus(function() {
-      tabulation();
-    });
 
+    function selectDay(elem) {
 
-    out_of_focus(".ui-datepicker-next");
-    // Bind tabulation to the days of the current month
-    selDay("table.ui-datepicker-calendar a");
-  //  console.log($("#datepicker").datepicker("getDate", currentDate));
+        $(elem).focus(function() {
+          var day = $(this).html();
+          $(".ui-state-active").removeClass("ui-state-active");
+          $(this).addClass("ui-state-active");
+          $(".day").html(day);
+        });
+      }
 
-// Haldle tabulation on dates
+      // If no use of `next` button, select day
+      $(".ui-datepicker-next").attr("tabindex", "1");
+      $(".ui-datepicker-next").focus(function() {
+        tabulation();
+      });
 
-// function datepicker_bindHover(dpDiv) {
-//   console.log("I'm inside datepicker_bindHover!");
-// 	var selector = "button, .ui-datepicker-prev, .ui-datepicker-next, .ui-datepicker-calendar td a";
-// 	return dpDiv.delegate(selector, "mouseout", function() {
-// 			$(this).removeClass("ui-state-hover");
-// 			if (this.className.indexOf("ui-datepicker-prev") !== -1) {
-// 				$(this).removeClass("ui-datepicker-prev-hover");
-// 			}
-// 			if (this.className.indexOf("ui-datepicker-next") !== -1) {
-// 				$(this).removeClass("ui-datepicker-next-hover");
-// 			}
-// 		})
-// 		.delegate( selector, "mouseover", datepicker_handleMouseover );
-// }
-//
-// function datepicker_handleMouseover() {
-// 	if (!$.datepicker._isDisabledDatepicker( datepicker_instActive.inline? datepicker_instActive.dpDiv.parent()[0] : datepicker_instActive.input[0])) {
-// 		$(this).parents(".ui-datepicker-calendar").find("a").removeClass("ui-state-hover");
-// 		$(this).addClass("ui-state-hover");
-// 		if (this.className.indexOf("ui-datepicker-prev") !== -1) {
-// 			$(this).addClass("ui-datepicker-prev-hover");
-// 		}
-// 		if (this.className.indexOf("ui-datepicker-next") !== -1) {
-// 			$(this).addClass("ui-datepicker-next-hover");
-// 		}
-// 	}
-// }
+      out_of_focus(".ui-datepicker-next");
 
-// ************ //
-
-      //$("#datepicker").datepicker("setDate", plus_month);
-
-      //
-      // $(this).keydown(function(evt) {
-      //   var keyCode = evt.which;
-      //   switch (keyCode) {
-      //     case 40:  // DOWN, +1 week
-      //       console.log("pressing down arrow");
-      //       $.datepicker._adjustDate("#datepicker", +7, "D");
-      //       console.log($("#datepicker").datepicker("getDate", currentDate));
-      //       //$.datepicker._onSelect();
-      //       break;
-      //     default:
-      //   }
-      // });
+      // Bind tabulation to the days of the current month
+      selectDay("table.ui-datepicker-calendar a");
 
 // EXTEND (KEYBOARD ACCESSIBLITY)
 
