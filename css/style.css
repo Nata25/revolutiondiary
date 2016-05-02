@@ -231,8 +231,7 @@ DATEPICKER FIELDS
   -o-transition: .25s all linear;
   transition: .25s all linear;
 }
-#button:hover,
-#button:focus {
+#button:hover {
   box-shadow: 0 0 10px #b3bcee;
 }
 .arrow {

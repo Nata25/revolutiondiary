@@ -1,10 +1,19 @@
-// Document.ready()
-
-$(function() {
-
-  // ***********************************
+// ***********************************
 //***** CSS ADDITIONAL FUNCTION *****//
 // ***********************************
+
+// Document.ready()
+$(function() {
+
+/*** Render shadow effect on button when focus in (if there's no default effect in browser, e.g. in Mozilla) ***/
+
+$(".link-to-page").focus(function() {
+  $(this).find("#button").css("box-shadow", "0 0 20px 2px #b3bcee");
+});
+
+$(".link-to-page").blur(function() {
+  $(this).find("#button").css("box-shadow", "none");
+});
 
 /*** STICK SIDEBAR to the left (Kindle) ****/
   function findLeftMargin(wdth) { return (wdth - 1900) / 2}
