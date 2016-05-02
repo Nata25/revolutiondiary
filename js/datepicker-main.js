@@ -123,7 +123,6 @@ $("#datepicker").datepicker(
       var dateDate = $.datepicker.parseDate("yy/M/dd", stringDate);
       //*** Store selected date in storage to grab it on return to index.html:
       upd_storage(dateDate);
-      // produce str in the default format of DP
       var dateToNums = stringDate.split("/");
       var day = dateToNums[2];
       var month = $.datepicker.formatDate("MM", dateDate, {
@@ -132,7 +131,6 @@ $("#datepicker").datepicker(
       var shortMonth = dateToNums[1];
       var year = dateToNums[0];
       upd_DP(dateDate, day, month);
-    //  upd_storage(dateDate);
 
       // Calculate prev/next day
       var next = new Date(dateDate);
@@ -150,12 +148,14 @@ $("#datepicker").datepicker(
 //***  Accessibility: allow to choose a date with Tab and Enter key
 
 // Declare the function to be fired on `next` button
-function tabulation() {
+function tabNext() {
     // style the button
     $(".ui-datepicker-next").addClass("ui-state-active");
+
     // bind Enter key event to the button
     $(".ui-datepicker-next").keydown(function(evt) {
-      if (evt.which == 13) {
+      console.log($(".month").html());
+      if (evt.which == 13 && $(".month").html() != "березня") {
         // Add 1 month on each Enter press
         var current = $("#datepicker").datepicker("getDate");
         var plus_month = current.addMonths(1);
@@ -180,12 +180,55 @@ function tabulation() {
         $(".link-to-page").attr("tabindex", "3");
 
         // Bind Enter key event again as we've changed the month
-        tabulation();
+        tabNext();
         // Manage state of 'next' button after it come out of focus
         out_of_focus(".ui-datepicker-next");
 
         // Bind tabulation to the days of the next month
         selectDay("table.ui-datepicker-calendar a");
+      }
+  });
+}
+
+// Declare the function to be fired on `prev` button
+function tabPrev() {
+    // style the button
+    $(".ui-datepicker-prev").addClass("ui-state-active");
+
+    // bind Enter key event to the button
+    $(".ui-datepicker-prev").keydown(function(evt) {
+      if (evt.which == 13 && $(".month").html() != "листопада") {
+        // Add 1 month on each Enter press
+        var current = $("#datepicker").datepicker("getDate");
+        var plus_month = current.addMonths(-1);
+        // Attach link to go-button
+        var format_for_link = $.datepicker.formatDate("yy/M/dd", plus_month, {
+          monthNames: monthsNames
+        });
+        var link = "/" + format_for_link;
+        $(".link-to-page").attr("href", link);
+        // Update DP
+        var format_for_date_block = $.datepicker.formatDate("dd MM", plus_month, {
+          monthNames: monthsNames
+        });
+        var dateToWords = format_for_date_block.split(" ");
+        upd_DP(plus_month, dateToWords[0], dateToWords[1]);
+
+        // Keep `next` button active
+        $(".ui-datepicker-prev").attr("tabindex", "2");
+        $(".ui-datepicker-prev").focus();
+
+        // Let the button be the next element to come into focus to choose current date
+        $(".link-to-page").attr("tabindex", "3");
+
+        // Bind Enter key event again as we've changed the month
+        tabPrev();
+        // Manage state of 'next' button after it come out of focus
+        out_of_focus(".ui-datepicker-prev");
+
+        // Bind tabulation to the days of the next month
+        selectDay("table.ui-datepicker-calendar a");
+
       }
   });
 }
@@ -207,10 +250,16 @@ function tabulation() {
         });
       }
 
-      // If no use of `next` button, select day
+      $(".ui-datepicker-prev").attr("tabindex", "1");
+      $(".ui-datepicker-prev").focus(function() {
+        tabPrev();
+      });
+
+      out_of_focus(".ui-datepicker-prev");
+
       $(".ui-datepicker-next").attr("tabindex", "1");
       $(".ui-datepicker-next").focus(function() {
-        tabulation();
+        tabNext();
       });
 
       out_of_focus(".ui-datepicker-next");
