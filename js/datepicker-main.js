@@ -160,17 +160,17 @@ $("#datepicker").datepicker(
 
 // Declare the function to be fired on 'prev` or `next` buttons
 function tabulation(id, edge, step) {
-    // style the button
-    $(id).addClass("ui-state-active");
+
     arrowLeft();
     // bind Enter key event to the button
     $(id).keydown(function(evt) {
       if (evt.which == 13 && $(".month").html() != edge) {
         changeMonth(step)
 
-        // Keep `next` button active
+        // Keep the button active
         $(id).attr("tabindex", "2");
         $(id).focus();
+        makeActive(id);
 
         // Let the button be the next element to come into focus to choose current date
         $(".link-to-page").attr("tabindex", "3");
@@ -185,6 +185,11 @@ function tabulation(id, edge, step) {
       }
   });
 }
+
+// Style months-change buttons to active
+  function makeActive(id) {
+    $(id).addClass("ui-state-active");
+  }
 
 // Add or substract a month on each Enter press depending on step
   function changeMonth(step) {
@@ -204,7 +209,7 @@ function tabulation(id, edge, step) {
     var dateToWords = format_for_date_block.split(" ");
     upd_DP(change_month, dateToWords[0], dateToWords[1]);
   }
-  
+
 
     function out_of_focus(id) {
       $(id).blur(function() {
@@ -248,6 +253,7 @@ function tabulation(id, edge, step) {
 
       $(".ui-datepicker-prev").attr("tabindex", "1");
       $(".ui-datepicker-prev").focus(function() {
+        makeActive(".ui-datepicker-prev");
         tabulation(".ui-datepicker-prev", "листопада", -1);
       });
 
@@ -255,6 +261,7 @@ function tabulation(id, edge, step) {
 
       $(".ui-datepicker-next").attr("tabindex", "1");
       $(".ui-datepicker-next").focus(function() {
+        makeActive(".ui-datepicker-next");
         tabulation(".ui-datepicker-next", "березня", 1);
       });
 
