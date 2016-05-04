@@ -166,21 +166,7 @@ function tabulation(id, edge, step) {
     // bind Enter key event to the button
     $(id).keydown(function(evt) {
       if (evt.which == 13 && $(".month").html() != edge) {
-        // Add 1 month on each Enter press
-        var current = $("#datepicker").datepicker("getDate");
-        var change_month = current.addMonths(step);
-        // Attach link to go-button
-        var format_for_link = $.datepicker.formatDate("yy/M/dd", change_month, {
-          monthNames: monthsNames
-        });
-        var link = "/" + format_for_link;
-        $(".link-to-page").attr("href", link);
-        // Update DP
-        var format_for_date_block = $.datepicker.formatDate("dd MM", change_month, {
-          monthNames: monthsNames
-        });
-        var dateToWords = format_for_date_block.split(" ");
-        upd_DP(change_month, dateToWords[0], dateToWords[1]);
+        changeMonth(step)
 
         // Keep `next` button active
         $(id).attr("tabindex", "2");
@@ -194,13 +180,31 @@ function tabulation(id, edge, step) {
         // Manage state of 'next' button after it come out of focus
         out_of_focus(id);
 
-
-
         // Bind tabulation to the days of the next month
         selectDay("table.ui-datepicker-calendar a");
       }
   });
 }
+
+// Add or substract a month on each Enter press depending on step
+  function changeMonth(step) {
+    // Get current date and modify it
+    var current = $("#datepicker").datepicker("getDate");
+    var change_month = current.addMonths(step);
+    // Attach link to go-button
+    var format_for_link = $.datepicker.formatDate("yy/M/dd", change_month, {
+      monthNames: monthsNames
+    });
+    var link = "/" + format_for_link;
+    $(".link-to-page").attr("href", link);
+    // Update DP
+    var format_for_date_block = $.datepicker.formatDate("dd MM", change_month, {
+      monthNames: monthsNames
+    });
+    var dateToWords = format_for_date_block.split(" ");
+    upd_DP(change_month, dateToWords[0], dateToWords[1]);
+  }
+  
 
     function out_of_focus(id) {
       $(id).blur(function() {
