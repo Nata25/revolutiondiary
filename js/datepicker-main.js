@@ -160,20 +160,21 @@ $("#datepicker").datepicker(
 
 // Declare the function to be fired on 'prev` or `next` buttons
 function tabulation(id, edge, step) {
-
-    arrowLeft();
+    makeActive(id);
     // bind Enter key event to the button
     $(id).keydown(function(evt) {
       if (evt.which == 13 && $(".month").html() != edge) {
-        changeMonth(step)
+        changeMonth(step);
 
         // Keep the button active
         $(id).attr("tabindex", "2");
         $(id).focus();
-        makeActive(id);
 
-        // Let the button be the next element to come into focus to choose current date
+
+        // Let the go-button be the next element to come into focus to choose current date
         $(".link-to-page").attr("tabindex", "3");
+
+        arrowLeft();
 
         // Bind Enter key event again as we've changed the month
         tabulation(id, edge, step);
@@ -185,6 +186,9 @@ function tabulation(id, edge, step) {
       }
   });
 }
+
+// Function to be called on next/prev buttons on Enter key
+
 
 // Style months-change buttons to active
   function makeActive(id) {
@@ -232,6 +236,7 @@ function tabulation(id, edge, step) {
         $(".ui-datepicker-next").keydown(function(evt) {
           if (evt.which == 37) {
             console.log("inside arrowLeft()");
+            $(".ui-datepicker-prev").attr("tabindex", "1");
             $(".ui-datepicker-prev").focus();
             out_of_focus(".ui-datepicker-next");
             tabulation(".ui-datepicker-prev", beginning, -1);
@@ -243,6 +248,7 @@ function tabulation(id, edge, step) {
         $(".ui-datepicker-prev").keydown(function(evt) {
           if (evt.which == 39) {
             console.log("inside arrowRight");
+            $(".ui-datepicker-next").attr("tabindex", "1");
             $(".ui-datepicker-next").focus();
             out_of_focus(".ui-datepicker-prev");
             tabulation(".ui-datepicker-next", end, 1);
@@ -250,6 +256,7 @@ function tabulation(id, edge, step) {
         });
       }
 
+      // SET INITIAL BINDING
 
       $(".ui-datepicker-prev").attr("tabindex", "1");
       $(".ui-datepicker-prev").focus(function() {
