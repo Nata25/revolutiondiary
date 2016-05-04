@@ -160,9 +160,17 @@ $("#datepicker").datepicker(
 
 // Declare the function to be fired on 'prev` or `next` buttons
 function tabulation(id, edge, step) {
-    console.log("id is " + id);
-  //  in_focus(id);
-    //makeActive(".ui-datepicker-prev");
+
+    // $(id).focus(function() {
+    //   makeActive(id);
+    // });
+    // $(id).blur(function () {
+    //   $(this).removeClass("ui-state-active");
+    // });
+
+    into_focus(id);
+    out_of_focus(id);
+
     // bind Enter key event to the button
     $(id).keydown(function(evt) {
       if (evt.which == 13 && $(".month").html() != edge) {
@@ -181,7 +189,6 @@ function tabulation(id, edge, step) {
         // Bind Enter key event again as we've changed the month
         tabulation(id, edge, step);
         // Manage state of 'next' button after it come out of focus
-        out_of_focus(id);
 
         // Bind tabulation to the days of the next month
         selectDay("table.ui-datepicker-calendar a");
@@ -216,12 +223,10 @@ function tabulation(id, edge, step) {
     upd_DP(change_month, dateToWords[0], dateToWords[1]);
   }
 
-    function in_focus(selector) {
-      console.log("inside in_focus");
-      console.log("selector is " + selector);
-      $(selector).focus(function() {
-       makeActive(selector);
-       console.log(selector + " came into focus");
+
+    function into_focus(id) {
+      $(id).focus(function(id) {
+        $(this).addClass("ui-state-active");
       });
     }
 
@@ -247,8 +252,8 @@ function tabulation(id, edge, step) {
           if (evt.which == 37) {
             $(".ui-datepicker-prev").attr("tabindex", "1");
             $(".ui-datepicker-prev").focus();
-            out_of_focus(".ui-datepicker-next");
-            in_focus(".ui-datepicker-prev");
+      //      out_of_focus(".ui-datepicker-next"); // why it's not needed?!
+            makeActive(".ui-datepicker-prev");
             tabulation(".ui-datepicker-prev", beginning, -1);
           }
         });
