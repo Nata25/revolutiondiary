@@ -160,7 +160,9 @@ $("#datepicker").datepicker(
 
 // Declare the function to be fired on 'prev` or `next` buttons
 function tabulation(id, edge, step) {
-    makeActive(id);
+    console.log("id is " + id);
+  //  in_focus(id);
+    //makeActive(".ui-datepicker-prev");
     // bind Enter key event to the button
     $(id).keydown(function(evt) {
       if (evt.which == 13 && $(".month").html() != edge) {
@@ -169,7 +171,7 @@ function tabulation(id, edge, step) {
         // Keep the button active
         $(id).attr("tabindex", "2");
         $(id).focus();
-
+        makeActive(id);
 
         // Let the go-button be the next element to come into focus to choose current date
         $(".link-to-page").attr("tabindex", "3");
@@ -214,6 +216,14 @@ function tabulation(id, edge, step) {
     upd_DP(change_month, dateToWords[0], dateToWords[1]);
   }
 
+    function in_focus(selector) {
+      console.log("inside in_focus");
+      console.log("selector is " + selector);
+      $(selector).focus(function() {
+       makeActive(selector);
+       console.log(selector + " came into focus");
+      });
+    }
 
     function out_of_focus(id) {
       $(id).blur(function() {
@@ -235,10 +245,10 @@ function tabulation(id, edge, step) {
       function arrowLeft() {
         $(".ui-datepicker-next").keydown(function(evt) {
           if (evt.which == 37) {
-            console.log("inside arrowLeft()");
             $(".ui-datepicker-prev").attr("tabindex", "1");
             $(".ui-datepicker-prev").focus();
             out_of_focus(".ui-datepicker-next");
+            in_focus(".ui-datepicker-prev");
             tabulation(".ui-datepicker-prev", beginning, -1);
           }
         });
@@ -259,9 +269,10 @@ function tabulation(id, edge, step) {
       // SET INITIAL BINDING
 
       $(".ui-datepicker-prev").attr("tabindex", "1");
+      tabulation(".ui-datepicker-prev", "листопада", -1);
       $(".ui-datepicker-prev").focus(function() {
         makeActive(".ui-datepicker-prev");
-        tabulation(".ui-datepicker-prev", "листопада", -1);
+      //  tabulation(".ui-datepicker-prev", "листопада", -1);
       });
 
       out_of_focus(".ui-datepicker-prev");
