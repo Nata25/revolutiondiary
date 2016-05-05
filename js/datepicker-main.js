@@ -184,7 +184,8 @@ function tabulation(id, edge, step) {
         arrowRight();
 
         // Bind Enter key event again as we've changed the month
-        tabulation(id, edge, step);
+        tabulation(".ui-datepicker-prev", "листопада", -1);
+        tabulation(".ui-datepicker-next", "березня", 1);
         // Manage state of 'next' button after it come out of focus
 
         // Bind tabulation to the days of the next month
