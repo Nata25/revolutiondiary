@@ -161,19 +161,14 @@ $("#datepicker").datepicker(
 // Declare the function to be fired on 'prev` or `next` buttons
 function tabulation(id, edge, step) {
 
-    // $(id).focus(function() {
-    //   makeActive(id);
-    // });
-    // $(id).blur(function () {
-    //   $(this).removeClass("ui-state-active");
-    // });
-
     into_focus(id);
     out_of_focus(id);
 
     // bind Enter key event to the button
     $(id).keydown(function(evt) {
+
       if (evt.which == 13 && $(".month").html() != edge) {
+        // Changing month
         changeMonth(step);
 
         // Keep the button active
@@ -184,7 +179,9 @@ function tabulation(id, edge, step) {
         // Let the go-button be the next element to come into focus to choose current date
         $(".link-to-page").attr("tabindex", "3");
 
+        // Bind arrow event to the button
         arrowLeft();
+        arrowRight();
 
         // Bind Enter key event again as we've changed the month
         tabulation(id, edge, step);
@@ -250,11 +247,12 @@ function tabulation(id, edge, step) {
       function arrowLeft() {
         $(".ui-datepicker-next").keydown(function(evt) {
           if (evt.which == 37) {
+            console.log("inside arrowLeft");
             $(".ui-datepicker-prev").attr("tabindex", "1");
             $(".ui-datepicker-prev").focus();
-      //      out_of_focus(".ui-datepicker-next"); // why it's not needed?!
+            out_of_focus(".ui-datepicker-next"); // why it's not needed?!
             makeActive(".ui-datepicker-prev");
-            tabulation(".ui-datepicker-prev", beginning, -1);
+          //  tabulation(".ui-datepicker-prev", beginning, -1);
           }
         });
       }
@@ -266,7 +264,8 @@ function tabulation(id, edge, step) {
             $(".ui-datepicker-next").attr("tabindex", "1");
             $(".ui-datepicker-next").focus();
             out_of_focus(".ui-datepicker-prev");
-            tabulation(".ui-datepicker-next", end, 1);
+            makeActive(".ui-datepicker-next");
+          //  tabulation(".ui-datepicker-next", end, 1);
           }
         });
       }
@@ -274,19 +273,19 @@ function tabulation(id, edge, step) {
       // SET INITIAL BINDING
 
       $(".ui-datepicker-prev").attr("tabindex", "1");
-      tabulation(".ui-datepicker-prev", "листопада", -1);
+  //    tabulation(".ui-datepicker-prev", "листопада", -1);
       $(".ui-datepicker-prev").focus(function() {
         makeActive(".ui-datepicker-prev");
-      //  tabulation(".ui-datepicker-prev", "листопада", -1);
       });
 
+      tabulation(".ui-datepicker-prev", "листопада", -1);
       out_of_focus(".ui-datepicker-prev");
 
       $(".ui-datepicker-next").attr("tabindex", "1");
       $(".ui-datepicker-next").focus(function() {
         makeActive(".ui-datepicker-next");
-        tabulation(".ui-datepicker-next", "березня", 1);
       });
+      tabulation(".ui-datepicker-next", "березня", 1);
 
       out_of_focus(".ui-datepicker-next");
 
@@ -295,10 +294,8 @@ function tabulation(id, edge, step) {
 
       // Manage left/right arrow key to jump between 'next' and 'prev' buttons
 
-      $(".ui-datepicker-next").focus(function() {
-        console.log("initial");
-        arrowLeft(".ui-datepicker-next");
-      })
+      arrowLeft();
+      arrowRight();
 
 // EXTEND (KEYBOARD ACCESSIBLITY)
 
