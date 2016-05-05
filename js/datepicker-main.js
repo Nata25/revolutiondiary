@@ -5,12 +5,8 @@ $(function() {
   // Global variables used in accessibility section
   // *****************
 
-   var prev = $(".ui-datepicker-prev");
-   var next = $(".ui-datepicker-next");
-   var linkToPage = $(".link-to-page");
    var beginning = "листопада";
    var end = "березня";
-
 
   // ******************
   // SESSION STORAGE
@@ -107,6 +103,8 @@ $("#datepicker").datepicker(
       }) // end of onSelect
     }); // end of .datepicker() initialization
 
+    var linkToPage = $(".link-to-page");
+
 //***  Based on current URL, set:
 //  *   - dates into the input fields
 //  *   - current date in datepicker
@@ -159,6 +157,9 @@ $("#datepicker").datepicker(
 //***  ACCESSIBLITY *** //
 //     allow to choose a date with a keyboard
 
+// Prev / Next buttons Objects
+var prevMonth = $(".ui-datepicker-prev");
+var nextMonth = $(".ui-datepicker-next");
 
 // Declare the function to be fired on 'prev` or `next` buttons
 function tabulation(id, edge, step) {
@@ -178,24 +179,21 @@ function tabulation(id, edge, step) {
         $(id).focus();
         makeActive(id);
 
-        // Let the go-button be the next element to come into focus to choose current date
-        linkToPage.attr("tabindex", "3");
-
-        // Bind arrow event to the button
+        // Bind arrow event to the buttons
         arrow();
 
         // Bind Enter key event again as we've changed the month
         tabulation(".ui-datepicker-prev", beginning, -1);
         tabulation(".ui-datepicker-next", end, 1);
-        // Manage state of 'next' button after it come out of focus
+
+        // Let the go-button be the next element to come into focus to choose current date
+        linkToPage.attr("tabindex", "3");
 
         // Bind tabulation to the days of the next month
         selectDay("table.ui-datepicker-calendar a");
       }
   });
 }
-
-// Function to be called on next/prev buttons on Enter key
 
 
 // Style months-change buttons to active
@@ -223,6 +221,7 @@ function tabulation(id, edge, step) {
   }
 
 
+
     function into_focus(id) {
       $(id).focus(function(id) {
         $(this).addClass("ui-state-active");
@@ -235,7 +234,6 @@ function tabulation(id, edge, step) {
       });
     }
 
-
     function selectDay(elem) {
 
         $(elem).focus(function() {
@@ -246,38 +244,40 @@ function tabulation(id, edge, step) {
         });
       }
 
+
       function arrow() {
+        var nextMonth = $(".ui-datepicker-next");
+        var prevMonth = $(".ui-datepicker-prev");
         // Left arrow key
-        $(".ui-datepicker-next").keydown(function(evt) {
+        nextMonth.keydown(function(evt) {
           if (evt.which == 37) {
-            $(".ui-datepicker-prev").attr("tabindex", "1");
-            $(".ui-datepicker-prev").focus();
-            out_of_focus(".ui-datepicker-next"); // why it's not needed?!
+            prevMonth.attr("tabindex", "1");
+            prevMonth.focus();
+            out_of_focus(".ui-datepicker-next");
             makeActive(".ui-datepicker-prev");
           }});
           // Right arrow key
-          $(".ui-datepicker-prev").keydown(function(evt) {
+          prevMonth.keydown(function(evt) {
             if (evt.which == 39) {
-              $(".ui-datepicker-next").attr("tabindex", "1");
-              $(".ui-datepicker-next").focus();
+              nextMonth.attr("tabindex", "1");
+              nextMonth.focus();
               out_of_focus(".ui-datepicker-prev");
               makeActive(".ui-datepicker-next");
             }});
       }
 
-      // SET INITIAL BINDING
+      // SET INITIAL EVENT BINDING
 
-      $(".ui-datepicker-prev").attr("tabindex", "1");
-  //    tabulation(".ui-datepicker-prev", "листопада", -1);
-      $(".ui-datepicker-prev").focus(function() {
+      prevMonth.attr("tabindex", "1");
+      prevMonth.focus(function() {
         makeActive(".ui-datepicker-prev");
       });
 
       tabulation(".ui-datepicker-prev", beginning, -1);
       out_of_focus(".ui-datepicker-prev");
 
-      $(".ui-datepicker-next").attr("tabindex", "1");
-      $(".ui-datepicker-next").focus(function() {
+      nextMonth.attr("tabindex", "1");
+      nextMonth.focus(function() {
         makeActive(".ui-datepicker-next");
       });
       tabulation(".ui-datepicker-next", end, 1);
@@ -290,6 +290,7 @@ function tabulation(id, edge, step) {
       // Manage left/right arrow key to jump between 'next' and 'prev' buttons
 
       arrow();
+
 
 // EXTEND (KEYBOARD ACCESSIBLITY)
 
