@@ -39,7 +39,7 @@ $(function() {
 // HELPER FUNCTIONS
 // ******************
 
-// Update datepicker and date-block; date is Date() or a str in `dd MM (M) yy` format; day = dd, month = MM
+// Update datepicker and date-block; date is Date() or a str in `dd MM (M) yy` format; day = d, month = MM
 function upd_DP(date, day, month) {
   $("#datepicker").datepicker("setDate", date);
   $(".day").html(day);
@@ -201,19 +201,22 @@ function tabulation(id, edge, step) {
   function changeMonth(step) {
     // Get current date and modify it
     var current = $("#datepicker").datepicker("getDate");
-    var change_month = current.addMonths(step);
+    var month = current.getMonth() + step;
+    current.setMonth(month);
+    current.setDate(1);
+
     // Attach link to go-button
-    var format_for_link = $.datepicker.formatDate("yy/M/dd", change_month, {
+    var format_for_link = $.datepicker.formatDate("yy/M/dd", current, {
       monthNames: monthsNames
     });
     var link = "/" + format_for_link;
     linkToPage.attr("href", link);
     // Update DP
-    var format_for_date_block = $.datepicker.formatDate("dd MM", change_month, {
+    var format_for_date_block = $.datepicker.formatDate("d MM", current, {
       monthNames: monthsNames
     });
     var dateToWords = format_for_date_block.split(" ");
-    upd_DP(change_month, dateToWords[0], dateToWords[1]);
+    upd_DP(current, dateToWords[0], dateToWords[1]);
   }
 
     function into_focus(id) {
@@ -273,63 +276,5 @@ function tabulation(id, edge, step) {
 
       // Manage left/right arrow key to jump between 'next' and 'prev' buttons
       arrow();
-
-      function arrowControlDays() {
-        var day = $(".ui-datepicker-calendar a");
-        day.focus(function() {
-          $(this).keydown(function(evt) {
-            if (evt.which == 39) {
-              console.log("event?");
-              $("#datepicker").datepicker("setDate", +7);
-            }
-          });
-      });
-    }
-
-    arrowControlDays();
-
-
-// EXTEND (KEYBOARD ACCESSIBLITY)
-
-$.extend($.datepicker, {
-     _doKeyDown: function(event){
-           //copy original source here with different
-           //values and conditions in the switch statement
-
-           var keyCode = event.which;
-            // if(keyCode == 9) // if tab was pressed, use pressed key for calendar control
-            // {
-            //     event.preventDefault();
-            //     event.stopPropagation();
-                console.log("event?");
-            //
-            //     var parts = $("#datepicker").val().split("/");
-            //     var currentDate = new Date(parts[2], parts[0]-1, parts[1]); // months are 0-based
-
-                switch(keyCode)
-                {
-                    case 37: // LEFT, -1 day
-                        currentDate.setDate(currentDate.getDate() -1);
-                        break;
-                    case 38: // UP, -1 week
-                        currentDate.setDate(currentDate.getDate() -7);
-                        break;
-                    case 39: // RIGHT, +1 day
-                        currentDate.setDate(currentDate.getDate() +1);
-                        break;
-                    case 40: // DOWN, +1 week
-                        currentDate.setDate(currentDate.getDate() +7);
-                        break;
-                }
-
-                $("#datepicker").html( currentDate.toString() );
-                if(currentDate != null)
-                {
-                    $("#datepicker").datepicker("setDate", currentDate);
-                }
-            //}
-     }
-});
-
 
 }); // end of ready
