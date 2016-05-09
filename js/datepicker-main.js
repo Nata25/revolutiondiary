@@ -157,34 +157,31 @@ $("#datepicker").datepicker(
 //***  ACCESSIBLITY *** //
 //     allow to choose a date with a keyboard
 
-// Prev / Next buttons Objects
-var prevMonth = $(".ui-datepicker-prev");
-var nextMonth = $(".ui-datepicker-next");
-
 // Declare the function to be fired on 'prev` or `next` buttons
 function tabulation(id, edge, step) {
-
-    into_focus(id);
+    var obj = $(id);
+    into_focus(obj);
     out_of_focus(id);
 
     // bind Enter key event to the button
-    $(id).keydown(function(evt) {
+    obj.keydown(function(evt) {
 
       if (evt.which == 13 && $(".month").html() != edge) {
         // Changing month
         changeMonth(step);
 
+        // Re-define next/prev objecs as html changed after mouse press
+        obj = $(id);
+
         // Keep the button active
-        $(id).attr("tabindex", "2");
-        $(id).focus();
-        var obj = $(id);
-        //into_focus(obj);
-        obj.addClass("ui-state-active");
+        into_focus(obj);
+        obj.attr("tabindex", "2");
+        obj.focus();
 
         // Bind arrow event to the buttons
         arrow();
 
-        // Bind Enter key event again as we've changed the month
+        // Re-bind Enter key event after month change
         tabulation(".ui-datepicker-prev", beginning, -1);
         tabulation(".ui-datepicker-next", end, 1);
 
@@ -216,10 +213,8 @@ function tabulation(id, edge, step) {
     upd_DP(change_month, dateToWords[0], dateToWords[1]);
   }
 
-
-
     function into_focus(id) {
-      $(id).focus(function() {
+      id.focus(function() {
         $(this).addClass("ui-state-active");
       });
     }
@@ -235,6 +230,7 @@ function tabulation(id, edge, step) {
         $(elem).focus(function() {
           var day = $(this).html();
           $(".ui-state-active").removeClass("ui-state-active");
+          $(".ui-state-active").css('backgroundColor', 'yellow');
           $(this).addClass("ui-state-active");
           $(".day").html(day);
         });
@@ -261,14 +257,15 @@ function tabulation(id, edge, step) {
       }
 
       // SET INITIAL EVENT BINDING
+      // Prev / Next buttons Objects
+      var prevMonth = $(".ui-datepicker-prev");
+      var nextMonth = $(".ui-datepicker-next");
 
       prevMonth.attr("tabindex", "1");
       tabulation(".ui-datepicker-prev", beginning, -1);
-      out_of_focus(".ui-datepicker-prev");
 
       nextMonth.attr("tabindex", "1");
       tabulation(".ui-datepicker-next", end, 1);
-      out_of_focus(".ui-datepicker-next");
 
       // Bind tabulation to the days of the current month
       selectDay("table.ui-datepicker-calendar a");
