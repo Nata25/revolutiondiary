@@ -4,9 +4,12 @@ $(function() {
   // ******************
   // Global variables used in accessibility section
   // *****************
-
+   var minDate = new Date(2013, 10, 21);
+   var maxDate = new Date(2014, 2, 22);
    var beginning = "листопада";
    var end = "березня";
+   var linkToPrev = $(".prev");
+   var linkToNext = $(".next");
 
   // ******************
   // SESSION STORAGE
@@ -86,8 +89,8 @@ Date.prototype.addMonths = function (value) {
 $("#datepicker").datepicker(
     {
       dateFormat: "dd MM (M) yy",
-      minDate: new Date(2013, 10, 21),
-      maxDate: new Date(2014, 2, 22),
+      minDate: minDate,
+      maxDate: maxDate,
       monthNames: monthsNames,
       dayNamesMin: dayNames,
       firstDay: 1,
@@ -148,8 +151,8 @@ $("#datepicker").datepicker(
       next.setDate(next.getDate() + 1);
       var prevDateLST = $.datepicker.formatDate("dd M yy", prev).split(" ");
       var nextDateLST = $.datepicker.formatDate("dd M yy", next).split(" ");
-      $(".prev").attr("href", newURL(prevDateLST[0], prevDateLST[1], prevDateLST[2]));
-      $(".next").attr("href", newURL(nextDateLST[0], nextDateLST[1], nextDateLST[2])); // both go-button on top and 'Next' link on the bottom are affected
+      linkToPrev.attr("href", newURL(prevDateLST[0], prevDateLST[1], prevDateLST[2]));
+      linkToNext.attr("href", newURL(nextDateLST[0], nextDateLST[1], nextDateLST[2])); // both go-button on top and 'Next' link on the bottom are affected
       // set links to the home page (logo and 'Home' on the bottom)
       $(".home").attr("href", "/");
     }
@@ -226,11 +229,9 @@ function tabulation(id, edge, step) {
     }
 
     function selectDay(elem) {
-
         $(elem).focus(function() {
           var day = $(this).html();
           $(".ui-state-active").removeClass("ui-state-active");
-          $(".ui-state-active").css('backgroundColor', 'yellow');
           $(this).addClass("ui-state-active");
           $(".day").html(day);
         });
@@ -271,8 +272,21 @@ function tabulation(id, edge, step) {
       selectDay("table.ui-datepicker-calendar a");
 
       // Manage left/right arrow key to jump between 'next' and 'prev' buttons
-
       arrow();
+
+      function arrowControlDays() {
+        var day = $(".ui-datepicker-calendar a");
+        day.focus(function() {
+          $(this).keydown(function(evt) {
+            if (evt.which == 39) {
+              console.log("event?");
+              $("#datepicker").datepicker("setDate", +7);
+            }
+          });
+      });
+    }
+
+    arrowControlDays();
 
 
 // EXTEND (KEYBOARD ACCESSIBLITY)
@@ -283,14 +297,14 @@ $.extend($.datepicker, {
            //values and conditions in the switch statement
 
            var keyCode = event.which;
-            if(keyCode == 9) // if tab was pressed, use pressed key for calendar control
-            {
-                event.preventDefault();
-                event.stopPropagation();
+            // if(keyCode == 9) // if tab was pressed, use pressed key for calendar control
+            // {
+            //     event.preventDefault();
+            //     event.stopPropagation();
                 console.log("event?");
-
-                var parts = $("#datepicker").val().split("/");
-                var currentDate = new Date(parts[2], parts[0]-1, parts[1]); // months are 0-based
+            //
+            //     var parts = $("#datepicker").val().split("/");
+            //     var currentDate = new Date(parts[2], parts[0]-1, parts[1]); // months are 0-based
 
                 switch(keyCode)
                 {
@@ -313,7 +327,7 @@ $.extend($.datepicker, {
                 {
                     $("#datepicker").datepicker("setDate", currentDate);
                 }
-            }
+            //}
      }
 });
 
