@@ -39,7 +39,7 @@ $(function() {
 // HELPER FUNCTIONS
 // ******************
 
-// Update datepicker and date-block; date is Date() or a str in `dd MM (M) yy` format; day = d, month = MM
+// Update datepicker and date-block; date is Date() or a str in `dd MM (M) yy` format
 function upd_DP(date, day, month) {
   $("#datepicker").datepicker("setDate", date);
   $(".day").html(day);
@@ -57,28 +57,6 @@ function upd_storage(date) {
 
 // Generate URL based on string slices
 function newURL(d, m, y) { return  "/" + y + "/" + m + "/" + d };
-
-
-// Change date() for +1 month
-Date.isLeapYear = function (year) {
-    return (((year % 4 === 0) && (year % 100 !== 0)) || (year % 400 === 0));
-};
-Date.getDaysInMonth = function (year, month) {
-    return [31, (Date.isLeapYear(year) ? 29 : 28), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month];
-};
-Date.prototype.isLeapYear = function () {
-    return Date.isLeapYear(this.getFullYear());
-};
-Date.prototype.getDaysInMonth = function () {
-    return Date.getDaysInMonth(this.getFullYear(), this.getMonth());
-};
-Date.prototype.addMonths = function (value) {
-    var n = this.getDate();
-    this.setDate(1);
-    this.setMonth(this.getMonth() + value);
-    this.setDate(Math.min(n, this.getDaysInMonth()));
-    return this;
-};
 
 // ***********************************
 //***** DATEPICKER *****//
@@ -197,26 +175,31 @@ function tabulation(id, edge, step) {
   });
 }
 
-// Add or substract a month on each Enter press depending on step
+// Manage month change: skip to the 1st day of the next/prev month
   function changeMonth(step) {
     // Get current date and modify it
     var current = $("#datepicker").datepicker("getDate");
-    var month = current.getMonth() + step;
-    current.setMonth(month);
+    var monthNum = current.getMonth() + step;
+    current.setMonth(monthNum);
     current.setDate(1);
 
-    // Attach link to go-button
-    var format_for_link = $.datepicker.formatDate("yy/M/dd", current, {
-      monthNames: monthsNames
-    });
-    var link = "/" + format_for_link;
-    linkToPage.attr("href", link);
     // Update DP
     var format_for_date_block = $.datepicker.formatDate("d MM", current, {
       monthNames: monthsNames
     });
     var dateToWords = format_for_date_block.split(" ");
-    upd_DP(current, dateToWords[0], dateToWords[1]);
+    var month = dateToWords[1];
+    if (month != beginning) {
+        upd_DP(current, dateToWords[0], dateToWords[1]);
+    }
+    else {
+        upd_DP(minDate, minDate.getDate(), dateToWords[1]);
+        current = minDate;
+    }
+    // Attach link to go-button
+    var format_for_link = $.datepicker.formatDate("yy/M/dd", current);
+    var link = "/" + format_for_link;
+    linkToPage.attr("href", link);
   }
 
     function into_focus(id) {
