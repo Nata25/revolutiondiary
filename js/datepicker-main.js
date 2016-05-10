@@ -260,4 +260,21 @@ function tabulation(id, edge, step) {
       // Manage left/right arrow key to jump between 'next' and 'prev' buttons
       arrow();
 
+      // HIGHLIGHT DATES ON CLICK
+      function clickExtended() {
+        prevMonth = $(".ui-datepicker-prev");
+        nextMonth = $(".ui-datepicker-next");
+        prevMonth.click(function() {
+          changeMonth(-1);
+          clickExtended();
+        });
+        nextMonth.click(function() {
+          changeMonth(1);
+          clickExtended();
+        });
+
+      }
+      clickExtended();
+      //nextMonth.onclick("changeMonth(1)");
+
 }); // end of ready
