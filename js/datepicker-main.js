@@ -23,7 +23,7 @@ $(function() {
   // for a) links, b) date-block fields, and for c) DP, which is initiated in dd MM (M) yy format
 
   if (!(sessionStorage.getItem("currentDate"))) {
-    sessionStorage.setItem("currentDate", "21 листопада (Nov) 2013");
+    sessionStorage.setItem("currentDate", "21 Nov 2013");
   }
 
   // ******************
@@ -32,7 +32,8 @@ $(function() {
 
   var domain = "localhost:8888";
 
-  var monthsNames = ["січня", "лютого", "березня", "квітня", "червня", "травня", "липня", "серпня", "вересня", "жовтня", "листопада", "грудня"];
+  var monthsNamesAffixes = ["січня", "лютого", "березня", "квітня", "червня", "травня", "липня", "серпня", "вересня", "жовтня", "листопада", "грудня"];
+  var monthsNames = ["січень", "лютий", "березень", "квітень", "червень", "травень", "липень", "серпень", "вересень", "жовтень", "листопад", "грудень"];
   var dayNames = ["Нд", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"];
 
 // ******************
@@ -48,7 +49,7 @@ function upd_DP(date, day, month) {
 
 // Update sessionStorage from Date()
 function upd_storage(date) {
-  var formattedDate = $.datepicker.formatDate("dd MM (M) yy", date, {
+  var formattedDate = $.datepicker.formatDate("dd M yy", date, {
     monthNames: monthsNames
   });
   sessionStorage.setItem("currentDate", formattedDate);
@@ -66,7 +67,7 @@ function newURL(d, m, y) { return  "/" + y + "/" + m + "/" + d };
 
 $("#datepicker").datepicker(
     {
-      dateFormat: "dd MM (M) yy",
+      dateFormat: "dd M yy",
       minDate: minDate,
       maxDate: maxDate,
       monthNames: monthsNames,
@@ -75,9 +76,8 @@ $("#datepicker").datepicker(
       onSelect: (function (dateText) {
         var dateString = dateText.split(" ");
         var day = dateString[0];
-        var month = dateString[1];
-        var shortMonth = dateString[2].slice(1, -1);
-        var year = dateString[3];
+        var shortMonth = dateString[1];
+        var year = dateString[2];
         //*** Load new page corresponding to the date
         var lnk = newURL(day, shortMonth, year);
         window.location = lnk;
@@ -96,16 +96,26 @@ $("#datepicker").datepicker(
 
   //For home page (get current date from storage)
     if (!regex.test(currentURL)) {
-      var date = sessionStorage.getItem("currentDate");
-      // convert to array of dd MM (mm) yy
-      var splitted = date.split(" ");
+
+      var stringDate = sessionStorage.getItem("currentDate");
+      console.log("from storage: " + stringDate);
+      //var dateDate = $.datepicker.parseDate("dd MM (M) yy", date);
+      //console.log(dateDate);
+      //convert to array of dd MM (mm) yy
+      var splitted = stringDate.split(" ");
       var day = splitted[0];
-      var month = splitted[1];
-      var shortMonth = splitted[2].slice(1, -1);
-      var year = splitted[3];
-      upd_DP(date, day, month);
+      var shortMonth = splitted[1];
+      var year = splitted[2];
       linkToPage.attr('href', newURL(day, shortMonth, year));
+      var dateDate = $.datepicker.parseDate("dd M yy", stringDate);
+      console.log(dateDate);
+      var month = $.datepicker.formatDate("MM", dateDate, {
+        monthNames: monthsNamesAffixes
+      });
+      upd_DP(dateDate, day, month);
+
     }
+
   //For inner pages (get current date from URL)
     else {
       var stringDate = currentURL.slice(-11);
@@ -116,7 +126,7 @@ $("#datepicker").datepicker(
       var dateToNums = stringDate.split("/");
       var day = dateToNums[2];
       var month = $.datepicker.formatDate("MM", dateDate, {
-        monthNames: monthsNames
+        monthNames: monthsNamesAffixes
       });
       var shortMonth = dateToNums[1];
       var year = dateToNums[0];
@@ -134,6 +144,7 @@ $("#datepicker").datepicker(
       // set links to the home page (logo and 'Home' on the bottom)
       $(".home").attr("href", "/");
     }
+
 
 //***  ACCESSIBLITY *** //
 //     allow to choose a date with a keyboard
@@ -185,7 +196,7 @@ function tabulation(id, edge, step) {
 
     // Update DP
     var format_for_date_block = $.datepicker.formatDate("d MM", current, {
-      monthNames: monthsNames
+      monthNames: monthsNamesAffixes
     });
     var dateToWords = format_for_date_block.split(" ");
     var month = dateToWords[1];
@@ -272,9 +283,7 @@ function tabulation(id, edge, step) {
           changeMonth(1);
           clickExtended();
         });
-
       }
       clickExtended();
-      //nextMonth.onclick("changeMonth(1)");
 
 }); // end of ready
