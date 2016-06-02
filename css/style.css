@@ -604,6 +604,11 @@ h3 > a:hover {
   text-decoration: none;
 }
 
+.tags-cloud-main h5,
+.tags-cloud-inner h5 {
+  display: none;
+}
+
 /****************
 INNER PAGES
 ****************/
@@ -1322,13 +1327,17 @@ MEDIA QUERIES
     width: 100%;
     margin: 20px auto;
   }
-
 }
+
 @media speech {
   .day-circle {
     display: none;
   }
   .backuped {
     display: inline;
+  }
+  .tags-cloud-main h5,
+  .tags-cloud-inner h5 {
+    display: block;
   }
 }

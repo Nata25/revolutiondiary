@@ -83,7 +83,6 @@ myDatepicker.datepicker(
         var year = dateString[2];
         //*** Load new page corresponding to the date
         var lnk = newURL(day, shortMonth, year);
-        console.log(lnk);
         window.location = lnk;
       }) // end of onSelect
 
