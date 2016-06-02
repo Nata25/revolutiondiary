@@ -5,6 +5,10 @@
 // Document.ready()
 $(function() {
 
+// SELECTORS USED
+
+var tags = $(".tags-cloud-main a, .tags-cloud-inner a");
+
 /*** Render shadow effect on button when focus in (if there's no default effect in browser, e.g. in Mozilla) ***/
 
 $(".link-to-page").focus(function() {
@@ -108,15 +112,20 @@ $(".link-to-page").blur(function() {
     $('.hover-sheet').focus(on_control);
     $('.hover-sheet').blur(outof_item);
     $('.hover-sheet').blur(outof_control);
-
-    // FOCUS ON RED SQUARE
-
   }
   else {
       $(".hover-sheet").find('p').removeClass("mid-transparent");
-    //  $(".ellipsis").css("top", "154px");
   }
- // end of if statement
+
+// ***********************
+// TABULATION OF TAGS
+// ***********************
+  tags.focus(function() {
+    $(this).css("color", "#936565");
+  });
+  tags.blur(function() {
+    $(this).css("color", "#A9AAAC");
+  });
 
 // **************************
 // FADE ON VISIBLE ITEMS
