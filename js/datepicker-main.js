@@ -2,12 +2,16 @@
 $(function() {
 
   // ******************
-  // Global variables used in accessibility section
+  // Global variables
   // *****************
+   var myDatepicker = $("#datepicker");
+   var dayField = $(".day");
+   var monthField = $(".month");
    var minDate = new Date(2013, 10, 21);
    var maxDate = new Date(2014, 2, 22);
    var beginning = "листопада";
    var end = "березня";
+   var linkToPage = $(".link-to-page");
    var linkToPrev = $(".prev");
    var linkToNext = $(".next");
 
@@ -42,9 +46,9 @@ $(function() {
 
 // Update datepicker and date-block; date is Date() or a str in `dd MM (M) yy` format
 function upd_DP(date, day, month) {
-  $("#datepicker").datepicker("setDate", date);
-  $(".day").html(day);
-  $(".month").html(month);
+  myDatepicker.datepicker("setDate", date);
+  dayField.html(day);
+  monthField.html(month);
 }
 
 // Update sessionStorage from Date()
@@ -53,7 +57,6 @@ function upd_storage(date) {
     monthNames: monthsNames
   });
   sessionStorage.setItem("currentDate", formattedDate);
-  console.log("sessionStorage is updated, new value is: " + formattedDate);
 }
 
 // Generate URL based on string slices
@@ -65,7 +68,7 @@ function newURL(d, m, y) { return  "/" + y + "/" + m + "/" + d };
 
 //*** Initialize datepicker. Set dates range, date format.
 
-$("#datepicker").datepicker(
+myDatepicker.datepicker(
     {
       dateFormat: "dd M yy",
       minDate: minDate,
@@ -80,43 +83,32 @@ $("#datepicker").datepicker(
         var year = dateString[2];
         //*** Load new page corresponding to the date
         var lnk = newURL(day, shortMonth, year);
-        window.location = lnk;
       }) // end of onSelect
+
     }); // end of .datepicker() initialization
 
-    var linkToPage = $(".link-to-page");
-
-//***  Based on current URL, set:
-//  *   - dates into the input fields
-//  *   - current date in datepicker
-//  *   - link on button, next, prev (if needed)
+//***  Based on current URL, update datepicker and link on button
 
     var currentURL = window.location.pathname;
     var regex = new RegExp("[201]");
 
-  //For home page (get current date from storage)
+  //In on the home page (get current date from storage):
     if (!regex.test(currentURL)) {
 
       var stringDate = sessionStorage.getItem("currentDate");
-      console.log("from storage: " + stringDate);
-      //var dateDate = $.datepicker.parseDate("dd MM (M) yy", date);
-      //console.log(dateDate);
-      //convert to array of dd MM (mm) yy
       var splitted = stringDate.split(" ");
       var day = splitted[0];
       var shortMonth = splitted[1];
       var year = splitted[2];
       linkToPage.attr('href', newURL(day, shortMonth, year));
       var dateDate = $.datepicker.parseDate("dd M yy", stringDate);
-      console.log(dateDate);
       var month = $.datepicker.formatDate("MM", dateDate, {
         monthNames: monthsNamesAffixes
       });
       upd_DP(dateDate, day, month);
-
     }
 
-  //For inner pages (get current date from URL)
+  //If on inner pages (get current date from URL)
     else {
       var stringDate = currentURL.slice(-11);
       // convert to new Date()
@@ -189,7 +181,7 @@ function tabulation(id, edge, step) {
 // Manage month change: skip to the 1st day of the next/prev month
   function changeMonth(step) {
     // Get current date and modify it
-    var current = $("#datepicker").datepicker("getDate");
+    var current = myDatepicker.datepicker("getDate");
     var monthNum = current.getMonth() + step;
     current.setMonth(monthNum);
     current.setDate(1);
@@ -271,19 +263,34 @@ function tabulation(id, edge, step) {
       // Manage left/right arrow key to jump between 'next' and 'prev' buttons
       arrow();
 
-      // HIGHLIGHT DATES ON CLICK
+      // HIGHLIGHT DATES ON CLICK NEXT/PREV
       function clickExtended() {
         prevMonth = $(".ui-datepicker-prev");
         nextMonth = $(".ui-datepicker-next");
         prevMonth.click(function() {
           changeMonth(-1);
           clickExtended();
+          hoverExtended();
         });
         nextMonth.click(function() {
           changeMonth(1);
           clickExtended();
+          hoverExtended();
         });
       }
       clickExtended();
 
+      // HIGHLIGHT INDIVIDUAL DATES ON HOVER
+      function hoverExtended() {
+        var dates = $("table.ui-datepicker-calendar td");
+        dates = dates.not(".ui-state-disabled");
+        dates = dates.find("a");
+        $(dates).hover(function() {
+          var day = $(this).html();
+          $(".ui-state-active").removeClass("ui-state-active");
+          $(this).addClass("ui-state-active");
+          $(".day").html(day);
+        });
+      }
+      hoverExtended();
 }); // end of ready
