@@ -38,7 +38,7 @@ body {
     color: #553a26;
   }
 
-  h4 {
+  h5 {
     display: inline-block;
     font-size: 20px;
     margin: 0 5px 0 0;
@@ -68,7 +68,7 @@ body {
   }
 
   h1 {
-    font-family: 'Roboto Slab', 'Tinos', 'PT Serif', sans-serif;
+    font-family: 'Roboto Slab', Tinos, 'PT Serif', sans-serif;
     color: #6e5d50;
     font-size: 1.7em;
     margin-top: 0;
@@ -85,12 +85,17 @@ body {
     font-size: 1.3em;
   }
 
-  h5 {
-    font-family: 'Roboto Slab', 'Tinos', 'PT Serif', sans-serif;
-    font-size: 1em;
+  h4, a.fancy {
     color: #916464;
+    font-family: Tinos, 'PT Serif', sans-serif;
+    font-size: 1.1em;
     font-variant: small-caps;
-    margin: 0;
+    margin: 20px;
+  }
+
+  .offset {
+    position: absolute;
+    left: -2000px;
   }
 
   .grey {
@@ -423,6 +428,7 @@ body {
     margin-bottom: 70px;
     font-family: 'Roboto Slab', 'Tinos', 'PT Serif', sans-serif;
     font-size: 45px;
+    font-weight: 100;
     text-align: center;
     color: #606baf;
   }
@@ -611,9 +617,9 @@ body {
     text-decoration: none;
   }
 
-  .tags-cloud-main h3,
-  .tags-cloud-inner h3 {
-    display: none;
+  .tags-cloud-main h5,
+  .tags-cloud-inner h5 {
+    /*display: none;*/
   }
 
   .sub-date {

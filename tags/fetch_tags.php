@@ -19,7 +19,7 @@
 
     if ($result->rowCount() != 0) {
       echo "<div class='tags'>";
-      echo "<h4>Теги:</h4>";
+      echo "<h5>Теги:</h5>";
       echo "<p>";
 
       while ($row = $result->fetch()) {

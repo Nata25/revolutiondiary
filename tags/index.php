@@ -54,8 +54,9 @@
       $title = $line['title'];
       $text = $line['brief'];
       $URL = $line['URL'];
-      $entry = '<h3><a href="'. $URL . '">'. $title . '</a></h3>';
-      $entry .= "<p class=sub-date>" . $date . "</p><p>" . $text;
+      $entry = '<h3><a href="'. $URL . '">'. $date . '</a></h3>';
+      $entry .= '<p class=sub-date>' . $title . '</p>';
+      $entry .= '<p>' . $text;
       $entry .= '&nbsp;&nbsp;<a href="'. $URL . '">Детальніше...</a></p>';
       echo $entry;
     }
