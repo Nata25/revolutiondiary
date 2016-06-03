@@ -616,6 +616,12 @@ body {
     display: none;
   }
 
+  .sub-date {
+    font-style: italic;
+    font-size: 1.1em;
+    margin-bottom: .4em;
+  }
+
   /****************
   INNER PAGES
   ****************/
@@ -879,6 +885,10 @@ ADDITIONAL MEDIA QUERIES
     top: 110px;
     width: 75px;
     height: 500px;
+  }
+
+  .ellipsis {
+    top: 150px;
   }
 }
 /**** Regular screen */
@@ -1434,7 +1444,7 @@ ADDITIONAL MEDIA QUERIES
   .backuped {
     display: inline;
   }
-  
+
   .tags-cloud-main h3,
   .tags-cloud-inner h3 {
     display: block;

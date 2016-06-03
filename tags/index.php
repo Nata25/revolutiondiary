@@ -30,7 +30,7 @@
 
     // Display posts on selected tag
     try {
-      $sql = "SELECT title, brief, URL
+      $sql = "SELECT day, title, brief, URL
               FROM posts INNER JOIN posts_tags
                 ON posts.id = posts_tags.postid
               INNER JOIN tags
@@ -50,11 +50,12 @@
 
 <?php
     foreach ($item as $line) {
-      $date = $line['title'];
+      $date = $line['day'];
+      $title = $line['title'];
       $text = $line['brief'];
       $URL = $line['URL'];
-      $entry = '<h3><a href="'. $URL . '">'. $date;
-      $entry .= ":</a></h3><p>" . $text;
+      $entry = '<h3><a href="'. $URL . '">'. $title . '</a></h3>';
+      $entry .= "<p class=sub-date>" . $date . "</p><p>" . $text;
       $entry .= '&nbsp;&nbsp;<a href="'. $URL . '">Детальніше...</a></p>';
       echo $entry;
     }

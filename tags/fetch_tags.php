@@ -28,7 +28,7 @@
       while ($row = $result->fetch()) {
           $name = $row["tag"];
           $query = $row["query"];
-          $tags_array[] = '<a href="' . "/tags/?name=" . $query . '">' . $name . "</a>";
+          $tags_array[] = '<a rel="tag" href="' . "/tags/?name=" . $query . '">' . $name . "</a>";
       }
 
       $tags_list = implode(",&nbsp;", $tags_array);
