@@ -8,14 +8,21 @@ $(function() {
 // SELECTORS USED
 
 var tags = $(".tags-cloud-main a, .tags-cloud-inner a");
+var button = $(".link-to-page");
+var absolute = $('.absolute');
+var fixed = $('.fixed');
+var box = $('.box');
+var controlHover = $(".control-hover");
+var hoverSheet = $('.hover-sheet');
+var dateBlock = $('.date-block');
 
 /*** Render shadow effect on button when focus in (if there's no default effect in browser, e.g. in Mozilla) ***/
 
-$(".link-to-page").focus(function() {
+button.focus(function() {
   $(this).find("#button").css("box-shadow", "0 0 20px 2px #b3bcee");
 });
 
-$(".link-to-page").blur(function() {
+button.blur(function() {
   $(this).find("#button").css("box-shadow", "none");
 });
 
@@ -26,9 +33,9 @@ $(".link-to-page").blur(function() {
     var onHome = findLeftMargin(initWidth) + 10;
     var onInner = onHome + 100;
     var verLogo = onHome - 40;
-    $('.absolute').css("left", onHome);
-    $('.fixed').css("left", onInner);
-    $('.box').css("left", verLogo);
+    absolute.css("left", onHome);
+    fixed.css("left", onInner);
+    box.css("left", verLogo);
   }
   $(window).resize(function() {
     var resizedWidth = window.innerWidth;
@@ -36,15 +43,10 @@ $(".link-to-page").blur(function() {
       var onHome = findLeftMargin(resizedWidth) + 10;
       var onInner = onHome + 100;
       var verLogo = onHome - 40;
-    //  console.log(left);
-      $('.absolute').css("left", onHome);
-      $('.fixed').css("left", onInner);
-      $('.box').css("left", verLogo);
+      absolute.css("left", onHome);
+      fixed.css("left", onInner);
+      box.css("left", verLogo);
     }
- /*** revert auto height if the page is resized to mobile version ***/
-//     if (resizedWidth < 800) {
-//       $('.hero').css("height", "550px");
-//     }
  });
 
 // *****************************
@@ -104,17 +106,17 @@ $(".link-to-page").blur(function() {
 
   if (initWidth > 800) {                 // no hover effects on mobiles
     // HOVER ON A LINE
-    $(".control-hover").hover(on_control, outof_control);
+    controlHover.hover(on_control, outof_control);
 
     // HOVER/FOCUS ON SINGE ITEM
-    $('.hover-sheet').hover(on_item, outof_item);
-    $('.hover-sheet').focus(on_item);
-    $('.hover-sheet').focus(on_control);
-    $('.hover-sheet').blur(outof_item);
-    $('.hover-sheet').blur(outof_control);
+    hoverSheet.hover(on_item, outof_item);
+    hoverSheet.focus(on_item);
+    hoverSheet.focus(on_control);
+    hoverSheet.blur(outof_item);
+    hoverSheet.blur(outof_control);
   }
   else {
-      $(".hover-sheet").find('p').removeClass("mid-transparent");
+    hoverSheet.find('p').removeClass("mid-transparent");
   }
 
 // ***********************
@@ -132,7 +134,7 @@ $(".link-to-page").blur(function() {
 // **************************
 
   var win = $(window);
-  var allItems = $(".control-hover");
+  var allItems = controlHover;
 
   // Already visible items
   allItems.each(function(e, el) {
@@ -159,12 +161,12 @@ $(".link-to-page").blur(function() {
 // **************************
 
   // Perform on widescreens only (the rest is handled by css)
-  var dates = $('.date-block').children('.day, .month');
+  var dates = dateBlock.children('.day, .month');
   var mql = window.matchMedia("screen and (min-width: 1400px)");
 
   function styleDateBlock(mql) {
     if (mql.matches) {
-      var offsetY = $('.date-block').offset()['top'];
+      var offsetY = dateBlock.offset()['top'];
 
       // if we at the top of the page, make .date-block white
       // (= .js placeholder for css media query)
