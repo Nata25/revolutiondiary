@@ -9,7 +9,7 @@
 <?php
 
     // Connect to database
-    include("connect.inc.php");
+    // include("connect.inc.php");
 
     if ($_REQUEST['name']) {
       $tag_query = $_REQUEST['name'];

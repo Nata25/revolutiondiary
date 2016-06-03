@@ -1,7 +1,4 @@
 <?php
-  include("connect.inc.php");
-
-  $URL = $_SERVER['PHP_SELF'];
 
   // Fetching tags for given URL
 

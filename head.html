@@ -1,15 +1,16 @@
 <!DOCTYPE html>
+
 <html lang="uk">
 
+<?php include("tags/initialize.php"); ?>
+
 <head>
-  <title><?php echo $title; ?> | Дати. Дні. Нотатки з Революції</title>
+  <title><?php echo $date; ?> | Дати. Дні. Нотатки з Революції</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
-  <meta name="description" content="Мій особистий щоденник подій «Другого Майдану»,
-    або Революції гідності.
-    Засновано на власних спостереженнях
-    та аналітиці українських медіа.
-    Запис від <?php echo $title; ?>.">
+  <meta name="description" content="Мій особистий щоденник подій «Другого Майдану», або Революції гідності.
+    Засновано на власних спостереженнях та аналітиці українських медіа.
+    Запис від <?php echo $date . ": " . $title; ?>.">
   <meta name="author" content="Наталя Іванова">
 
   <link href='https://fonts.googleapis.com/css?family=Tinos%7CPT+Serif%7CRoboto+Slab:100%7CHalant:300%7CPT+Sans%7COpen+Sans:400,300%7COpen+Sans+Condensed:300&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
