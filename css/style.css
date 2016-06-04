@@ -67,8 +67,11 @@ body {
     text-decoration: underline;
   }
 
-  h1 {
+  h1, h4 {
     font-family: 'Roboto Slab', Tinos, 'PT Serif', sans-serif;
+  }
+
+  h1 {
     color: #6e5d50;
     font-size: 1.7em;
     margin-top: 0;
@@ -85,9 +88,8 @@ body {
     font-size: 1.3em;
   }
 
-  h4, a.fancy {
+  h4 {
     color: #916464;
-    font-family: Tinos, 'PT Serif', sans-serif;
     font-size: 1.1em;
     font-variant: small-caps;
     margin: 20px;
@@ -617,11 +619,6 @@ body {
     text-decoration: none;
   }
 
-  .tags-cloud-main h5,
-  .tags-cloud-inner h5 {
-    /*display: none;*/
-  }
-
   .sub-date {
     font-style: italic;
     font-size: 1.1em;
@@ -822,6 +819,31 @@ body {
   .tags-cloud-inner p {
     line-height: 40px;
   }
+
+  .tags {
+    margin: 20px auto;
+  }
+
+  .tags p {
+    display: inline;
+    margin: 0;
+    font-family: 'Roboto Slab', 'Tinos', 'PT Serif', sans-serif;
+    font-weight: bold;
+    line-height: normal;
+  }
+
+  .tags a {
+    display: inline-block;
+    margin: 5px 2px;
+    color: #6B718A;
+  }
+
+  .tags a:hover {
+    text-decoration: none;
+    font-size: 1.05em;
+    color: #982E2E;
+  }
+
 }
 
 /*************
@@ -1409,9 +1431,7 @@ ADDITIONAL MEDIA QUERIES
   .hero,
   .date-block,
   #datepicker,
-  #choose-date,
-  .tags-cloud-main h3,
-  .tags-cloud-inner h3 {
+  #choose-date {
     display: none;
   }
 
@@ -1451,8 +1471,4 @@ ADDITIONAL MEDIA QUERIES
     display: inline;
   }
 
-  .tags-cloud-main h3,
-  .tags-cloud-inner h3 {
-    display: block;
-  }
 }

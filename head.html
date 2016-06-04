@@ -5,12 +5,12 @@
 <?php include("tags/initialize.php"); ?>
 
 <head>
-  <title><?php echo $date; ?> | Дати. Дні. Нотатки з Революції</title>
+  <title><?php echo $heading; ?></title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
-  <meta name="description" content="Мій особистий щоденник подій «Другого Майдану», або Революції гідності.
+  <meta name="description" content="Мій особистий щоденник подій «Другого Майдану», або Революції гідності 2013–2014 років.
     Засновано на власних спостереженнях та аналітиці українських медіа.
-    Запис від <?php echo $date . ": " . $title; ?>.">
+    <?php echo $description; ?>">
   <meta name="author" content="Наталя Іванова">
 
   <link href='https://fonts.googleapis.com/css?family=Tinos%7CPT+Serif%7CRoboto+Slab:100%7CHalant:300%7CPT+Sans%7COpen+Sans:400,300%7COpen+Sans+Condensed:300&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
@@ -80,7 +80,7 @@
 
   <div class="box">
     <div class="home-slide">На головну</div>
-    <a class="logo home" title="На головну" href="#">
+    <a class="logo" title="На головну" href="/">
       <img alt="Дати. Дні" class="vertical" src="/Pics/dates-v-s.png" />
       <img alt="Дати" class="horizontal" src="/Pics/dates3.png" />
       <img alt="Дні" class="horizontal" src="/Pics/dates4.png" />

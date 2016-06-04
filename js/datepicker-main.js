@@ -134,8 +134,6 @@ myDatepicker.datepicker(
       var nextDateLST = $.datepicker.formatDate("dd M yy", next).split(" ");
       linkToPrev.attr("href", newURL(prevDateLST[0], prevDateLST[1], prevDateLST[2]));
       linkToNext.attr("href", newURL(nextDateLST[0], nextDateLST[1], nextDateLST[2])); // both go-button on top and 'Next' link on the bottom are affected
-      // set links to the home page (logo and 'Home' on the bottom)
-      $(".home").attr("href", "/");
     }
 
 

@@ -1,5 +1,6 @@
 <?php
-
+  include("connect.inc.php");
+  
   // Fetching tags for given URL
 
   try {
