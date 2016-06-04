@@ -36,33 +36,26 @@
 <!-- BODY -->
 <body>
 
-  <header>
-    <!-- TOP BAR -->
-    <div class="top-bar">
-    <!-- DATES ON TOP -->
+  <header class="top-bar">
         <div class="title-date">
           <h1>21.11.2013 &ndash; 20.03.2014 <span class="personal-notes">/ нотатки з Революції /</span></h1>
         </div>
-    <!-- /DATES ON TOP -->
-  </div>
-  <!-- /TOP BAR -->
+  </header>
+
+  <main>
 
   <!-- HERO AREA-->
-  <figure class="hero">
-     <!--<img src="Pics/hero-photo-message-big(3).jpg">-->
-     <!--<img src="Pics/hero-photo-vinnette(3).jpg" />-->
-  </figure>
-
-  <figure class="dates">
-     <img alt="Дати" src="Pics/dates1.png">
-     <img alt="Дні" src="Pics/dates2.png">
-  </figure>
- <!-- /HERO AREA -->
+  <section class="hero">
+    <h2 class="offset">Дати. Дні</h2>
+    <figure class="dates">
+       <img alt="Дати" src="Pics/dates1.png">
+       <img alt="Дні" src="Pics/dates2.png">
+    </figure>
+  </section>
 
  <!-- RED LINES -->
-       <div class="redline" id="mainline"></div>
-       <div class="redline" id="shadowline"></div>
- <!-- /RED LINES -->
+ <div class="redline" id="mainline"></div>
+ <div class="redline" id="shadowline"></div>
 
 
  <!-- DATEPICKER FIELDS -->
@@ -87,7 +80,7 @@
 
     <div id="datepicker"></div>
 
-    <article>
+    <section>
       <h2 class="offset">Про що цей сайт</h2>
       <p>Це щоденник, який я почала вести 21 листопада 2013 року.
       Більшість записів робила якомога ближче до події, в репортажному
@@ -96,14 +89,11 @@
       хоча я намагалася тримати дистанцію і добирати та перевіряти
       факти ретельно. </p>
      <a href="#">Ще трохи про цей сайт...</a>
-   </article>
+   </section>
 
   </div>
   <!-- /SIDEBAR -->
 
-  </header>
-
-  <main>
   <!-- BACKGROUND -->
       <div class="bg-sheet">
 
