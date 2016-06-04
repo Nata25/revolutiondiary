@@ -9,3 +9,8 @@ catch (PDOException $e)
   $e->getMessage();
   exit();
 }
+?>
+
+<script>
+  console.log("Connection set");
+</script>

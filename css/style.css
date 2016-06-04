@@ -34,7 +34,7 @@ body {
     margin: 0;
   }
 
-  p, h2, h3, h4, h3 > a, nav {
+  p, h2, h3, h4, h3 > a, .text-container > nav {
     color: #553a26;
   }
 
@@ -44,7 +44,7 @@ body {
     margin: 0 5px 0 0;
   }
 
-  p, h2, h3, p > a, h3 > a, nav {
+  p, h2, h3, p > a, h3 > a, .text-container > nav {
     -webkit-transition: .25s all linear;
     -moz-transition: .25s all linear;
     -o-transition: .25s all linear;
@@ -52,7 +52,7 @@ body {
     -webkit-font-smoothing: antialiased;
   }
 
-  p, nav {
+  p, .text-container > nav {
     font-size: 18px;
     line-height: 2em;
     margin-bottom: 30px;
