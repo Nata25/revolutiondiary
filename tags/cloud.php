@@ -1,6 +1,7 @@
+<!-- <script>console.log("cloud.php");</script> -->
     <?php
 
-      include("connect.inc.php");
+      include_once("connect.inc.php");
 
       $sql = "SELECT tag, query, COUNT(title) AS rating
               FROM tags

@@ -1,8 +1,9 @@
+<!-- <script>console.log("initialize.php");</script> -->
 <?php
 
 // Connect to the database and based on URL choose the page title / headings
 
-  include("connect.inc.php");
+  include_once("connect.inc.php");
 
   if ($custom_heading != '') {
     $heading = $custom_heading;

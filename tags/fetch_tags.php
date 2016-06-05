@@ -1,6 +1,8 @@
+<!-- <script>console.log("fetch_tags.php");</script> -->
+
 <?php
-  include("connect.inc.php");
-  
+  // include("connect.inc.php");
+
   // Fetching tags for given URL
 
   try {

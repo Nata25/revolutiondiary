@@ -23,7 +23,7 @@
 
 <?php
 // Generate custom page title and description using basic heading
-  $custom_heading = $name[0] . "| Дати. Дні. Нотатки з Революції";
+  $custom_heading = $name[0] . " | Дати. Дні. Нотатки з Революції";
   $custom_description = $basic_heading;
 
 ?>
@@ -70,6 +70,12 @@ include($_SERVER['DOCUMENT_ROOT'].'/head.html');
       echo $entry;
     }
  ?>
+
+ <nav>
+   <h2 class="offset">Швидкі посилання</h2>
+   <a href="/">На головну...</a>
+   <br /><a href="/about.html">Детальніше про цей сайт...</a>
+ </nav>
 
  <?php
  // Generate foot part without prev/next links

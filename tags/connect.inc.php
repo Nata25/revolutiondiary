@@ -11,6 +11,6 @@ catch (PDOException $e)
 }
 ?>
 
-<script>
+<!-- <script>
   console.log("Connection set");
-</script>
+</script> -->
