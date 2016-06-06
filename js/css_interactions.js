@@ -15,6 +15,7 @@ var box = $('.box');
 var controlHover = $(".control-hover");
 var hoverSheet = $('.hover-sheet');
 var dateBlock = $('.date-block');
+var logo = $(".logo");
 
 /*** Render shadow effect on button when focus in (if there's no default effect in browser, e.g. in Mozilla) ***/
 
@@ -203,10 +204,11 @@ button.blur(function() {
   mql.addListener(styleDateBlock);
 
 // **************************
-// INNER PAGES, mobile devices
+// INNER PAGES, HOME PAGE LINK
 // **************************
+// not on mobile defices
     if (window.innerWidth >= 800) {
-      $(".logo").hoverIntent(
+      logo.hoverIntent(
         function() {
           $(this).prev(".home-slide").removeClass("slide-up").addClass("slide-down");
         },
@@ -214,6 +216,14 @@ button.blur(function() {
           $(this).prev(".home-slide").removeClass("slide-down").addClass("slide-up");
         }
       ); // end of hover
+
+      logo.focus(function() {
+        $(this).prev(".home-slide").removeClass("slide-up").addClass("slide-down");
+      });
+
+      logo.blur(function() {
+        $(this).prev(".home-slide").removeClass("slide-down").addClass("slide-up");
+      });
 
       $(window).resize(function () {
         $(".home-slide").removeClass("slide-up");
