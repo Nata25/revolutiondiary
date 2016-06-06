@@ -93,7 +93,7 @@ myDatepicker.datepicker(
     var currentURL = window.location.pathname;
     var regex = new RegExp("[201]");
 
-  //In on the home page (get current date from storage):
+  //If on the home page (get current date from storage):
     if (!regex.test(currentURL)) {
 
       var stringDate = sessionStorage.getItem("currentDate");
@@ -102,6 +102,7 @@ myDatepicker.datepicker(
       var shortMonth = splitted[1];
       var year = splitted[2];
       linkToPage.attr('href', newURL(day, shortMonth, year));
+      linkToPage.attr("accesskey", "g");
       var dateDate = $.datepicker.parseDate("dd M yy", stringDate);
       var month = $.datepicker.formatDate("MM", dateDate, {
         monthNames: monthsNamesAffixes

@@ -74,7 +74,8 @@ include($_SERVER['DOCUMENT_ROOT'].'/head.html');
  <nav>
    <h2 class="offset">Швидкі посилання</h2>
    <a href="/">На головну...</a>
-   <br /><a href="/about.html">Детальніше про цей сайт...</a>
+   <br /><a href="/about.html" accesskey="a">Детальніше про цей сайт...</a>
+   <br /><a href="/tips.html">Як користуватися сайтом...</a>
  </nav>
 
  <?php

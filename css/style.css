@@ -143,6 +143,10 @@ table.accesskeys tr:nth-child(even) {
     margin: 20px;
   }
 
+  .emphasized {
+    font-style: italic;
+  }
+
   .grey {
     color: #838692;
   }
@@ -716,12 +720,6 @@ table.accesskeys tr:nth-child(even) {
   h3 > a:hover {
     color: #936565;
     text-decoration: none;
-  }
-
-  .sub-date {
-    font-style: italic;
-    font-size: 1.1em;
-    margin-bottom: .4em;
   }
 
   /****************
