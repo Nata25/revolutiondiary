@@ -1,0 +1,122 @@
+<?php
+$custom_heading = 'Як користуватися сайтом | Дати. Дні. Нотатки з Революції';
+$custom_description = 'Корисні підказки для відвідувачів сайту.';
+include($_SERVER['DOCUMENT_ROOT'].'/head.html');
+?>
+
+  <!-- DIARY NOTES -->
+  <section class="container">
+
+    <!--container -->
+    <div class="left-bar"></div>
+    <div class="text-container">
+      <h2>Як користуватися сайтом</h2>
+      <article>
+        <h1 class="offset">Підказки щодо навігації</h1>
+        <ol>
+
+          <li>Використовуйте для навігації сайтом календар ліворуч і хмару тегів.</li>
+
+          <li>Окрім миші, можна користуватися клавіатурою: клавішою табуляції
+            <span class="key">[tab]</span> переходити між
+            лінками на сайті та датами поточного місяця у календарі,
+            а стрілками ліворуч <span class="key">[&lt;]</span> і
+            праворуч <span class="key">[&gt;]</span> – вибирати попередній
+            або наступний місяць.</li>
+
+          <li>Для швидкого переходу зі сторінки щоденника до запису на <em>наступну дату</em>
+          натисніть червону кнопку вгорі (
+          <div class="button inline">
+            <div class="small-arrow">
+            </div>
+          </div>
+          ) або лінк наприкінці допису. Якщо ви не користуєтеся
+          мишею, натисніть
+          <a href="#control">контрольну клавішу <sup>*</sup></a> + літеру
+           <span class="key">[n]</span> (від «next»). Контрольна клавіша (це буде <span class="key">[alt]</span>,
+           <span class="key">[control]</span>, <span class="key">[shift]</span>
+           або їхня комбінація) залежить від операційної системи вашого комп'ютера і браузера, в якому
+           переглядаєте сторінку (<a href="#control">Подробиці нижче</a>).</li>
+
+           <li>Для переходу на <em>попередню дату</em> використовуйте лінк наприкінці
+             допису або сполучення
+             <a href="#control">контрольної клавіші</a> +
+               <span class="key">[p]</span> (від «previous»).
+           </li>
+
+         <li>Для швидкого переходу на <em>головну сторінку</em> наведіть курсор миші на область із написом «Дати. Дні»
+           або натисніть на клавіатурі <a href="#control">контрольну клавішу</a>
+          + <span class="key">[h]</span> (від «home»). При цьому в календарі збережеться дата останнього
+          запису, який ви переглядали. </li>
+
+          <li>Натиснувши червону кнопку вгорі на <a href="/about.html">головній сторінці</a> або на сторінці, що не
+            є щоденниковим записом (наприклад, <a href="/about.html">«Про цей сайт»</a>,
+            записи за вибраним тегом або ця, поточна
+            сторінка – «Як користуватися сайтом»), ви перейдете до дати, яка підсвічується в календарі.
+          Для доступу до кнопки з клавіатури використовуйте сполучення <a href="#control">контрольної
+             клавіші</a> + <span class="key">[g]</span> (від «go»).</li>
+
+          <li>Щоб відкрити з будь-якої сторінки сайту цю довідку, натисніть іконку зі знаком
+            запитання у верхньому правому кутку сторінки або  сполучення
+            <a href="#control">контрольної клавіші</a>
+           + <span class="key">[q]</span> (від «questions). </li>
+        </ol>
+
+      <section id="control">
+        <h3 class="offset">Контрольні клавіші для швидкого переходу між сторінками</h3>
+
+        <table class="accesskeys">
+          <caption>* Контрольні клавіші</caption>
+          <thead>
+              <tr>
+                <th scope="row">Браузер
+                <th scope="row">Windows</th>
+                <th scope="row">Linux</th>
+                <th scope="row">Mac</th>
+              </tr>
+          </thead>
+          <tbody>
+               <tr>
+                  <th scope="col">Internet Explorer</th>
+                  <td>[Alt]</td>
+                  <td>N/A</td>
+                  <td>N/A</td>
+              </tr>
+              <tr>
+                  <th scope="col">Chrome</th>
+                  <td>[Alt]</td>
+                  <td>[Alt]</td>
+                  <td>[Control] [Alt]</td>
+              </tr>
+              <tr>
+                  <th scope="col">Firefox</th>
+                  <td>[Alt] [Shift]</td>
+                  <td>[Alt] [Shift]</td>
+                  <td>[Control] [Alt]</td>
+              </tr>
+              <tr>
+                  <th scope="col">Safari</th>
+                  <td>[Alt]</td>
+                  <td>N/A</td>
+                  <td>[Control] + [Alt]</td>
+              </tr>
+              <tr>
+                <th scope="col">Opera</th>
+                <td colspan="3">Opera 15+: [Alt]
+                <br/>Opera 12.1 або старіша: [Shift] [Esc]</td>
+              </tr>
+            </tbody>
+       </table>
+      </section>
+
+      </article>
+
+<nav>
+  <h2 class="offset">Швидкі посилання</h2>
+  <a href="/">На головну...</a>
+  <br /><a href="/about.html">Докладніше про цей сайт...</a>
+</nav>
+
+<?php
+  include($_SERVER['DOCUMENT_ROOT'].'/raw_foot.html');
+?>
