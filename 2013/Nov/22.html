@@ -1,6 +1,6 @@
 <?php
-  $title = "22 листопада 2013";
-  include($_SERVER['DOCUMENT_ROOT'].'/head.html');
+$custom_heading = '';
+include($_SERVER['DOCUMENT_ROOT'].'/head.html');
 ?>
 
   <!-- DIARY NOTES -->
@@ -16,6 +16,10 @@
     <div class="text-container">
 
       <h2><span class="backuped">22</span> ЛИСТОПАДА, п’ятниця</h2>
+
+      <article>
+
+      <?php echo "<h1>" . $title . "</h1>" ?>
 
       <p>Рано-ранісінько «Українська Правда» повідомила, що суд заборонив мітингувальникам
       на Майдані ставити намети. Тобто збиратися можна, а намети – зась. Що вже є
@@ -46,7 +50,7 @@
        економічні втрати від співпраці із ЄС – доброго ранку!), опозіонери
        хотіли зажадати його відставки, але жаданням усе й закінчилося. </p>
 
-
+    </article>
  <?php
    include($_SERVER['DOCUMENT_ROOT'].'/foot.html');
  ?>
