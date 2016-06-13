@@ -10,7 +10,7 @@ $(function() {
    var minDate = new Date(2013, 10, 21);
    var maxDate = new Date(2014, 2, 22);
    var beginning = "листопада";
-   var end = "березня";
+   var end = "лютого";
    var linkToPage = $(".link-to-page");
    var linkToPrev = $(".prev");
    var linkToNext = $(".next");
@@ -84,7 +84,16 @@ myDatepicker.datepicker(
         //*** Load new page corresponding to the date
         var lnk = newURL(day, shortMonth, year);
         window.location = lnk;
-      }) // end of onSelect
+      }), // end of onSelect
+      onChangeMonthYear: (function (year, month, inst) {
+        setTimeout(function() {
+          var next = $(".ui-datepicker-next");
+          var prev = $(".ui-datepicker-prev");
+          tabulation(".ui-datepicker-prev", beginning, -1);
+          tabulation(".ui-datepicker-next", end, 1);
+          clickExtended();
+        }, 10);
+      })
 
     }); // end of .datepicker() initialization
 
@@ -143,16 +152,24 @@ myDatepicker.datepicker(
 
 // Declare the function to be fired on 'prev` or `next` buttons
 function tabulation(id, edge, step) {
-    var obj = $(id);
+  var obj = $(id);
+//  console.log(obj);
+  //console.log(obj.hasClass("ui-state-disabled"));
+//console.log(!(obj.hasClass("ui-state-disabled")));
+//console.log("inside tabulation(): " + id );
+  if (!(obj.hasClass("ui-state-disabled"))) {
+  //  console.log("inside tabulation(): " + id );
+
     into_focus(obj);
-    out_of_focus(id);
+    out_of_focus(obj);
 
     // bind Enter key event to the button
     obj.keydown(function(evt) {
 
-      if (evt.which == 13 && $(".month").html() != edge) {
+      if (evt.which == 13) {
         // Changing month
         changeMonth(step);
+      //  console.log("I'm changing month!");
 
         // Re-define next/prev objecs as html changed after mouse press
         obj = $(id);
@@ -166,8 +183,8 @@ function tabulation(id, edge, step) {
         arrow();
 
         // Re-bind Enter key event after month change
-        tabulation(".ui-datepicker-prev", beginning, -1);
-        tabulation(".ui-datepicker-next", end, 1);
+    //    tabulation(".ui-datepicker-prev", beginning, -1);
+    //    tabulation(".ui-datepicker-next", end, 1);
 
         // Let the go-button be the next element to come into focus to choose current date
         linkToPage.attr("tabindex", "3");
@@ -176,6 +193,7 @@ function tabulation(id, edge, step) {
         selectDay("table.ui-datepicker-calendar a");
       }
   });
+ }
 }
 
 // Manage month change: skip to the 1st day of the next/prev month
@@ -207,13 +225,17 @@ function tabulation(id, edge, step) {
 
     function into_focus(id) {
       id.focus(function() {
-        $(this).addClass("ui-state-active");
+        if (!($(this).hasClass("ui-state-disabled"))) {
+          $(this).addClass("ui-state-hover");
+        }
       });
     }
 
     function out_of_focus(id) {
       $(id).blur(function() {
-        $(this).removeClass("ui-state-active");
+        if (!($(this).hasClass("ui-state-disabled"))) {
+          $(this).removeClass("ui-state-hover");
+      }
       });
     }
 
@@ -235,14 +257,14 @@ function tabulation(id, edge, step) {
           if (evt.which == 37) {
             prevMonth.attr("tabindex", "1");
             prevMonth.focus();
-            out_of_focus(".ui-datepicker-next");
+            out_of_focus(nextMonth);
           }});
           // Right arrow key
           prevMonth.keydown(function(evt) {
             if (evt.which == 39) {
               nextMonth.attr("tabindex", "1");
               nextMonth.focus();
-              out_of_focus(".ui-datepicker-prev");
+              out_of_focus(prevMonth);
             }});
       }
 
@@ -251,11 +273,16 @@ function tabulation(id, edge, step) {
       var prevMonth = $(".ui-datepicker-prev");
       var nextMonth = $(".ui-datepicker-next");
 
+      // into_focus(prevMonth);
+      // into_focus(nextMonth);
+      // out_of_focus(prevMonth);
+      // out_of_focus(nextMonth);
+
       prevMonth.attr("tabindex", "1");
-      tabulation(".ui-datepicker-prev", beginning, -1);
+    //  tabulation(".ui-datepicker-prev", beginning, -1);
 
       nextMonth.attr("tabindex", "1");
-      tabulation(".ui-datepicker-next", end, 1);
+    //  tabulation(".ui-datepicker-next", end, 1);
 
       // Bind tabulation to the days of the current month
       selectDay("table.ui-datepicker-calendar a");
@@ -267,18 +294,22 @@ function tabulation(id, edge, step) {
       function clickExtended() {
         prevMonth = $(".ui-datepicker-prev");
         nextMonth = $(".ui-datepicker-next");
-        prevMonth.click(function() {
-          changeMonth(-1);
-          clickExtended();
-          hoverExtended();
-        });
-        nextMonth.click(function() {
-          changeMonth(1);
-          clickExtended();
-          hoverExtended();
-        });
+        if (!(prevMonth.hasClass("ui-state-disabled"))) {
+            prevMonth.click(function() {
+              changeMonth(-1);
+              //clickExtended();
+              hoverExtended();
+            });
+        }
+        if (!(nextMonth.hasClass("ui-state-disabled"))) {
+            nextMonth.click(function() {
+              changeMonth(1);
+              //clickExtended();
+              hoverExtended();
+            });
+        }
       }
-      clickExtended();
+      //clickExtended();
 
       // HIGHLIGHT INDIVIDUAL DATES ON HOVER
       function hoverExtended() {
