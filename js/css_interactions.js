@@ -17,7 +17,6 @@ var hoverSheet = $('.hover-sheet');
 var dateBlock = $('.date-block');
 var logo = $(".logo");
 var snow = $("#snow");
-var close = $("#close");
 
 /*** Render shadow effect on button when focus in (if there's no default effect in browser, e.g. in Mozilla) ***/
 
@@ -236,36 +235,26 @@ button.blur(function() {
   // SWITCHING OFF SNOWING EFFECT
   // ****************************
 
-    snow.click(function() {
-  //    $(this).toggleClass("inactive");
+    $("#snow").click(function() {
+      // Toggle .inactive class on snowlake
+      // and save a global variable to manage snowing on page reload or on going to another page
       if ($(this).hasClass("inactive")) {
         $(this).removeClass("inactive");
-        close.css("display", "none");
+        $(this).attr("title", "Відімкнути ефект снігу");
         sessionStorage.setItem("autostartSnow", "true");
       }
       else {
         $(this).addClass("inactive");
-        close.css("display", "inline-block");
+        $(this).attr("title", "Увімкнути ефект снігу");
+        sessionStorage.setItem("autostartSnow", "false");
       }
-      console.log("Inside click, " + sessionStorage.getItem("autostartSnow"));
     });
-
-    close.click(function() {
-      sessionStorage.removeItem("autostartSnow");
-      $(this).css("display", "none");
-      snow.css("display", "none");
-      //snow.css("background-color", "yellow");
-    });
-
-    if (sessionStorage.getItem("autostartSnow") == null) {
-      snowStorm.stop();
+    // Decide if to activate snowflake button on initial page load
+    if (sessionStorage.getItem("autostartSnow") == "false") {
       snow.addClass("inactive");
+      snow.attr("title", "Увімкнути ефект снігу");
     }
-    // else {
-    //   console.log("here, i need to snow");
-    //   snowStorm.resume();
-    // }
-
-    //snowStorm.autoStart = false;
-    console.log(sessionStorage.getItem("autostartSnow"));
+    else {
+      snow.attr("title", "Відімкнути ефект снігу");
+    }
 }); // end of ready
