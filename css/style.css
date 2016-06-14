@@ -25,11 +25,6 @@ body, main, section, article {
   left: -2000px;
 }
 
-nav svg {
-  width: 40px;
-  height: 40px;
-}
-
 p,
 ol > li,
 table.accesskeys > caption,
@@ -484,12 +479,52 @@ table.accesskeys tr:nth-child(even) {
     transition: .25s all linear;
   }
 
-
   .question:hover,
   .question:focus {
     border: 1px solid orange;
     box-shadow: 0 0 10px #b3bcee;
     /*background-color: orange;*/
+  }
+
+  /**********
+  SNOWFLAKE
+  ***********/
+
+  #snow {
+    position: fixed;
+    top: -20px;
+    left: -20px;
+    z-index: 10;
+    width: 70px;
+    height: 70px;
+    /*background-color: transparent;
+    border: none;*/
+  }
+
+  .inactive {
+    opacity: .5;
+  }
+
+  #close {
+    position: fixed;
+    top: -1px;
+    left: 35px;
+    display: none;
+    opacity: .5;
+    background-color: transparent;
+    border: 1px solid #8B0000;
+    color: white;
+    padding: 1px;
+    width: 20px;
+    text-align: center;
+    z-index: 11;
+  }
+
+  #close:hover {
+    text-decoration: none;
+    border: 1px solid #8B0000;
+    color: #FFFFFF;
+    background-color: #827676;
   }
 
   /**********

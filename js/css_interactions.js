@@ -16,6 +16,8 @@ var controlHover = $(".control-hover");
 var hoverSheet = $('.hover-sheet');
 var dateBlock = $('.date-block');
 var logo = $(".logo");
+var snow = $("#snow");
+var close = $("#close");
 
 /*** Render shadow effect on button when focus in (if there's no default effect in browser, e.g. in Mozilla) ***/
 
@@ -230,5 +232,40 @@ button.blur(function() {
       });
   } // end of if statement
 
+  // ****************************
+  // SWITCHING OFF SNOWING EFFECT
+  // ****************************
 
+    snow.click(function() {
+  //    $(this).toggleClass("inactive");
+      if ($(this).hasClass("inactive")) {
+        $(this).removeClass("inactive");
+        close.css("display", "none");
+        sessionStorage.setItem("autostartSnow", "true");
+      }
+      else {
+        $(this).addClass("inactive");
+        close.css("display", "inline-block");
+      }
+      console.log("Inside click, " + sessionStorage.getItem("autostartSnow"));
+    });
+
+    close.click(function() {
+      sessionStorage.removeItem("autostartSnow");
+      $(this).css("display", "none");
+      snow.css("display", "none");
+      //snow.css("background-color", "yellow");
+    });
+
+    if (sessionStorage.getItem("autostartSnow") == null) {
+      snowStorm.stop();
+      snow.addClass("inactive");
+    }
+    // else {
+    //   console.log("here, i need to snow");
+    //   snowStorm.resume();
+    // }
+
+    //snowStorm.autoStart = false;
+    console.log(sessionStorage.getItem("autostartSnow"));
 }); // end of ready
