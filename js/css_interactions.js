@@ -232,10 +232,12 @@ button.blur(function() {
   } // end of if statement
 
   // ****************************
-  // SWITCHING OFF SNOWING EFFECT
+  // MANAGING SNOWING EFFECT
   // ****************************
 
-    $("#snow").click(function() {
+  // Switch off/on button
+
+    snow.click(function() {
       // Toggle .inactive class on snowlake
       // and save a global variable to manage snowing on page reload or on going to another page
       if ($(this).hasClass("inactive")) {
@@ -257,4 +259,12 @@ button.blur(function() {
     else {
       snow.attr("title", "Відімкнути ефект снігу");
     }
+
+  // Show only on screens, where snow effect is enabled
+
+  var isMobile = navigator.userAgent.match(/mobile|opera m(ob|in)/i);
+  if (isMobile) {
+    snow.attr("display", "none");
+  }
+
 }); // end of ready

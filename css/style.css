@@ -383,7 +383,7 @@ table.accesskeys tr:nth-child(even) {
     overflow: hidden;
     min-height: 700px;
     max-height: 900px;
-    background: url("../Pics/hero-photo-vinnette(3).jpg") no-repeat center center;
+    background: url("../images/hero-photo-vinnette(3).jpg") no-repeat center center;
     z-index: 1;
   }
 
@@ -492,13 +492,14 @@ table.accesskeys tr:nth-child(even) {
 
   #snow {
     position: fixed;
-    top: -20px;
-    left: -20px;
+    top: 0px;
+    left: 0px;
     z-index: 10;
-    width: 70px;
-    height: 70px;
-    /*background-color: transparent;
-    border: none;*/
+    /*width: 70px;
+    height: 70px;*/
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
   }
 
   .inactive {
@@ -1000,7 +1001,7 @@ ADDITIONAL MEDIA QUERIES
 /**** Widescreen */
 @media screen and (min-width: 1401px) {
   .top-bar {
-    background: url("../Pics/hero-photo-vinnette(3).jpg") no-repeat top center fixed;
+    background: url("../images/hero-photo-vinnette(3).jpg") no-repeat top center fixed;
     border-bottom: 1px solid white;
   }
 
@@ -1173,7 +1174,7 @@ ADDITIONAL MEDIA QUERIES
   .box {
     width: 100%;
     height: 75px;
-    background: url("../Pics/hero-photo-vinnette(3).jpg") no-repeat top center fixed;
+    background: url("../images/hero-photo-vinnette(3).jpg") no-repeat top center fixed;
   }
 
   .logo {
@@ -1292,7 +1293,7 @@ ADDITIONAL MEDIA QUERIES
   /* inner pages */
   .box {
     width: 100%;
-    background: url("../Pics/hero-photo-vinnette(3).jpg") no-repeat top center fixed;
+    background: url("../images/hero-photo-vinnette(3).jpg") no-repeat top center fixed;
   }
 
   .logo {
@@ -1359,7 +1360,7 @@ ADDITIONAL MEDIA QUERIES
   }
 
   .hero {
-    background: url("../Pics/hero-small(8).jpg") no-repeat center 36%;
+    background: url("../images/hero-small(8).jpg") no-repeat center 36%;
     height: 85vh;
     min-height: 400px;
     max-height: 750px;
@@ -1524,7 +1525,7 @@ ADDITIONAL MEDIA QUERIES
   .box {
     padding: 0;
     width: 100%;
-    background: url("../Pics/hero-small(6).jpg") no-repeat top center fixed;
+    background: url("../images/hero-small(6).jpg") no-repeat top center fixed;
   }
 
   .logo {
@@ -1564,7 +1565,8 @@ ADDITIONAL MEDIA QUERIES
   .hero,
   .date-block,
   #datepicker,
-  #choose-date {
+  #choose-date,
+  #snow {
     display: none;
   }
 
@@ -1596,7 +1598,8 @@ ADDITIONAL MEDIA QUERIES
 }
 
 @media speech {
-  .day-circle {
+  .day-circle,
+  #snow {
     display: none;
   }
 
