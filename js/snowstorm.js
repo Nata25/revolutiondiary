@@ -27,7 +27,7 @@ var snowStorm = (function(window, document) {
   this.animationInterval = 33;    // Theoretical "miliseconds per frame" measurement. 20 = fast + smooth, but high CPU use. 50 = more conservative, but slower
   this.useGPU = true;             // Enable transform-based hardware acceleration, reduce CPU load.
   this.className = null;          // CSS class name for further customization on snow elements
-  this.excludeMobile = true;      // Snow is likely to be bad news for mobile phones' CPUs (and batteries.) By default, be nice.
+  this.excludeMobile = false;      // Snow is likely to be bad news for mobile phones' CPUs (and batteries.) By default, be nice.
   this.flakeBottom = 0;        // Integer for Y axis snow limit, 0 or null for "full-screen" snow effect
   this.followMouse = false;        // Snow movement can respond to the user's mouse
   this.snowColor = '#fff';        // Don't eat (or use?) yellow snow.
@@ -57,7 +57,9 @@ var snowStorm = (function(window, document) {
   // UA sniffing and backCompat rendering mode checks for fixed position, etc.
   isIE = navigator.userAgent.match(/msie/i),
   isIE6 = navigator.userAgent.match(/msie 6/i),
-  isMobile = navigator.userAgent.match(/mobile|opera m(ob|in)/i),
+  //isMobile = navigator.userAgent.match(/mobile|opera m(ob|in)/i),
+//  isMobile = navigator.userAgent.match(/Android|webOS|iPhone|iPad|iPod|BlackBerry/i),
+  isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent),
   isBackCompatIE = (isIE && document.compatMode === 'BackCompat'),
   noFixed = (isBackCompatIE || isIE6),
   screenX = null, screenX2 = null, screenY = null, scrollY = null, docHeight = null, vRndX = null, vRndY = null,
@@ -654,7 +656,7 @@ var snowStorm = (function(window, document) {
   }
 
   function doStart() {
-    if (!storm.excludeMobile || !isMobile) {
+    if (!storm.excludeMobile && !isMobile) {
       doDelayedStart();
     }
     // event cleanup

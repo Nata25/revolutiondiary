@@ -35,7 +35,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/head.html');
 
     <div class="container">
       <div class="left-bar"></div>
-      <div class="text-container">
+      <div class="single-text-container">
         <h1><?php echo $basic_heading; ?>:</h1>
 
 <?php
@@ -64,7 +64,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/head.html');
       $text = $line['brief'];
       $URL = $line['URL'];
       $entry = '<h3><a href="'. $URL . '">'. $date . '</a></h3>';
-      $entry .= '<p class=sub-date>' . $title . '</p>';
+      $entry .= '<p class=sub-heading>' . $title . '</p>';
       $entry .= '<p>' . $text;
       $entry .= '&nbsp;&nbsp;<a href="'. $URL . '">Детальніше...</a></p>';
       echo $entry;

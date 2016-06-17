@@ -17,6 +17,8 @@ var hoverSheet = $('.hover-sheet');
 var dateBlock = $('.date-block');
 var logo = $(".logo");
 var snow = $("#snow");
+var question = $(".question");
+var checkMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent);
 
 /*** Render shadow effect on button when focus in (if there's no default effect in browser, e.g. in Mozilla) ***/
 
@@ -135,6 +137,7 @@ button.blur(function() {
 // FADE ON VISIBLE ITEMS
 // **************************
 
+  function comeInAnimation() {
   var win = $(window);
   var allItems = controlHover;
 
@@ -156,6 +159,8 @@ button.blur(function() {
         }
       }); // end of each
     }); // end of scroll
+
+  }
 
 
 // **************************
@@ -260,11 +265,23 @@ button.blur(function() {
       snow.attr("title", "Відімкнути ефект снігу");
     }
 
-  // Show only on screens, where snow effect is enabled
+  // ****************************
+  // SOME MOBILE ADJUSTMENTS
+  // ****************************
 
-  var isMobile = navigator.userAgent.match(/mobile|opera m(ob|in)/i);
-  if (isMobile) {
-    snow.attr("display", "none");
+  //console.log(checkMobile);
+
+  if (checkMobile == true) {
+    // Show only on screens, where snow effect is enabled
+    snow.css("display", "none");
+    // Style question mark
+    $("footer").append(question);
+
+    //$(controlHover).addClass('already-visible');
+  }
+  else {
+    // No scrolling effect on items
+    comeInAnimation();
   }
 
 }); // end of ready
