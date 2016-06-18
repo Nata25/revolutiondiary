@@ -213,27 +213,34 @@ button.blur(function() {
 // INNER PAGES, HOME PAGE LINK
 // **************************
 // not on mobile defices
-    if (window.innerWidth >= 800) {
+    if (!checkMobile) {
       logo.hoverIntent(
         function() {
           $(this).prev(".home-slide").removeClass("slide-up").addClass("slide-down");
+          $(this).css("opacity", "0");
         },
         function() {
           $(this).prev(".home-slide").removeClass("slide-down").addClass("slide-up");
+          $(this).css("opacity", "1");
         }
       ); // end of hover
 
       logo.focus(function() {
         $(this).prev(".home-slide").removeClass("slide-up").addClass("slide-down");
+        $(this).css("opacity", "0");
       });
 
       logo.blur(function() {
         $(this).prev(".home-slide").removeClass("slide-down").addClass("slide-up");
+        $(this).css("opacity", "1");
       });
 
       $(window).resize(function () {
         $(".home-slide").removeClass("slide-up");
       });
+
+
+
   } // end of if statement
 
   // ****************************
