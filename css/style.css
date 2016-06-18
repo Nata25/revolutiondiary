@@ -98,7 +98,9 @@ table.accesskeys tr:nth-child(even) {
   p, h2, h3,
   p > a,
   h3 > a,
-  .text-container > nav {
+  li, td,
+  .text-container > nav,
+  .single-text-container > nav {
     -webkit-transition: .25s all linear;
     -moz-transition: .25s all linear;
     -o-transition: .25s all linear;
@@ -1113,8 +1115,8 @@ ADDITIONAL MEDIA QUERIES
     position: absolute;
     top: -5px;
     left: auto;
-    right: -30px;
-    width: 50px;
+    right: -15px;
+    width: 40px;
   }
 
   .vertical {

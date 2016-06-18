@@ -1,4 +1,3 @@
-<!-- <script>console.log("initialize.php");</script> -->
 <?php
 
 // Connect to the database and based on URL choose the page title / headings

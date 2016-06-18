@@ -108,7 +108,7 @@ button.blur(function() {
       });
   }
 
-  if (initWidth > 800) {                 // no hover effects on mobiles
+  if (!checkMobile) {                 // no hover effects on mobiles
     // HOVER ON A LINE
     controlHover.hover(on_control, outof_control);
 

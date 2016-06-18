@@ -1,4 +1,3 @@
-<!-- <script>console.log("cloud.php");</script> -->
     <?php
 
       include_once("connect.inc.php");
