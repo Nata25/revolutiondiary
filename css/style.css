@@ -298,6 +298,7 @@ table.accesskeys tr:nth-child(even) {
   .blue {
     color: #4a5894 !important;
   }
+
   #button {
     position: relative;
     left: 1px;
@@ -393,7 +394,8 @@ table.accesskeys tr:nth-child(even) {
     overflow: hidden;
     min-height: 700px;
     max-height: 900px;
-    background: url("../images/hero-photo-vinnette(3).jpg") no-repeat center center;
+    background-color: #A25323;
+    background: url("../images/hero-image.jpg") no-repeat center center;
     z-index: 1;
   }
 
@@ -408,6 +410,7 @@ table.accesskeys tr:nth-child(even) {
   .dates img {
     position: relative;
     margin: 0 auto;
+    height: 80px;
   }
 
   /**********
@@ -827,6 +830,14 @@ table.accesskeys tr:nth-child(even) {
     z-index: 2;
   }
 
+  .logo img.horizontal {
+    height: 70px;
+  }
+
+  .logo img.horizontal:last-child {
+    margin-left: 55px;
+  }
+
   a.logo:hover {
     text-decoration: none;
   }
@@ -1016,7 +1027,8 @@ ADDITIONAL MEDIA QUERIES
 /**** Widescreen */
 @media screen and (min-width: 1401px) {
   .top-bar {
-    background: url("../images/hero-photo-vinnette(3).jpg") no-repeat top center fixed;
+    background-color: #A25323;
+    background: url("../images/hero-image.jpg") no-repeat top center fixed;
     border-bottom: 1px solid white;
   }
 
@@ -1133,6 +1145,11 @@ ADDITIONAL MEDIA QUERIES
     color: #C0BBC7;
   }
 
+  .box {
+    background-color: #A25323;
+    background: url("../images/hero-image.jpg") no-repeat top center fixed;
+  }
+
   .container {
     margin-left: 350px;
     width: auto;
@@ -1192,7 +1209,6 @@ ADDITIONAL MEDIA QUERIES
   /* inner page */
   .box {
     height: 75px;
-    background: url("../images/hero-photo-vinnette(3).jpg") no-repeat top center fixed;
   }
 
   .logo {
@@ -1254,16 +1270,12 @@ ADDITIONAL MEDIA QUERIES
 
   /* inner page */
   .box {
-    width: 300px;
+    /*width: 300px;*/
     height: 190px;
   }
 
   .bg-shadow {
     top: -210px;
-  }
-
-  .logo img:last-child {
-    margin-left: 38px;
   }
 }
 
@@ -1315,9 +1327,6 @@ ADDITIONAL MEDIA QUERIES
   }
 
   /* inner pages */
-  .box {
-    background: url("../images/hero-photo-vinnette(3).jpg") no-repeat top center fixed;
-  }
 
   .logo {
     width: 300px;
@@ -1362,6 +1371,10 @@ ADDITIONAL MEDIA QUERIES
     margin-left: 0;
   }
 
+  .dates img {
+    height: 70px;
+  }
+
   h1 {
     font-size: 1.5em;
   }
@@ -1390,7 +1403,8 @@ ADDITIONAL MEDIA QUERIES
   }
 
   .hero {
-    background: url("../images/hero-small(8).jpg") no-repeat center 36%;
+    background-color: #A06C1F;
+    background: url("../images/hero-image-s.jpg") no-repeat center 36%;
     height: 85vh;
     min-height: 400px;
     max-height: 750px;
@@ -1439,14 +1453,6 @@ ADDITIONAL MEDIA QUERIES
 
   .dates img {
     display: block;
-  }
-
-  .dates img:first-child {
-    width: 320px;
-  }
-
-  .dates img:last-child {
-    width: 210px;
   }
 
   .wrapper {
@@ -1551,7 +1557,7 @@ ADDITIONAL MEDIA QUERIES
   .box {
     padding: 0;
     width: 100%;
-    background: url("../images/hero-small(6).jpg") no-repeat top center fixed;
+    background: url("../images/hero-image-ss.jpg") no-repeat top center fixed;
   }
 
   .logo {
@@ -1560,6 +1566,10 @@ ADDITIONAL MEDIA QUERIES
     left: 0;
     right: 0;
     margin: 0 auto;
+  }
+
+  .logo img.horizontal:nth-child(2) {
+    margin-top: 20px;
   }
 
   footer {
