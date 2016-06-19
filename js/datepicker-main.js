@@ -89,7 +89,6 @@ myDatepicker.datepicker(
         setTimeout(function() {
           selectMonth();
           clickExtended();
-          hoverExtended();
           selectDay();
         }, 10);
       })
@@ -271,19 +270,6 @@ function tab(id, step) {
               changeMonth(1);
             });
         }
-      }
-
-// CHANGE DAY IN DATEPICKER FIELD ON HOVER
-      function hoverExtended() {
-        var dates = $("table.ui-datepicker-calendar td");
-        dates = dates.not(".ui-state-disabled");
-        dates = dates.find("a");
-        $(dates).hover(function() {
-          var day = $(this).html();
-          $(".ui-state-active").removeClass("ui-state-active");
-          $(this).addClass("ui-state-active");
-          $(".day").html(day);
-        });
       }
 
 }); // end of ready
