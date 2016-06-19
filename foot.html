@@ -1,10 +1,28 @@
   <nav>
     <h2 class="offset">Швидкі посилання</h2>
-    <a class="prev" href="#" accesskey="p">Попередня...</a>
-    <br /><a class="next" href="#" accesskey="n">Наступна...</a>
-    <br /><a href="/">На головну...</a>
-    <br /><a href="/about.html" accesskey="a">Детальніше про цей сайт...</a>
-    <br /><a href="/tips.html">Як користуватися сайтом...</a>
+    <div class="flex">
+      <a class="prev flexitem" href="#" accesskey="p" title="Попередня">
+        <div class="button grey-button left">
+          <div class="arrow left-arrow">
+          </div>
+        </div>
+        <span class="caption left">Попередня</span>
+      </a>
+      <a href="/" class="flexitem">
+          <div class="left"><img class="home-icon-bottom" src="/images/home_icon.png" alt="На головну"/></div>
+          <span class="caption left">На&nbsp;головну</span>
+      </a>
+      <a class="next flexitem" href="#" accesskey="n" title="Наступна">
+        <div class="button grey-button right">
+          <div class="arrow right-arrow">
+          </div>
+        </div>
+        <span class="caption right">Наступна</span>
+      </a>
+
+  </div>
+    <p><a href="/about.html" accesskey="a">Детальніше про цей сайт...</a>
+    <br /><a href="/tips.html">Як користуватися сайтом...</a></p>
   </nav>
 
   <!-- List of related tags -->

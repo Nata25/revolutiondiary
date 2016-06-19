@@ -72,6 +72,60 @@ include($_SERVER['DOCUMENT_ROOT'].'/head.html');
           </article>
 
 
-<?php
-  include($_SERVER['DOCUMENT_ROOT'].'/foot.html');
-?>
+          <nav>
+            <h2 class="offset">Швидкі посилання</h2>
+            <div class="flex">
+              <a href="/" class="flexitem">
+                  <div class="left"><img class="home-icon-bottom" src="/images/home_icon.png" alt="На головну"/></div>
+                  <span class="caption left">На&nbsp;головну</span>
+              </a>
+              <a class="next flexitem" href="#" accesskey="n" title="Наступна">
+                <div class="button grey-button right">
+                  <div class="arrow right-arrow">
+                  </div>
+                </div>
+                <span class="caption right">Наступна</span>
+              </a>
+
+          </div>
+            <p><a href="/about.html" accesskey="a">Детальніше про цей сайт...</a>
+            <br /><a href="/tips.html">Як користуватися сайтом...</a></p>
+          </nav>
+
+          <!-- List of related tags -->
+          <?php include("$_SERVER[DOCUMENT_ROOT]/tags/fetch_tags.php"); ?>
+
+          </div>
+          <!-- /end of text container -->
+
+        </section>
+        <!-- /end of container -->
+
+        <!-- /DIARY NOTES -->
+
+        <!-- TAGS CLOUD -->
+          <aside class="tags-cloud-inner">
+            <h4>Хмара тегів</h4>
+          <p>
+            <?php
+              include("$_SERVER[DOCUMENT_ROOT]/tags/cloud.php");
+            ?>
+          </p>
+        </aside>
+          <!-- /TAGS CLOUD -->
+
+        </div>
+        <!-- BACKGROUND -->
+        </main>
+
+        <!-- FOOTER -->
+        <div class="red-divider"></div>
+
+        <footer>
+              <p>Дати. Дні / нотатки з Революції / 2013–2016 &copy; Іванова Наталя</p>
+        </footer>
+        </body>
+
+        <!-- /BODY -->
+
+        </html>

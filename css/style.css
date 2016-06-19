@@ -317,20 +317,65 @@ table.accesskeys tr:nth-child(even) {
   }
 
   .button {
-    background-color: #b36665 !important;
     width: 46px;
     height: 46px;
     border-radius: 5px;
+  }
+
+  .red-button {
+    background-color: #b36665 !important;
+  }
+
+  .grey-button {
+    background-color: #C4C7CE;
+    margin: 10px;
   }
 
   .arrow {
     width: 0;
     height: 0;
     border-top: 12px solid transparent;
-    border-left: 24px solid white;
     border-bottom: 12px solid transparent;
     margin-top: 11px;
+  }
+
+  /* next/prev buttons on inner pages */
+  .right-arrow {
+    border-left: 24px solid white;
     margin-left: 13px;
+    float: left;
+  }
+
+  .left-arrow {
+    border-right: 24px solid white;
+    margin-right: 14px;
+    float: right;
+  }
+
+  .caption {
+    margin-top: 15px;
+}
+
+  .left {
+    float: left;
+  }
+
+  .right {
+    float: right;
+  }
+
+  .flex {
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  .flexitem {
+    flex: 1;
+    min-width: 150px;
+    border: 1px solid #916464;
+    border-radius: 3px;
+    margin: 5px;
+    text-align: center;
   }
 
   .inline {
@@ -851,12 +896,17 @@ table.accesskeys tr:nth-child(even) {
     z-index: 1;
   }
 
-  .home-icon {
+  .home-icon-top {
     position: relative;
     top: auto;
     right: auto;
     left: 10px;
     width: 50px;
+  }
+
+  .home-icon-bottom {
+    width: 35px;
+    margin: 10px;
   }
 
   .home-slide {
@@ -1111,7 +1161,7 @@ ADDITIONAL MEDIA QUERIES
     z-index: 2;
   }
 
-  .home-icon {
+  .home-icon-top {
     position: absolute;
     top: -5px;
     left: auto;
@@ -1295,6 +1345,27 @@ ADDITIONAL MEDIA QUERIES
   .bg-shadow {
     top: -210px;
   }
+
+  .caption {
+    position: absolute;
+    color: transparent;
+  }
+
+  .flexitem {
+    border: none;
+    min-width: 10px;
+  }
+
+  .flex .flexitem:nth-child(2) > div {
+    float: none;
+  }
+
+  .home-icon-bottom {
+    width: 40px;
+    float: none;
+    margin: 13px auto;
+  }
+
 }
 
 @media screen and (min-width: 801px) and (max-width: 1160px) {
