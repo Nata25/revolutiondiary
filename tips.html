@@ -10,9 +10,9 @@ include($_SERVER['DOCUMENT_ROOT'].'/head.html');
     <!--container -->
     <!-- <div class="left-bar"></div> -->
     <div class="single-text-container">
-      <h2>Як користуватися сайтом</h2>
+      <h2>Гарячі клавіші та інші підказки</h2>
       <article>
-        <h1 class="offset">Підказки щодо навігації</h1>
+        <h1 class="offset">Як користуватися сайтом</h1>
         <ol>
 
           <li>Використовуйте для навігації сайтом календар, хмару тегів, а також
@@ -67,6 +67,10 @@ include($_SERVER['DOCUMENT_ROOT'].'/head.html');
 
              <li>Для швидкого переходу до сторінки <a href="/about.html">«Детальніше про цей сайт»</a> можна використовувати
               посилання внизу кожної сторінки або <a href="#control">контрольну клавішу</a> + <span class="key">[a]</span> (від «about»).</li>
+
+              <li>Сполучення <a href="#control">контрольної клавіші</a> + <span class="key">[l]</span> (від «links)
+                переведуть вас на <a href="/sources.html">сторінку із онлайн-ресурсами</a> за темою Євромайдану.
+                Наприкінці кожної сторінки також містяться прямий лінк на цю сторінку для навігації мишею.</li>
 
           <li>Щоб відкрити з будь-якої сторінки сайту цю довідку, натисніть іконку зі знаком
             запитання або  сполучення
@@ -128,8 +132,12 @@ include($_SERVER['DOCUMENT_ROOT'].'/head.html');
 
 <nav>
   <h2 class="offset">Швидкі посилання</h2>
-  <a href="/">На головну...</a>
-  <br /><a href="/about.html" accesskey="a">Докладніше про цей сайт...</a>
+  <a href="/" class="block home-button" id="home-arrow">
+      <img class="home-icon-bottom" src="/images/home_icon.png" alt="На головну"/>
+      <span class="caption left">На&nbsp;головну</span>
+  </a>
+  <br /><a href="/about.html" accesskey="a">Про що цей сайт&hellip;</a>
+  <br /><a href="/sources.html" accesskey="l">Корисні посилання&hellip;</a>
 </nav>
 
 <?php

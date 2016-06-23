@@ -100,7 +100,9 @@ table.accesskeys tr:nth-child(even) {
   h3 > a,
   li, td,
   .text-container > nav,
-  .single-text-container > nav {
+  .single-text-container > nav,
+  .tags-cloud-main > a,
+  a.block {
     -webkit-transition: .25s all linear;
     -moz-transition: .25s all linear;
     -o-transition: .25s all linear;
@@ -118,7 +120,7 @@ table.accesskeys tr:nth-child(even) {
   }
 
   h1, h4 {
-    font-family: 'Roboto Slab', sans-serif;
+    font-family: 'Roboto Slab', 'Roboto Condensed', sans-serif;
   }
 
   h1 {
@@ -366,6 +368,9 @@ table.accesskeys tr:nth-child(even) {
 
   .buttons-container {
     width: 100%;
+  }
+
+  .centered {
     text-align: center;
   }
 
@@ -376,9 +381,10 @@ table.accesskeys tr:nth-child(even) {
     border-radius: 5px;
   }
 
-  .buttons-container .block:nth-child(2) {
+  .home-button {
     height: 66px;
     padding: 0 10px;
+    /*margin-top: 20px;*/
   }
 
   .inline {
@@ -826,6 +832,10 @@ table.accesskeys tr:nth-child(even) {
     text-decoration: none;
   }
 
+  .tags-cloud-main > a:hover {
+    font-size: 1.1em;
+  }
+
   /****************
   INNER PAGES
   ****************/
@@ -1066,6 +1076,24 @@ table.accesskeys tr:nth-child(even) {
     color: #982E2E;
   }
 
+  #sources {
+    list-style-type: none;
+  }
+
+  #sources img {
+    margin: 5px;
+    vertical-align: middle;
+  }
+
+  .sources {
+    font-size: .9em;
+    color: #737272;
+  }
+
+  #sources li {
+    margin-top: 5px;
+  }
+
 }
 
 /*************
@@ -1203,6 +1231,12 @@ ADDITIONAL MEDIA QUERIES
   .date-block.absolute {
     position: absolute;
   }
+
+  .block:hover {
+    background-color: #D19043;
+    color: white;
+  }
+
 }
 
   /* not for mobile */

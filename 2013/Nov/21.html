@@ -74,12 +74,12 @@ include($_SERVER['DOCUMENT_ROOT'].'/head.html');
 
           <nav>
             <h2 class="offset">Швидкі посилання</h2>
-            <div class="flex">
-              <a href="/" class="flexitem">
-                  <div class="left"><img class="home-icon-bottom" src="/images/home_icon.png" alt="На головну"/></div>
+            <div class="buttons-container">
+              <a href="/" class="block home-button" id="home-arrow">
+                  <img class="home-icon-bottom" src="/images/home_icon.png" alt="На головну"/>
                   <span class="caption left">На&nbsp;головну</span>
               </a>
-              <a class="next flexitem" href="#" accesskey="n" title="Наступна">
+              <a class="block right" href="#" accesskey="n" title="Наступна" id="next-arrow">
                 <div class="button grey-button right">
                   <div class="arrow right-arrow">
                   </div>
@@ -88,8 +88,10 @@ include($_SERVER['DOCUMENT_ROOT'].'/head.html');
               </a>
 
           </div>
-            <p><a href="/about.html" accesskey="a">Детальніше про цей сайт...</a>
-            <br /><a href="/tips.html">Як користуватися сайтом...</a></p>
+            <p><a href="/about.html" accesskey="a">Про що цей сайт&hellip;</a>
+            <br /><a href="/tips.html" accesskey="t">Гарячі клавіші та інші підказки&hellip;</a>
+            <br /><a href="/sources.html" accesskey="l">Корисні посилання&hellip;</a>
+          </p>
           </nav>
 
           <!-- List of related tags -->
