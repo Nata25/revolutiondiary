@@ -117,12 +117,12 @@ myDatepicker.datepicker(
       upd_DP(dateDate, day, month);
     }
 
-  //If on inner pages (get current date from URL)
+  // If on inner pages (get current date from URL)
     else {
       var stringDate = currentURL.slice(-11);
-      // convert to new Date()
+      // Convert to new Date()
       var dateDate = $.datepicker.parseDate("yy/M/dd", stringDate);
-      //*** Store selected date in storage to grab it on return to index.html:
+      // Store selected date in storage to grab it on return to index.html:
       upd_storage(dateDate);
       var dateToNums = stringDate.split("/");
       var day = dateToNums[2];

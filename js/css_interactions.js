@@ -212,8 +212,10 @@ button.blur(function() {
 // **************************
 // INNER PAGES, HOME PAGE LINK
 // **************************
+var sm = window.matchMedia("screen and (max-width: 800px)");
+console.log(sm.matches);
 // not on mobile defices
-    if (!checkMobile) {
+    if (!checkMobile && !sm.matches) {
       logo.hoverIntent(
         function() {
           $(this).prev(".home-slide").removeClass("slide-up").addClass("slide-down");
