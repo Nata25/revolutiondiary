@@ -102,7 +102,8 @@ table.accesskeys tr:nth-child(even) {
   .text-container > nav,
   .single-text-container > nav,
   .tags-cloud-main > a,
-  a.block {
+  a.block,
+  nav a {
     -webkit-transition: .25s all linear;
     -moz-transition: .25s all linear;
     -o-transition: .25s all linear;
@@ -184,6 +185,15 @@ table.accesskeys tr:nth-child(even) {
     font-size: .9em;
     margin-top: 2px;
     margin-bottom: 0;
+  }
+
+  .footer-menu a,
+  .footer-menu a:hover {
+    color: white;
+    display: block;
+    font-size: .8em;
+    text-align: left;
+    text-decoration: none;
   }
 
   .shift-up {
@@ -1167,7 +1177,7 @@ ADDITIONAL MEDIA QUERIES
     position: fixed;
     top: 110px;
     width: 75px;
-    height: 500px;
+    height: 550px;
   }
 
   .ellipsis {
@@ -1221,9 +1231,33 @@ ADDITIONAL MEDIA QUERIES
   }
 }
 
+@media screen and (min-width: 801px) {
+
+    .footer-menu,
+    .footer-copy {
+      display: inline-block;
+    }
+
+    .footer-copy {
+      vertical-align: text-bottom;
+      margin: 20px;
+    }
+
+    .footer-menu {
+      border-left: 1px solid white;
+      height: 100%;
+      padding: 10px;
+    }
+
+    .footer-menu a {
+      font-variant: small-caps;
+    }
+
+}
+
 /* CALCULATE HEIGHT OF HERO AREA
    (not for mobile and Kindle) */
-@media screen and (min-width: 800px) and (max-width: 1900px) {
+@media screen and (min-width: 801px) and (max-width: 1900px) {
   .hero {
     height: 87.5vh;
   }
@@ -1240,7 +1274,7 @@ ADDITIONAL MEDIA QUERIES
 }
 
   /* not for mobile */
-@media screen and (min-width: 800px) and (max-width: 1400px) {
+@media screen and (min-width: 801px) and (max-width: 1400px) {
   .home-slide {
     top: -170px;
     left: auto;
@@ -1319,7 +1353,7 @@ ADDITIONAL MEDIA QUERIES
   .logo {
     margin: 0 0 0 35%;
     height: 75px;
-    width: 550px;
+    width: 500px;
   }
 
   .bg-shadow {
@@ -1692,6 +1726,13 @@ ADDITIONAL MEDIA QUERIES
   footer {
     height: 70px;
   }
+
+  .footer-menu {
+    position: fixed;
+    left: -1000px;
+    margin: 0;
+  }
+
 }
 
 /*Display images on screens, printed dates on screenreaders and in print view*/
