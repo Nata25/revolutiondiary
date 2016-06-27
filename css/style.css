@@ -133,7 +133,7 @@ table.accesskeys tr:nth-child(even) {
   }
 
   h2 {
-    margin: 0;
+    margin: 20px 0 0 0;
   }
 
   h3 {
@@ -194,6 +194,10 @@ table.accesskeys tr:nth-child(even) {
     font-size: .8em;
     text-align: left;
     text-decoration: none;
+  }
+
+  .footer-menu a:hover {
+    color: #18134C;
   }
 
   .shift-up {
@@ -1353,7 +1357,7 @@ ADDITIONAL MEDIA QUERIES
   .logo {
     margin: 0 0 0 35%;
     height: 75px;
-    width: 500px;
+    width: 550px;
   }
 
   .bg-shadow {
@@ -1615,7 +1619,7 @@ ADDITIONAL MEDIA QUERIES
   }
 
   .day-circle {
-    margin-top: 20px;
+    margin-top: 0;
     margin-left: 10px;
   }
 
