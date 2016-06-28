@@ -79,10 +79,15 @@ table.accesskeys tr:nth-child(even) {
   h3 > a,
   .text-container > nav,
   ol > li,
+  ul > li,
   table.accesskeys > caption,
   table.accesskeys > th,
   table.accesskeys > td {
     color: #553a26;
+  }
+
+  ul {
+    list-style-type: none;
   }
 
   #control {
@@ -102,12 +107,19 @@ table.accesskeys tr:nth-child(even) {
   .text-container > nav,
   .single-text-container > nav,
   .tags-cloud-main > a,
-  a.block,
-  nav a {
+  a.block {
     -webkit-transition: .25s all linear;
     -moz-transition: .25s all linear;
     -o-transition: .25s all linear;
     transition: .25s all linear;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  nav a {
+    -webkit-transition: .05s all linear;
+    -moz-transition: .05s all linear;
+    -o-transition: .05s all linear;
+    transition: .05s all linear;
     -webkit-font-smoothing: antialiased;
   }
 
@@ -175,8 +187,7 @@ table.accesskeys tr:nth-child(even) {
   footer {
     position: relative;
     background-color: #8d96b0;
-    height: 100px;
-    text-align: center;
+    max-height: 100px;
     margin: 0 auto;
   }
 
@@ -672,7 +683,7 @@ table.accesskeys tr:nth-child(even) {
     margin: 0;
     padding: 0;
     float: left;
-    height: 185px;
+    height: 183px;
     overflow: hidden;
   }
 
