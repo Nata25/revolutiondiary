@@ -66,16 +66,20 @@ include($_SERVER['DOCUMENT_ROOT'].'/head.html');
       $entry = '<h3><a href="'. $URL . '">'. $date . '</a></h3>';
       $entry .= '<p class=sub-heading>' . $title . '</p>';
       $entry .= '<p>' . $text;
-      $entry .= '&nbsp;&nbsp;<a href="'. $URL . '">Детальніше...</a></p>';
+      $entry .= '&nbsp;&nbsp;<a href="'. $URL . '">Читати далі...</a></p>';
       echo $entry;
     }
  ?>
 
- <nav>
+ <nav class="bottom-nav">
    <h2 class="offset">Швидкі посилання</h2>
-   <a href="/">На головну...</a>
-   <br /><a href="/about.html" accesskey="a">Детальніше про цей сайт...</a>
-   <br /><a href="/tips.html">Як користуватися сайтом...</a>
+   <a href="/" class="block home-button" id="home-arrow" accesskey="h">
+       <img class="home-icon-bottom" src="/images/home_icon.png" alt="На головну"/>
+       <span class="caption left">На&nbsp;головну</span>
+   </a>
+   <a href="/about.html" accesskey="a">Про сайт...</a>
+   <a href="/tips.html">Підказки щодо навігації...</a>
+   <a href="/sources.html" accesskey="l">Корисні посилання...</a>
  </nav>
 
  <?php

@@ -59,6 +59,15 @@ table.accesskeys tr:nth-child(even) {
   background-color: #E8E8DF;
 }
 
+.bottom-nav {
+  margin-top: 50px;
+}
+
+.bottom-nav > a {
+  display: block;
+  margin-top: 15px;
+}
+
 /* SCREEN MODE; BASIC STYLES */
 @media screen {
 
@@ -399,7 +408,8 @@ table.accesskeys tr:nth-child(even) {
     text-align: center;
   }
 
-  .block {
+  .block,
+  .block.home-button {
     display: inline-block;
     min-width: 30%;
     border: 1px solid #916464;

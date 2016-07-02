@@ -1,4 +1,7 @@
-  <nav>
+  <!-- List of related tags -->
+  <?php include("$_SERVER[DOCUMENT_ROOT]/tags/fetch_tags.php"); ?>
+
+    <nav class="bottom-nav">
     <h2 class="offset">Швидкі посилання</h2>
     <div class="buttons-container centered">
       <a class="block left prev" href="#" accesskey="p" title="Попередня" id="prev-arrow">
@@ -21,13 +24,10 @@
       </a>
 
   </div>
-    <p><a href="/about.html" accesskey="a">Про цей сайт...</a>
-    <br /><a href="/tips.html">Гарячі клавіші та інші підказки...</a>
-    <br /><a href="/sources.html" accesskey="l">Корисні посилання&hellip;</a></p>
+    <a href="/about.html" accesskey="a">Про сайт...</a>
+    <a href="/tips.html">Підказки щодо навігації...</a>
+    <a href="/sources.html" accesskey="l">Корисні посилання&hellip;</a></p>
   </nav>
-
-  <!-- List of related tags -->
-  <?php include("$_SERVER[DOCUMENT_ROOT]/tags/fetch_tags.php"); ?>
 
   </div>
   <!-- /end of text container -->
