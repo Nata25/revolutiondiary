@@ -843,7 +843,7 @@ table.accesskeys tr:nth-child(even) {
     position: relative;
     top: 20px;
     margin-left: 10px;
-    height: 820px;
+    /*height: 820px;*/
     margin-right: 10px;
     box-sizing: border-box;
   }

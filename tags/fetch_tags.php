@@ -28,10 +28,16 @@
       while ($row = $result->fetch()) {
           $name = $row["tag"];
           $query = $row["query"];
-          $tags_array[] = '<a rel="tag" href="' . "/tags/?name=" . $query . '">' . $name . "</a>";
+          $tags_array[] = '<a rel="tag" href="' . "/tags/?name=" . $query . '">' . $name . ",</a>";
       }
 
-      $tags_list = implode(",&nbsp;", $tags_array);
+      // Display tags
+      $last = array_pop($tags_array);
+      $last = str_replace(",</a>", "</a>", $last);
+      array_push($tags_array, $last);
+
+      $tags_list = implode(" ", $tags_array);
+
       echo $tags_list . "</p></div>";
     }
 
