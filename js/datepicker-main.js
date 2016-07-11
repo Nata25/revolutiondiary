@@ -234,8 +234,6 @@ function tab(id, step) {
           var day = $(this).html();
           $(".ui-state-active").removeClass("ui-state-active");
           $(this).addClass("ui-state-active");
-          // change current day in the datepicker field
-          $(".day").html(day);
         });
       }
 
