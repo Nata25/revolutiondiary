@@ -8,7 +8,7 @@
               ON tagid = tags.id
               INNER JOIN posts
               ON postid = posts.id
-              GROUP BY tag;";
+              GROUP BY tagid;";
       $result = $pdo->query($sql);
 
       $num_rows = 0;
@@ -28,8 +28,8 @@
           $min = $table[$i]['rating'];
         }
       }
-      $min_size = 90;
-      $max_size = 180;
+      $min_size = 110;
+      $max_size = 220;
       $scale = ($max_size - $min_size) / ($max - $min);
 
       foreach ($table as $tag):

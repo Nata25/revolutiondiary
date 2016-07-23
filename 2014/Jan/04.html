@@ -1,0 +1,39 @@
+<?php
+$custom_heading = '';
+include($_SERVER['DOCUMENT_ROOT'].'/head.html');
+?>
+
+
+  <!-- DIARY NOTES -->
+
+  <div class="container">
+
+    <figure class="left-bar">
+
+      <?php
+        echo '<img alt="' . $day_number . '" class="day-circle inner" src="../../images/nums/d' . $day_number . '.png" />';
+      ?>
+
+    </figure>
+
+    <div class="text-container">
+
+      <?php
+        echo '<h2><span class="backuped">' . $day_number . '</span>' . $month . ', ' . $weekday . '</h2>';
+      ?>
+
+    <article>
+
+    <?php echo "<h1>" . $title . "</h1>" ?>
+
+    <p>Закарпатський Автомайдан «взяв в облогу» карпатську дачу Віктора Медведчука. В
+      акції взяли участь 35 автомобілів (і автомобілістів). Люди скандували революційні
+      гасла і попередили, що незабаром будиночок може повернутися «у народну власність».
+      Міліціянти були присутні, але не втручалися; а ДАІ на під'їзді до селища
+      справно записувало номери машин.
+
+    </article>
+
+<?php
+  include($_SERVER['DOCUMENT_ROOT'].'/foot.html');
+?>

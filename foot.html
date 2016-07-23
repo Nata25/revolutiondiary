@@ -1,5 +1,9 @@
   <!-- List of related tags -->
-  <?php include("$_SERVER[DOCUMENT_ROOT]/tags/fetch_tags.php"); ?>
+  <?php
+  if ($custom_heading == '') {
+    include("$_SERVER[DOCUMENT_ROOT]/tags/fetch_tags.php");
+  }
+  ?>
 
     <nav class="bottom-nav">
     <h2 class="offset">Швидкі посилання</h2>

@@ -98,7 +98,8 @@ myDatepicker.datepicker(
 //***  Based on current URL, update datepicker and link on button
 
     var currentURL = window.location.pathname;
-    var regex = new RegExp("[201]");
+    // var regex = new RegExp("201[34]");
+    var regex = /201[34]/;
 
   //If on the home page (get current date from storage):
     if (!regex.test(currentURL)) {

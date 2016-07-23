@@ -28,11 +28,11 @@
       $day_number = substr($date, 0, 2);
       $day = substr($date, 2);
       $day_separated = explode(", ", $day);
-      $month = mb_strtoupper("грудня", "utf-8");
+      $month = mb_strtoupper($day_separated[0], "utf-8");
       $weekday = $day_separated[1];
       $title = $row['title'];
       $heading = $date . ": " . $title . " | Дати. Дні";
-      $description = 'Запис від ' . $date . ': ' . $title ;
+      $description = $date . ': ' . $title . ".";
 
 }
 

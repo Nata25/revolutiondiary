@@ -1,0 +1,35 @@
+<?php
+$custom_heading = '';
+include($_SERVER['DOCUMENT_ROOT'].'/head.html');
+?>
+
+  <!-- DIARY NOTES -->
+
+  <div class="container">
+
+    <figure class="left-bar">
+      <?php
+        echo '<img alt="' . $day_number . '" class="day-circle inner" src="../../images/nums/d' . $day_number . '.png" />';
+      ?>
+    </figure>
+
+    <div class="text-container">
+      <?php
+        echo '<h2><span class="backuped">' . $day_number . '</span>' . $month . ', ' . $weekday . '</h2>';
+      ?>
+    <article>
+
+      <?php echo "<h1>" . $title . "</h1>" ?>
+
+      <p>До міліції викликали Юрія Іллєнка («Свобода») та його охоронця
+           – для надання показань у справі про 1 грудня. Щойно вони вийшли з приміщення
+           (МВС?..), як їх перестріло чоловік 10 спортивної статури і дуже сильно побили.
+           Зламали Іллєнку щелепу, струс мозку. Версій багато, але в МВС улюблена – що це
+           «однопартійці помстилися». За що – не уточнюють…</p>
+
+
+    </article>
+
+<?php
+  include($_SERVER['DOCUMENT_ROOT'].'/foot.html');
+?>

@@ -1,0 +1,41 @@
+<?php
+$custom_heading = '';
+include($_SERVER['DOCUMENT_ROOT'].'/head.html');
+?>
+
+  <!-- DIARY NOTES -->
+
+  <div class="container">
+
+    <figure class="left-bar">
+
+      <?php
+        echo '<img alt="' . $day_number . '" class="day-circle inner" src="../../images/nums/d' . $day_number . '.png" />';
+      ?>
+
+    </figure>
+
+    <div class="text-container">
+
+      <?php
+        echo '<h2><span class="backuped">' . $day_number . '</span>' . $month . ', ' . $weekday . '</h2>';
+      ?>
+
+    <article>
+
+    <?php echo "<h1>" . $title . "</h1>" ?>
+
+      <p>Майдан умовно на канікулах. У тому сенсі, що недільного віче (яке вже стало
+        традицією) цього дня не проходило.
+
+      <p>Новина запам'яталась одна, трохи курйозна. Російський сатирик Михаїл Задорнов
+        у якомусь інтерв’ю побіжно назвав людей на Майдані
+      «єврохохлами». За це на нього заочно накинулись українські громадянські
+      активісти, а хтось навіть цілком серйозно почав вимагати, щоб наше МЗС дало
+      відсіч – але … МЗС, здається, відповіло, що не така це вже й велика птиця, той
+      Задорнов.</p>
+
+    </article>
+    <?php
+    include($_SERVER['DOCUMENT_ROOT'].'/foot.html');
+  ?>

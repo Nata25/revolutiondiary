@@ -1,0 +1,40 @@
+<?php
+$custom_heading = '';
+include($_SERVER['DOCUMENT_ROOT'].'/head.html');
+?>
+
+  <!-- DIARY NOTES -->
+
+  <div class="container">
+
+    <figure class="left-bar">
+
+      <?php
+        echo '<img alt="' . $day_number . '" class="day-circle inner" src="../../images/nums/d' . $day_number . '.png" />';
+      ?>
+
+    </figure>
+
+    <div class="text-container">
+
+      <?php
+        echo '<h2><span class="backuped">' . $day_number . '</span>' . $month . ', ' . $weekday . '</h2>';
+      ?>
+
+    <article>
+
+    <?php echo "<h1>" . $title . "</h1>" ?>
+
+    <p>Тетяна Чорновол іде на поправку. На ТСН з'явилось інтерв'ю з нею, де вона
+      розповіла про подробиці інциденту. Зокрема, сказала, що її нападники,
+      скоріше за все, вирішили, що вбили її і тільки тому залишили лежати на узбіччі.
+    Били жорстоко і, як би це сказати... професійно. </p>
+
+    <p>По її справі нікого не засуджено. Тривають
+     допити, здається, п’яти підозрюваних, але їхні показання дуже неоднозначні.
+     Одного з них, утім, Чорновол упізнала.</p>
+
+    </article>
+    <?php
+    include($_SERVER['DOCUMENT_ROOT'].'/foot.html');
+  ?>
