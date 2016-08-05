@@ -173,6 +173,14 @@ table.accesskeys tr:nth-child(even) {
     font-style: italic;
   }
 
+  .pain {
+    color: #FF2700;
+  }
+
+  .crossed {
+    text-decoration: line-through;
+  }
+
   .grey {
     color: #838692;
   }
@@ -1276,7 +1284,6 @@ ADDITIONAL MEDIA QUERIES
 
     .footer-menu {
       border-left: 1px solid white;
-      height: 100%;
       padding: 10px;
     }
 
