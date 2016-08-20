@@ -5,19 +5,22 @@ include($_SERVER['DOCUMENT_ROOT'].'/head.html');
 
   <!-- DIARY NOTES -->
 
-  <div class="container">
+  <!-- DIARY NOTES -->
+
+  <section class="container">
 
     <figure class="left-bar">
-
-      <img alt="01" class="day-circle inner" src="../../images/nums/d01.png" />
-
+      <?php
+        echo '<img alt="' . $day_number . '" class="day-circle inner" src="../../images/nums/d' . $day_number . '.png" />';
+      ?>
     </figure>
 
     <div class="text-container">
+      <?php
+        echo '<h2><span class="backuped">' . $day_number . '</span>' . $month . ', ' . $weekday . '</h2>';
+      ?>
 
-      <h2><span class="backuped">01</span> ГРУДНЯ, неділя</h2>
-
-      <article>
+        <article>
 
       <?php echo "<h1>" . $title . "</h1>" ?>
 

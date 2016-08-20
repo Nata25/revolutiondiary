@@ -8,7 +8,7 @@ $(function() {
    var dayField = $(".day");
    var monthField = $(".month");
    var minDate = new Date(2013, 10, 21);
-   var maxDate = new Date(2014, 1, 28);
+   var maxDate = new Date(2014, 2, 21);
    var beginning = "листопада";
    var end = "лютого";
    var linkToPage = $(".link-to-page");

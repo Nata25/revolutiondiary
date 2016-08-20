@@ -3,19 +3,20 @@ $custom_heading = '';
 include($_SERVER['DOCUMENT_ROOT'].'/head.html');
 ?>
 
-  <!-- DIARY NOTES -->
+<!-- DIARY NOTES -->
 
-  <div class="container">
+<section class="container">
 
-    <figure class="left-bar">
+  <figure class="left-bar">
+    <?php
+      echo '<img alt="' . $day_number . '" class="day-circle inner" src="../../images/nums/d' . $day_number . '.png" />';
+    ?>
+  </figure>
 
-      <img alt="10" class="day-circle inner" src="../../images/nums/d10.png" />
-
-    </figure>
-
-    <div class="text-container">
-
-      <h2><span class="backuped">10</span> ГРУДНЯ, вівторок</h2>
+  <div class="text-container">
+    <?php
+      echo '<h2><span class="backuped">' . $day_number . '</span>' . $month . ', ' . $weekday . '</h2>';
+    ?>
 
       <article>
 

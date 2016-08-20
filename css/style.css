@@ -174,7 +174,7 @@ table.accesskeys tr:nth-child(even) {
   }
 
   .pain {
-    color: #FF2700;
+    color: #CA0606;
   }
 
   .crossed {
@@ -1117,6 +1117,10 @@ table.accesskeys tr:nth-child(even) {
     text-decoration: none;
     /*font-size: 1.05em;*/
     color: #982E2E;
+  }
+
+  .list {
+    margin-bottom: 35px;
   }
 
   .list li {

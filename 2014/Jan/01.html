@@ -3,23 +3,25 @@ $custom_heading = '';
 include($_SERVER['DOCUMENT_ROOT'].'/head.html');
 ?>
 
-  <!-- DIARY NOTES -->
+<!-- DIARY NOTES -->
 
-  <div class="container">
+<section class="container">
 
-    <figure class="left-bar">
-      <?php
-        echo '<img alt="' . $day_number . '" class="day-circle inner" src="../../images/nums/d' . $day_number . '.png" />';
-      ?>
-    </figure>
+  <figure class="left-bar">
+    <?php
+      echo '<img alt="' . $day_number . '" class="day-circle inner" src="../../images/nums/d' . $day_number . '.png" />';
+    ?>
+  </figure>
 
-    <div class="text-container">
-      <?php
-        echo '<h2><span class="backuped">' . $day_number . '</span>' . $month . ', ' . $weekday . '</h2>';
-      ?>
-    <article>
+  <div class="text-container">
+    <?php
+      echo '<h2><span class="backuped">' . $day_number . '</span>' . $month . ', ' . $weekday . '</h2>';
+    ?>
 
-      <?php echo "<h1>" . $title . "</h1>" ?>
+      <article>
+        
+
+  <?php echo "<h1>" . $title . "</h1>" ?>
 
         <p>Почалися святкові будні. Люди на Майдані, варять куліш, п’ють чай; сніг тане, але
         барикади все одно стоять – бодай і з пустих мішків, – і вражають виглядом.</p>
