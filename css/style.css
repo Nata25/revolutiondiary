@@ -91,7 +91,8 @@ table.accesskeys tr:nth-child(even) {
   ul > li,
   table.accesskeys > caption,
   table.accesskeys > th,
-  table.accesskeys > td {
+  table.accesskeys > td,
+  summary {
     color: #553a26;
   }
 
@@ -153,7 +154,8 @@ table.accesskeys tr:nth-child(even) {
     text-align: center;
   }
 
-  h2 {
+  h2,
+  summary {
     margin: 20px 0 0 0;
   }
 
@@ -169,12 +171,24 @@ table.accesskeys tr:nth-child(even) {
     margin: 20px;
   }
 
+  summary {
+    font-size: 1.5em;
+  }
+
+  details p {
+    font-size: 17px;
+  }
+
   .emphasized {
     font-style: italic;
   }
 
   .pain {
     color: #CA0606;
+  }
+
+  .colored {
+    color: #842B00;
   }
 
   .crossed {
