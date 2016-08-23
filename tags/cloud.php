@@ -2,13 +2,13 @@
 
       include_once("connect.inc.php");
 
-      $sql = "SELECT tag, query, COUNT(title) AS rating
+      $sql = "SELECT num, tag, query, COUNT(title) AS rating
               FROM tags
               INNER JOIN posts_tags
               ON tagid = tags.id
               INNER JOIN posts
               ON postid = posts.id
-              GROUP BY tagid;";
+              GROUP BY num;";
       $result = $pdo->query($sql);
 
       $num_rows = 0;
@@ -28,8 +28,8 @@
           $min = $table[$i]['rating'];
         }
       }
-      $min_size = 110;
-      $max_size = 220;
+      $min_size = 100;
+      $max_size = 300;
       $scale = ($max_size - $min_size) / ($max - $min);
 
       foreach ($table as $tag):
