@@ -1,3 +1,5 @@
+<script tupe="text/javascript" src="../js/tags.js"></script>
+
 <?php include("connect.inc.php"); ?>
 
 <?php
@@ -58,16 +60,19 @@ include($_SERVER['DOCUMENT_ROOT'].'/head.html');
       $item[] = $row;
     }
 
+    $id = 1;
+
     foreach ($item as $line) {
       $date = $line['day'];
       $title = $line['title'];
       $text = $line['brief'];
       $URL = $line['URL'];
-      $entry = '<h3><a href="'. $URL . '">'. $date . '</a></h3>';
+      $entry = '<div class="tag-entry" id="'. + $id . '"><h3><a href="'. $URL . '">'. $date . '</a></h3>';
       $entry .= '<p class=sub-heading>' . $title . '</p>';
       $entry .= '<p>' . $text;
-      $entry .= '&nbsp;&nbsp;<a href="'. $URL . '">Читати далі...</a></p>';
+      $entry .= '&nbsp;&nbsp;<a href="'. $URL . '">Читати далі...</a></p></div>';
       echo $entry;
+      $id++;
     }
  ?>
 

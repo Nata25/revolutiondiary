@@ -10,7 +10,7 @@ $(function() {
    var minDate = new Date(2013, 10, 21);
    var maxDate = new Date(2014, 2, 21);
    var beginning = "листопада";
-   var end = "лютого";
+   var end = "березня";
    var linkToPage = $(".link-to-page");
    var linkToPrev = $(".prev");
    var linkToNext = $(".next");
@@ -33,8 +33,6 @@ $(function() {
   // ******************
   // GLOBAL VARIABLES
   // *****************
-
-  var domain = "localhost:8888";
 
   var monthsNamesAffixes = ["січня", "лютого", "березня", "квітня", "червня", "травня", "липня", "серпня", "вересня", "жовтня", "листопада", "грудня"];
   var monthsNames = ["січень", "лютий", "березень", "квітень", "червень", "травень", "липень", "серпень", "вересень", "жовтень", "листопад", "грудень"];
@@ -84,7 +82,7 @@ myDatepicker.datepicker(
         //*** Load new page corresponding to the date
         var lnk = newURL(day, shortMonth, year);
         window.location = lnk;
-      }), // end of onSelect
+      }), //     end of onSelect
       onChangeMonthYear: (function (year, month, inst) {
         setTimeout(function() {
           selectMonth();
@@ -142,7 +140,17 @@ myDatepicker.datepicker(
       var prevDateLST = $.datepicker.formatDate("dd M yy", prev).split(" ");
       var nextDateLST = $.datepicker.formatDate("dd M yy", next).split(" ");
       linkToPrev.attr("href", newURL(prevDateLST[0], prevDateLST[1], prevDateLST[2]));
-      linkToNext.attr("href", newURL(nextDateLST[0], nextDateLST[1], nextDateLST[2])); // both go-button on top and 'Next' link on the bottom are affected
+      if (next <= maxDate) {
+        linkToNext.attr("href", newURL(nextDateLST[0], nextDateLST[1], nextDateLST[2])); // both go-button on top and 'Next' link on the bottom are affected
+      }
+
+      // add manually functions to be fired on previous buttons on initial load of the last month date
+      // onChangeMonthYear() method of datepicker doesn't work here
+     if (month == end) {
+        selectMonth();
+        clickExtended();
+        selectDay();
+     }
     }
 
 
@@ -172,7 +180,7 @@ function tab(id, step) {
         into_focus(obj);
         obj.attr("tabindex", "2");
         obj.focus();
-        // Bind arrowp ress to the buttons
+        // Bind arrow press to the buttons
         arrow();
       }
   });
@@ -194,7 +202,7 @@ function tab(id, step) {
     var dateToWords = format_for_date_block.split(" ");
     var month = dateToWords[1];
     if (month != beginning) {
-        upd_DP(current, dateToWords[0], dateToWords[1]);
+        upd_DP(current, "01", dateToWords[1]);
     }
     else {
         upd_DP(minDate, minDate.getDate(), dateToWords[1]);

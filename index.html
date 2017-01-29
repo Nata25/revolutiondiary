@@ -9,7 +9,8 @@
     Засновано на власних спостереженнях та аналітиці українських медіа.
     Головна сторінка сайту.">
   <meta name="author" content="Наталя Іванова">
-  <meta name="robots" content="none">
+  <meta name="robots" content="all">
+  <meta property="og:image" content="../images/hero-image.jpg" />
 
   <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:100%7CRoboto+Condensed:300%7CPT+Sans%7CPT+Sans+Caption&amp;subset=latin,cyrillic' rel='stylesheet' type='text/css'>
   <link type="text/css" rel="stylesheet" href="css/normalize_v302.css" />
@@ -28,6 +29,9 @@
   <script type="text/javascript" src="js/css_interactions.js"></script>
   <script type="text/javascript" src="js/visible.js"></script>
   <script type="text/javascript" src="js/jquery.hoverIntent.minified.js"></script>
+
+
+  <!--[if IE8]> <script src="js/html5shiv.js"></script> <![endif]-->
 
 </head>
 
@@ -183,7 +187,7 @@
                       <div class="item">
                       <img alt="11" class="day-circle main" src="images/nums/d11.png" />
                       <article class="text-container text-container-home">
-                        <h3><span class="backuped">11</span> ГРУДНЯ, п'ятниця. Барикади зі снігу</h3>
+                        <h3><span class="backuped">11</span> ГРУДНЯ, cереда. Барикади зі снігу</h3>
                         <p class="mid-transparent">Вранці після 9:00 «Беркут» відійшов і зняв очеплення з Майдану. Чому – невідомо,
                         але люди сприймають це як перемогу. Особливо зважаючи на ранковий штурм КМДА.
                         Почався біля 8:00 ранку – підвели автобуси з «Беркутом». Розбили голову нардепу
@@ -207,12 +211,12 @@
                       <div class="item">
                       <img alt="29" class="day-circle main" src="images/nums/d29.png" />
                       <article class="text-container text-container-home">
-                        <h3><span class="backuped">11</span> ГРУДНЯ, неділя. Автомайдан</h3>
+                        <h3><span class="backuped">29</span> ГРУДНЯ, неділя. Автомайдан</h3>
                         <p class="mid-transparent">На Майдані пройшло Віче. Зачитали Маніфест ВОМу.
                           Наче нічого нового. От тільки людей усе одно багато. А за барикадами
                           (з боку ЦУМу) поставили інсталяцію: лялька Януковича у клітці.
                           Бажаючі фотографуються за столом, що стоїть поряд, зображуючи з себе суддів.
-                          Учасники Віче й активісти, як і анонсували, з’їздили на Межигір’я. Було весело. 
+                          Учасники Віче й активісти, як і анонсували, з’їздили на Межигір’я. Було весело.
                         </p>
                         <div class="ellipsis">&hellip;</div>
                       </article>
@@ -255,7 +259,7 @@
                       <img alt="22" class="day-circle main" src="images/nums/d22.png" />
                       <article class="text-container text-container-home">
                         <h3><span class="backuped">22</span> СІЧНЯ, середа. Страшний біль</h3>
-                        <p class="mid-transparent">Ранок. Кнов на снігу. Приблизно о 08:00 з вогнепальної зброї прямим влученням у серце вбили людину.
+                        <p class="mid-transparent">Ранок. Кров на снігу. Приблизно о 08:00 з вогнепальної зброї прямим влученням у серце вбили людину.
                         Всього чотири поранення. Це перша жертва. «20 років. Вірменин. Народився і жив в
                         Україні, у селі Березнуватівка Дніпропетровської області. На Євромайдан приїхав 8
                         грудня. Нещодавно у рамку проекту про Шевченка читав на Майдані уривок із поеми
@@ -326,7 +330,7 @@
                      <div class="item">
                      <img alt="20" class="day-circle main" src="images/nums/d20.png" />
                      <article class="text-container text-container-home">
-                       <h3><span class="backuped">28</span> ЛЮТОГО, четвер. Небесна сотня...</h3>
+                       <h3><span class="backuped">20</span> ЛЮТОГО, четвер. Небесна сотня...</h3>
                        <p class="mid-transparent">З дев’ятої ранку ситуація міняється що десять хвилин.
                          Це страшно. Я не знаю, що буде, коли я допишу цей абзац.
                          О 09:00 «Самооборона Майдану» пішла в наступ. Є інформація,
@@ -400,7 +404,7 @@
 
               <!-- tags container -->
               <aside class="tags-cloud-main">
-                <div class="tags-cloud-background">
+
                   <h4>Хмара тегів</h4>
                   <p>
                     <?php
@@ -408,14 +412,15 @@
                     ?>
                   </p>
 
+                  <div class="red-divider"></div>
+
                   <a href="/sources.html" accesskey="l"><h4>КОРИСНІ ПОСИЛАННЯ</h4></a>
 
-                </div>
 
               <!-- /tags container -->
 
-
-              <section>
+              <div class="red-divider"></div>
+              <section class="faqs">
                 <h2>FAQs</h2>
                 <p><span class="colored">Що це за тексти?</span>
                 Персональний щоденник.</p>
@@ -424,23 +429,29 @@
                 Спостерігачка, частково учасниця. Не належить до політичних партій,
                 не представляє чиїхось інтересів, окрім власних, не перебуває у топ-100 блогерів України.</p>
 
+                <p><span class="colored">Скільки всього записів на сайті та як їх шукати?</span>
+                119 – по одному на кожну дату, починаючи з 21 листопада 2013 і закінчуючи
+              21 березня 2014. Шукайте, використовуючи календар або хмару тегів.</p>
+
+                <p><span class="colored">Чому кінцева дата – саме 21 березня? Записів більше немає?</span>
+                Є, але мені здалося, що саме з підписанням Угоди завершився один логічний етап
+                у цій історії.</p>
+
                 <p><span class="colored">Чому на сайті немає фото та відео з місця подій?</span>
                 Щоб не порушувати нічиїх авторських прав, а також через мінімалістичний
-                задум дизайнерки.</p>
+                задум дизайнерки. Багато посилань на фото й відео часів Майдану я зібрала
+                в «Корисних посиланнях».</p>
 
                 <p><span class="colored">А звідки знімки цифр на початку кожного запису?</span>
                 З Майдану. Всі вони – з Майдану.</p>
 
                 <p><span class="colored">У хмарі тегів немає ні Януковича, ні Яценюка, ні Яроша. Ви про них забули?</span>
                 Ні, це справа принципу: серед ключових слів немає прізвищ українських політиків. Хоча є
-              кілька тих, хто під час Євромайдану були громадськими діячами, але пізніше пішли в політику.</p>
+              кілька громадських активістів, частково з політикою пов'язаних.</p>
 
-                <p><span class="colored">Чому кінцева дата – саме 21 березня? Після записів немає?</span>
-                Є, але мені здалося, що саме з підписанням Угоди завершився один логічний етап
-                у цій історії.</p>
-
-                <p><span class="colored">Від часу подій минуло кілька років. Ви вважаєте, ці записи досі доречні й актуальні?</span>
-                Багато що змінилося за цей час, але, так, вважаю, вони потрібні і навіть трохи правдиві.</p>
+                <p><span class="colored">Від часу подій минуло кілька років. Авторка вважає, що ці записи досі доречні \
+                  й актуальні?</span>
+                Багато що змінилося за цей час, але, так, вважаю, вони потрібні, актуальні та навіть трохи правдиві.</p>
               </section>
 
               </aside>
@@ -472,6 +483,18 @@
         </nav>
 
     </footer>
+
+<!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-83061651-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
 
 </body>
 

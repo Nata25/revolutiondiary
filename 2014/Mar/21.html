@@ -111,9 +111,93 @@ include($_SERVER['DOCUMENT_ROOT'].'/head.html');
       економічний блок залишають на пізніше, щоб «не дратувати» ні Росію, ні особливо
       східні регіони України).</p>
 
-      <p class="emphasized">Далі буде&hellip;</p>
+      <p class="emphasized">Далі, можливо, буде&hellip;</p>
 
     </article>
+
+
+    <!-- List of related tags -->
     <?php
-    include($_SERVER['DOCUMENT_ROOT'].'/foot.html');
-  ?>
+    if ($custom_heading == '') {
+      include("$_SERVER[DOCUMENT_ROOT]/tags/fetch_tags.php");
+    }
+    ?>
+
+      <nav class="bottom-nav">
+      <h2 class="offset">Швидкі посилання</h2>
+      <div class="buttons-container centered">
+        <a class="block left prev" href="#" accesskey="p" title="Попередня" id="prev-arrow">
+          <div class="button grey-button left">
+            <div class="arrow left-arrow">
+            </div>
+          </div>
+          <span class="caption left">Попередня</span>
+        </a>
+        <a href="/" class="block home-button" id="home-arrow">
+            <img class="home-icon-bottom" src="/images/home_icon.png" alt="На головну"/>
+            <span class="caption left">На&nbsp;головну</span>
+        </a>
+
+    </div>
+      <a href="/about.html" accesskey="a">Про сайт...</a>
+      <a href="/tips.html">Підказки щодо навігації...</a>
+      <a href="/sources.html" accesskey="l">Корисні посилання&hellip;</a>
+    </nav>
+
+    </div>
+    <!-- /end of text container -->
+
+  <!-- /DIARY NOTES -->
+
+  <!-- TAGS CLOUD -->
+    <aside class="tags-cloud-inner">
+      <h4>Хмара тегів</h4>
+    <p>
+      <?php
+        include("$_SERVER[DOCUMENT_ROOT]/tags/cloud.php");
+      ?>
+    </p>
+  </aside>
+    <!-- /TAGS CLOUD -->
+
+  </section>
+  <!-- /end of container -->
+
+  </div>
+  <!-- BACKGROUND -->
+  </main>
+
+  <!-- FOOTER -->
+  <div class="red-divider"></div>
+
+  <footer class="centered">
+    <div class="footer-copy">
+      <p>Дати. Дні / нотатки з Революції / 2013–2016 &copy; Іванова Наталя</p>
+    </div>
+
+    <nav class="footer-menu">
+          <a href="/about.html">Про сайт</a>
+          <a href="/tips.html">Підказки щодо навігації</a>
+          <a href="/sources.html">Корисні посилання</a>
+          <a href="mailto:autor@revolutiondiary.com" target="_blank">Написати авторці</a>
+      </nav>
+
+  </footer>
+
+  <!-- Google Analytics -->
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-83061651-1', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+
+  </body>
+
+  <!-- /BODY -->
+
+  </html>

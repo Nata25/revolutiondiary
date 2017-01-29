@@ -213,7 +213,6 @@ button.blur(function() {
 // INNER PAGES, HOME PAGE LINK
 // **************************
 var sm = window.matchMedia("screen and (max-width: 800px)");
-console.log(sm.matches);
 // not on mobile defices
     if (!checkMobile && !sm.matches) {
       logo.hoverIntent(

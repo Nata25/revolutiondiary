@@ -154,8 +154,7 @@ table.accesskeys tr:nth-child(even) {
     text-align: center;
   }
 
-  h2,
-  summary {
+  h2 {
     margin: 20px 0 0 0;
   }
 
@@ -171,8 +170,14 @@ table.accesskeys tr:nth-child(even) {
     margin: 20px;
   }
 
+  summary,
+  .tags-cloud-main > section > h2 {
+    margin: 35px 0 0 0;
+  }
+
   summary {
     font-size: 1.5em;
+    cursor: pointer;
   }
 
   details p {
@@ -599,6 +604,7 @@ table.accesskeys tr:nth-child(even) {
     z-index: 10;
     width: 40px;
     height: 40px;
+    border: 1px solid transparent;
     -webkit-transition: .25s all linear;
     -moz-transition: .25s all linear;
     -o-transition: .25s all linear;
@@ -609,7 +615,6 @@ table.accesskeys tr:nth-child(even) {
   .question:focus {
     border: 1px solid orange;
     box-shadow: 0 0 10px #b3bcee;
-    /*background-color: orange;*/
   }
 
   /**********
@@ -863,9 +868,8 @@ table.accesskeys tr:nth-child(even) {
 
   .tags-cloud-main {
     position: relative;
-    top: 20px;
+    top: 7px;
     margin-left: 10px;
-    /*height: 820px;*/
     margin-right: 10px;
     box-sizing: border-box;
   }
@@ -892,6 +896,21 @@ table.accesskeys tr:nth-child(even) {
   .tags-cloud-main > a:hover {
     font-size: 1.1em;
   }
+
+  .tags-cloud-background {
+    padding: 20px;
+  }
+
+  .tags-cloud-main > section > p {
+    text-align: left;
+    font-size: 1.1em;
+    line-height: 1.5em;
+    opacity: .8;
+  }
+
+  /*.faqs {
+    background-color: #f5f7fb;
+  }*/
 
   /****************
   INNER PAGES
@@ -1141,6 +1160,19 @@ table.accesskeys tr:nth-child(even) {
     font-size: 18px;
     line-height: 2em;
     margin-bottom: 10px;
+  }
+
+  .sources-nav a {
+    display: inline-block;
+    margin: 10px;
+    background-color: blue;
+    padding: 10px;
+    background-color: #F4F0EC;
+  }
+
+  .sources-nav a.active {
+    background-color: #F1B77E;
+    color: #FFF;
   }
 
   #sources {

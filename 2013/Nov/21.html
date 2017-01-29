@@ -82,7 +82,8 @@ include($_SERVER['DOCUMENT_ROOT'].'/head.html');
 
             <nav class="bottom-nav">
             <h2 class="offset">Швидкі посилання</h2>
-            <div class="buttons-container centered">
+            <div class="buttons-container">
+
               <a href="/" class="block home-button" id="home-arrow">
                   <img class="home-icon-bottom" src="/images/home_icon.png" alt="На головну"/>
                   <span class="caption left">На&nbsp;головну</span>
@@ -98,7 +99,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/head.html');
           </div>
             <a href="/about.html" accesskey="a">Про сайт...</a>
             <a href="/tips.html">Підказки щодо навігації...</a>
-            <a href="/sources.html" accesskey="l">Корисні посилання&hellip;</a></p>
+            <a href="/sources.html" accesskey="l">Корисні посилання&hellip;</a>
           </nav>
 
           </div>
@@ -140,8 +141,21 @@ include($_SERVER['DOCUMENT_ROOT'].'/head.html');
             </nav>
 
         </footer>
+
+        <!-- Google Analytics -->
+            <script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-83061651-1', 'auto');
+              ga('send', 'pageview');
+
+            </script>
+
         </body>
 
         <!-- /BODY -->
 
-        </html>
+    </html>
