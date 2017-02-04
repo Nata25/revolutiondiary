@@ -7,13 +7,15 @@ Full stack dev (idea, design, photos, text, front-end, back-end programming part
 ## Technologies used:
 
 - HTML5, CSS3
-- JS, jQuery
+- JavaScript
+- jQuery, jQueryUI
 - PHP & MySQL
 
 ## Third-parties libs:
 - [jQueryUI datepicker](https://jqueryui.com/datepicker/) plugin (broadly customized)
 - [SnowStorm](http://www.schillmania.com/projects/snowstorm/) JavaScript effect 
-- Sam Sehnert's `visible.js` plugin ([here's the updated version](https://github.com/customd/jquery-visible/blob/master/jquery.visible.js))
+- Sam Sehnert's `visible.js` plugin ([updated version](https://github.com/customd/jquery-visible/blob/master/jquery.visible.js))
+- `jquery.hoverintent.js` ([plugin's page](http://cherne.net/brian/resources/jquery.hoverIntent.html))
 
 ## Features:
 - the site is fully responsive
